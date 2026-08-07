@@ -66,7 +66,7 @@ export default function Practice({ state, update }) {
           <h1>Practice</h1>
           <p className="muted">
             Twelve quick questions, weighted towards whatever you've been getting wrong.
-            {state.completedUnits.length === 0 && ' Nothing completed yet, so this covers all thirty runes.'}
+            {state.completedUnits.length === 0 && ` Nothing completed yet, so this covers all ${RUNES.length} runes.`}
           </p>
         </div>
 

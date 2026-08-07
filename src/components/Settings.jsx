@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { listVoices, isSupported, speakRunes, fetchSystemApiKey } from '../lib/speech.js';
 import { reset } from '../lib/progress.js';
 import { LEXICON_SIZE } from '../data/lexicon.js';
+import * as drive from '../lib/drive.js';
+import { fromBackup } from '../lib/syncFormat.js';
 
 const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Orus', 'Zephyr'];
 
@@ -131,6 +133,8 @@ export default function Settings({ state, update }) {
         )}
       </section>
 
+      <DriveSection state={state} update={update} />
+
       <section className="card stack">
         <h2>Progress</h2>
         <p className="small muted" style={{ margin: 0 }}>
@@ -145,5 +149,158 @@ export default function Settings({ state, update }) {
         </div>
       </section>
     </div>
+  );
+}
+
+
+// ── Google Drive backup ────────────────────────────────────────────────────
+
+/**
+ * Backing progress up to Drive.
+ *
+ * The file goes in Drive's hidden application data folder, so it doesn't
+ * appear in your Drive and no other app can read it. The only Drive permission
+ * asked for is access to that one folder.
+ */
+function DriveSection({ state, update }) {
+  const [configured, setConfigured] = useState(null);
+  const [account, setAccount] = useState(drive.currentAccount());
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState('');
+  const [conflict, setConflict] = useState(null);
+  const [clientIdInput, setClientIdInput] = useState('');
+
+  useEffect(() => {
+    drive.isConfigured().then(setConfigured);
+  }, []);
+
+  const applyState = (next) => update((st) => { Object.assign(st, next); });
+
+  const run = async (fn) => {
+    setBusy(true);
+    setMessage('');
+    try {
+      await fn();
+    } catch (e) {
+      setMessage(e.message || 'Something went wrong');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const connect = () => run(async () => {
+    await drive.authorise();
+    setAccount(drive.currentAccount());
+    const result = await drive.sync(state, applyState);
+    if (result.action === 'conflict') {
+      setConflict(result.backup);
+      setMessage('');
+    } else {
+      setMessage({
+        push: 'Backed up to Drive',
+        pull: `Restored from Drive — ${result.reason}`,
+        none: 'Already up to date',
+      }[result.action] ?? result.reason);
+    }
+  });
+
+  const backupNow = () => run(async () => {
+    await drive.authorise();
+    await drive.backupNow(state);
+    setMessage('Backed up to Drive');
+  });
+
+  const keepBoth = () => run(async () => {
+    await drive.resolveByMerging(state, conflict, applyState);
+    setConflict(null);
+    setMessage('Kept the best of both');
+  });
+
+  const undo = () => {
+    const previous = drive.rollback();
+    if (previous) {
+      applyState(fromBackup(previous, state));
+      setMessage('Put back how it was');
+    }
+  };
+
+  return (
+    <section className="card stack">
+      <h2>Google Drive backup</h2>
+      <p className="small muted" style={{ margin: 0 }}>
+        Keeps your progress in a hidden folder in your Drive, so it follows you to
+        another device or the phone app. This app can only see that one folder —
+        not the rest of your Drive.
+      </p>
+
+      {configured === false && (
+        <div className="stack" style={{ gap: '0.4rem' }}>
+          <p className="small" style={{ margin: 0 }}>
+            Not set up yet. Set <code>GOOGLE_CLIENT_ID</code> in your{' '}
+            <code>.env</code> and restart, or paste the client ID here.
+          </p>
+          <div className="row">
+            <input
+              type="text"
+              className="grow"
+              placeholder="…apps.googleusercontent.com"
+              value={clientIdInput}
+              onChange={(e) => setClientIdInput(e.target.value)}
+              spellCheck="false"
+            />
+            <button
+              className="btn"
+              disabled={!clientIdInput.trim()}
+              onClick={() => {
+                drive.setClientId(clientIdInput);
+                drive.isConfigured().then(setConfigured);
+              }}
+            >Save</button>
+          </div>
+        </div>
+      )}
+
+      {account && (
+        <p className="small" style={{ margin: 0 }}>
+          Signed in as <strong>{account.email ?? account.name}</strong>
+        </p>
+      )}
+
+      <div className="row">
+        <button className="btn primary" disabled={busy || configured === false} onClick={connect}>
+          {drive.isSignedIn() ? 'Sync now' : 'Connect Google Drive'}
+        </button>
+        {drive.isSignedIn() && (
+          <>
+            <button className="btn" disabled={busy} onClick={backupNow}>Back up now</button>
+            <button
+              className="btn ghost"
+              disabled={busy}
+              onClick={() => { drive.signOut(); setAccount(null); setMessage('Disconnected'); }}
+            >Disconnect</button>
+          </>
+        )}
+        {drive.rollbackAvailable() && (
+          <button className="btn ghost" disabled={busy} onClick={undo}>Undo last restore</button>
+        )}
+      </div>
+
+      {message && <p className="small muted" style={{ margin: 0 }}>{message}</p>}
+
+      {conflict && (
+        <div className="feedback no">
+          <strong>Which copy should win?</strong>
+          <p className="small" style={{ margin: '0.4rem 0' }}>
+            The backup in Drive is newer, but has less progress than this device.
+            That usually means another device was opened without being used.
+            Keeping the best of both is the safe option.
+          </p>
+          <div className="row">
+            <button className="btn primary small" onClick={keepBoth}>Keep the best of both</button>
+            <button className="btn small" onClick={() => setConflict(null)}>Leave it alone</button>
+          </div>
+        </div>
+      )}
+    </section>
   );
 }

@@ -1,4 +1,4 @@
-import { UNITS } from '../data/lessons.js';
+import { UNITS, PARTS } from '../data/lessons.js';
 import { RUNES } from '../data/runes.js';
 import { accuracy, learnedCount } from '../lib/progress.js';
 
@@ -15,7 +15,7 @@ export default function Home({ state, go }) {
         <h1>Read and write English in runes</h1>
         <p>
           A complete beginner's course in the Anglo-Saxon futhorc, adapted to a British accent.
-          Ten short units take you from knowing nothing to reading whole sentences.
+          {UNITS.length} short units take you from knowing nothing to reading whole passages.
         </p>
         <div className="row" style={{ marginTop: '1rem' }}>
           <button className="btn primary" onClick={() => go('learn', next.id)}>
@@ -39,12 +39,12 @@ export default function Home({ state, go }) {
           <button className="tile" onClick={() => go('learn')}>
             <span className="t-rune rune">ᛚᛖᛋᚢᚾᛋ</span>
             <h3>Lessons</h3>
-            <p>Ten units. Each one teaches a handful of runes, then makes you use them.</p>
+            <p>{UNITS.length} units in {PARTS.length} parts. Each teaches a handful of runes, then makes you use them.</p>
           </button>
           <button className="tile" onClick={() => go('reference')}>
             <span className="t-rune rune">ᚱᚣᚣᚾᛋ</span>
             <h3>The runes</h3>
-            <p>All thirty, with names, sounds, examples and how to draw each one.</p>
+            <p>All {RUNES.length}, with names, sounds, examples and how to draw each one.</p>
           </button>
           <button className="tile" onClick={() => go('practice')}>
             <span className="t-rune rune">ᛈᚱᚫᚳᛏᛁᛋᛋ</span>

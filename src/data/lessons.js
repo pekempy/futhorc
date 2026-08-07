@@ -1,4 +1,6 @@
-// The course: eighteen units, zero knowledge to reading and writing paragraphs.
+// The course: zero knowledge to reading and writing paragraphs.
+// Add or remove units freely — everything that mentions the count reads it
+// from UNITS.length rather than repeating a number that then goes stale.
 //
 // Runes are introduced in order of usefulness rather than the traditional
 // futhorc order, so real words can be read from the very first lesson. The

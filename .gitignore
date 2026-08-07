@@ -11,3 +11,7 @@ scripts/.run.cjs
 scripts/skel*.py
 futhorc.html
 vite.config.js.timestamp-*
+
+# python bytecode from the prototype scripts
+__pycache__/
+*.pyc
