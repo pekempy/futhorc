@@ -140,6 +140,12 @@ export async function fetchSystemApiKey() {
   return systemApiKeyCache;
 }
 
+const TTS_MODELS = [
+  'gemini-2.0-flash-exp',
+  'gemini-2.5-flash-preview-tts',
+  'gemini-2.0-flash',
+];
+
 export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = {}) {
   let activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
   if (!activeKey) {
@@ -147,59 +153,76 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = 
   }
   if (!activeKey) throw new Error('No Gemini API key available');
   const text = respellText(runic);
-  
-  // Use gemini-2.0-flash endpoint with explicit voice systemInstruction and prebuiltVoiceConfig
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(activeKey)}`;
-  const body = {
-    systemInstruction: {
-      parts: [{ text: `You are an audio voice narrator. Speak with the distinct pitch, accent, tone, and character of the ${voiceName} voice persona.` }]
-    },
-    contents: [{ parts: [{ text: `Read this aloud in a British accent: ${text}` }] }],
-    generationConfig: {
-      responseModalities: ['AUDIO'],
-      speechConfig: {
-        voiceConfig: {
-          prebuiltVoiceConfig: {
-            voiceName: voiceName
+
+  let lastError = null;
+
+  for (const model of TTS_MODELS) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(activeKey)}`;
+    const body = {
+      systemInstruction: {
+        parts: [{ text: `You are an audio voice narrator. Speak with the distinct pitch, accent, tone, and character of the ${voiceName} voice persona.` }]
+      },
+      contents: [{ parts: [{ text: `Read this aloud in a British accent: ${text}` }] }],
+      generationConfig: {
+        responseModalities: ['AUDIO'],
+        speechConfig: {
+          voiceConfig: {
+            prebuiltVoiceConfig: {
+              voiceName: voiceName
+            }
           }
         }
-      }
-    },
-  };
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const errText = await res.text();
-    console.error('Gemini TTS error response:', res.status, errText);
-    throw new Error(`Gemini TTS ${res.status}: ${errText}`);
-  }
-  const json = await res.json();
-  const b64 = json?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-  if (!b64) throw new Error('No audio returned from Gemini');
-  const wav = pcmToWav(base64ToBytes(b64), 24000);
-  const blobUrl = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
-  if (audioEl) audioEl.pause();
-  audioEl = new Audio(blobUrl);
-
-  if (opts.onWordChange) {
-    const words = runic.trim().split(/[\s᛫]+/).filter(Boolean);
-    const count = words.length;
-    audioEl.ontimeupdate = () => {
-      if (audioEl.duration && count > 0) {
-        const progress = audioEl.currentTime / audioEl.duration;
-        const currentIdx = Math.min(Math.floor(progress * count), count - 1);
-        opts.onWordChange(currentIdx);
-      }
+      },
     };
-    audioEl.onended = () => { opts.onWordChange(-1); };
-    audioEl.onerror = () => { opts.onWordChange(-1); };
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.warn(`Gemini model ${model} TTS response error (${res.status}):`, errText);
+        lastError = new Error(`Gemini TTS (${model}): ${errText}`);
+        continue;
+      }
+
+      const json = await res.json();
+      const b64 = json?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+      if (!b64) {
+        lastError = new Error(`No audio returned from model ${model}`);
+        continue;
+      }
+
+      const wav = pcmToWav(base64ToBytes(b64), 24000);
+      const blobUrl = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
+      if (audioEl) audioEl.pause();
+      audioEl = new Audio(blobUrl);
+
+      if (opts.onWordChange) {
+        const words = runic.trim().split(/[\s᛫]+/).filter(Boolean);
+        const count = words.length;
+        audioEl.ontimeupdate = () => {
+          if (audioEl.duration && count > 0) {
+            const progress = audioEl.currentTime / audioEl.duration;
+            const currentIdx = Math.min(Math.floor(progress * count), count - 1);
+            opts.onWordChange(currentIdx);
+          }
+        };
+        audioEl.onended = () => { opts.onWordChange(-1); };
+        audioEl.onerror = () => { opts.onWordChange(-1); };
+      }
+
+      await audioEl.play();
+      return true;
+    } catch (err) {
+      lastError = err;
+    }
   }
 
-  await audioEl.play();
-  return true;
+  throw lastError || new Error('All Gemini TTS models failed.');
 }
 
 function base64ToBytes(b64) {
