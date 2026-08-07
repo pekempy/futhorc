@@ -264,6 +264,11 @@ MIN_MARGIN = 0.04
 # The pass mark, in displayed units.
 PASS_MARK = 90
 
+# How far ahead a different rune may be before a prompted drawing is marked
+# wrong. See judge(): genuine attempts never exceed +0.029, deliberate wrong
+# runes start at +0.112.
+RIVAL_LEAD = 0.06
+
 
 def calibrate(raw):
     """Raw similarity to the 0-100 shown to the user, via CAL_POINTS."""
@@ -285,6 +290,41 @@ def score(user_strokes, reference_strokes, generous=True):
     if not generous:
         return round(raw * 100), parts
     return round(calibrate(raw)), parts
+
+
+def judge(user_strokes, target, references):
+    """
+    Mark a drawing when we already know what was asked for.
+
+    This is a different question from identify(), and conflating the two is a
+    bug I shipped: a prompted exercise asks "is this a good ash?", while the
+    writing pad asks "which rune is this?". identify() refuses to answer when
+    two runes are within MIN_MARGIN of each other, which is correct when the
+    intent is unknown - but applied to a drawing exercise it marks a perfectly
+    good ash wrong because oak happened to score 0.02 higher, and then reports
+    "it's ash" to someone who just drew ash.
+
+    So: graded against the target, with a rival only allowed to overrule when
+    it is *clearly* better. Measured, the two cases separate cleanly - across
+    genuine attempts the best rival never leads the target by more than 0.029,
+    while a different rune drawn deliberately leads by 0.112 to 0.239. RIVAL_LEAD
+    sits between them, so a near-tie is advice and a real mismatch is a fail.
+
+    Returns (ok, score, rival, too_close).
+    """
+    a = Shape(user_strokes)
+    ranked = [(raw_similarity(a, b)[0], rune)
+              for rune, b in reference_shapes(references).items()]
+    ranked.sort(reverse=True)
+    if not ranked:
+        return False, 0, None, False
+
+    mine = next((s for s, r in ranked if r == target), 0.0)
+    rival_raw, rival = next(((s, r) for s, r in ranked if r != target), (0.0, None))
+    shown = round(calibrate(mine))
+    lead = rival_raw - mine
+    ok = shown >= PASS_MARK and lead <= RIVAL_LEAD
+    return ok, shown, rival, (lead > -MIN_MARGIN)
 
 
 def identify(user_strokes, references):

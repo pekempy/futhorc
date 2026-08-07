@@ -6,7 +6,7 @@ import { accuracy, learnedCount, practiceOrder, recordAnswer } from '../lib/prog
 import StrokeDiagram from './StrokeDiagram.jsx';
 import RuneCanvas from './RuneCanvas.jsx';
 import { GLYPHS } from '../data/glyphs.js';
-import { score, identify, PASS_MARK } from '../lib/recognise.js';
+import { judge, PASS_MARK } from '../lib/recognise.js';
 import SpeakButton from './SpeakButton.jsx';
 
 const MODES = [
@@ -257,11 +257,11 @@ function QStroke({ q, answered, onAnswer }) {
   const glyph = GLYPHS[q.rune];
 
   const check = () => {
-    const shown = score(strokes, q.rune);
-    const reading = identify(strokes);
-    const ok = reading.rune === q.rune;
-    setVerdict({ shown, ok, reading });
-    onAnswer(ok, q.rune);
+    // judge, not identify: we asked for this rune, so the question is whether
+    // they drew it - not which of thirty runes it most resembles.
+    const v = judge(strokes, q.rune);
+    setVerdict(v);
+    onAnswer(v.ok, q.rune);
   };
 
   return (
@@ -295,14 +295,17 @@ function QStroke({ q, answered, onAnswer }) {
 
       {verdict && (
         <div className={`feedback ${verdict.ok ? 'ok' : 'no'}`}>
-          <strong>{verdict.shown}%</strong>{' '}
+          <strong>{verdict.score}%</strong>{' '}
           {verdict.ok
             ? "- that's the one."
-            : verdict.reading.ambiguous && verdict.reading.runnerUp
-              ? `- that sits between ${q.rune} and ${verdict.reading.runnerUp}. Telling those two apart is what to work on.`
-              : verdict.reading.rune
-                ? `- that reads as ${verdict.reading.rune} (${RUNE_BY_CHAR[verdict.reading.rune]?.name}).`
-                : `- not clear enough yet. It needs ${PASS_MARK}% to count.`}
+            : verdict.rival
+              ? `- that came out nearer ${verdict.rival} (${RUNE_BY_CHAR[verdict.rival]?.name}).`
+              : `- not clear enough yet. It needs ${PASS_MARK}% to count.`}
+          {verdict.ok && verdict.tooClose && verdict.rival && (
+            <div className="tiny muted" style={{ marginTop: '0.3rem' }}>
+              Close to {verdict.rival} though - worth watching the difference.
+            </div>
+          )}
         </div>
       )}
 

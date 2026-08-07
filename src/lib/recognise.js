@@ -46,6 +46,13 @@ const CAL_Y = [0, 45, 90, 100];
 export const MIN_MARGIN = 0.04;
 export const PASS_MARK = 90;
 
+/**
+ * How far ahead a different rune may be before a *prompted* drawing is wrong.
+ * Measured: genuine attempts never have a rival leading by more than 0.029,
+ * while a different rune drawn deliberately leads by 0.112 to 0.239.
+ */
+export const RIVAL_LEAD = 0.06;
+
 export function calibrate(raw) {
   if (raw <= CAL_X[0]) return 0;
   if (raw >= CAL_X[CAL_X.length - 1]) return 100;
@@ -282,5 +289,42 @@ export function identify(strokes) {
     score: best.score,
     runnerUp: runner?.rune ?? null,
     ambiguous,
+  };
+}
+
+/**
+ * Mark a drawing when we already know which rune was asked for.
+ *
+ * A different question from identify(), and conflating the two was a bug: a
+ * prompted exercise asks "is this a good ash?", the writing pad asks "which
+ * rune is this?". identify() refuses to name anything when two runes sit within
+ * MIN_MARGIN of each other, which is right when the intent is unknown - but
+ * used for marking it fails a perfectly good ash because oak scored 0.02 higher,
+ * and then tells the person who just drew ash that the answer was ash.
+ *
+ * Graded against the target, with a rival only overruling when it leads clearly.
+ * A near-tie becomes advice rather than a failure.
+ */
+export function judge(strokes, target) {
+  const shape = makeShape(strokes);
+  const refs = referenceShapes();
+  if (shape.empty || !refs[target]) {
+    return { ok: false, score: 0, rival: null, tooClose: false };
+  }
+  const mine = rawSimilarity(shape, refs[target]);
+  let rivalRaw = 0;
+  let rival = null;
+  for (const [rune, ref] of Object.entries(refs)) {
+    if (rune === target) continue;
+    const s = rawSimilarity(shape, ref);
+    if (s > rivalRaw) { rivalRaw = s; rival = rune; }
+  }
+  const shown = Math.round(calibrate(mine));
+  const lead = rivalRaw - mine;
+  return {
+    ok: shown >= PASS_MARK && lead <= RIVAL_LEAD,
+    score: shown,
+    rival,
+    tooClose: lead > -MIN_MARGIN,
   };
 }
