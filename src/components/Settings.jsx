@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listVoices, isSupported, speakRunes } from '../lib/speech.js';
+import { listVoices, isSupported, speakRunes, fetchSystemApiKey } from '../lib/speech.js';
 import { reset } from '../lib/progress.js';
 import { LEXICON_SIZE } from '../data/lexicon.js';
 
@@ -7,8 +7,17 @@ const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Oru
 
 export default function Settings({ state, update }) {
   const [voices, setVoices] = useState([]);
+  const [hasSystemKey, setHasSystemKey] = useState(
+    !!(import.meta.env?.VITE_GEMINI_API_KEY)
+  );
   const s = state.settings;
   const set = (k, v) => update((st) => { st.settings[k] = v; });
+
+  useEffect(() => {
+    fetchSystemApiKey().then((key) => {
+      if (key) setHasSystemKey(true);
+    });
+  }, []);
 
   useEffect(() => {
     if (!isSupported()) return;
@@ -81,11 +90,19 @@ export default function Settings({ state, update }) {
       </section>
 
       <section className="card stack">
-        <h2>Gemini voices (optional)</h2>
-        {import.meta.env?.VITE_GEMINI_API_KEY ? (
-          <div className="feedback ok">
-            ✓ System Gemini API Key configured (.env). Active for all accounts.
-          </div>
+        <h2>Gemini voice</h2>
+        {hasSystemKey ? (
+          <>
+            <p className="tiny muted" style={{ margin: 0 }}>
+              System Gemini AI voice active. Customize your voice preference below:
+            </p>
+            <div>
+              <label className="field" htmlFor="gvoice">Select Voice</label>
+              <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
+                {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
+              </select>
+            </div>
+          </>
         ) : (
           <>
             <p className="small muted" style={{ margin: 0 }}>
@@ -104,14 +121,14 @@ export default function Settings({ state, update }) {
               <input id="key" type="text" value={s.geminiKey} placeholder="AIza…"
                      onChange={(e) => set('geminiKey', e.target.value.trim())} autoComplete="off" spellCheck="false" />
             </div>
+            <div>
+              <label className="field" htmlFor="gvoice">Gemini voice</label>
+              <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
+                {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
+              </select>
+            </div>
           </>
         )}
-        <div>
-          <label className="field" htmlFor="gvoice">Gemini voice</label>
-          <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
-            {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
-          </select>
-        </div>
       </section>
 
       <section className="card stack">

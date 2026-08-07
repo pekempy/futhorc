@@ -106,10 +106,25 @@ export function stopSpeaking() {
 // Uses the key you paste in Settings. Falls back to the browser voice on any
 // error, so the app keeps working without a key.
 
-let audioEl = null;
+let systemApiKeyCache = null;
+
+export async function fetchSystemApiKey() {
+  if (systemApiKeyCache !== null) return systemApiKeyCache;
+  try {
+    const res = await fetch('/api/config');
+    const json = await res.json();
+    systemApiKeyCache = json?.geminiApiKey || '';
+  } catch {
+    systemApiKeyCache = '';
+  }
+  return systemApiKeyCache;
+}
 
 export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
-  const activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
+  let activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
+  if (!activeKey) {
+    activeKey = await fetchSystemApiKey();
+  }
   if (!activeKey) throw new Error('No Gemini API key available');
   const text = respellText(runic);
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${encodeURIComponent(activeKey)}`;
