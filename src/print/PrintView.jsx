@@ -8,10 +8,10 @@ const SHEETS = [
   ['stroke', 'Stroke-order guide', 'Every rune drawn stroke by stroke, with tracing boxes. Four pages.'],
   ['chart', 'Reference chart', 'All thirty runes, the sounds, the rules. Two pages — the one to pin up.'],
   ['cards', 'Flashcards', 'Nine to a page, front and back aligned for double-sided printing.'],
-  ['worksheets', 'Worksheets', 'Transliterate and read-back exercises, with an answer key.'],
+  ['worksheets', 'Worksheets (50 Sheets)', '50 progressive worksheets covering common words, names, places, phonics rules & quotes with answer keys.'],
 ];
 
-export default function PrintView() {
+export default function PrintView({ state }) {
   const [sheet, setSheet] = useState('stroke');
 
   return (
@@ -40,7 +40,7 @@ export default function PrintView() {
       {sheet === 'stroke' && <StrokeSheet />}
       {sheet === 'chart' && <ChartSheet />}
       {sheet === 'cards' && <Flashcards />}
-      {sheet === 'worksheets' && <Worksheets />}
+      {sheet === 'worksheets' && <Worksheets state={state} />}
     </div>
   );
 }

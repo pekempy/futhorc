@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { GLYPHS, outlineTransform } from '../data/glyphs.js';
 
 const PAD = 14;
@@ -30,12 +30,39 @@ function timeline(strokes, speed = 190, gap = 0.16) {
  * With `animate`, the strokes draw themselves on in order, one line growing
  * from its starting point rather than appearing all at once.
  *
- * Outline and stroke paths both come from the same font, so a curved bar gets
- * a curved stroke — see scripts/genglyphs.py.
+ * With `loop`, after drawing, it holds on the finished rune for `holdTime` (default 2.5s)
+ * before looping the drawing animation automatically.
  */
-export default function StrokeDiagram({ rune, size = 120, animate = false, showNumbers = true, ghost = true, replayKey = 0 }) {
+export default function StrokeDiagram({
+  rune,
+  size = 120,
+  animate = false,
+  loop = false,
+  holdTime = 2.5,
+  showNumbers = true,
+  ghost = true,
+  replayKey = 0,
+}) {
   const g = GLYPHS[rune];
   const times = useMemo(() => (g ? timeline(g.strokes) : []), [g]);
+  const [loopCount, setLoopCount] = useState(0);
+
+  useEffect(() => {
+    setLoopCount(0);
+  }, [rune, replayKey]);
+
+  useEffect(() => {
+    if (!animate || !loop || !times.length) return;
+    const totalDrawTime = times[times.length - 1].delay + times[times.length - 1].dur;
+    const cycleTimeMs = (totalDrawTime + holdTime) * 1000;
+
+    const timer = setTimeout(() => {
+      setLoopCount((c) => c + 1);
+    }, cycleTimeMs);
+
+    return () => clearTimeout(timer);
+  }, [animate, loop, times, holdTime, loopCount, rune, replayKey]);
+
   if (!g) return null;
 
   const w = g.w + PAD * 2;
@@ -45,7 +72,7 @@ export default function StrokeDiagram({ rune, size = 120, animate = false, showN
 
   return (
     <svg
-      key={`${rune}-${replayKey}`}
+      key={`${rune}-${replayKey}-${loopCount}`}
       className={`stroke-svg${animate ? ' animating' : ''}`}
       width={w * scale}
       height={size}

@@ -153,7 +153,17 @@ function Table({ rows }) {
               <span className="rune" style={{ fontSize: '10pt', color: '#666' }}>{r.runic}</span>
             </td>
             <td>{r.ipa.join(', ')}</td>
-            <td style={{ color: '#444' }}>{r.eg.map(plain).join(', ')}</td>
+            <td style={{ color: '#444' }}>
+              {r.eg.map((e, idx) => {
+                const parts = e.split(/[{}]/);
+                return (
+                  <span key={idx}>
+                    {idx > 0 && ', '}
+                    {parts.map((p, k) => (k % 2 ? <strong key={k}>{p}</strong> : <span key={k}>{p}</span>))}
+                  </span>
+                );
+              })}
+            </td>
           </tr>
         ))}
       </tbody>

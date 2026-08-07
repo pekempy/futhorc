@@ -31,9 +31,9 @@ export default function Practice({ state, update }) {
   }, [maxUnit]);
 
   const start = () => {
-    const ordered = practiceOrder(state, pool).slice(0, 12);
+    const ordered = shuffle(practiceOrder(state, pool)).slice(0, 12);
     const words = wordsThrough(maxUnit);
-    const q = ordered.map((r) => {
+    const q = shuffle(ordered.map((r) => {
       const kinds = mode === 'mixed' ? ['sound', 'rune', 'read', 'stroke'] : [mode];
       const kind = kinds[Math.floor(Math.random() * kinds.length)];
       if (kind === 'read' && words.length > 4) {
@@ -42,7 +42,7 @@ export default function Practice({ state, update }) {
       }
       if (kind === 'stroke') return { kind: 'stroke', rune: r };
       return { kind: kind === 'read' ? 'sound' : kind, rune: r, options: shuffle([r, ...shuffle(pool.filter((x) => x !== r)).slice(0, 3)]) };
-    });
+    }));
     setQueue(q); setPos(0); setAnswered(null); setScore({ right: 0, total: 0 }); setRunning(true);
     update((s) => { s.sessionCount = (s.sessionCount || 0) + 1; });
   };

@@ -3,9 +3,11 @@ dist/
 .DS_Store
 *.local
 .vite/
+.env
 
 # scratch from the generation/verification scripts
 scripts/.ssr-bundle.cjs
 scripts/.run.cjs
 scripts/skel*.py
 futhorc.html
+vite.config.js.timestamp-*

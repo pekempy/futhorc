@@ -72,15 +72,52 @@ function Row({ rune }) {
   );
 }
 
-/** One small diagram per stroke, so the order is unambiguous on paper. */
+function getPrintSteps(strokes) {
+  if (strokes.length >= 3) {
+    return strokes.map((_, i) => ({
+      prior: strokes.slice(0, i),
+      current: strokes[i],
+      stepNum: i + 1,
+    }));
+  }
+
+  const steps = [];
+  const prior = [];
+
+  for (let s = 0; s < strokes.length; s++) {
+    const pts = strokes[s];
+    if (pts.length <= 2) {
+      steps.push({
+        prior: [...prior],
+        current: pts,
+        stepNum: steps.length + 1,
+      });
+      prior.push(pts);
+    } else {
+      for (let p = 1; p < pts.length; p++) {
+        const seg = pts.slice(0, p + 1);
+        steps.push({
+          prior: [...prior],
+          current: seg,
+          stepNum: steps.length + 1,
+        });
+      }
+      prior.push(pts);
+    }
+  }
+  return steps;
+}
+
+/** One small diagram per stroke step showing accumulated progress. */
 function StrokeSteps({ rune }) {
   const g = GLYPHS[rune];
+  const steps = getPrintSteps(g.strokes);
   const H = 100, PAD = 12;
   const w = g.w + PAD * 2;
   const size = 15; // mm tall
   return (
     <div style={{ display: 'flex', gap: '1.2mm', alignItems: 'center', flexWrap: 'wrap' }}>
-      {g.strokes.map((_, step) => (
+      {steps.map((st, step) => (
         <svg
           key={step}
           width={`${(w / (H + PAD * 2)) * size}mm`}
@@ -88,13 +125,13 @@ function StrokeSteps({ rune }) {
           viewBox={`${-PAD} ${-PAD} ${w} ${H + PAD * 2}`}
         >
           <path d={g.path} transform={outlineTransform(rune)} fill="#eeece8" />
-          {g.strokes.slice(0, step).map((pts, i) => (
+          {st.prior.map((pts, i) => (
             <path key={i} d={strokePath(pts)} fill="none" stroke="#b6b1a8" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
           ))}
-          <path d={strokePath(g.strokes[step])} fill="none" stroke="#000" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-          <Arrow pts={g.strokes[step]} opacity={1} size={7} className="" />
-          <circle cx={g.strokes[step][0][0]} cy={g.strokes[step][0][1]} r="13" fill="#000" />
-          <text x={g.strokes[step][0][0]} y={g.strokes[step][0][1] + 6.5} textAnchor="middle" fontSize="19" fill="#fff" fontWeight="700" fontFamily="Helvetica, Arial, sans-serif">{step + 1}</text>
+          <path d={strokePath(st.current)} fill="none" stroke="#000" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+          <Arrow pts={st.current} opacity={1} size={7} className="" />
+          <circle cx={st.current[0][0]} cy={st.current[0][1]} r="13" fill="#000" />
+          <text x={st.current[0][0]} y={st.current[0][1] + 6.5} textAnchor="middle" fontSize="19" fill="#fff" fontWeight="700" fontFamily="Helvetica, Arial, sans-serif">{st.stepNum}</text>
         </svg>
       ))}
     </div>

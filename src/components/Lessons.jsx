@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { UNITS, PARTS, runesThrough, wordsThrough, sentencesThrough } from '../data/lessons.js';
 import { RUNE_BY_CHAR, DIGRAPH_BY_STR, SEP } from '../data/runes.js';
 import { transliterate, transliterateWord, readAloud } from '../lib/transliterate.js';
@@ -26,11 +26,26 @@ const sample = (a, n, not = []) => shuffle(a.filter((v) => !not.includes(v))).sl
 const toRunes = (s) => transliterate(s).text;
 const normalise = (s) => s.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
 
+const NUMBER_LABELS = {
+  'ᚪᚾ': { label: '1 — one (ān)', name: 'One', ipa: 'ɑːn' },
+  'ᛏᚹᚪ': { label: '2 — two (twā)', name: 'Two', ipa: 'twɑː' },
+  'ᚦᚱᛁᛖ': { label: '3 — three (þrīe)', name: 'Three', ipa: 'θriːe' },
+  'ᚠᛖᚩᚹᛖᚱ': { label: '4 — four (feōwer)', name: 'Four', ipa: 'feowər' },
+  'ᚠᛁᚠ': { label: '5 — five (fīf)', name: 'Five', ipa: 'fiːf' },
+  'ᛋᛁᚳᛋ': { label: '6 — six (six)', name: 'Six', ipa: 'siks' },
+  'ᛋᛖᚩᚠᚩᚾ': { label: '7 — seven (seofon)', name: 'Seven', ipa: 'seovon' },
+  'ᛠᚻᛏᚪ': { label: '8 — eight (eahta)', name: 'Eight', ipa: 'æːɑxtɑ' },
+  'ᚾᛁᚷᚩᚾ': { label: '9 — nine (nigon)', name: 'Nine', ipa: 'nijon' },
+  'ᛏᛁᛖᚾ': { label: '10 — ten (tīen)', name: 'Ten', ipa: 'tiːen' },
+};
+
 function describe(seq) {
   const r = RUNE_BY_CHAR[seq];
   if (r) return { label: r.gloss, name: r.name, ipa: r.ipa.join(', ') };
   const d = DIGRAPH_BY_STR[seq];
   if (d) return { label: d.gloss, name: null, ipa: d.ipa };
+  const n = NUMBER_LABELS[seq];
+  if (n) return { label: n.label, name: n.name, ipa: n.ipa };
   return { label: seq, name: null, ipa: '' };
 }
 
@@ -77,18 +92,19 @@ function UnitList({ state, go }) {
 // ── Exercise generation ────────────────────────────────────────────────────
 
 function buildSteps(unit) {
-  const steps = [{ type: 'teach' }];
   const newSeqs = unit.runes || [];
   const knownSeqs = [];
   for (const u of UNITS) { if (u.id > unit.id) break; knownSeqs.push(...(u.runes || [])); }
   const pool = knownSeqs.length >= 4 ? knownSeqs : ['ᛏ', 'ᚾ', 'ᛋ', 'ᛗ', 'ᛁ', 'ᚫ', 'ᛒ', 'ᛞ'];
 
-  // 1. meet each new rune both ways round
-  for (const seq of newSeqs) {
-    steps.push({ type: 'identify', seq, options: shuffle([seq, ...sample(pool, 3, [seq])]) });
+  const exercises = [];
+
+  // 1. meet each new rune both ways round (shuffled order)
+  for (const seq of shuffle(newSeqs)) {
+    exercises.push({ type: 'identify', seq, options: shuffle([seq, ...sample(pool, 3, [seq])]) });
   }
   for (const seq of shuffle(newSeqs)) {
-    steps.push({ type: 'pick', seq, options: shuffle([seq, ...sample(pool, 3, [seq])]) });
+    exercises.push({ type: 'pick', seq, options: shuffle([seq, ...sample(pool, 3, [seq])]) });
   }
 
   const words = unit.words || [];
@@ -97,37 +113,39 @@ function buildSteps(unit) {
   // 2. read words — multiple choice first, then unaided
   const mcWords = shuffle(words).slice(0, Math.min(5, words.length));
   for (const w of mcWords) {
-    steps.push({ type: 'read', word: w, options: shuffle([w, ...sample(allWords, 3, [w])]) });
+    exercises.push({ type: 'read', word: w, options: shuffle([w, ...sample(allWords, 3, [w])]) });
   }
   for (const w of sample(words, Math.min(4, words.length), mcWords)) {
-    steps.push({ type: 'readType', word: w });
+    exercises.push({ type: 'readType', word: w });
   }
 
   // 3. write words
   for (const w of shuffle(words).slice(0, Math.min(5, words.length))) {
-    steps.push({ type: 'write', word: w });
+    exercises.push({ type: 'write', word: w });
   }
 
   // 4. listen and write
   for (const w of shuffle(words).slice(0, Math.min(2, words.length))) {
-    steps.push({ type: 'listen', word: w });
+    exercises.push({ type: 'listen', word: w });
   }
 
   // 5. sentences
-  for (const s of unit.sentences || []) {
-    steps.push({ type: 'sentenceType', sentence: s });
+  for (const s of shuffle(unit.sentences || [])) {
+    exercises.push({ type: 'sentenceType', sentence: s });
   }
 
   // 6. unaided reading and writing drills
-  for (const s of unit.freeRead || []) steps.push({ type: 'sentenceType', sentence: s });
-  for (const s of unit.freeWrite || []) steps.push({ type: 'writePhrase', phrase: s });
+  for (const s of shuffle(unit.freeRead || [])) exercises.push({ type: 'sentenceType', sentence: s });
+  for (const s of shuffle(unit.freeWrite || [])) exercises.push({ type: 'writePhrase', phrase: s });
+
+  // Shuffle exercises so runes and question types do not appear in the same order
+  const steps = [{ type: 'teach' }, ...shuffle(exercises)];
 
   // 7. passages
   for (const p of unit.passages || []) steps.push({ type: 'passage', passage: p });
 
   // 8. a mixed look back
   if (unit.review || unit.finalReview) {
-    const back = unit.finalReview ? 1 : Math.max(1, unit.id - 3);
     const oldWords = wordsThrough(unit.id).filter((w) => !words.includes(w));
     const oldRunes = [...runesThrough(unit.id)].filter((c) => RUNE_BY_CHAR[c]);
     const n = unit.finalReview ? 10 : 5;
@@ -142,7 +160,6 @@ function buildSteps(unit) {
         steps.push({ type: 'sentenceType', sentence: s, review: true });
       }
     }
-    void back;
   }
 
   steps.push({ type: 'done' });
@@ -157,6 +174,7 @@ function LessonPlayer({ unit, state, update, go }) {
   const [answered, setAnswered] = useState(null);
   const [score, setScore] = useState({ right: 0, total: 0 });
 
+  const [replayMap, setReplayMap] = useState({});
   useEffect(() => { setI(0); setAnswered(null); setScore({ right: 0, total: 0 }); }, [unit.id]);
 
   const step = steps[i];
@@ -193,7 +211,7 @@ function LessonPlayer({ unit, state, update, go }) {
 
       {step.review && <span className="pill">Review</span>}
 
-      {step.type === 'teach' && <Teach unit={unit} onNext={next} />}
+      {step.type === 'teach' && <Teach unit={unit} onNext={next} replayMap={replayMap} setReplayMap={setReplayMap} />}
       {step.type === 'identify' && <Identify {...common} />}
       {step.type === 'pick' && <Pick {...common} />}
       {step.type === 'read' && <ReadChoice {...common} />}
@@ -224,7 +242,9 @@ function LessonPlayer({ unit, state, update, go }) {
 
 // ── Teaching screen ────────────────────────────────────────────────────────
 
-function Teach({ unit, onNext }) {
+function Teach({ unit, onNext, replayMap, setReplayMap }) {
+  const triggerReplay = (seq) => setReplayMap((prev) => ({ ...prev, [seq]: (prev[seq] || 0) + 1 }));
+
   return (
     <div className="stack">
       <div>
@@ -235,17 +255,60 @@ function Teach({ unit, onNext }) {
 
       {unit.runes.length > 0 && (
         <div className="card">
-          <div className="stack">
-            {unit.runes.map((seq) => {
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'max-content 1fr',
+              gap: '1rem 1.5rem',
+              alignItems: 'flex-start',
+            }}
+          >
+            {unit.runes.map((seq, idx) => {
               const d = describe(seq);
               const single = seq.length === 1;
               const meta = RUNE_BY_CHAR[seq] || DIGRAPH_BY_STR[seq];
               return (
-                <div key={seq} className="row" style={{ alignItems: 'flex-start', borderTop: '1px solid var(--line)', paddingTop: '0.9rem' }}>
-                  {single
-                    ? <StrokeDiagram rune={seq} size={92} animate />
-                    : <div className="rune" style={{ fontSize: '2.6rem', width: 92, textAlign: 'center' }}>{seq}</div>}
-                  <div className="grow" style={{ minWidth: 180 }}>
+                <Fragment key={seq}>
+                  <div
+                    style={{
+                      borderTop: idx > 0 ? '1px solid var(--line)' : 'none',
+                      paddingTop: idx > 0 ? '0.9rem' : 0,
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'flex-start',
+                    }}
+                  >
+                    {single ? (
+                      <div className="stack" style={{ alignItems: 'center', gap: '0.2rem', minWidth: 92 }}>
+                        <div onClick={() => triggerReplay(seq)} style={{ cursor: 'pointer' }} title="Click to replay drawing animation">
+                          <StrokeDiagram rune={seq} size={92} animate loop={false} replayKey={replayMap[seq] || 0} />
+                        </div>
+                        <button className="btn small ghost" onClick={() => triggerReplay(seq)} style={{ padding: '0.15rem 0.4rem', fontSize: '0.78rem' }}>
+                          ↻ Replay
+                        </button>
+                      </div>
+                    ) : (
+                      <div
+                        className="rune"
+                        style={{
+                          fontSize: '2.6rem',
+                          whiteSpace: 'nowrap',
+                          lineHeight: 1.1,
+                          minWidth: 92,
+                          textAlign: 'center',
+                        }}
+                      >
+                        {seq}
+                      </div>
+                    )}
+                  </div>
+                  <div
+                    style={{
+                      borderTop: idx > 0 ? '1px solid var(--line)' : 'none',
+                      paddingTop: idx > 0 ? '0.9rem' : 0,
+                      minWidth: 180,
+                    }}
+                  >
                     <div className="row" style={{ gap: '0.5rem' }}>
                       <strong style={{ fontSize: '1.05rem' }}>{d.name || seq}</strong>
                       {d.ipa && <span className="pill">/{d.ipa}/</span>}
@@ -259,7 +322,7 @@ function Teach({ unit, onNext }) {
                     )}
                     {meta?.note && <div className="tiny muted" style={{ marginTop: '0.35rem' }}>{meta.note}</div>}
                   </div>
-                </div>
+                </Fragment>
               );
             })}
           </div>
@@ -397,8 +460,8 @@ function Pick({ step, answered, onAnswer, onNext }) {
   );
 }
 
-function ReadChoice({ step, answered, onAnswer, onNext }) {
-  const runic = transliterateWord(step.word).runes;
+function ReadChoice({ step, unit, answered, onAnswer, onNext }) {
+  const runic = transliterateWord(step.word, { ligatures: unit.id >= 16 }).runes;
   return (
     <Shell
       title="Read this word"
@@ -428,8 +491,8 @@ function ReadChoice({ step, answered, onAnswer, onNext }) {
   );
 }
 
-function ReadType({ step, answered, onAnswer, onNext }) {
-  const runic = transliterateWord(step.word).runes;
+function ReadType({ step, unit, answered, onAnswer, onNext }) {
+  const runic = transliterateWord(step.word, { ligatures: unit.id >= 16 }).runes;
   const [typed, setTyped] = useState('');
   return (
     <Shell
@@ -456,8 +519,8 @@ function ReadType({ step, answered, onAnswer, onNext }) {
   );
 }
 
-function SentenceType({ step, answered, onAnswer, onNext }) {
-  const runic = toRunes(step.sentence);
+function SentenceType({ step, unit, answered, onAnswer, onNext }) {
+  const runic = transliterate(step.sentence, { ligatures: unit.id >= 16 }).text;
   const [typed, setTyped] = useState('');
   return (
     <Shell
@@ -483,12 +546,13 @@ function SentenceType({ step, answered, onAnswer, onNext }) {
   );
 }
 
-function RuneKeyboard({ unitId, target, onKey, disabled }) {
+function RuneKeyboard({ unitId, target, altTarget = '', onKey, disabled }) {
   const keys = useMemo(() => {
     const known = [...runesThrough(unitId)];
-    const needed = [...new Set(target.replace(new RegExp(SEP, 'g'), '').split(''))];
-    return [...new Set([...needed, ...known])].filter((k) => k.trim()).sort();
-  }, [unitId, target]);
+    const needed1 = [...new Set(target.replace(new RegExp(SEP, 'g'), '').split(''))];
+    const needed2 = [...new Set(altTarget.replace(new RegExp(SEP, 'g'), '').split(''))];
+    return [...new Set([...needed1, ...needed2, ...known])].filter((k) => k.trim()).sort();
+  }, [unitId, target, altTarget]);
   return (
     <div className="rune-keys">
       {keys.map((k) => (
@@ -499,8 +563,9 @@ function RuneKeyboard({ unitId, target, onKey, disabled }) {
   );
 }
 
-function Builder({ title, hint, prompt, target, unit, answered, onAnswer, onNext, extra }) {
+function Builder({ title, hint, prompt, target, altTarget = '', unit, answered, onAnswer, onNext, extra }) {
   const [typed, setTyped] = useState('');
+  const isMatch = typed === target || (altTarget && typed === altTarget);
   return (
     <Shell
       title={title}
@@ -517,9 +582,9 @@ function Builder({ title, hint, prompt, target, unit, answered, onAnswer, onNext
         <button className="btn small" disabled={!typed || !!answered} onClick={() => setTyped((t) => t.slice(0, -1))}>Delete</button>
         <button className="btn small" disabled={!typed || !!answered} onClick={() => setTyped('')}>Clear</button>
         <span className="grow" />
-        <button className="btn primary small" disabled={!typed || !!answered} onClick={() => onAnswer(typed === target, target)}>Check</button>
+        <button className="btn primary small" disabled={!typed || !!answered} onClick={() => onAnswer(isMatch, target)}>Check</button>
       </div>
-      <RuneKeyboard unitId={unit.id} target={target} disabled={!!answered} onKey={(k) => setTyped((t) => t + k)} />
+      <RuneKeyboard unitId={unit.id} target={target} altTarget={altTarget} disabled={!!answered} onKey={(k) => setTyped((t) => t + k)} />
       {answered === 'no' && (
         <div className="card small">
           <div className="muted">You wrote <span className="rune" style={{ fontSize: '1.4rem' }}>{typed}</span></div>
@@ -532,54 +597,58 @@ function Builder({ title, hint, prompt, target, unit, answered, onAnswer, onNext
 }
 
 function WriteWord({ step, unit, answered, onAnswer, onNext }) {
-  const target = transliterateWord(step.word).runes;
+  const useLigatures = unit.id >= 16;
+  const target = transliterateWord(step.word, { ligatures: useLigatures }).runes;
+  const altTarget = transliterateWord(step.word, { ligatures: !useLigatures }).runes;
   return (
     <Builder
       title={`Write “${step.word}” in runes`}
+      hint="Sound out each part and tap the runes in order."
+      prompt={<div className="card center"><div className="prompt-word">{step.word}</div></div>}
       target={target}
+      altTarget={altTarget}
       unit={unit}
       answered={answered}
       onAnswer={onAnswer}
       onNext={onNext}
-      prompt={null}
     />
   );
 }
 
 function WritePhrase({ step, unit, answered, onAnswer, onNext }) {
-  const target = toRunes(step.phrase);
+  const useLigatures = unit.id >= 16;
+  const target = transliterate(step.phrase, { ligatures: useLigatures }).text;
+  const altTarget = transliterate(step.phrase, { ligatures: !useLigatures }).text;
   return (
     <Builder
       title="Write this in runes"
       hint={`Use ${SEP} between words.`}
+      prompt={<div className="card center"><div className="prompt-word" style={{ fontSize: '1.4rem' }}>{step.phrase}</div></div>}
       target={target}
+      altTarget={altTarget}
       unit={unit}
       answered={answered}
       onAnswer={onAnswer}
       onNext={onNext}
-      prompt={<div className="card center"><div className="prompt-word">{step.phrase}</div></div>}
     />
   );
 }
 
 function Listen({ step, unit, answered, onAnswer, onNext }) {
-  const target = transliterateWord(step.word).runes;
+  const useLigatures = unit.id >= 16;
+  const target = transliterateWord(step.word, { ligatures: useLigatures }).runes;
+  const altTarget = transliterateWord(step.word, { ligatures: !useLigatures }).runes;
   return (
     <Builder
       title="Listen, then write it"
       hint="Play it as often as you like."
+      prompt={<div className="card center"><SpeakButton runic={target} label="Listen to the word" /></div>}
       target={target}
+      altTarget={altTarget}
       unit={unit}
       answered={answered}
       onAnswer={onAnswer}
       onNext={onNext}
-      prompt={
-        <div className="card center stack" style={{ alignItems: 'center' }}>
-          <div style={{ fontSize: '2.5rem' }}>🔊</div>
-          <SpeakButton runic={target} label="Play the word" />
-        </div>
-      }
-      extra={answered ? <div className="small muted">The word was “{step.word}”.</div> : null}
     />
   );
 }

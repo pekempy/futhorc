@@ -364,6 +364,31 @@ export const UNITS = [
       'After this, the most useful thing you can do is write something of your own — a note, a list, a diary line a day.',
     ],
   },
+  {
+    id: 19,
+    part: 'Special Topics',
+    title: 'Counting in Futhorc',
+    subtitle: 'ᚪᚾ ᛏᚹᚪ ᚦᚱᛁᛖ ᚠᛖᚩᚹᛖᚱ',
+    blurb: 'Learn how to read and write Anglo-Saxon spelled numbers 1 to 10 in runes.',
+    runes: ['ᚪᚾ', 'ᛏᚹᚪ', 'ᚦᚱᛁᛖ', 'ᚠᛖᚩᚹᛖᚱ', 'ᚠᛁᚠ', 'ᛋᛁᚳᛋ', 'ᛋᛖᚩᚠᚩᚾ', 'ᛠᚻᛏᚪ', 'ᚾᛁᚷᚩᚾ', 'ᛏᛁᛖᚾ'],
+    words: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'],
+    freeRead: [
+      'one bird sat on a tree',
+      'i have two eyes and two hands',
+      'three green apples on the table',
+      'four cold days in winter',
+      'five red roses in the garden',
+    ],
+    freeWrite: [
+      'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
+    ],
+    teach: [
+      'Anglo-Saxons wrote numbers as spelled phonetic words rather than modern digits.',
+      '1 is *ān* (ᚪᚾ), 2 is *twā* (ᛏᚹᚪ), 3 is *þrīe* (ᚦᚱᛁᛖ), 4 is *feōwer* (ᚠᛖᚩᚹᛖᚱ), and 5 is *fīf* (ᚠᛁᚠ).',
+      '6 is *six* (ᛋᛁᚳᛋ), 7 is *seofon* (ᛋᛖᚩᚠᚩᚾ), 8 is *eahta* (ᛠᚻᛏᚪ), 9 is *nigon* (ᚾᛁᚷᚩᚾ), and 10 is *tīen* (ᛏᛁᛖᚾ).',
+      'When you enter numbers (like 42 or 1995), the app automatically spells them out using these historical Old English rules.',
+    ],
+  },
 ];
 
 export const PARTS = [...new Set(UNITS.map((u) => u.part))];

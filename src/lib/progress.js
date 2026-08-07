@@ -2,10 +2,37 @@
 
 const KEY = 'futhorc.v1';
 
+export const DEFAULT_PROFILE = {
+  name: 'Alfred Smith',
+  birthday: '14 June 1995',
+  hometown: 'Winchester',
+  address: '42 High Street, Oxford',
+  job: 'Scholar & Craftsman',
+  mother: 'Eleanor',
+  father: 'Robert',
+  partner: 'Alice',
+  children: 'William, Edith',
+  petNames: 'Buster, Barnaby',
+  favoriteFood: 'Fresh bread and cider',
+  favoriteColor: 'Forest green',
+  hobby: 'Runic woodcarving and reading',
+  title: 'Rune Scholar',
+};
+
 const BLANK = {
   completedUnits: [],
   // per-rune recall strength, for the practice queue
   strength: {},          // { 'ᚠ': { seen, right, wrong, due } }
+  sessionCount: 0,
+  xp: 0,
+  streak: 1,
+  bestStreak: 1,
+  lastActiveDate: new Date().toISOString().split('T')[0],
+  completedDailyTasks: [],
+  profile: structuredClone(DEFAULT_PROFILE),
+  accounts: [
+    { id: 'default', name: 'Primary Account', active: true }
+  ],
   settings: {
     ligatures: true,
     markVoiceless: true,
@@ -22,7 +49,13 @@ export function load() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return structuredClone(BLANK);
     const p = JSON.parse(raw);
-    return { ...structuredClone(BLANK), ...p, settings: { ...BLANK.settings, ...(p.settings || {}) } };
+    const loaded = {
+      ...structuredClone(BLANK),
+      ...p,
+      profile: { ...structuredClone(DEFAULT_PROFILE), ...(p.profile || {}) },
+      settings: { ...BLANK.settings, ...(p.settings || {}) }
+    };
+    return checkDailyStreak(loaded);
   } catch {
     return structuredClone(BLANK);
   }
@@ -34,6 +67,48 @@ export function save(state) {
 
 export function reset() {
   try { localStorage.removeItem(KEY); } catch { /* ignore */ }
+}
+
+export const RANKS = [
+  { minXp: 0, title: 'Novice Scribe', badge: '🌱' },
+  { minXp: 150, title: 'Rune Student', badge: '📜' },
+  { minXp: 400, title: 'Rune Craftsman', badge: '⚒️' },
+  { minXp: 800, title: 'Rune Scholar', badge: 'ᚠ' },
+  { minXp: 1500, title: 'Master Runesmith', badge: 'ᛏ' },
+  { minXp: 3000, title: 'High Skald', badge: '👑' },
+];
+
+export function getRank(xp = 0) {
+  let rank = RANKS[0];
+  for (const r of RANKS) {
+    if (xp >= r.minXp) rank = r;
+  }
+  return rank;
+}
+
+export function checkDailyStreak(state) {
+  const today = new Date().toISOString().split('T')[0];
+  if (state.lastActiveDate === today) return state;
+
+  const lastDate = state.lastActiveDate ? new Date(state.lastActiveDate) : null;
+  const currDate = new Date(today);
+  const diffDays = lastDate ? Math.round((currDate - lastDate) / (1000 * 60 * 60 * 24)) : 0;
+
+  if (diffDays === 1) {
+    state.streak = (state.streak || 0) + 1;
+    state.bestStreak = Math.max(state.bestStreak || 1, state.streak);
+  } else if (diffDays > 1) {
+    state.streak = 1;
+  }
+
+  state.lastActiveDate = today;
+  state.completedDailyTasks = [];
+  return state;
+}
+
+export function addXP(state, amount) {
+  state.xp = (state.xp || 0) + amount;
+  return state;
 }
 
 /** Leitner-ish scheduling: right answers push a rune further into the future. */

@@ -109,8 +109,10 @@ export function stopSpeaking() {
 let audioEl = null;
 
 export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
+  const activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
+  if (!activeKey) throw new Error('No Gemini API key available');
   const text = respellText(runic);
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${encodeURIComponent(apiKey)}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${encodeURIComponent(activeKey)}`;
   const body = {
     contents: [{ parts: [{ text: `Read this aloud in a British accent, clearly and slowly: ${text}` }] }],
     generationConfig: {

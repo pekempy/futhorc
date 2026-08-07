@@ -68,15 +68,21 @@ function mergeKs(ph) {
   return out;
 }
 
+import { transliterateNumbersInText } from './numbers.js';
+
 /**
  * A whole passage of English → runes.
- * Punctuation, numbers and line breaks are carried through unchanged.
+ * Numbers are spelled out into Futhorc runes, while punctuation and line breaks are carried through.
  */
 export function transliterate(text, opts = {}) {
   const o = { ...DEFAULTS, ...opts };
   const joiner = o.separator === 'space' ? ' ' : SEP;
   const guesses = [];
-  const out = text.replace(/[A-Za-z][A-Za-z''']*/g, (m) => {
+  
+  // First convert any numbers (0-9999) into spelled-out Futhorc runes
+  const textWithRunicNumbers = transliterateNumbersInText(text, o);
+
+  const out = textWithRunicNumbers.replace(/[A-Za-z][A-Za-z''']*/g, (m) => {
     const { runes, guessed } = transliterateWord(m, o);
     if (guessed) guesses.push(m);
     return runes;

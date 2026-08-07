@@ -82,22 +82,30 @@ export default function Settings({ state, update }) {
 
       <section className="card stack">
         <h2>Gemini voices (optional)</h2>
-        <p className="small muted" style={{ margin: 0 }}>
-          Google's voices sound better than most system ones. You'll need a free API key from
-          {' '}<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>.
-          The free tier is limited and the TTS models are preview-only, so this can stop working
-          without warning — the browser voice is always there as a fallback. Your key is stored
-          in this browser and sent only to Google.
-        </p>
-        <label className="toggle">
-          <input type="checkbox" checked={s.useGemini} onChange={(e) => set('useGemini', e.target.checked)} />
-          Use Gemini when a key is set
-        </label>
-        <div>
-          <label className="field" htmlFor="key">API key</label>
-          <input id="key" type="text" value={s.geminiKey} placeholder="AIza…"
-                 onChange={(e) => set('geminiKey', e.target.value.trim())} autoComplete="off" spellCheck="false" />
-        </div>
+        {import.meta.env?.VITE_GEMINI_API_KEY ? (
+          <div className="feedback ok">
+            ✓ System Gemini API Key configured (.env). Active for all accounts.
+          </div>
+        ) : (
+          <>
+            <p className="small muted" style={{ margin: 0 }}>
+              Google's voices sound better than most system ones. You'll need a free API key from
+              {' '}<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>.
+              The free tier is limited and the TTS models are preview-only, so this can stop working
+              without warning — the browser voice is always there as a fallback. Your key is stored
+              in this browser and sent only to Google.
+            </p>
+            <label className="toggle">
+              <input type="checkbox" checked={s.useGemini} onChange={(e) => set('useGemini', e.target.checked)} />
+              Use Gemini when a key is set
+            </label>
+            <div>
+              <label className="field" htmlFor="key">API key</label>
+              <input id="key" type="text" value={s.geminiKey} placeholder="AIza…"
+                     onChange={(e) => set('geminiKey', e.target.value.trim())} autoComplete="off" spellCheck="false" />
+            </div>
+          </>
+        )}
         <div>
           <label className="field" htmlFor="gvoice">Gemini voice</label>
           <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
