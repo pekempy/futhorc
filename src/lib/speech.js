@@ -146,9 +146,11 @@ export async function fetchSystemApiKey() {
 
 const TTS_MODELS = [
   'gemini-2.5-flash-preview-tts',
-  'gemini-2.5-pro-preview-tts',
   'gemini-3.1-flash-tts-preview',
 ];
+
+let lastGeminiRequestTime = 0;
+const MIN_REQUEST_INTERVAL_MS = 2000;
 
 export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = {}) {
   let activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
@@ -156,8 +158,16 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = 
     activeKey = await fetchSystemApiKey();
   }
   if (!activeKey) throw new Error('No Gemini API key available');
-  const text = respellText(runic);
 
+  // Enforce minimum delay between requests to comply with Gemini API rate limits
+  const now = Date.now();
+  const timeSinceLast = now - lastGeminiRequestTime;
+  if (timeSinceLast < MIN_REQUEST_INTERVAL_MS) {
+    await new Promise((r) => setTimeout(r, MIN_REQUEST_INTERVAL_MS - timeSinceLast));
+  }
+  lastGeminiRequestTime = Date.now();
+
+  const text = respellText(runic);
   let lastError = null;
 
   for (const model of TTS_MODELS) {
@@ -192,6 +202,14 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = 
       if (!res.ok) {
         const errText = await res.text();
         console.warn(`Gemini model ${model} TTS response error (${res.status}):`, errText);
+
+        if (res.status === 429) {
+          console.warn('Gemini Rate Limit (429) reached. Falling back to browser voice.');
+          // Fallback gracefully to browser voice on rate limit
+          speakRunes(runic, opts);
+          return true;
+        }
+
         lastError = new Error(`Gemini TTS (${model}): ${errText}`);
         continue;
       }
