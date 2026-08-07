@@ -23,6 +23,13 @@ export function getAccounts() {
 export function saveAccounts(accounts) {
   try {
     localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
+    if (typeof window !== 'undefined' && window.fetch) {
+      fetch('/api/db', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accounts }),
+      }).catch(() => {});
+    }
   } catch { /* private mode */ }
 }
 

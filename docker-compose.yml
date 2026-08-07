@@ -2,15 +2,13 @@ version: '3.8'
 
 services:
   futhorc:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
+    image: ghcr.io/pekempy/futhorc:latest
     container_name: futhorc_app
     restart: unless-stopped
     ports:
       - "7863:80"
+    volumes:
+      - ./data:/app/data
     environment:
       - VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
     env_file:

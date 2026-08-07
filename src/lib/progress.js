@@ -62,7 +62,16 @@ export function load() {
 }
 
 export function save(state) {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* private mode */ }
+  try {
+    localStorage.setItem(KEY, JSON.stringify(state));
+    if (typeof window !== 'undefined' && window.fetch) {
+      fetch('/api/db', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ state }),
+      }).catch(() => {});
+    }
+  } catch { /* private mode */ }
 }
 
 export function reset() {
