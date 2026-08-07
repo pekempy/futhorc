@@ -3,38 +3,74 @@
 A beginner's course in reading and writing modern English with Anglo-Saxon runes,
 adapted to a **British** (non-rhotic, RP) accent.
 
-Eighteen units take you from knowing nothing to reading whole passages, with a
+Nineteen units take you from knowing nothing to reading whole passages and numbers, with a
 rune reference, a spaced-repetition practice mode, a live English↔runes converter,
-text-to-speech, and four printable sheets.
+text-to-speech, password-protected user accounts, leaderboards, profile worksheets, and printable sheets.
 
 The name is an acrostic: ᚠᚢᚦᚩᚱᚳ is simply the first six runes — Fee, Up, Thorn,
 Oak, Ride, Car — in the same way *alphabet* comes from alpha and beta.
 
-## Running it
+---
+
+## 🚀 Running with Docker (Recommended)
+
+Run the production application directly using Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+The app will be accessible at **http://localhost:7863**.
+
+- **Persistent Database**: All accounts, user profiles, daily streaks, XP, and lesson progress are stored in an SQLite database file at `./data/futhorc.db` (mounted via `./data:/app/data`).
+- **System Gemini API Key (Optional)**: Provide `VITE_GEMINI_API_KEY` in `.env` to enable AI voice TTS across all accounts automatically.
+
+---
+
+## 💻 Local Development
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm run dev      # http://localhost:7863
 npm run build    # → dist/ and a standalone futhorc.html
 ```
 
-`npm run build` also produces **`futhorc.html`** — the whole app in one
-self-contained file (CSS, JS and the rune font all inlined). Double-click it;
-no server needed.
+`npm run build` produces **`futhorc.html`** — the whole app in one self-contained single file (CSS, JS, and the rune font all inlined). Double-click it; no server needed.
 
-## What's in it
+---
 
-| | |
+## ✨ Features & What's in it
+
+| Feature | Description |
 |---|---|
-| **Learn** | Eighteen units in five parts. Each teaches a few runes with animated stroke order, then drills them: recognise the rune, pick it from a sound, read a word with and without multiple choice, build a word from a rune keyboard, write a word from hearing it spoken, read whole sentences, and — later on — read passages unaided. Runes are introduced in order of usefulness, so you read real words from Unit 1. Every fourth unit throws in a review round. |
-| **Runes** | All thirty, in the traditional futhorc order or grouped by sound. Tap one for its name, sound, examples and an animated stroke-order diagram. |
-| **Practice** | Twelve-question rounds weighted towards whatever you keep getting wrong (a Leitner-style box system). |
-| **Write** | Type English, get runes. Or paste runes and get them sounded out rune by rune. |
-| **Print** | Stroke-order guide, wall chart, cut-out flashcards, worksheets with an answer key. |
+| **Learn** | Nineteen units across six parts. Each unit teaches a few runes or numbers with animated stroke order, then drills them: stroke diagram, multiple choice, audio drills, sentence reading, and whole passages. Every fourth unit includes a review round. Includes **Unit 19: Counting in Futhorc**. |
+| **Accounts & Security** | Password-protected accounts with SHA-256 password hashing, profile customization (name, home town, birthday, hobbies), and guest mode. |
+| **Leaderboard & XP** | Daily streak tracking, rank badges, daily challenges, and a live scholarly leaderboard for registered accounts. |
+| **Spelled-Out Runic Numbers** | Historical Anglo-Saxon spelled-out numeral engine (1 = *ān* `ᚪᚾ`, 2 = *twā* `ᛏᚹᚪ`, 10 = *tīen* `ᛏᛁᛖᚾ`, 1000 = *þūsend* `ᚦᢢᛋᛖᚾᛞ`). Digits typed in text or worksheets are automatically transliterated into spelled-out runes. |
+| **Runes & Numbers Reference** | All thirty runes in traditional order or grouped by sound, plus a dedicated **Anglo-Saxon Runic Numbers** reference chart. |
+| **Practice** | Twelve-question rounds weighted towards items you keep getting wrong (Leitner-style spaced repetition). |
+| **Write** | Type English or numbers, get runes. Or paste runes and get them sounded out rune by rune. |
+| **Print** | Stroke-order guide, wall chart, cut-out flashcards, and 50+ worksheets including **Personal Profile Worksheets** with customized answer keys. |
 
-Progress and settings live in `localStorage` — nothing leaves the browser.
+---
 
-## The writing system
+## 🐳 Docker & CI/CD Pipeline
+
+The project includes an automated GitHub Actions workflow ([`.github/workflows/docker-publish.yml`](.github/workflows/docker-publish.yml)) that builds and pushes multi-architecture Docker images to GitHub Container Registry (GHCR) whenever a version tag (e.g. `v1.0.0`) is pushed:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Pull the image manually:
+```bash
+docker pull ghcr.io/pekempy/futhorc:latest
+```
+
+---
+
+## 📖 The writing system
 
 Based on [Harys Dalvi's futhorc](https://www.harysdalvi.com/futhorc)
 ([source](https://github.com/crackalamoo/futhorc)), which maps Anglo-Saxon runes onto
@@ -44,7 +80,7 @@ British RP.
 ### Three rules carry most of it
 
 **1. Spell what you hear.** Runes are phonetic. Silent letters vanish and doubled
-letters collapse: *laugh* → ᛚᚪᚠᚠ, *through* → ᚦᚱᚣᚣ, *tell* → ᛏᛖᛚ, *knee* → ᚾᛁᛁ.
+letters collapse: *laugh* → ᛚᚪᚠᚠ, *through* → ᚦᚱᚣᚣ, *tell* → ᛖᛚ, *knee* → ᚾᛁᛁ.
 
 **2. Double a vowel to lengthen it.**
 
@@ -52,7 +88,7 @@ letters collapse: *laugh* → ᛚᚪᚠᚠ, *through* → ᚦᚱᚣᚣ, *tell* �
 |---|---|---|---|
 | ᛁ | s**i**t | ᛁᛁ | s**ee**d |
 | ᛖ | b**e**d | ᛖᛖ | h**air** |
-| ᚢ | f**u**n | ᚢᚢ | t**ur**n |
+|  | f**u**n |  | t**ur**n |
 | ᛟ | h**o**t | ᛟᛟ | th**ough**t |
 | ᚣ | b**oo**k | ᚣᚣ | f**oo**d |
 | ᚫ | h**a**t | ᚪ | **ar**m, b**a**th — no short partner |
@@ -64,94 +100,35 @@ Plus one tidy-up: ᚠ is both f and v, and ᛋ is both s and z, so at the **end*
 word they're doubled when voiceless — *leaf* ᛚᛁᛁᚠᚠ vs *leave* ᛚᛁᛁᚠ, *cats* ᚳᚫᛏᛋᛋ vs
 *dogs* ᛞᛟᚷᛋ.
 
-### What changed from the American original
+---
 
-| | American | British |
-|---|---|---|
-| *bath, fast, laugh* | ᚫ | **ᚪ** — the TRAP–BATH split |
-| *car, turn, north* | ᚳᚪᚱ, ᛏᚢᚱᚾ, ᚾᛟᚱᚦ | **ᚳᚪ, ᛏᚢᚢᚾ, ᚾᛟᛟᚦ** — no coda r |
-| *cot* vs *caught* | both ᛟ | **ᛟ** vs **ᛟᛟ** |
-| *pull* vs *pool* | both ᚣ | **ᚣ** vs **ᚣᚣ** |
-| *hair* | ᛠ (= *day*) | **ᛖᛖ**, keeping ᛠ for *day* |
-| ᛠ, ᚪ, ᚣ names | Air, Owl, Tooth | **Eight, Arm, Book** — the old names no longer match their RP values |
-
-The two systems remain compatible for consonants, and most short-vowel words are
-identical.
-
-## How it's put together
+## 🛠️ Architecture Overview
 
 ```
 src/
   data/
-    runes.js      the thirty runes: names, sounds, examples, notes
-    glyphs.js     GENERATED — outlines and stroke skeletons (see below)
-    lessons.js    the eighteen-unit curriculum
-    lexicon.js    ~750 hand-checked RP pronunciations
+    runes.js          the thirty runes: names, sounds, examples, notes
+    glyphs.js         GENERATED — outlines and stroke skeletons
+    lessons.js        nineteen-unit curriculum (including numbers)
+    worksheetsData.js 50+ progressive worksheets
+    lexicon.js        ~750 hand-checked RP pronunciations
   lib/
-    phonology.js  phonemes ↔ runes, and the spelling rules
-    g2p.js        letters → sounds, for words outside the dictionary
-    transliterate.js
-    speech.js     text-to-speech
-    progress.js   localStorage
-  components/     the app views
-  print/          the four printable sheets
-scripts/
-  genglyphs.py    derives glyphs.js from the Noto Sans Runic font
-  ssr-check.jsx   renders every view to static HTML to catch crashes
-  render-sheets.py  renders the print sheets to PDF without a browser
+    phonology.js      phonemes ↔ runes, and spelling rules
+    numbers.js        spelled-out Anglo-Saxon numeral conversion engine
+    auth.js           SHA-256 authentication & account storage
+    progress.js       local progress, XP, streaks, and server database sync
+    transliterate.js  text & number transliteration
+    speech.js         text-to-speech (Browser Web Speech & Gemini TTS)
+  components/         React UI views & Auth Modal
+  print/              printable sheets and profile worksheets
+server.mjs            Node.js server with SQLite database file persistence
+Dockerfile            multi-stage Docker build
+docker-compose.yml    container deployment config (port 7863)
 ```
 
-### The stroke diagrams
+---
 
-They aren't hand-drawn. `scripts/genglyphs.py` reads the Noto Sans Runic outlines
-and works out the path a pen would take:
-
-1. Every rune is built from bars of uniform width, so the outline contains pairs of
-   antiparallel edges one stroke-width apart. The midline between each pair is a
-   stroke centreline. Where a bar is curved — Noto rounds ᚠ, ᚢ and ᚦ — the midline
-   is built by averaging the two bounding curves sample for sample, so it follows
-   the arc instead of cutting across its chord.
-2. Candidates whose midpoint falls outside the glyph are discarded (the gap between
-   two parallel arms looks like a bar to the pairing test), as are any that aren't
-   one stroke-width across all along.
-3. Collinear fragments are rejoined — a stave interrupted by a crossbar arrives in
-   pieces — and each end is pushed out to the outline.
-4. Finally the strokes are joined into continuous **trails**, so the pen lifts as
-   rarely as it sensibly can. Treating meeting points as nodes and strokes as
-   edges, the fewest strokes needed is one per pair of odd-degree nodes: Euler's
-   result about the bridges of Königsberg, applied to handwriting. ᛟ comes out as
-   a single unbroken line, ᛞ as one closed circuit. Crossings aren't junctions —
-   two lines passing through each other give the pen nowhere to turn — and since
-   only endpoints become nodes, that falls out for free.
-
-A handful of glyphs need help: ᚠ's tighter arc bends too sharply for the edge
-pairing to follow round the corner, and ᛄ's lozenge tapers to points the extension
-step can't reach. Those are stated explicitly in `overrides()`, with the reason.
-
-### Transliteration accuracy
-
-Words are looked up in the hand-checked dictionary first (which covers the
-high-frequency core, so most running text), then regular inflections are peeled off
-and the stem re-checked, and only then do the letter-to-sound rules run. Anything
-that reached the rules is flagged in the UI as "worked out from spelling", because
-English orthography being what it is, those are right most of the time but not all
-of it.
-
-## Text-to-speech
-
-The browser's own `SpeechSynthesis` — free, no API key, works offline, uses your
-OS voices. Since Web Speech has no reliable phoneme input, runes are converted to
-an English respelling a British voice reads correctly (ᚦᛟᛟᛏ → "thawt").
-
-On Windows look for a *Natural* voice, on macOS an *Enhanced* or *Premium* one;
-pick it under Settings.
-
-Optionally you can paste a [Google AI Studio](https://aistudio.google.com/apikey)
-key in Settings to use Gemini's voices instead. The free tier is limited and the TTS
-models are preview-only, so treat it as a bonus — the browser voice is always the
-fallback.
-
-## Credits
+## 📜 Credits
 
 - Writing system: [Harys Dalvi](https://www.harysdalvi.com/futhorc) · [crackalamoo/futhorc](https://github.com/crackalamoo/futhorc)
 - Rune shapes: [Noto Sans Runic](https://fonts.google.com/noto/specimen/Noto+Sans+Runic) (SIL Open Font License)
