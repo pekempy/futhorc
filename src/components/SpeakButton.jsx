@@ -5,7 +5,7 @@ import { isSupported, speakRunes, speakWithGemini, listVoices, fetchSystemApiKey
 const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Orus', 'Zephyr'];
 
 /** Speaks a runic string aloud with instant voice selection dropdown. */
-export default function SpeakButton({ runic, label, plainFallback }) {
+export default function SpeakButton({ runic, label, plainFallback, onWordChange }) {
   const [busy, setBusy] = useState(false);
   const [open, setOpen] = useState(false);
   const [err, setErr] = useState('');
@@ -49,9 +49,9 @@ export default function SpeakButton({ runic, label, plainFallback }) {
         if (!key) {
           throw new Error('No Gemini API Key configured in Docker .env or Settings');
         }
-        await speakWithGemini(runic, key, voiceName);
+        await speakWithGemini(runic, key, voiceName, { onWordChange });
       } else {
-        speakRunes(runic, { voiceName, rate: s.speakRate });
+        speakRunes(runic, { voiceName, rate: s.speakRate, onWordChange });
       }
     } catch (e) {
       console.error('Gemini TTS Execution Failed:', e);

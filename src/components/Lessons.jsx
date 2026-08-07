@@ -5,6 +5,7 @@ import { transliterate, transliterateWord, readAloud } from '../lib/transliterat
 import { recordAnswer } from '../lib/progress.js';
 import StrokeDiagram from './StrokeDiagram.jsx';
 import SpeakButton from './SpeakButton.jsx';
+import RuneTextReader from './RuneTextReader.jsx';
 
 export default function Lessons({ state, update, go, unitId }) {
   if (unitId) {
@@ -530,9 +531,8 @@ function SentenceType({ step, unit, answered, onAnswer, onNext }) {
       onNext={onNext}
       feedback={answered === 'ok' ? 'Correct.' : `It says: “${step.sentence}”`}
     >
-      <div className="card center">
-        <div className="rune" style={{ fontSize: 'clamp(1.35rem, 4.5vw, 2rem)', lineHeight: 1.7 }}>{runic}</div>
-        <SpeakButton runic={runic} label="Hear it" />
+      <div className="card center stack" style={{ padding: '1.25rem' }}>
+        <RuneTextReader runic={runic} label="Hear it" fontSize="clamp(1.35rem, 4.5vw, 2rem)" />
       </div>
       <TypeAnswer
         big
@@ -664,16 +664,15 @@ function Passage({ step, answered, onAnswer, onNext }) {
       onNext={onNext}
       feedback={answered === 'ok' ? 'Good — that is reading.' : 'Worth another pass later.'}
     >
-      <div className="card">
-        <div className="rune" style={{ fontSize: 'clamp(1.15rem, 3.6vw, 1.6rem)', lineHeight: 1.9 }}>{runic}</div>
-        <div className="row" style={{ marginTop: '0.9rem' }}>
-          <SpeakButton runic={runic} label="Hear it" />
+      <div className="card stack" style={{ gap: '1rem', padding: '1.25rem' }}>
+        <RuneTextReader runic={runic} label="Hear it" fontSize="clamp(1.15rem, 3.6vw, 1.6rem)" />
+        <div className="row" style={{ marginTop: '0.4rem' }}>
           <button className="btn small" onClick={() => setRevealed((v) => !v)}>
             {revealed ? 'Hide the English' : 'Show the English'}
           </button>
         </div>
         {revealed && (
-          <p style={{ marginTop: '0.9rem', paddingTop: '0.9rem', borderTop: '1px solid var(--line)' }}>
+          <p style={{ marginTop: '0.5rem', paddingTop: '0.9rem', borderTop: '1px solid var(--line)' }}>
             {step.passage.english}
           </p>
         )}

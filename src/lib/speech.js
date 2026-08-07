@@ -94,6 +94,25 @@ export function speakPlain(text, opts = {}) {
   if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = 'en-GB'; }
   u.rate = opts.rate ?? 0.85;
   u.pitch = opts.pitch ?? 1;
+
+  if (opts.onWordChange) {
+    const rawWords = text.trim().split(/[\s᛫,.]+/).filter(Boolean);
+    u.onboundary = (event) => {
+      if (event.name === 'word') {
+        let charCount = 0;
+        for (let i = 0; i < rawWords.length; i++) {
+          charCount += rawWords[i].length + 1;
+          if (event.charIndex <= charCount) {
+            opts.onWordChange(i);
+            break;
+          }
+        }
+      }
+    };
+    u.onend = () => { opts.onWordChange(-1); };
+    u.onerror = () => { opts.onWordChange(-1); };
+  }
+
   window.speechSynthesis.speak(u);
   return true;
 }
@@ -121,7 +140,7 @@ export async function fetchSystemApiKey() {
   return systemApiKeyCache;
 }
 
-export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
+export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = {}) {
   let activeKey = import.meta.env?.VITE_GEMINI_API_KEY || apiKey;
   if (!activeKey) {
     activeKey = await fetchSystemApiKey();
@@ -164,6 +183,21 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
   const blobUrl = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
   if (audioEl) audioEl.pause();
   audioEl = new Audio(blobUrl);
+
+  if (opts.onWordChange) {
+    const words = runic.trim().split(/[\s᛫]+/).filter(Boolean);
+    const count = words.length;
+    audioEl.ontimeupdate = () => {
+      if (audioEl.duration && count > 0) {
+        const progress = audioEl.currentTime / audioEl.duration;
+        const currentIdx = Math.min(Math.floor(progress * count), count - 1);
+        opts.onWordChange(currentIdx);
+      }
+    };
+    audioEl.onended = () => { opts.onWordChange(-1); };
+    audioEl.onerror = () => { opts.onWordChange(-1); };
+  }
+
   await audioEl.play();
   return true;
 }

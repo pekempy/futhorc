@@ -3,6 +3,7 @@ import { transliterate, readAloud, splitUnits } from '../lib/transliterate.js';
 import { runesToPhonemes } from '../lib/phonology.js';
 import { RUNE_BY_CHAR } from '../data/runes.js';
 import SpeakButton from './SpeakButton.jsx';
+import RuneTextReader from './RuneTextReader.jsx';
 
 const SAMPLES = [
   'The cat sat on the mat.',
@@ -68,15 +69,14 @@ function ToRunes({ settings, update }) {
       <div>
         <div className="spread" style={{ marginBottom: '0.35rem' }}>
           <label className="field" style={{ margin: 0 }}>Runes</label>
-          <div className="row">
-            <SpeakButton runic={result.text} label="Read aloud" />
-            <button
-              className="btn small"
-              onClick={() => { navigator.clipboard?.writeText(result.text); setCopied(true); }}
-            >{copied ? 'Copied' : 'Copy'}</button>
-          </div>
+          <button
+            className="btn small"
+            onClick={() => { navigator.clipboard?.writeText(result.text); setCopied(true); }}
+          >{copied ? 'Copied' : 'Copy'}</button>
         </div>
-        <div className="trans-out rune">{result.text}</div>
+        <div className="trans-out card" style={{ padding: '1.25rem' }}>
+          <RuneTextReader runic={result.text} label="Read aloud" fontSize="1.6rem" />
+        </div>
       </div>
 
       {result.guesses.length > 0 && (

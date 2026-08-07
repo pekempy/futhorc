@@ -195,12 +195,27 @@ const server = http.createServer((req, res) => {
   // Static File Serving
   let filePath = path.join(DIST_DIR, pathname === '/' ? 'index.html' : pathname);
   
+  // SPA fallback only for HTML page routes, NEVER for missing assets or files with extensions
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    if (pathname.startsWith('/assets/') || path.extname(pathname)) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Asset Not Found');
+      return;
+    }
     filePath = path.join(DIST_DIR, 'index.html');
   }
 
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
+  // Prevent caching index.html so users always get fresh JS asset references on updates
+  if (path.basename(filePath) === 'index.html') {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  } else {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  }
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
