@@ -54,10 +54,10 @@ export function listVoices() {
 
 /** Prefer a British voice, and a "natural"/"enhanced" one where the OS has it. */
 export function pickVoice(preferredName) {
-  const voices = listVoices();
+  const voices = typeof window !== 'undefined' && window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
   if (!voices.length) return null;
   if (preferredName) {
-    const exact = voices.find((v) => v.name === preferredName);
+    const exact = voices.find((v) => v.name === preferredName || v.name.toLowerCase() === preferredName.toLowerCase());
     if (exact) return exact;
   }
   const gb = voices.filter((v) => /en[-_]GB/i.test(v.lang));
@@ -107,6 +107,7 @@ export function stopSpeaking() {
 // error, so the app keeps working without a key.
 
 let systemApiKeyCache = null;
+let audioEl = null;
 
 export async function fetchSystemApiKey() {
   if (systemApiKeyCache !== null) return systemApiKeyCache;
@@ -127,9 +128,11 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
   }
   if (!activeKey) throw new Error('No Gemini API key available');
   const text = respellText(runic);
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${encodeURIComponent(activeKey)}`;
+  
+  // Use gemini-2.0-flash endpoint for TTS AUDIO generation
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(activeKey)}`;
   const body = {
-    contents: [{ parts: [{ text: `Read this aloud in a British accent, clearly and slowly: ${text}` }] }],
+    contents: [{ parts: [{ text: `Read this aloud clearly in a British accent: ${text}` }] }],
     generationConfig: {
       responseModalities: ['AUDIO'],
       speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } },
@@ -140,10 +143,14 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`Gemini TTS ${res.status}`);
+  if (!res.ok) {
+    const errText = await res.text();
+    console.error('Gemini TTS error response:', res.status, errText);
+    throw new Error(`Gemini TTS ${res.status}: ${errText}`);
+  }
   const json = await res.json();
   const b64 = json?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-  if (!b64) throw new Error('No audio returned');
+  if (!b64) throw new Error('No audio returned from Gemini');
   const wav = pcmToWav(base64ToBytes(b64), 24000);
   const blobUrl = URL.createObjectURL(new Blob([wav], { type: 'audio/wav' }));
   if (audioEl) audioEl.pause();
