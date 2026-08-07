@@ -141,9 +141,9 @@ export async function fetchSystemApiKey() {
 }
 
 const TTS_MODELS = [
-  'gemini-2.0-flash-exp',
   'gemini-2.5-flash-preview-tts',
-  'gemini-2.0-flash',
+  'gemini-2.5-pro-preview-tts',
+  'gemini-3.1-flash-tts-preview',
 ];
 
 export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = {}) {
@@ -159,10 +159,13 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = 
   for (const model of TTS_MODELS) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(activeKey)}`;
     const body = {
-      systemInstruction: {
-        parts: [{ text: `You are an audio voice narrator. Speak with the distinct pitch, accent, tone, and character of the ${voiceName} voice persona.` }]
-      },
-      contents: [{ parts: [{ text: `Read this aloud in a British accent: ${text}` }] }],
+      contents: [
+        {
+          parts: [
+            { text: `Read this aloud clearly in a British accent: ${text}` }
+          ]
+        }
+      ],
       generationConfig: {
         responseModalities: ['AUDIO'],
         speechConfig: {
