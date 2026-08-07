@@ -96,16 +96,20 @@ export function speakPlain(text, opts = {}) {
   u.pitch = opts.pitch ?? 1;
 
   if (opts.onWordChange) {
-    const rawWords = text.trim().split(/[\s᛫,.]+/).filter(Boolean);
+    const wordRanges = [];
+    const regex = /[^\s᛫,.:;!?]+/g;
+    let match;
+    let wIdx = 0;
+    while ((match = regex.exec(text)) !== null) {
+      wordRanges.push({ start: match.index, end: match.index + match[0].length, index: wIdx++ });
+    }
+
     u.onboundary = (event) => {
       if (event.name === 'word') {
-        let charCount = 0;
-        for (let i = 0; i < rawWords.length; i++) {
-          charCount += rawWords[i].length + 1;
-          if (event.charIndex <= charCount) {
-            opts.onWordChange(i);
-            break;
-          }
+        const c = event.charIndex;
+        const found = wordRanges.find((w) => c >= w.start && c <= w.end + 2);
+        if (found) {
+          opts.onWordChange(found.index);
         }
       }
     };
@@ -205,13 +209,24 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore', opts = 
       audioEl = new Audio(blobUrl);
 
       if (opts.onWordChange) {
-        const words = runic.trim().split(/[\s᛫]+/).filter(Boolean);
-        const count = words.length;
+        const words = runic.trim().split(/[\s᛫,.:;!?]+/).filter(Boolean);
+        const totalLength = words.reduce((acc, w) => acc + w.length, 0) || 1;
+        const wordTimeRanges = [];
+        let cum = 0;
+        for (let i = 0; i < words.length; i++) {
+          const startRatio = cum / totalLength;
+          cum += words[i].length;
+          const endRatio = cum / totalLength;
+          wordTimeRanges.push({ startRatio, endRatio, index: i });
+        }
+
         audioEl.ontimeupdate = () => {
-          if (audioEl.duration && count > 0) {
-            const progress = audioEl.currentTime / audioEl.duration;
-            const currentIdx = Math.min(Math.floor(progress * count), count - 1);
-            opts.onWordChange(currentIdx);
+          if (audioEl.duration > 0) {
+            const ratio = audioEl.currentTime / audioEl.duration;
+            const found = wordTimeRanges.find((w) => ratio >= w.startRatio && ratio <= w.endRatio);
+            if (found) {
+              opts.onWordChange(found.index);
+            }
           }
         };
         audioEl.onended = () => { opts.onWordChange(-1); };
