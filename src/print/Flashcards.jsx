@@ -18,7 +18,7 @@ export default function Flashcards() {
         <div key={p}>
           <div className="sheet">
             <div style={{ fontSize: '7.5pt', color: '#888', marginBottom: '2mm' }}>
-              Fronts — sheet {p + 1}. Print double-sided, flipping on the short edge, then cut along the dashed lines.
+              Fronts - sheet {p + 1}. Print double-sided, flipping on the short edge, then cut along the dashed lines.
             </div>
             <div className="cards-grid">
               {rows(pad(page)).map((row, r) => (
@@ -35,7 +35,7 @@ export default function Flashcards() {
 
           <div className="sheet">
             <div style={{ fontSize: '7.5pt', color: '#888', marginBottom: '2mm' }}>
-              Backs — sheet {p + 1}.
+              Backs - sheet {p + 1}.
             </div>
             <div className="cards-grid">
               {rows(mirror(pad(page))).map((row, r) => (

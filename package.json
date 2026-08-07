@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Learn to read and write English in Anglo-Saxon runes — a beginner's course, reference and printable worksheets.",
+  "description": "Learn to read and write English in Anglo-Saxon runes - a beginner's course, reference and printable worksheets.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/bundle-single-file.mjs",

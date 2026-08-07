@@ -208,7 +208,7 @@ export function lettersToSounds(word, depth = 0) {
   const lim = body.length;
 
   // The open-syllable (VCV) rule: a vowel followed by a single consonant and
-  // another vowel is usually long — lazy, baby, paper, open, music, na|tion.
+  // another vowel is usually long - lazy, baby, paper, open, music, na|tion.
   // 'r' is excluded because vowel+r is handled by the r-coloured rules above.
   const openSyl = (k) => {
     if (tail.length && k + 1 >= lim) return true;

@@ -9,6 +9,8 @@ const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Oru
 
 export default function Settings({ state, update }) {
   const [voices, setVoices] = useState([]);
+  // Lifted so the Progress blurb below reacts the moment Drive connects.
+  const [driveAccount, setDriveAccount] = useState(drive.currentAccount());
   const [hasSystemKey, setHasSystemKey] = useState(
     !!(import.meta.env?.VITE_GEMINI_API_KEY)
   );
@@ -78,13 +80,13 @@ export default function Settings({ state, update }) {
               </p>
             </div>
             <div>
-              <label className="field" htmlFor="rate">Speed — {s.speakRate.toFixed(2)}×</label>
+              <label className="field" htmlFor="rate">Speed - {s.speakRate.toFixed(2)}×</label>
               <input id="rate" type="range" min="0.5" max="1.3" step="0.05" value={s.speakRate}
                      onChange={(e) => set('speakRate', Number(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent)' }} />
             </div>
             <div className="row">
               <button className="btn" onClick={() => speakRunes('ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ', { voiceName: s.voiceName, rate: s.speakRate })}>
-                Test — <span className="rune">ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ</span>
+                Test - <span className="rune">ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ</span>
               </button>
             </div>
           </>
@@ -111,7 +113,7 @@ export default function Settings({ state, update }) {
               Google's voices sound better than most system ones. You'll need a free API key from
               {' '}<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>.
               The free tier is limited and the TTS models are preview-only, so this can stop working
-              without warning — the browser voice is always there as a fallback. Your key is stored
+              without warning - the browser voice is always there as a fallback. Your key is stored
               in this browser and sent only to Google.
             </p>
             <label className="toggle">
@@ -133,13 +135,16 @@ export default function Settings({ state, update }) {
         )}
       </section>
 
-      <DriveSection state={state} update={update} />
+      <DriveSection state={state} update={update} account={driveAccount} setAccount={setDriveAccount} />
 
       <section className="card stack">
         <h2>Progress</h2>
         <p className="small muted" style={{ margin: 0 }}>
           Units finished: {state.completedUnits.length} · runes tracked: {Object.keys(state.strength).length} ·
-          dictionary: {LEXICON_SIZE} words. Everything is stored in this browser only.
+          dictionary: {LEXICON_SIZE} words.{' '}
+          {driveAccount
+            ? 'Kept in this browser and backed up to your Google Drive.'
+            : 'Kept in this browser only - connect Google Drive above to back it up.'}
         </p>
         <div>
           <button
@@ -162,9 +167,8 @@ export default function Settings({ state, update }) {
  * appear in your Drive and no other app can read it. The only Drive permission
  * asked for is access to that one folder.
  */
-function DriveSection({ state, update }) {
+function DriveSection({ state, update, account, setAccount }) {
   const [configured, setConfigured] = useState(null);
-  const [account, setAccount] = useState(drive.currentAccount());
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [conflict, setConflict] = useState(null);
@@ -198,7 +202,7 @@ function DriveSection({ state, update }) {
     } else {
       setMessage({
         push: 'Backed up to Drive',
-        pull: `Restored from Drive — ${result.reason}`,
+        pull: `Restored from Drive - ${result.reason}`,
         none: 'Already up to date',
       }[result.action] ?? result.reason);
     }
@@ -229,7 +233,7 @@ function DriveSection({ state, update }) {
       <h2>Google Drive backup</h2>
       <p className="small muted" style={{ margin: 0 }}>
         Keeps your progress in a hidden folder in your Drive, so it follows you to
-        another device or the phone app. This app can only see that one folder —
+        another device or the phone app. This app can only see that one folder -
         not the rest of your Drive.
       </p>
 

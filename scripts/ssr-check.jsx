@@ -1,4 +1,4 @@
-/* Renders every view to static HTML — catches crashes, and lets the print
+/* Renders every view to static HTML - catches crashes, and lets the print
    sheets be checked without a browser. Run: node scripts/ssr-check.mjs */
 import { renderToStaticMarkup } from 'react-dom/server';
 import { writeFileSync, mkdirSync } from 'fs';
@@ -39,7 +39,7 @@ for (const [name, el] of cases) {
   try {
     const html = renderToStaticMarkup(el);
     writeFileSync(`/tmp/ssr/${name}.html`, html);
-  } catch (e) { fails++; console.log('FAIL', name, '—', e.message); }
+  } catch (e) { fails++; console.log('FAIL', name, '-', e.message); }
 }
 console.log(fails ? `${fails} view(s) failed` : `all ${cases.length} views render`);
 process.exit(fails ? 1 : 0);

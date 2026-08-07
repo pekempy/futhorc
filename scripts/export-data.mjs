@@ -1,5 +1,5 @@
 /*
- * Writes android-data/futhorc-data.json — everything the Android app needs,
+ * Writes android-data/futhorc-data.json - everything the Android app needs,
  * in one file.
  *
  * The web app is the single source of truth. Rather than re-implement the
@@ -61,7 +61,7 @@ const units = UNITS.map((u) => ({
 // The phone can turn runes into sounds with the table below, but sounds only
 // give you a respelling ("th-aw-t"). Looking the runic spelling up in this
 // index gets the actual word. Several English words can share one runic
-// spelling — ᚠᚪ is both 'far' and (for some speakers) 'fa' — so values are
+// spelling - ᚠᚪ is both 'far' and (for some speakers) 'fa' - so values are
 // lists, commonest first by the order they appear in the lexicon.
 const reverse = {};
 for (const word of Object.keys(LEXICON)) {
@@ -129,6 +129,6 @@ mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(OUT, JSON.stringify(data, null, 1));
 
 const kb = (JSON.stringify(data).length / 1024).toFixed(0);
-console.log(`android-data/futhorc-data.json — ${kb} kB, version ${data.version}`);
+console.log(`android-data/futhorc-data.json - ${kb} kB, version ${data.version}`);
 console.log(`  ${data.runes.length} runes · ${units.length} units · ` +
   `${Object.keys(reverse).length} runic spellings indexed`);

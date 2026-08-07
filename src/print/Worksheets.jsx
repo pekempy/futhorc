@@ -81,7 +81,7 @@ export default function Worksheets({ state }) {
             <option value="all">Display All Worksheets in Level</option>
             {WORKSHEETS.map((w) => (
               <option key={w.id} value={w.id}>
-                WS {w.id}: {w.title.replace(/^Worksheet \d+ — /, '')}
+                WS {w.id}: {w.title.replace(/^Worksheet \d+ - /, '')}
               </option>
             ))}
           </select>
@@ -102,21 +102,17 @@ export default function Worksheets({ state }) {
 }
 
 function SingleWorksheetSheet({ ws, profile, showAnswerKey }) {
+  // Drawn from whatever you chose to put on the You page. Anything left blank
+  // prints as an empty line to fill in by hand, which is what a worksheet is
+  // for — so there is no reason to bait anyone into typing their address.
   const personalFields = [
-    { label: 'Your Full Name', val: profile.name || 'Alfred Smith' },
-    { label: 'Birthday / Date of Birth', val: profile.birthday || '14 June 1995' },
-    { label: 'Hometown / Place of Birth', val: profile.hometown || 'Winchester' },
-    { label: 'Job / Occupation', val: profile.job || 'Scholar & Craftsman' },
-    { label: 'Address / Current Residence', val: profile.address || '42 High Street, Oxford' },
-    { label: 'Mother\'s Name', val: profile.mother || 'Eleanor' },
-    { label: 'Father\'s Name', val: profile.father || 'Robert' },
-    { label: 'Partner / Spouse Name', val: profile.partner || 'Alice' },
-    { label: 'Children\'s Names', val: profile.children || 'William, Edith' },
-    { label: 'Pet Names', val: profile.petNames || 'Buster, Barnaby' },
-    { label: 'Favorite Food', val: profile.favoriteFood || 'Fresh bread and cider' },
-    { label: 'Favorite Color', val: profile.favoriteColor || 'Forest green' },
-    { label: 'Hobby / Interest', val: profile.hobby || 'Runic woodcarving' },
-  ];
+    { label: 'Your name', val: profile.name },
+    { label: 'People you know', val: profile.people },
+    { label: 'Places you know', val: profile.places },
+    { label: 'Things you like', val: profile.likes },
+    { label: 'What you do', val: profile.job },
+    { label: 'A hobby', val: profile.hobby },
+  ].filter((f) => f.label);
 
   return (
     <>
@@ -135,7 +131,10 @@ function SingleWorksheetSheet({ ws, profile, showAnswerKey }) {
                   <div className="q">{i + 1}.</div>
                   <div>
                     <div className="q" style={{ marginBottom: '1mm', fontWeight: 600 }}>
-                      {f.label}: <span style={{ color: 'var(--accent)' }}>{f.val}</span>
+                      {f.label}:{' '}
+                      {f.val
+                        ? <span style={{ color: 'var(--accent)' }}>{f.val}</span>
+                        : <span className="ws-blank" />}
                     </div>
                     <div className="ws-line" />
                     <div className="ws-line" />
@@ -222,7 +221,7 @@ function SingleWorksheetSheet({ ws, profile, showAnswerKey }) {
       {/* Optional Answer Key Page */}
       {showAnswerKey && (
         <div className="sheet">
-          <h1>Answer Key — {ws.title}</h1>
+          <h1>Answer Key - {ws.title}</h1>
           <div className="sheet-sub">Self-check solution key for {ws.title}.</div>
 
           {ws.isPersonal && (

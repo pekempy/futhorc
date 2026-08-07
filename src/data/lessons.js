@@ -1,5 +1,5 @@
 // The course: zero knowledge to reading and writing paragraphs.
-// Add or remove units freely — everything that mentions the count reads it
+// Add or remove units freely - everything that mentions the count reads it
 // from UNITS.length rather than repeating a number that then goes stale.
 //
 // Runes are introduced in order of usefulness rather than the traditional
@@ -44,7 +44,7 @@ export const UNITS = [
       'net', 'nut', 'lend', 'melt', 'bend', 'desk', 'dust', 'tent', 'lamp', 'damp'],
     teach: [
       'ᛖ is the short e of *bed*. ᚢ is the u of *fun*.',
-      'ᚢ is the busiest rune in the system. Any weak, colourless vowel — the *a* of *about*, the *er* of *butter* — is ᚢ.',
+      'ᚢ is the busiest rune in the system. Any weak, colourless vowel - the *a* of *about*, the *er* of *butter* - is ᚢ.',
       '*Tell* is ᛏᛖᛚ, not ᛏᛖᛚᛚ. You hear one l, so you write one ᛚ. Doubled letters in English spelling almost never mean a doubled sound.',
     ],
     sentences: ['Tell us.', 'It is a bed.', 'Send it.'],
@@ -60,7 +60,7 @@ export const UNITS = [
       'him', 'has', 'had', 'can', 'come', 'want', 'back', 'clock', 'help', 'milk'],
     teach: [
       'ᚳ covers k, hard c and ck. *Cat*, *kite* and *back* all use it.',
-      '**The r rule.** In a British accent you only pronounce r before a vowel. *Red* and *very* have an r sound; *car* and *dark* do not — so you do not write ᚱ in them.',
+      '**The r rule.** In a British accent you only pronounce r before a vowel. *Red* and *very* have an r sound; *car* and *dark* do not - so you do not write ᚱ in them.',
       '*Car* is ᚳᚪ. *Dark* is ᛞᚪᚳ. It looks strange for about ten minutes, then it looks obvious.',
       'A quick test: say the word. If your tongue never makes an r, do not write one.',
     ],
@@ -71,12 +71,12 @@ export const UNITS = [
     part: 'Getting started',
     title: 'Th, f, g, p and ng',
     subtitle: 'ᚦ ᚠ ᚷ ᛈ ᛝ',
-    blurb: 'Now you can write "the" — the commonest word in English.',
+    blurb: 'Now you can write "the" - the commonest word in English.',
     runes: ['ᚦ', 'ᚠ', 'ᚷ', 'ᛈ', 'ᛝ'],
     words: ['the', 'this', 'fat', 'gun', 'pen', 'thing', 'long', 'of', 'have', 'ring', 'song',
       'bath', 'that', 'them', 'then', 'give', 'get', 'top', 'gift', 'thin', 'king', 'bring'],
     teach: [
-      'ᚦ does both kinds of th — the hard one in *thing* and the soft one in *this*.',
+      'ᚦ does both kinds of th - the hard one in *thing* and the soft one in *this*.',
       'ᚠ does both f and v. *Fat* is ᚠᚫᛏ, *have* is ᚻᚫᚠ.',
       'ᛝ is a single sound, the ng of *ring*. One rune, not two. It also does the n in *think* and *thank*.',
       '*The* is ᚦᚢ. Say it out loud unstressed and you will hear the ᚢ.',
@@ -100,7 +100,7 @@ export const UNITS = [
       '**Double a vowel rune to make it long.** ᛁ *sit* → ᛁᛁ *seed*. ᚣ *book* → ᚣᚣ *food*. ᛟ *hot* → ᛟᛟ *thought*.',
       'ᚢ *fun* → ᚢᚢ *turn*. ᛖ *bed* → ᛖᛖ *hair*.',
       'This is the one place where doubling means something. Everywhere else, one sound is one rune.',
-      'Remember the r rule as you go — *turn* is ᛏᚢᚢᚾ, *more* is ᛗᛟᛟ, *hair* is ᚻᛖᛖ.',
+      'Remember the r rule as you go - *turn* is ᛏᚢᚢᚾ, *more* is ᛗᛟᛟ, *hair* is ᚻᛖᛖ.',
     ],
     sentences: ['I can see the moon.', 'The bird is on the roof.', 'Look at the green door.'],
   },
@@ -117,7 +117,7 @@ export const UNITS = [
     teach: [
       'ᚪ is the long *ah* of *arm*. It has no short partner, so it is never doubled.',
       'It covers a set of words a Northern or American speaker says with ᚫ instead: *bath*, *grass*, *laugh*, *dance*, *chance*, *ask*, *past*.',
-      'If you say *bath* to rhyme with *math*, use ᚫ instead — the system follows your accent, not a rulebook.',
+      'If you say *bath* to rhyme with *math*, use ᚫ instead - the system follows your accent, not a rulebook.',
       'And again: *far* is ᚠᚪ, *hard* is ᚻᚪᛞ. No ᚱ.',
     ],
     sentences: ['The car is in the garden.', 'Ask the last man.', 'It is far and dark.'],
@@ -135,7 +135,7 @@ export const UNITS = [
       'old', 'cold', 'snow', 'those', 'hope', 'both'],
     teach: [
       'ᛠ is the *ay* of *day*. ᛡ is the *i* of *time*. ᚩ is the *o* of *go*.',
-      'Each of these is one sound, so one rune — even though English spells them all sorts of ways: *day*, *make*, *rain* and *they* all take ᛠ.',
+      'Each of these is one sound, so one rune - even though English spells them all sorts of ways: *day*, *make*, *rain* and *they* all take ᛠ.',
       'Say them slowly and you can hear the vowel move. That sliding is what makes them one unit rather than two.',
     ],
     sentences: ['I go home in the day.', 'My name is on the road.', 'Take the old boat.'],
@@ -151,7 +151,7 @@ export const UNITS = [
       'boy', 'point', 'join', 'noise', 'voice', 'here', 'near', 'year', 'hear', 'beer', 'clear'],
     teach: [
       'ᚪᚹ is *now*, ᛟᛁ is *boy*, ᛁᚢ is *here*.',
-      'These make sense once you say them slowly — *now* really does slide from ᚪ towards ᚹ, and *here* from ᛁ towards ᚢ.',
+      'These make sense once you say them slowly - *now* really does slide from ᚪ towards ᚹ, and *here* from ᛁ towards ᚢ.',
       'ᛁᚢ is where words like *near*, *year* and *beer* end up once the r has gone.',
     ],
     sentences: ['Come down to the house now.', 'I can hear the boy.', 'The town is near here.'],
@@ -170,7 +170,7 @@ export const UNITS = [
       'wash', 'shall', 'jump', 'jog', 'judge', 'large', 'change', 'age', 'bridge', 'measure'],
     teach: [
       'ᚳᚻ = ch, ᚷᚻ = j, ᛋᚻ = sh. In each case it is the plain consonant plus ᚻ.',
-      'ᚷᚻ also does the soft g of *age*, *large* and *bridge* — the sound is the same as j, so the spelling is.',
+      'ᚷᚻ also does the soft g of *age*, *large* and *bridge* - the sound is the same as j, so the spelling is.',
       'ᛋᚻ doubles up for the middle of *measure* and *usual*, which is the same sound with the voice on.',
     ],
     sentences: ['She sat on the chair.', 'Much has changed.', 'The fish is large.'],
@@ -186,7 +186,7 @@ export const UNITS = [
       'next', 'expect'],
     teach: [
       'ᛄ is the consonant y of *yes* and *you*. The vowel y at the end of *happy* is just ᛁ.',
-      'ᛉ is a shortcut for the ks in *box*. Only use it where English spells an x — *racks* is ᚱᚫᚳᛋ, not ᚱᚫᛉ.',
+      'ᛉ is a shortcut for the ks in *box*. Only use it where English spells an x - *racks* is ᚱᚫᚳᛋ, not ᚱᚫᛉ.',
       'That distinction is a courtesy to the reader, not a sound difference. Both are pronounced the same.',
     ],
     sentences: ['Yes, you can have the box.', 'Six young men.', 'Next year.'],
@@ -224,7 +224,7 @@ export const UNITS = [
     teach: [
       'English hurries over unstressed syllables, and the vowel in them collapses to a vague ᚢ.',
       '*Butter* is ᛒᚢᛏᚢ. *Comma* is ᚳᛟᛗᚢ. *About* is ᚢᛒᚪᚹᛏ. Whatever the spelling suggests, you say ᚢ.',
-      '**Syllabic l and n.** *Little* is ᛚᛁᛏᚢᛚ and *bottle* is ᛒᛟᛏᚢᛚ — put ᚢ in where you hear a faint vowel before the l.',
+      '**Syllabic l and n.** *Little* is ᛚᛁᛏᚢᛚ and *bottle* is ᛒᛟᛏᚢᛚ - put ᚢ in where you hear a faint vowel before the l.',
       'This is the rule that makes runic spelling look most unlike English. Trust your ear.',
     ],
     sentences: ['My mother is in the garden.', 'The water is better now.', 'Open the little bottle.'],
@@ -240,7 +240,7 @@ export const UNITS = [
     words: ['stone', 'best', 'fast', 'first', 'stop', 'star', 'queen', 'quick', 'question',
       'quiet', 'quite'],
     teach: [
-      'ᛥ is ᛋ+ᛏ joined up, and ᛢ is ᚳ+ᚹ joined up. Both are optional — *stone* is ᛥᚩᚾ or ᛋᛏᚩᚾ, whichever you prefer.',
+      'ᛥ is ᛋ+ᛏ joined up, and ᛢ is ᚳ+ᚹ joined up. Both are optional - *stone* is ᛥᚩᚾ or ᛋᛏᚩᚾ, whichever you prefer.',
       'Words are traditionally separated by an interpunct ᛫ rather than a space: ᛏᚣᚣ᛫ᛒᛁᛁ᛫ᛟᛟ᛫ᚾᛟᛏ᛫ᛏᚣᚣ᛫ᛒᛁᛁ.',
       'Commas, full stops and apostrophes work exactly as they do in English. ⁊ is an optional shorthand for *and*.',
       'You can switch the ligatures off in Settings if you would rather write everything out.',
@@ -270,7 +270,7 @@ export const UNITS = [
     teach: [
       'Read the runes aloud before you try to work out the word. Sounding it out is the whole skill.',
       'If a word looks odd, it is almost always the r rule or a doubled vowel.',
-      'Spelling does not have to be perfect — you are being marked on whether you read it right.',
+      'Spelling does not have to be perfect - you are being marked on whether you read it right.',
     ],
   },
   {
@@ -278,7 +278,7 @@ export const UNITS = [
     part: 'Reading',
     title: 'Writing without help',
     subtitle: 'Your turn',
-    blurb: 'English in, runes out — from memory.',
+    blurb: 'English in, runes out - from memory.',
     runes: [],
     words: [],
     freeWrite: [
@@ -349,7 +349,7 @@ export const UNITS = [
     ],
     teach: [
       'Longer words and older wording, but exactly the same system.',
-      'Notice how much shorter runic spelling often is — *thought* is four runes, *through* is four.',
+      'Notice how much shorter runic spelling often is - *thought* is four runes, *through* is four.',
     ],
   },
   {
@@ -363,7 +363,7 @@ export const UNITS = [
     finalReview: true,
     teach: [
       'This pulls from everything you have done. If something has slipped, the Practice tab will keep bringing it back.',
-      'After this, the most useful thing you can do is write something of your own — a note, a list, a diary line a day.',
+      'After this, the most useful thing you can do is write something of your own - a note, a list, a diary line a day.',
     ],
   },
   {

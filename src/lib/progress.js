@@ -2,21 +2,18 @@
 
 const KEY = 'futhorc.v1';
 
+// Words to personalise worksheets with. Blank by default — the old version
+// shipped a fake identity as placeholder text, which encouraged filling in the
+// real one. Dates of birth, addresses and parents' names are gone entirely:
+// they were worth nothing to a worksheet and a great deal to anyone who got
+// hold of them.
 export const DEFAULT_PROFILE = {
-  name: 'Alfred Smith',
-  birthday: '14 June 1995',
-  hometown: 'Winchester',
-  address: '42 High Street, Oxford',
-  job: 'Scholar & Craftsman',
-  mother: 'Eleanor',
-  father: 'Robert',
-  partner: 'Alice',
-  children: 'William, Edith',
-  petNames: 'Buster, Barnaby',
-  favoriteFood: 'Fresh bread and cider',
-  favoriteColor: 'Forest green',
-  hobby: 'Runic woodcarving and reading',
-  title: 'Rune Scholar',
+  name: '',
+  people: '',
+  places: '',
+  likes: '',
+  job: '',
+  hobby: '',
 };
 
 const BLANK = {
@@ -61,16 +58,12 @@ export function load() {
   }
 }
 
+// Local only. This used to also POST every save to /api/db, an endpoint that
+// would then serve the whole database back to anyone who asked; both are gone.
+// Cross-device sync is Drive's job — see lib/drive.js.
 export function save(state) {
   try {
     localStorage.setItem(KEY, JSON.stringify(state));
-    if (typeof window !== 'undefined' && window.fetch) {
-      fetch('/api/db', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ state }),
-      }).catch(() => {});
-    }
   } catch { /* private mode */ }
 }
 
@@ -126,7 +119,7 @@ export function recordAnswer(state, rune, right) {
   s.seen += 1;
   if (right) { s.right += 1; s.box = Math.min(5, s.box + 1); }
   else { s.wrong += 1; s.box = 0; }
-  const gaps = [0, 1, 3, 7, 16, 40]; // in "sessions", not days — keeps it simple
+  const gaps = [0, 1, 3, 7, 16, 40]; // in "sessions", not days - keeps it simple
   s.due = (state.sessionCount || 0) + gaps[s.box];
   state.strength[rune] = s;
   return state;

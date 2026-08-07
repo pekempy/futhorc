@@ -6,7 +6,7 @@ import Worksheets from './Worksheets.jsx';
 
 const SHEETS = [
   ['stroke', 'Stroke-order guide', 'Every rune drawn stroke by stroke, with tracing boxes. Four pages.'],
-  ['chart', 'Reference chart', 'All thirty runes, the sounds, the rules. Two pages — the one to pin up.'],
+  ['chart', 'Reference chart', 'All thirty runes, the sounds, the rules. Two pages - the one to pin up.'],
   ['cards', 'Flashcards', 'Nine to a page, front and back aligned for double-sided printing.'],
   ['worksheets', 'Worksheets (50 Sheets)', '50 progressive worksheets covering common words, names, places, phonics rules & quotes with answer keys.'],
 ];
@@ -20,7 +20,7 @@ export default function PrintView({ state }) {
         <div>
           <h1>Printable sheets</h1>
           <p className="muted">
-            Pick a sheet, then print. They're laid out for A4 — set your printer to
+            Pick a sheet, then print. They're laid out for A4 - set your printer to
             100% scale and no headers or footers.
           </p>
         </div>

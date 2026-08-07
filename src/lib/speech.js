@@ -5,7 +5,7 @@
 // has no reliable phoneme input), so we convert the runes into an English
 // respelling that a British voice pronounces correctly.
 //
-// If you'd rather use Gemini's voices, paste an API key in Settings — it's
+// If you'd rather use Gemini's voices, paste an API key in Settings - it's
 // stored in your browser only and never sent anywhere else.
 
 import { runesToPhonemes } from './phonology.js';

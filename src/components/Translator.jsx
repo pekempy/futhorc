@@ -85,7 +85,7 @@ function ToRunes({ settings, update }) {
           <span className="muted">{[...new Set(result.guesses)].join(', ')}</span>
           <p className="tiny muted" style={{ margin: '0.4rem 0 0' }}>
             These weren't in the dictionary, so the pronunciation was derived from the letters.
-            Usually right, occasionally not — worth a glance if it matters.
+            Usually right, occasionally not - worth a glance if it matters.
           </p>
         </div>
       )}

@@ -1,5 +1,5 @@
-/* Inlines the built app into one self-contained futhorc.html — CSS, JS and the
-   rune font all embedded — so it can be opened straight from disk, emailed or
+/* Inlines the built app into one self-contained futhorc.html - CSS, JS and the
+   rune font all embedded - so it can be opened straight from disk, emailed or
    carried on a USB stick with no server. Run after `npm run build`. */
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
@@ -27,7 +27,7 @@ const html = `<!doctype html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Futhorc — learn to read and write runes</title>
+<title>Futhorc - learn to read and write runes</title>
 <style>${css}</style>
 </head>
 <body>
@@ -40,4 +40,4 @@ ${js}
 
 const out = join(root, 'futhorc.html');
 writeFileSync(out, html);
-console.log(`futhorc.html — ${(html.length / 1024).toFixed(0)} kB, self-contained`);
+console.log(`futhorc.html - ${(html.length / 1024).toFixed(0)} kB, self-contained`);

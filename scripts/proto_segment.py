@@ -8,14 +8,14 @@ The problem: someone writes a line of runes with a finger. Split the strokes
 into runes, and work out where the word breaks are.
 
 The first version compared every gap against fixed fractions of the writing
-height — 0.38 for "same rune", 1.05 for "new word". That fails the moment
+height - 0.38 for "same rune", 1.05 for "new word". That fails the moment
 someone writes with tighter or looser spacing than assumed, and it fails
 differently on every line.
 
 This version measures the line instead. Gaps between strokes fall into three
 natural groups: within a rune (overlapping or nearly), between runes, and
 between words. Rather than guess where the boundaries are, find the split that
-best separates the observed gaps — Otsu's method, which picks the threshold
+best separates the observed gaps - Otsu's method, which picks the threshold
 minimising the variance within each group. The height-based limits stay, but
 only as sanity clamps for when there isn't enough data to measure.
 
@@ -82,7 +82,7 @@ def _widest_valley(values, floor=1.0):
     Sort the values and look for the biggest jump from one to the next, judged
     as a ratio rather than a difference. Handwriting spacing is multiplicative:
     within a rune the gaps run to maybe 12, between runes around 50, between
-    words 130 — the telling thing is the 4x jump from 12 to 50, not the 38
+    words 130 - the telling thing is the 4x jump from 12 to 50, not the 38
     units. The threshold goes at the geometric mean of the pair either side of
     the biggest jump, i.e. in the middle of the empty space.
 
@@ -138,13 +138,13 @@ def segment(strokes):
     # Strokes of the same rune usually overlap, so their gap is negative.
     # Clamp to zero rather than dropping them: that near-zero cluster is
     # exactly the one we're trying to separate from the rest, and leaving it
-    # out makes Otsu split the *other* two groups instead — which put the
+    # out makes Otsu split the *other* two groups instead - which put the
     # threshold above the between-rune gaps and merged whole words into one
     # rune.
     clamped = [max(g, 0.0) for g in gaps]
 
-    # Split in log space. Spacing in handwriting is multiplicative — a word gap
-    # is some *multiple* of a rune gap, not a fixed number of pixels bigger —
+    # Split in log space. Spacing in handwriting is multiplicative - a word gap
+    # is some *multiple* of a rune gap, not a fixed number of pixels bigger -
     # so the three clusters are evenly spread on a log scale and bunched up on
     # a linear one. Linear Otsu put the threshold at 10 when the within-rune
     # gaps ran to 12 and the between-rune gaps started at 50, because one large
@@ -163,7 +163,7 @@ def segment(strokes):
         if measured is not None:
             typical = between[len(between) // 2]      # median rune gap
             # A space has to be clearly wider than the ordinary rune gap on
-            # this line, not merely the widest one — otherwise a single word
+            # this line, not merely the widest one - otherwise a single word
             # gets split at whichever gap happens to be largest.
             word_split = max(measured, typical * 1.6, rune_split * 1.8)
     elif between:

@@ -11,34 +11,27 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'futhorc.db');
 
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
-
-// SQLite Database Initialization
-let db = null;
-try {
-  const { DatabaseSync } = await import('node:sqlite');
-  db = new DatabaseSync(DB_FILE);
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS accounts (
-      id TEXT PRIMARY KEY,
-      username TEXT UNIQUE,
-      email TEXT,
-      password_hash TEXT,
-      profile TEXT,
-      progress TEXT,
-      created_at TEXT
-    );
-    CREATE TABLE IF NOT EXISTS app_state (
-      key TEXT PRIMARY KEY,
-      value TEXT
-    );
-  `);
-  console.log(`SQLite database initialized successfully at ${DB_FILE}`);
-} catch (err) {
-  console.log(`Using SQLite data file storage at ${DB_FILE}`);
+// This server stores nothing.
+//
+// It used to. There was an accounts table and a /api/db endpoint that would
+// GET the whole thing — usernames, unsalted SHA-256 password hashes, emails,
+// and a profile containing dates of birth, home addresses, parents' names —
+// to anyone who asked, and POST would let anyone overwrite it. Both without
+// authentication of any kind.
+//
+// All of it is gone. Identity is Google's problem now; progress lives in the
+// browser and in the user's own hidden Drive folder. The only thing this
+// process does is serve static files and read two environment variables.
+//
+// If you deployed the old version, the leftover database file still holds
+// that data — see the warning below.
+if (fs.existsSync(DB_FILE)) {
+  console.warn(
+    `\n  ⚠  ${DB_FILE} exists and is no longer used.\n` +
+    '     It may still contain password hashes and personal details from the\n' +
+    '     old account system. Nothing reads it any more, but it is worth\n' +
+    '     deleting rather than leaving on disk.\n'
+  );
 }
 
 // MIME types for static asset serving
@@ -56,132 +49,13 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
-function readDatabaseData() {
-  if (db) {
-    try {
-      const accountRows = db.prepare('SELECT * FROM accounts').all();
-      const accounts = accountRows.map((r) => ({
-        id: r.id,
-        username: r.username,
-        email: r.email,
-        passwordHash: r.password_hash,
-        profile: r.profile ? JSON.parse(r.profile) : {},
-        progress: r.progress ? JSON.parse(r.progress) : {},
-        createdAt: r.created_at,
-      }));
-
-      const stateRow = db.prepare('SELECT value FROM app_state WHERE key = ?').get('state');
-      const state = stateRow ? JSON.parse(stateRow.value) : null;
-
-      return { accounts, state };
-    } catch (e) {
-      console.error('Error reading SQLite tables:', e);
-    }
-  }
-
-  // File fallback
-  if (fs.existsSync(DB_FILE)) {
-    try {
-      const raw = fs.readFileSync(DB_FILE, 'utf-8');
-      return JSON.parse(raw);
-    } catch {
-      return { accounts: [], state: null };
-    }
-  }
-  return { accounts: [], state: null };
-}
-
-function writeDatabaseData(payload) {
-  if (db) {
-    try {
-      if (payload.accounts && Array.isArray(payload.accounts)) {
-        const stmt = db.prepare(`
-          INSERT INTO accounts (id, username, email, password_hash, profile, progress, created_at)
-          VALUES (?, ?, ?, ?, ?, ?, ?)
-          ON CONFLICT(id) DO UPDATE SET
-            username = excluded.username,
-            email = excluded.email,
-            password_hash = excluded.password_hash,
-            profile = excluded.profile,
-            progress = excluded.progress;
-        `);
-        for (const acc of payload.accounts) {
-          stmt.run(
-            acc.id || String(Date.now()),
-            acc.username || '',
-            acc.email || '',
-            acc.passwordHash || '',
-            JSON.stringify(acc.profile || {}),
-            JSON.stringify(acc.progress || {}),
-            acc.createdAt || new Date().toISOString()
-          );
-        }
-      }
-
-      if (payload.state) {
-        const stmt = db.prepare(`
-          INSERT INTO app_state (key, value)
-          VALUES (?, ?)
-          ON CONFLICT(key) DO UPDATE SET value = excluded.value;
-        `);
-        stmt.run('state', JSON.stringify(payload.state));
-      }
-      return;
-    } catch (e) {
-      console.error('Error writing to SQLite tables:', e);
-    }
-  }
-
-  // File fallback
-  fs.writeFileSync(DB_FILE, JSON.stringify(payload, null, 2), 'utf-8');
-}
-
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const pathname = url.pathname;
 
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204);
-    res.end();
-    return;
-  }
-
-  // API Endpoints
-  if (pathname === '/api/db') {
-    if (req.method === 'GET') {
-      try {
-        const data = readDatabaseData();
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(data));
-      } catch (err) {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Failed to read SQLite database' }));
-      }
-      return;
-    }
-
-    if (req.method === 'POST') {
-      let body = '';
-      req.on('data', (chunk) => { body += chunk; });
-      req.on('end', () => {
-        try {
-          const parsed = JSON.parse(body);
-          writeDatabaseData(parsed);
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ success: true }));
-        } catch (err) {
-          res.writeHead(400, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ error: 'Invalid JSON payload' }));
-        }
-      });
-      return;
-    }
-  }
+  // Same-origin only. There is no cross-origin API to support, and a wildcard
+  // here would let any page on the internet read /api/config.
+  res.setHeader('Vary', 'Origin');
 
   // Runtime configuration.
   //
@@ -194,11 +68,20 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({
       geminiApiKey: process.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '',
       // Public by design: an OAuth client ID identifies the app, it doesn't
-      // authorise anything on its own. The client *secret* is not used at all —
+      // authorise anything on its own. The client *secret* is not used at all -
       // the browser flow is a public client and has no secret.
       googleClientId: process.env.GOOGLE_CLIENT_ID
         || process.env.VITE_GOOGLE_CLIENT_ID || '',
     }));
+    return;
+  }
+
+  // /api/config is the only endpoint. Anything else under /api/ is a 404 —
+  // without this the SPA fallback below answers /api/db with index.html and a
+  // cheerful 200, which looks like the old endpoint is still alive.
+  if (pathname === '/api' || pathname.startsWith('/api/')) {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Not found' }));
     return;
   }
 
@@ -240,5 +123,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`Futhorc server listening on port ${PORT}`);
-  console.log(`SQLite database file: ${DB_FILE}`);
 });

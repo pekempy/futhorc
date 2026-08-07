@@ -19,7 +19,7 @@ export default function Home({ state, go }) {
         </p>
         <div className="row" style={{ marginTop: '1rem' }}>
           <button className="btn primary" onClick={() => go('learn', next.id)}>
-            {done ? `Continue — Unit ${next.id}` : 'Start Unit 1'}
+            {done ? `Continue - Unit ${next.id}` : 'Start Unit 1'}
           </button>
           <button className="btn" onClick={() => go('print')}>Print a practice sheet</button>
         </div>
@@ -29,7 +29,7 @@ export default function Home({ state, go }) {
         <section className="stat-row">
           <div className="stat"><div className="v">{done}<span className="muted small">/{UNITS.length}</span></div><div className="k">Units done</div></div>
           <div className="stat"><div className="v">{learned}<span className="muted small">/{RUNES.length}</span></div><div className="k">Runes known</div></div>
-          <div className="stat"><div className="v">{acc === null ? '—' : `${acc}%`}</div><div className="k">Accuracy</div></div>
+          <div className="stat"><div className="v">{acc === null ? '-' : `${acc}%`}</div><div className="k">Accuracy</div></div>
         </section>
       )}
 

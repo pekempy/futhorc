@@ -22,8 +22,8 @@ export const WORKSHEETS = [
     id: 0,
     level: 0,
     isPersonal: true,
-    title: 'Worksheet 0 — Personal Profile Worksheet',
-    subtitle: 'Write your own name, birthday, hometown, job, family names, pet names, and address in Futhorc runes!',
+    title: 'Worksheet 0 - Personal Profile Worksheet',
+    subtitle: 'Write the names, places and things you chose on the You page in Futhorc runes.',
     instructions: 'Customized based on your Profile settings.',
     type: 'personal',
   },
@@ -31,7 +31,7 @@ export const WORKSHEETS = [
   {
     id: 1,
     level: 1,
-    title: 'Worksheet 1 — Simple 3-Letter Words',
+    title: 'Worksheet 1 - Simple 3-Letter Words',
     subtitle: 'Write each short 3-letter English word in Futhorc runes.',
     instructions: 'Focus on writing the sounds you hear rather than spelling.',
     type: 'words',
@@ -41,7 +41,7 @@ export const WORKSHEETS = [
   {
     id: 2,
     level: 1,
-    title: 'Worksheet 2 — Common 4-Letter Words',
+    title: 'Worksheet 2 - Common 4-Letter Words',
     subtitle: 'Transliterate common 4-letter words into runes and back.',
     instructions: 'Remember: only write ᚱ before a vowel, and double vowels for long sounds.',
     type: 'words',
@@ -51,7 +51,7 @@ export const WORKSHEETS = [
   {
     id: 3,
     level: 1,
-    title: 'Worksheet 3 — 100 Most Common Words (Part 1)',
+    title: 'Worksheet 3 - 100 Most Common Words (Part 1)',
     subtitle: 'Practice the most frequently used words in the English language.',
     instructions: 'Write the runic phonetic representation for each word.',
     type: 'words',
@@ -61,7 +61,7 @@ export const WORKSHEETS = [
   {
     id: 4,
     level: 1,
-    title: 'Worksheet 4 — 100 Most Common Words (Part 2)',
+    title: 'Worksheet 4 - 100 Most Common Words (Part 2)',
     subtitle: 'High frequency everyday verbs and nouns.',
     instructions: 'Sound each word out carefully before writing the runes.',
     type: 'words',
@@ -71,7 +71,7 @@ export const WORKSHEETS = [
   {
     id: 5,
     level: 1,
-    title: 'Worksheet 5 — Short vs Long Vowel Sounds',
+    title: 'Worksheet 5 - Short vs Long Vowel Sounds',
     subtitle: 'Compare short vowel runes (ᚪ, ᛖ, ᛁ, ᚩ, ᚢ) with long double vowels.',
     instructions: 'Pay attention to vowel duration when transliterating.',
     type: 'words',
@@ -81,7 +81,7 @@ export const WORKSHEETS = [
   {
     id: 6,
     level: 1,
-    title: 'Worksheet 6 — Words with Silent E',
+    title: 'Worksheet 6 - Words with Silent E',
     subtitle: 'Futhorc represents sounds, so silent letter "e" is not written at the end of words.',
     instructions: 'Omit silent final -e and write the long vowel sound.',
     type: 'words',
@@ -91,7 +91,7 @@ export const WORKSHEETS = [
   {
     id: 7,
     level: 1,
-    title: 'Worksheet 7 — Vowel Pairs & Diphthongs',
+    title: 'Worksheet 7 - Vowel Pairs & Diphthongs',
     subtitle: 'Practice long vowels and diphthong combinations like ea, ee, oo, oa.',
     instructions: 'Use double vowel runes for long vowels (e.g., ᛖᛖ for long ee).',
     type: 'words',
@@ -101,7 +101,7 @@ export const WORKSHEETS = [
   {
     id: 8,
     level: 1,
-    title: 'Worksheet 8 — The Wing Rune ᛝ (-ing)',
+    title: 'Worksheet 8 - The Wing Rune ᛝ (-ing)',
     subtitle: 'Practice using the single rune ᛝ (Ing / Wing) for the "ng" sound.',
     instructions: 'Use the single rune ᛝ instead of separate n and g.',
     type: 'words',
@@ -111,7 +111,7 @@ export const WORKSHEETS = [
   {
     id: 9,
     level: 1,
-    title: 'Worksheet 9 — Consonant Digraphs (sh, th, ch)',
+    title: 'Worksheet 9 - Consonant Digraphs (sh, th, ch)',
     subtitle: 'Learn how consonant combinations are written in Futhorc.',
     instructions: 'Use ᚦ for "th" and ᚳ for "ch" or hard "c".',
     type: 'words',
@@ -121,7 +121,7 @@ export const WORKSHEETS = [
   {
     id: 10,
     level: 1,
-    title: 'Worksheet 10 — Common Personal Names (Set 1)',
+    title: 'Worksheet 10 - Common Personal Names (Set 1)',
     subtitle: 'Write short English names in Futhorc runes.',
     instructions: 'Pronounce the name and write its phonetic runes.',
     type: 'words',
@@ -133,7 +133,7 @@ export const WORKSHEETS = [
   {
     id: 11,
     level: 2,
-    title: 'Worksheet 11 — Classic English Names',
+    title: 'Worksheet 11 - Classic English Names',
     subtitle: 'Transliterate traditional English and Anglo-Saxon names.',
     instructions: 'Pay attention to multisyllabic sound breakdown.',
     type: 'words',
@@ -143,7 +143,7 @@ export const WORKSHEETS = [
   {
     id: 12,
     level: 2,
-    title: 'Worksheet 12 — Famous English Towns & Cities',
+    title: 'Worksheet 12 - Famous English Towns & Cities',
     subtitle: 'Write historical and modern British place names.',
     instructions: 'Notice how silent letters in English place names disappear in runes.',
     type: 'words',
@@ -153,7 +153,7 @@ export const WORKSHEETS = [
   {
     id: 13,
     level: 2,
-    title: 'Worksheet 13 — Royal & Historical Figures',
+    title: 'Worksheet 13 - Royal & Historical Figures',
     subtitle: 'Write names of historical kings, queens, and historical icons.',
     instructions: 'Focus on phonetic spelling of royal names.',
     type: 'words',
@@ -163,7 +163,7 @@ export const WORKSHEETS = [
   {
     id: 14,
     level: 2,
-    title: 'Worksheet 14 — Animals & Wildlife',
+    title: 'Worksheet 14 - Animals & Wildlife',
     subtitle: 'Write names of animals, birds, and forest creatures in runes.',
     instructions: 'Identify each sound in animal names.',
     type: 'words',
@@ -173,7 +173,7 @@ export const WORKSHEETS = [
   {
     id: 15,
     level: 2,
-    title: 'Worksheet 15 — Food, Drink & Household Objects',
+    title: 'Worksheet 15 - Food, Drink & Household Objects',
     subtitle: 'Everyday household items and food vocabulary.',
     instructions: 'Convert familiar domestic terms to Futhorc.',
     type: 'words',
@@ -183,7 +183,7 @@ export const WORKSHEETS = [
   {
     id: 16,
     level: 2,
-    title: 'Worksheet 16 — Time, Days & Seasons',
+    title: 'Worksheet 16 - Time, Days & Seasons',
     subtitle: 'Calendar vocabulary, days of the week, and seasons.',
     instructions: 'Did you know many English days are named after Germanic gods?',
     type: 'words',
@@ -193,7 +193,7 @@ export const WORKSHEETS = [
   {
     id: 17,
     level: 2,
-    title: 'Worksheet 17 — Verbs of Action & Thought',
+    title: 'Worksheet 17 - Verbs of Action & Thought',
     subtitle: 'Common action and cognitive verbs.',
     instructions: 'Pay attention to vowel endings.',
     type: 'words',
@@ -203,7 +203,7 @@ export const WORKSHEETS = [
   {
     id: 18,
     level: 2,
-    title: 'Worksheet 18 — Colors & Descriptions',
+    title: 'Worksheet 18 - Colors & Descriptions',
     subtitle: 'Adjectives describing color, size, and personality.',
     instructions: 'Sound out descriptive English terms.',
     type: 'words',
@@ -213,7 +213,7 @@ export const WORKSHEETS = [
   {
     id: 19,
     level: 2,
-    title: 'Worksheet 19 — Family & Relationships',
+    title: 'Worksheet 19 - Family & Relationships',
     subtitle: 'Kinship and relationship vocabulary.',
     instructions: 'Remember: ending -er is written with ᚢ (sounded "uh").',
     type: 'words',
@@ -223,7 +223,7 @@ export const WORKSHEETS = [
   {
     id: 20,
     level: 2,
-    title: 'Worksheet 20 — Weather & Natural World',
+    title: 'Worksheet 20 - Weather & Natural World',
     subtitle: 'Elements, atmosphere, and landscape vocabulary.',
     instructions: 'Observe how clusters like str- or -st are represented.',
     type: 'words',
@@ -235,7 +235,7 @@ export const WORKSHEETS = [
   {
     id: 21,
     level: 3,
-    title: 'Worksheet 21 — The Silent R Rule',
+    title: 'Worksheet 21 - The Silent R Rule',
     subtitle: 'In Non-Rhotic English, R before a consonant is silent and NOT written in runes.',
     instructions: 'Omit ᚱ when r is followed by a consonant (e.g. hard = ᚻᚪᛞ).',
     type: 'words',
@@ -245,7 +245,7 @@ export const WORKSHEETS = [
   {
     id: 22,
     level: 3,
-    title: 'Worksheet 22 — Soft G vs Hard G',
+    title: 'Worksheet 22 - Soft G vs Hard G',
     subtitle: 'Distinguishing hard G (ᚷ) from soft G (dzh sound).',
     instructions: 'Soft G is sounded as "j" (dzh), while hard G is ᚷ.',
     type: 'words',
@@ -255,7 +255,7 @@ export const WORKSHEETS = [
   {
     id: 23,
     level: 3,
-    title: 'Worksheet 23 — Soft C vs Hard C',
+    title: 'Worksheet 23 - Soft C vs Hard C',
     subtitle: 'Hard C is sounded as K (ᚳ), soft C as S (ᛋ).',
     instructions: 'Write ᚳ for hard C (cat) and ᛋ for soft C (city, ice).',
     type: 'words',
@@ -265,7 +265,7 @@ export const WORKSHEETS = [
   {
     id: 24,
     level: 3,
-    title: 'Worksheet 24 — Suffixes -tion and -sion',
+    title: 'Worksheet 24 - Suffixes -tion and -sion',
     subtitle: 'English -tion is phonetically pronounced "shun" (ᛋᚻᚢᚾ or ᛋᚢᚾ).',
     instructions: 'Write the phonetic sound "shun" for -tion words.',
     type: 'words',
@@ -275,7 +275,7 @@ export const WORKSHEETS = [
   {
     id: 25,
     level: 3,
-    title: 'Worksheet 25 — Silent Letters (K, W, B)',
+    title: 'Worksheet 25 - Silent Letters (K, W, B)',
     subtitle: 'English silent initial or final letters are omitted in Futhorc.',
     instructions: 'Do not write silent k in kn-, silent w in wr-, or silent b in -mb.',
     type: 'words',
@@ -285,7 +285,7 @@ export const WORKSHEETS = [
   {
     id: 26,
     level: 3,
-    title: 'Worksheet 26 — Compound Words',
+    title: 'Worksheet 26 - Compound Words',
     subtitle: 'Writing multi-part compound English words.',
     instructions: 'Break compound words into logical sound blocks.',
     type: 'words',
@@ -295,7 +295,7 @@ export const WORKSHEETS = [
   {
     id: 27,
     level: 3,
-    title: 'Worksheet 27 — Special Futhorc Ligatures (ᛥ, ᛢ)',
+    title: 'Worksheet 27 - Special Futhorc Ligatures (ᛥ, ᛢ)',
     subtitle: 'Using shortcut runes for st (ᛥ) and qu (ᛢ).',
     instructions: 'Use ᛥ for "st" and ᛢ for "qu".',
     type: 'words',
@@ -305,7 +305,7 @@ export const WORKSHEETS = [
   {
     id: 28,
     level: 3,
-    title: 'Worksheet 28 — Unstressed Endings -er and -le',
+    title: 'Worksheet 28 - Unstressed Endings -er and -le',
     subtitle: 'The unstressed ending -er is sounded and written as ᚢ.',
     instructions: 'Write ᚢ at the end of words like water (ᚹᛟᛟᛏᚢ).',
     type: 'words',
@@ -315,7 +315,7 @@ export const WORKSHEETS = [
   {
     id: 29,
     level: 3,
-    title: 'Worksheet 29 — Old English & Heroic Vocabulary',
+    title: 'Worksheet 29 - Old English & Heroic Vocabulary',
     subtitle: 'Historic Anglo-Saxon terms found in legendary sagas.',
     instructions: 'Transliterate classic warrior and hall terminology.',
     type: 'words',
@@ -325,7 +325,7 @@ export const WORKSHEETS = [
   {
     id: 30,
     level: 3,
-    title: 'Worksheet 30 — Rune Names as English Words',
+    title: 'Worksheet 30 - Rune Names as English Words',
     subtitle: 'English words that match the traditional names of Futhorc runes.',
     instructions: 'Write each English rune-name concept in runes.',
     type: 'words',
@@ -337,7 +337,7 @@ export const WORKSHEETS = [
   {
     id: 31,
     level: 4,
-    title: 'Worksheet 31 — Simple Short Sentences',
+    title: 'Worksheet 31 - Simple Short Sentences',
     subtitle: 'Transliterate full short sentences into Futhorc runes.',
     instructions: 'Use the interpunct (·) or space as a word separator.',
     type: 'sentences',
@@ -357,7 +357,7 @@ export const WORKSHEETS = [
   {
     id: 32,
     level: 4,
-    title: 'Worksheet 32 — Daily Greetings & Expressions',
+    title: 'Worksheet 32 - Daily Greetings & Expressions',
     subtitle: 'Conversational English sentences in runes.',
     instructions: 'Maintain punctuation marks at sentence boundaries.',
     type: 'sentences',
@@ -377,7 +377,7 @@ export const WORKSHEETS = [
   {
     id: 33,
     level: 4,
-    title: 'Worksheet 33 — Short Narrative Passages (Part A)',
+    title: 'Worksheet 33 - Short Narrative Passages (Part A)',
     subtitle: 'Reading and writing continuous story lines.',
     instructions: 'Break down each phrase phonetically.',
     type: 'sentences',
@@ -395,7 +395,7 @@ export const WORKSHEETS = [
   {
     id: 34,
     level: 4,
-    title: 'Worksheet 34 — Short Narrative Passages (Part B)',
+    title: 'Worksheet 34 - Short Narrative Passages (Part B)',
     subtitle: 'Stories of adventure and travel.',
     instructions: 'Observe how spaces convert to interpuncts in runes.',
     type: 'sentences',
@@ -413,7 +413,7 @@ export const WORKSHEETS = [
   {
     id: 35,
     level: 4,
-    title: 'Worksheet 35 — Classic English Proverbs',
+    title: 'Worksheet 35 - Classic English Proverbs',
     subtitle: 'Timeless wisdom expressed in Futhorc runes.',
     instructions: 'Convert famous proverbs into runic script.',
     type: 'sentences',
@@ -433,7 +433,7 @@ export const WORKSHEETS = [
   {
     id: 36,
     level: 4,
-    title: 'Worksheet 36 — Nature & Seasonal Descriptions',
+    title: 'Worksheet 36 - Nature & Seasonal Descriptions',
     subtitle: 'Describing landscape, weather, and seasonal changes.',
     instructions: 'Pay attention to vowel diphthongs.',
     type: 'sentences',
@@ -451,7 +451,7 @@ export const WORKSHEETS = [
   {
     id: 37,
     level: 4,
-    title: 'Worksheet 37 — Famous Quotes (Part A)',
+    title: 'Worksheet 37 - Famous Quotes (Part A)',
     subtitle: 'Transliterating historical quotes from literature.',
     instructions: 'Keep sentence structure intact.',
     type: 'sentences',
@@ -469,7 +469,7 @@ export const WORKSHEETS = [
   {
     id: 38,
     level: 4,
-    title: 'Worksheet 38 — Famous Quotes (Part B)',
+    title: 'Worksheet 38 - Famous Quotes (Part B)',
     subtitle: 'Inspirational historical statements.',
     instructions: 'Practice precision in long sentences.',
     type: 'sentences',
@@ -487,7 +487,7 @@ export const WORKSHEETS = [
   {
     id: 39,
     level: 4,
-    title: 'Worksheet 39 — Riddles & Answers',
+    title: 'Worksheet 39 - Riddles & Answers',
     subtitle: 'Traditional English riddles written in runes.',
     instructions: 'Read the riddle in runes and solve it!',
     type: 'sentences',
@@ -505,7 +505,7 @@ export const WORKSHEETS = [
   {
     id: 40,
     level: 4,
-    title: 'Worksheet 40 — Classic Poetry Verses',
+    title: 'Worksheet 40 - Classic Poetry Verses',
     subtitle: 'Lines from famous English poetry in Futhorc.',
     instructions: 'Appreciate rhythm and phonetics in poetic lines.',
     type: 'sentences',
@@ -525,7 +525,7 @@ export const WORKSHEETS = [
   {
     id: 41,
     level: 5,
-    title: 'Worksheet 41 — Anglo-Saxon Chronicle Excerpt',
+    title: 'Worksheet 41 - Anglo-Saxon Chronicle Excerpt',
     subtitle: 'Historical prose regarding King Alfred the Great.',
     instructions: 'Transliterate extended historical prose.',
     type: 'sentences',
@@ -543,7 +543,7 @@ export const WORKSHEETS = [
   {
     id: 42,
     level: 5,
-    title: 'Worksheet 42 — Legendary Saga Excerpt (Beowulf)',
+    title: 'Worksheet 42 - Legendary Saga Excerpt (Beowulf)',
     subtitle: 'Lines inspired by the heroic epic Beowulf.',
     instructions: 'Handle heroic and archaic English phrasings.',
     type: 'sentences',
@@ -561,7 +561,7 @@ export const WORKSHEETS = [
   {
     id: 43,
     level: 5,
-    title: 'Worksheet 43 — Mixed Reading & Transliteration Challenge',
+    title: 'Worksheet 43 - Mixed Reading & Transliteration Challenge',
     subtitle: 'Complex sentences combining rare runes and advanced rules.',
     instructions: 'Test your mastery of all 30 Futhorc glyphs.',
     type: 'sentences',
@@ -577,7 +577,7 @@ export const WORKSHEETS = [
   {
     id: 44,
     level: 5,
-    title: 'Worksheet 44 — Full Narrative Paragraph',
+    title: 'Worksheet 44 - Full Narrative Paragraph',
     subtitle: 'A complete multi-sentence paragraph to transliterate.',
     instructions: 'Transliterate the entire paragraph continuous text.',
     type: 'sentences',
@@ -595,7 +595,7 @@ export const WORKSHEETS = [
   {
     id: 45,
     level: 5,
-    title: 'Worksheet 45 — Geography & Rivers of Britain',
+    title: 'Worksheet 45 - Geography & Rivers of Britain',
     subtitle: 'Transliterating British geographic features and rivers.',
     instructions: 'Apply runic phonetic rules to geographical names.',
     type: 'sentences',
@@ -613,7 +613,7 @@ export const WORKSHEETS = [
   {
     id: 46,
     level: 5,
-    title: 'Worksheet 46 — Kings & Queens of History',
+    title: 'Worksheet 46 - Kings & Queens of History',
     subtitle: 'Transliterating historic British monarchs and leaders.',
     instructions: 'Focus on proper noun phonetics.',
     type: 'sentences',
@@ -631,7 +631,7 @@ export const WORKSHEETS = [
   {
     id: 47,
     level: 5,
-    title: 'Worksheet 47 — Modern Loan Words & Technology',
+    title: 'Worksheet 47 - Modern Loan Words & Technology',
     subtitle: 'How modern 21st-century terms are phonetically spelled in runes.',
     instructions: 'Futhorc works for any modern word by sounding it out!',
     type: 'words',
@@ -641,7 +641,7 @@ export const WORKSHEETS = [
   {
     id: 48,
     level: 5,
-    title: 'Worksheet 48 — Rapid Reading Fluency Test',
+    title: 'Worksheet 48 - Rapid Reading Fluency Test',
     subtitle: 'Timed reading challenge for speed and accuracy.',
     instructions: 'Read through all 4 sentences in runes as quickly as possible.',
     type: 'sentences',
@@ -659,9 +659,9 @@ export const WORKSHEETS = [
   {
     id: 49,
     level: 5,
-    title: 'Worksheet 49 — Master Spelling Bee (Challenging Words)',
+    title: 'Worksheet 49 - Master Spelling Bee (Challenging Words)',
     subtitle: 'Complex English words with non-phonetic silent spellings.',
-    instructions: 'Ignore English spelling traps — write pure phonetics!',
+    instructions: 'Ignore English spelling traps - write pure phonetics!',
     type: 'words',
     writeWords: ['rhythm', 'echo', 'ghost', 'castle', 'island', 'autumn', 'psalm', 'sword', 'whistle', 'answer', 'tongue', 'choir'],
     readWords: ['subtle', 'receipt', 'debris', 'ballet', 'column', 'hymn', 'mortgage', 'soften', 'fasten', 'listen', 'solemn', 'thistle'],
@@ -669,7 +669,7 @@ export const WORKSHEETS = [
   {
     id: 50,
     level: 5,
-    title: 'Worksheet 50 — Comprehensive Futhorc Master Exam',
+    title: 'Worksheet 50 - Comprehensive Futhorc Master Exam',
     subtitle: 'The ultimate 20-question test of Futhorc reading, writing, and phonetics.',
     instructions: 'Complete all sections to earn your Futhorc Master Certificate.',
     type: 'sentences',

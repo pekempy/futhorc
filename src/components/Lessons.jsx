@@ -28,16 +28,16 @@ const toRunes = (s) => transliterate(s).text;
 const normalise = (s) => s.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
 
 const NUMBER_LABELS = {
-  'ᚪᚾ': { label: '1 — one (ān)', name: 'One', ipa: 'ɑːn' },
-  'ᛏᚹᚪ': { label: '2 — two (twā)', name: 'Two', ipa: 'twɑː' },
-  'ᚦᚱᛁᛖ': { label: '3 — three (þrīe)', name: 'Three', ipa: 'θriːe' },
-  'ᚠᛖᚩᚹᛖᚱ': { label: '4 — four (feōwer)', name: 'Four', ipa: 'feowər' },
-  'ᚠᛁᚠ': { label: '5 — five (fīf)', name: 'Five', ipa: 'fiːf' },
-  'ᛋᛁᚳᛋ': { label: '6 — six (six)', name: 'Six', ipa: 'siks' },
-  'ᛋᛖᚩᚠᚩᚾ': { label: '7 — seven (seofon)', name: 'Seven', ipa: 'seovon' },
-  'ᛠᚻᛏᚪ': { label: '8 — eight (eahta)', name: 'Eight', ipa: 'æːɑxtɑ' },
-  'ᚾᛁᚷᚩᚾ': { label: '9 — nine (nigon)', name: 'Nine', ipa: 'nijon' },
-  'ᛏᛁᛖᚾ': { label: '10 — ten (tīen)', name: 'Ten', ipa: 'tiːen' },
+  'ᚪᚾ': { label: '1 - one (ān)', name: 'One', ipa: 'ɑːn' },
+  'ᛏᚹᚪ': { label: '2 - two (twā)', name: 'Two', ipa: 'twɑː' },
+  'ᚦᚱᛁᛖ': { label: '3 - three (þrīe)', name: 'Three', ipa: 'θriːe' },
+  'ᚠᛖᚩᚹᛖᚱ': { label: '4 - four (feōwer)', name: 'Four', ipa: 'feowər' },
+  'ᚠᛁᚠ': { label: '5 - five (fīf)', name: 'Five', ipa: 'fiːf' },
+  'ᛋᛁᚳᛋ': { label: '6 - six (six)', name: 'Six', ipa: 'siks' },
+  'ᛋᛖᚩᚠᚩᚾ': { label: '7 - seven (seofon)', name: 'Seven', ipa: 'seovon' },
+  'ᛠᚻᛏᚪ': { label: '8 - eight (eahta)', name: 'Eight', ipa: 'æːɑxtɑ' },
+  'ᚾᛁᚷᚩᚾ': { label: '9 - nine (nigon)', name: 'Nine', ipa: 'nijon' },
+  'ᛏᛁᛖᚾ': { label: '10 - ten (tīen)', name: 'Ten', ipa: 'tiːen' },
 };
 
 function describe(seq) {
@@ -59,7 +59,7 @@ function UnitList({ state, go }) {
       <div>
         <h1>The course</h1>
         <p className="muted">
-          {UNITS.length} units in {PARTS.length} parts. Work through in order — each one only ever asks you
+          {UNITS.length} units in {PARTS.length} parts. Work through in order - each one only ever asks you
           to use runes you have already met. About ten minutes each.
         </p>
       </div>
@@ -111,7 +111,7 @@ function buildSteps(unit) {
   const words = unit.words || [];
   const allWords = wordsThrough(unit.id);
 
-  // 2. read words — multiple choice first, then unaided
+  // 2. read words - multiple choice first, then unaided
   const mcWords = shuffle(words).slice(0, Math.min(5, words.length));
   for (const w of mcWords) {
     exercises.push({ type: 'read', word: w, options: shuffle([w, ...sample(allWords, 3, [w])]) });
@@ -410,7 +410,7 @@ function Identify({ step, answered, onAnswer, onNext }) {
       title="What sound is this?"
       answered={answered}
       onNext={onNext}
-      feedback={answered === 'ok' ? `Yes — ${d.label}.` : `This one is ${d.label}${d.name ? ` (${d.name})` : ''}.`}
+      feedback={answered === 'ok' ? `Yes - ${d.label}.` : `This one is ${d.label}${d.name ? ` (${d.name})` : ''}.`}
     >
       <div className="card center">
         <div className="prompt-rune rune">{step.seq}</div>
@@ -439,7 +439,7 @@ function Pick({ step, answered, onAnswer, onNext }) {
       title="Which rune?"
       answered={answered}
       onNext={onNext}
-      feedback={answered === 'ok' ? 'Correct.' : `It's ${step.seq} — ${d.label}.`}
+      feedback={answered === 'ok' ? 'Correct.' : `It's ${step.seq} - ${d.label}.`}
     >
       <div className="card center">
         <div className="prompt-word">{d.label}</div>
@@ -469,7 +469,7 @@ function ReadChoice({ step, unit, answered, onAnswer, onNext }) {
       answered={answered}
       onNext={onNext}
       feedback={answered === 'ok'
-        ? `Right — ${runic} is “${step.word}”.`
+        ? `Right - ${runic} is “${step.word}”.`
         : `It says “${step.word}”. Sound it out: ${readAloud(runic)}.`}
     >
       <div className="card center">
@@ -498,12 +498,12 @@ function ReadType({ step, unit, answered, onAnswer, onNext }) {
   return (
     <Shell
       title="What does this say?"
-      hint="No options this time — sound it out and type the English."
+      hint="No options this time - sound it out and type the English."
       answered={answered}
       onNext={onNext}
       feedback={answered === 'ok'
         ? 'Correct.'
-        : `It says “${step.word}” — ${readAloud(runic)}.`}
+        : `It says “${step.word}” - ${readAloud(runic)}.`}
     >
       <div className="card center">
         <div className="prompt-rune rune">{runic}</div>
@@ -572,7 +572,7 @@ function Builder({ title, hint, prompt, target, altTarget = '', unit, answered, 
       hint={hint}
       answered={answered}
       onNext={onNext}
-      feedback={answered === 'ok' ? 'Exactly right.' : `Not quite — it's ${target}.`}
+      feedback={answered === 'ok' ? 'Exactly right.' : `Not quite - it's ${target}.`}
     >
       {prompt}
       <div className="answer-box rune">
@@ -588,7 +588,7 @@ function Builder({ title, hint, prompt, target, altTarget = '', unit, answered, 
       {answered === 'no' && (
         <div className="card small">
           <div className="muted">You wrote <span className="rune" style={{ fontSize: '1.4rem' }}>{typed}</span></div>
-          <div className="muted">Answer <span className="rune" style={{ fontSize: '1.4rem' }}>{target}</span> — {readAloud(target)}</div>
+          <div className="muted">Answer <span className="rune" style={{ fontSize: '1.4rem' }}>{target}</span> - {readAloud(target)}</div>
         </div>
       )}
       {extra}
@@ -662,7 +662,7 @@ function Passage({ step, answered, onAnswer, onNext }) {
       hint="Read it through, aloud if you can. Reveal the English when you want to check."
       answered={answered}
       onNext={onNext}
-      feedback={answered === 'ok' ? 'Good — that is reading.' : 'Worth another pass later.'}
+      feedback={answered === 'ok' ? 'Good - that is reading.' : 'Worth another pass later.'}
     >
       <div className="card stack" style={{ gap: '1rem', padding: '1.25rem' }}>
         <RuneTextReader runic={runic} label="Hear it" fontSize="clamp(1.15rem, 3.6vw, 1.6rem)" />

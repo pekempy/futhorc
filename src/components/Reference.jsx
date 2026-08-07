@@ -110,7 +110,7 @@ export default function Reference({ focus }) {
             {PUNCTUATION.map((p) => (
               <tr key={p.r}>
                 <td className="r rune">{p.r}</td>
-                <td><strong>{p.name}</strong> — {p.gloss}</td>
+                <td><strong>{p.name}</strong> - {p.gloss}</td>
                 <td className="rune" style={{ fontSize: '1.1rem' }}>{p.eg || ''}</td>
               </tr>
             ))}
@@ -154,5 +154,5 @@ function Ex({ text }) {
 }
 
 function GLYPH_STROKES(rune) {
-  return GLYPHS[rune]?.strokes.length ?? '—';
+  return GLYPHS[rune]?.strokes.length ?? '-';
 }

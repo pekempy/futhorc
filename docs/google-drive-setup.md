@@ -1,7 +1,7 @@
 # Setting up Google Drive backup
 
 Both apps back progress up to the same file in your Google Drive **application
-data folder** — a hidden, per-app area that doesn't appear in your Drive and
+data folder** - a hidden, per-app area that doesn't appear in your Drive and
 that only this app can read. The only Drive permission either app asks for is
 `drive.appdata`, which grants access to that folder and nothing else. Neither
 app can see your documents.
@@ -14,7 +14,7 @@ OAuth clients tied to your own account.
 ## 1. Create the project
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com), create a
-   project — call it **Futhorc**.
+   project - call it **Futhorc**.
 2. **APIs & Services → Library** → enable the **Google Drive API**.
 
 ## 2. Consent screen
@@ -30,7 +30,7 @@ OAuth clients tied to your own account.
 Leave it in **Testing**. That's the important bit: in testing mode only the
 accounts you list can sign in, but you don't need Google's verification review.
 `drive.appdata` is a "sensitive" scope, so publishing would mean submitting for
-review. For a personal app, staying in testing is the right call — the only
+review. For a personal app, staying in testing is the right call - the only
 cost is that a refresh token expires after seven days, which for our purposes
 just means signing in again occasionally.
 
@@ -41,11 +41,11 @@ just means signing in again occasionally.
 ### Web client (for the web app)
 
 - Type: **Web application**
-- Authorised JavaScript origins — every origin the app is served from, exactly,
+- Authorised JavaScript origins - every origin the app is served from, exactly,
   scheme and port included:
   - `https://runes.glados.host`
   - `http://localhost:7863` (the dev server)
-- No redirect URI needed — Google Identity Services uses the popup flow
+- No redirect URI needed - Google Identity Services uses the popup flow
 
 An origin has to match character for character. `http://` and `https://` are
 different origins, and so are `runes.glados.host` and `www.runes.glados.host`.
@@ -56,7 +56,7 @@ public by design: it identifies the app, it doesn't authorise anything on its
 own, so it's fine in the repository.
 
 > **Ignore the client secret.** Google issues one with every web client, but
-> the browser flow used here is a *public* client and has no secret — nothing
+> the browser flow used here is a *public* client and has no secret - nothing
 > in this project reads one. If you've already copied it somewhere, reset it in
 > the console and forget about it.
 
@@ -67,7 +67,7 @@ GOOGLE_CLIENT_ID=1234-abcd.apps.googleusercontent.com
 ```
 
 `server.mjs` reads that at runtime and hands it to the browser via
-`/api/config`, so `docker compose up -d` is enough — no rebuild, and the same
+`/api/config`, so `docker compose up -d` is enough - no rebuild, and the same
 image works on any host. Do **not** use a `VITE_` prefix for this: Vite inlines
 those at build time, so a value set in docker-compose would never reach an
 already-built image.
@@ -83,11 +83,11 @@ real deployment.
 - SHA-1: **both** of these, as two separate clients or one with both added:
 
 ```bash
-# release — the new Futhorc keystore
+# release - the new Futhorc keystore
 keytool -list -v -alias futhorc \
   -keystore ~/Development/AndroidApps/Futhorc-Keystore/release.keystore
 
-# debug — so it works from Android Studio too
+# debug - so it works from Android Studio too
 keytool -list -v -alias androiddebugkey \
   -keystore ~/.android/debug.keystore -storepass android -keypass android
 ```
@@ -136,7 +136,7 @@ loses data:
   future is ignored rather than trusted.
 - **Newer but emptier.** Finishing a unit or earning XP never un-happens. If
   the backup is newer but has *both* fewer completed units and less XP, that's
-  almost certainly a device that was opened but not used — so instead of
+  almost certainly a device that was opened but not used - so instead of
   overwriting, you're asked, and offered "keep the best of both", which takes
   the union of completed units and the higher of every score.
 

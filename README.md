@@ -7,8 +7,8 @@ Nineteen units take you from knowing nothing to reading whole passages and numbe
 rune reference, a spaced-repetition practice mode, a live English↔runes converter,
 text-to-speech, password-protected user accounts, leaderboards, profile worksheets, and printable sheets.
 
-The name is an acrostic: ᚠᚢᚦᚩᚱᚳ is simply the first six runes — Fee, Up, Thorn,
-Oak, Ride, Car — in the same way *alphabet* comes from alpha and beta.
+The name is an acrostic: ᚠᚢᚦᚩᚱᚳ is simply the first six runes - Fee, Up, Thorn,
+Oak, Ride, Car - in the same way *alphabet* comes from alpha and beta.
 
 ---
 
@@ -35,7 +35,7 @@ npm run dev      # http://localhost:7863
 npm run build    # → dist/ and a standalone futhorc.html
 ```
 
-`npm run build` produces **`futhorc.html`** — the whole app in one self-contained single file (CSS, JS, and the rune font all inlined). Double-click it; no server needed.
+`npm run build` produces **`futhorc.html`** - the whole app in one self-contained single file (CSS, JS, and the rune font all inlined). Double-click it; no server needed.
 
 ---
 
@@ -91,13 +91,13 @@ letters collapse: *laugh* → ᛚᚪᚠᚠ, *through* → ᚦᚱᚣᚣ, *tell* �
 |  | f**u**n |  | t**ur**n |
 | ᛟ | h**o**t | ᛟᛟ | th**ough**t |
 | ᚣ | b**oo**k | ᚣᚣ | f**oo**d |
-| ᚫ | h**a**t | ᚪ | **ar**m, b**a**th — no short partner |
+| ᚫ | h**a**t | ᚪ | **ar**m, b**a**th - no short partner |
 
 **3. Only write ᚱ when you say it.** British English is non-rhotic, so ᚱ appears
 only before a vowel: *car* → ᚳᚪ but *carry* → ᚳᚫᚱᛁ; *north* → ᚾᛟᛟᚦ; *here* → ᚻᛁᚢ.
 
 Plus one tidy-up: ᚠ is both f and v, and ᛋ is both s and z, so at the **end** of a
-word they're doubled when voiceless — *leaf* ᛚᛁᛁᚠᚠ vs *leave* ᛚᛁᛁᚠ, *cats* ᚳᚫᛏᛋᛋ vs
+word they're doubled when voiceless - *leaf* ᛚᛁᛁᚠᚠ vs *leave* ᛚᛁᛁᚠ, *cats* ᚳᚫᛏᛋᛋ vs
 *dogs* ᛞᛟᚷᛋ.
 
 ---
@@ -108,7 +108,7 @@ word they're doubled when voiceless — *leaf* ᛚᛁᛁᚠᚠ vs *leave* ᛚᛁ
 src/
   data/
     runes.js          the thirty runes: names, sounds, examples, notes
-    glyphs.js         GENERATED — outlines and stroke skeletons
+    glyphs.js         GENERATED - outlines and stroke skeletons
     lessons.js        nineteen-unit curriculum (including numbers)
     worksheetsData.js 50+ progressive worksheets
     lexicon.js        ~750 hand-checked RP pronunciations

@@ -6,7 +6,7 @@ For each rune we emit two things:
 
   path     the exact glyph outline, so the app and the print sheets trace the
            real letterform rather than an approximation of it;
-  strokes  the skeleton — the path a pen would take — derived from the outline.
+  strokes  the skeleton - the path a pen would take - derived from the outline.
 
 Deriving the skeleton: every rune is built from straight bars of uniform width,
 so the outline contains pairs of antiparallel edges one stroke-width apart. The
@@ -222,7 +222,7 @@ def centrelines(edges, polys):
                 path = [add(add(p1, mul(d1, lo)), mul(n1, off)),
                         add(add(p1, mul(d1, hi)), mul(n1, off))]
 
-            # Reject phantoms — the gap between two parallel arms looks like a
+            # Reject phantoms - the gap between two parallel arms looks like a
             # bar to the test above. A real bar is solid all along, and one
             # stroke-width across.
             probes = [add(path[k], mul(sub(path[k + 1], path[k]), 0.5)) for k in range(len(path) - 1)]
@@ -275,7 +275,7 @@ def chain(segs, near=0.5 * W, angle=45.0):
 
 def bridge(paths, gap=220.0, angle=10.0):
     """
-    Close the gaps a crossing stroke leaves behind — a stave interrupted by a
+    Close the gaps a crossing stroke leaves behind - a stave interrupted by a
     crossbar arrives as two pieces, an X's diagonal as two halves. Unlike
     chain(), this joins across a gap, so it insists the two pieces are properly
     collinear rather than merely heading the same way.
@@ -321,7 +321,7 @@ def bridge(paths, gap=220.0, angle=10.0):
 
 def absorb_overlaps(paths, perp=18.0):
     """
-    Two detections of the same straight bar can overlap rather than abut — the
+    Two detections of the same straight bar can overlap rather than abut - the
     stave of ᚣ comes through twice, each copy covering part of it. Collapse any
     such pair into their union.
     """
@@ -372,7 +372,7 @@ def extend(path, polys, others):
     Push each free end out to the outline. The edge overlap that produced the
     centreline stops short of the tip, so strokes come out a little shy.
 
-    An end that meets another stroke is left where it is — otherwise an arm
+    An end that meets another stroke is left where it is - otherwise an arm
     would run straight through the stave and out the far side.
     """
     path = [tuple(p) for p in path]
@@ -425,8 +425,8 @@ def trails(paths, tol=0.45 * W):
     for a closed loop), which is just Euler's result about bridges. ᛟ comes out
     as a single line this way, ᛞ as one closed circuit.
 
-    Crossings are not junctions — two lines passing through each other don't
-    give the pen anywhere to turn — and only stroke *endpoints* become nodes,
+    Crossings are not junctions - two lines passing through each other don't
+    give the pen anywhere to turn - and only stroke *endpoints* become nodes,
     so they're handled correctly for free.
     """
     nodes = []                      # representative point per node
@@ -487,7 +487,7 @@ def trails(paths, tol=0.45 * W):
 def order_and_orient(paths):
     """
     Stave first, then the rest top to bottom; each stroke oriented the way you
-    would naturally draw it — verticals downward, arms outward from the stave.
+    would naturally draw it - verticals downward, arms outward from the stave.
     """
     def overall(pth):
         return norm(sub(pth[-1], pth[0]))
@@ -531,7 +531,7 @@ def arc(cx, cy, r, n=9):
 #
 # ᚠ: both arms are quarter arcs about the same centre. The tighter upper arc
 # bends too sharply for the edge pairing to follow it round the corner, so both
-# arms are stated here as arcs — which is exactly what the font draws.
+# arms are stated here as arcs - which is exactly what the font draws.
 def overrides():
     cx, cy = 6.3, 0.63
     return {
@@ -540,7 +540,7 @@ def overrides():
             list(reversed(arc(cx, cy, 59.4))),
             list(reversed(arc(cx, cy, 32.2))),
         ],
-        # ᚦ: the bowl leaves the stave, goes round and comes back to it — one
+        # ᚦ: the bowl leaves the stave, goes round and comes back to it - one
         # stroke, not two. The detector splits it where the outline turns.
         'ᚦ': [
             [[5.95, 0.0], [5.95, 100.0]],
@@ -548,7 +548,7 @@ def overrides():
              [44.43, 36.91], [46.29, 48.81], [44.87, 60.89], [40.81, 69.25], [33.68, 75.56],
              [27.1, 78.78], [11.9, 82.35], [5.95, 83.75]],
         ],
-        # ᚢ: likewise — left side down, then over the top and down the right in
+        # ᚢ: likewise - left side down, then over the top and down the right in
         # a single sweep.
         'ᚢ': [
             [[6.3, 6.6], [6.3, 100.0]],
@@ -556,8 +556,8 @@ def overrides():
              [62.76, 41.01], [63.52, 100.0]],
         ],
         # ᛄ: the lozenge comes out as four disconnected sides whose tips stop
-        # short of the points. It's one continuous loop with a pen — round
-        # anticlockwise from the top, like drawing an O — so that's how it's
+        # short of the points. It's one continuous loop with a pen - round
+        # anticlockwise from the top, like drawing an O - so that's how it's
         # given here. (Straight sides, not a circle: that's the letterform.)
         'ᛄ': [
             [[27.1, 0.0], [27.1, 100.0]],
@@ -565,7 +565,7 @@ def overrides():
         ],
         # ᛟ: the whole thing is one continuous line. Only the two leg ends have
         # an odd number of lines meeting them, so a single stroke starting at
-        # one and finishing at the other covers every part exactly once — up
+        # one and finishing at the other covers every part exactly once - up
         # the left leg, round the diamond, down the right.
         'ᛟ': [
             [[7.8, 99.5], [60.7, 31.7], [35.1, 0.6], [10.1, 31.6], [62.8, 99.4]],

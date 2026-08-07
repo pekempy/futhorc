@@ -314,6 +314,8 @@ table.chart td.r { font-family: var(--rune); font-size: 1.5rem; text-align: cent
 .flashcard .fc-runic { font-family: var(--rune); font-size: 13pt; margin-top: 1mm; color: #444; }
 
 .ws-line { border-bottom: 1px solid #ccc; height: 9mm; }
+/* A field left blank on the You page prints as a rule to fill in by hand. */
+.ws-blank { display: inline-block; width: 38mm; border-bottom: 1px solid #999; }
 .ws-item { display: grid; grid-template-columns: 8mm 1fr; gap: 2mm; margin-bottom: 3.5mm; page-break-inside: avoid; }
 .ws-item .q { font-size: 10pt; }
 .ws-runic { font-family: var(--rune); font-size: 17pt; letter-spacing: 0.04em; }

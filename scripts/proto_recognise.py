@@ -2,13 +2,13 @@
 """
 Prototype of the Android app's handwriting scorer, so the maths can be tested
 somewhere it can actually be run. The Kotlin in the Android project is a direct
-port of this file — if you change one, change both.
+port of this file - if you change one, change both.
 
 The problem: someone draws a rune with a finger. We want a generous 0-100
 score for how much it looks like the real thing, without caring what order the
 strokes were made in or which way round each one was drawn.
 
-Approach — three cheap, order-free shape measures:
+Approach - three cheap, order-free shape measures:
 
   1. Point-cloud distance. Resample every stroke into evenly spaced points and
      pool them all together, throwing away stroke identity and order. Compare
@@ -19,13 +19,13 @@ Approach — three cheap, order-free shape measures:
   2. Direction histogram. Bin each little segment's angle (mod 180 degrees, so
      direction of travel doesn't matter) weighted by its length. Runes are made
      of a few long straight bars, so this is a strong signal and it separates
-     shapes that occupy a similar area from different strokes — ᚾ from ᛚ, say.
+     shapes that occupy a similar area from different strokes - ᚾ from ᛚ, say.
 
   3. Ink budget. Total line length, relative to the reference. Catches
      scribbles and half-finished attempts that happen to overlap well.
 
 Normalisation keeps the aspect ratio: both shapes are centred and divided by
-the *same* scalar, so a tall thin rune stays tall and thin. That matters — ᛁ
+the *same* scalar, so a tall thin rune stays tall and thin. That matters - ᛁ
 and ᚷ differ mostly in proportion.
 
 Run: python3 scripts/proto_recognise.py
@@ -238,7 +238,7 @@ def raw_similarity(a: Shape, b: Shape):
 # Calibration. Measured over noisy synthetic attempts: a fair copy of the right
 # rune lands around 0.80-0.95 raw, a different rune drawn neatly around
 # 0.40-0.65. Mapping [LOW, HIGH] onto 0-100 puts a wrong answer well under 50
-# while a recognisable attempt still reaches full marks — generous at the top,
+# while a recognisable attempt still reaches full marks - generous at the top,
 # which is what makes it pleasant to use, without being generous to nonsense.
 CAL_LOW, CAL_HIGH = 0.52, 0.74
 

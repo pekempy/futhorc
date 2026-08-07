@@ -1,14 +1,14 @@
 /*
  * Google Drive backup, for the web app.
  *
- * The backup lives in Drive's *application data folder* — a hidden per-app
+ * The backup lives in Drive's *application data folder* - a hidden per-app
  * area that doesn't show up in your Drive and that no other app can read. The
  * only scope we ask for beyond signing in is `drive.appdata`, which grants
  * access to that folder and nothing else: this app cannot see your documents.
  *
  * Nothing secret lives in here. The OAuth client ID is public by design (it
  * identifies the app, it doesn't authorise anything on its own), and the
- * access token stays in memory — never localStorage — so it's gone when the
+ * access token stays in memory - never localStorage - so it's gone when the
  * tab closes.
  *
  * Setup: see docs/google-drive-setup.md.
@@ -30,14 +30,14 @@ const UPLOAD = 'https://www.googleapis.com/upload/drive/v3';
 /*
  * Where the OAuth client ID comes from, in order of preference:
  *
- *   1. /api/config — the server reads it from its environment on every
+ *   1. /api/config - the server reads it from its environment on every
  *      request. This is the one that matters for the Docker deployment:
  *      Vite inlines import.meta.env at *build* time, so a value set in
  *      docker-compose would otherwise never reach an already-built image.
  *      Reading it at runtime means changing docker-compose and restarting is
- *      enough — no rebuild, and the same image works anywhere.
- *   2. localStorage — pasted into Settings, handy for a quick try.
- *   3. import.meta.env — baked in at build time, for a plain `npm run build`.
+ *      enough - no rebuild, and the same image works anywhere.
+ *   2. localStorage - pasted into Settings, handy for a quick try.
+ *   3. import.meta.env - baked in at build time, for a plain `npm run build`.
  */
 let clientIdPromise = null;
 
@@ -50,7 +50,7 @@ export function resolveClientId() {
         if (cfg.googleClientId) return cfg.googleClientId;
       }
     } catch {
-      // No server (dev against a static build, say) — fall through.
+      // No server (dev against a static build, say) - fall through.
     }
     try {
       const stored = localStorage.getItem('futhorc.googleClientId');
@@ -96,7 +96,7 @@ export const isSignedIn = () => Boolean(token) && Date.now() < tokenExpiry;
  * Ask for an access token.
  *
  * @param {boolean} interactive show the Google consent/chooser. Pass false to
- *        try silently — used on page load so an already-signed-in user isn't
+ *        try silently - used on page load so an already-signed-in user isn't
  *        nagged with a popup.
  */
 export async function authorise({ interactive = true } = {}) {

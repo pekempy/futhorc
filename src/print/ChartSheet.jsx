@@ -9,7 +9,7 @@ export default function ChartSheet() {
   return (
     <>
       <div className="sheet">
-        <h1>Futhorc — the runes at a glance</h1>
+        <h1>Futhorc - the runes at a glance</h1>
         <div className="sheet-sub">
           Anglo-Saxon runes for writing modern British English. Listed in the traditional futhorc order.
         </div>
@@ -73,7 +73,7 @@ export default function ChartSheet() {
             ))}
             <tr>
               <td className="r rune">ᚫ</td><td><i>hat</i></td>
-              <td className="r rune">ᚪ</td><td><i>arm, bath, fast</i> — no short partner</td>
+              <td className="r rune">ᚪ</td><td><i>arm, bath, fast</i> - no short partner</td>
             </tr>
           </tbody>
         </table>
@@ -116,7 +116,7 @@ export default function ChartSheet() {
             {PUNCTUATION.map((p) => (
               <tr key={p.r}>
                 <td className="r rune">{p.r}</td>
-                <td><b>{p.name}</b> — {p.gloss}</td>
+                <td><b>{p.name}</b> - {p.gloss}</td>
               </tr>
             ))}
           </tbody>

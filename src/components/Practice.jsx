@@ -72,7 +72,7 @@ export default function Practice({ state, update }) {
 
         <div className="stat-row">
           <div className="stat"><div className="v">{learnedCount(state)}<span className="muted small">/{RUNES.length}</span></div><div className="k">Solid</div></div>
-          <div className="stat"><div className="v">{accuracy(state) === null ? '—' : `${accuracy(state)}%`}</div><div className="k">Accuracy</div></div>
+          <div className="stat"><div className="v">{accuracy(state) === null ? '-' : `${accuracy(state)}%`}</div><div className="k">Accuracy</div></div>
           <div className="stat"><div className="v">{state.sessionCount || 0}</div><div className="k">Sessions</div></div>
           {score.total > 0 && <div className="stat"><div className="v">{score.right}/{score.total}</div><div className="k">Last round</div></div>}
         </div>
@@ -127,7 +127,7 @@ function Weakest({ state }) {
           {rows.map(([r, s]) => (
             <tr key={r}>
               <td className="r rune">{r}</td>
-              <td>{RUNE_BY_CHAR[r].name} <span className="muted small">— {RUNE_BY_CHAR[r].gloss}</span></td>
+              <td>{RUNE_BY_CHAR[r].name} <span className="muted small">- {RUNE_BY_CHAR[r].gloss}</span></td>
               <td>{s.right}</td>
               <td>{s.wrong}</td>
             </tr>
@@ -154,7 +154,7 @@ function QSound({ q, answered, onAnswer }) {
           </button>
         ))}
       </div>
-      {answered && <div className={`feedback ${answered === 'ok' ? 'ok' : 'no'}`}>{r.name} — {r.gloss}</div>}
+      {answered && <div className={`feedback ${answered === 'ok' ? 'ok' : 'no'}`}>{r.name} - {r.gloss}</div>}
     </div>
   );
 }
@@ -196,7 +196,7 @@ function QRead({ q, answered, onAnswer }) {
           </button>
         ))}
       </div>
-      {answered && <div className={`feedback ${answered === 'ok' ? 'ok' : 'no'}`}>{runic} = “{q.word}” — {readAloud(runic)}</div>}
+      {answered && <div className={`feedback ${answered === 'ok' ? 'ok' : 'no'}`}>{runic} = “{q.word}” - {readAloud(runic)}</div>}
     </div>
   );
 }
@@ -211,7 +211,7 @@ function QStroke({ q, answered, onAnswer }) {
       <div className="card center">
         {revealed
           ? <StrokeDiagram rune={q.rune} size={150} animate />
-          : <div className="prompt-word" style={{ padding: '2rem 0' }}>{r.name} — {r.gloss}</div>}
+          : <div className="prompt-word" style={{ padding: '2rem 0' }}>{r.name} - {r.gloss}</div>}
       </div>
       {!revealed && <button className="btn" onClick={() => setRevealed(true)}>Show me</button>}
       {revealed && !answered && (

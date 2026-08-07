@@ -4,7 +4,7 @@
 // vowels re-mapped for a non-rhotic British accent. See src/data/system.js
 // for a description of what changed and why.
 
-export const SEP = '᛫'; // ᛫ interpunct — the traditional word separator
+export const SEP = '᛫'; // ᛫ interpunct - the traditional word separator
 
 /**
  * kind:  'consonant' | 'vowel' | 'ligature'
@@ -37,7 +37,7 @@ export const RUNES = [
   { r: 'ᛈ', kind: 'consonant', name: 'Page',  runic: 'ᛈᛠᚷᚻ', ipa: ['p'], gloss: 'p as in pot',
     eg: ['{p}ot', 's{p}in', 'to{p}'] },
   { r: 'ᛉ', kind: 'consonant', name: 'Box',   runic: 'ᛒᛟᛉ',  ipa: ['ks'], gloss: 'x as in box',
-    eg: ['bo{x}', 'ta{x}', 'si{x}'], note: 'Shorthand for the two sounds k+s. Only used where English spells it x — “racks” is ᚱᚫᚳᛋ, not ᚱᚫᛉ.' },
+    eg: ['bo{x}', 'ta{x}', 'si{x}'], note: 'Shorthand for the two sounds k+s. Only used where English spells it x - “racks” is ᚱᚫᚳᛋ, not ᚱᚫᛉ.' },
   { r: 'ᛋ', kind: 'consonant', name: 'Sun',   runic: 'ᛋᚢᚾ',  ipa: ['s', 'z'], gloss: 's as in see, and z as in zebra',
     eg: ['{s}ee', '{z}ebra', 'dog{s}'], note: 'At the end of a word, write ᛋᛋ if the sound is s: cats ᚳᚫᛏᛋᛋ, dogs ᛞᛟᚷᛋ.' },
   { r: 'ᛏ', kind: 'consonant', name: 'Town',  runic: 'ᛏᚪᚹᚾ', ipa: ['t'], gloss: 't as in time',
@@ -88,7 +88,7 @@ export const RUNES = [
 
 export const RUNE_BY_CHAR = Object.fromEntries(RUNES.map((x) => [x.r, x]));
 
-/** The traditional futhorc order — the order the alphabet is recited in. */
+/** The traditional futhorc order - the order the alphabet is recited in. */
 export const FUTHORC_ORDER = 'ᚠᚢᚦᚩᚱᚳᚷᚹᚻᚾᛁᛄᛈᛉᛋᛏᛒᛖᛗᛚᛝᛟᛞᚪᚫᛠᛡᚣᛥᛢ'.split('');
 
 /** Multi-rune spellings that behave as a single sound. */

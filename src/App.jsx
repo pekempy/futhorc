@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { load, save } from './lib/progress.js';
-import { getCurrentUser, logoutUser } from './lib/auth.js';
+import * as account from './lib/account.js';
 import Home from './components/Home.jsx';
 import Lessons from './components/Lessons.jsx';
 import Reference from './components/Reference.jsx';
@@ -9,17 +9,14 @@ import Translator from './components/Translator.jsx';
 import Settings from './components/Settings.jsx';
 import PrintView from './print/PrintView.jsx';
 import Profile from './components/Profile.jsx';
-import Leaderboard from './components/Leaderboard.jsx';
-import AuthModal from './components/AuthModal.jsx';
 
 const VIEWS = [
   ['learn', 'Learn'],
   ['reference', 'Runes'],
   ['practice', 'Practice'],
-  ['leaderboard', 'Leaderboard'],
   ['write', 'Write'],
   ['print', 'Print'],
-  ['profile', 'Profile'],
+  ['profile', 'You'],
   ['settings', 'Settings'],
 ];
 
@@ -32,9 +29,9 @@ function readHash() {
 export default function App() {
   const [route, setRoute] = useState(readHash);
   const [state, setState] = useState(load);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-
-  const currentUser = getCurrentUser();
+  const [user, setUser] = useState(null);
+  const [signingIn, setSigningIn] = useState(false);
+  const [signInError, setSignInError] = useState('');
 
   useEffect(() => {
     const onHash = () => setRoute(readHash());
@@ -43,6 +40,9 @@ export default function App() {
   }, []);
 
   useEffect(() => { save(state); }, [state]);
+
+  // Pick up an existing Google session without nagging anyone with a popup.
+  useEffect(() => { account.resumeQuietly().then((u) => u && setUser(u)); }, []);
 
   const go = useCallback((view, arg) => {
     window.location.hash = arg ? `#/${view}/${encodeURIComponent(arg)}` : `#/${view}`;
@@ -57,79 +57,67 @@ export default function App() {
     });
   }, []);
 
-  const settings = state.settings;
+  const signIn = useCallback(async () => {
+    setSigningIn(true);
+    setSignInError('');
+    try {
+      setUser(await account.signIn());
+    } catch (e) {
+      setSignInError(e.message || 'Sign-in failed');
+    } finally {
+      setSigningIn(false);
+    }
+  }, []);
 
-  const navViews = useMemo(() => {
-    return currentUser ? VIEWS : VIEWS.filter(([id]) => id !== 'profile');
-  }, [currentUser]);
+  const signOut = useCallback(() => { account.signOut(); setUser(null); }, []);
+
+  const settings = state.settings;
 
   const body = useMemo(() => {
     switch (route.view) {
       case 'learn': return <Lessons state={state} update={update} go={go} unitId={route.arg ? Number(route.arg) : null} />;
       case 'reference': return <Reference settings={settings} focus={route.arg} />;
       case 'practice': return <Practice state={state} update={update} settings={settings} />;
-      case 'leaderboard': return <Leaderboard state={state} update={update} />;
       case 'write': return <Translator settings={settings} update={update} />;
       case 'print': return <PrintView state={state} />;
-      case 'profile':
-        return currentUser ? (
-          <Profile state={state} update={update} />
-        ) : (
-          <div className="card center stack" style={{ maxWidth: '440px', margin: '2rem auto', padding: '2rem' }}>
-            <div style={{ fontSize: '2.5rem' }}>🔒</div>
-            <h2>Profile Access Required</h2>
-            <p className="muted small">
-              Please log in or sign up for an account to access your personal profile and custom worksheets.
-            </p>
-            <button className="btn primary" onClick={() => setShowAuthModal(true)}>
-              Log In / Sign Up
-            </button>
-          </div>
-        );
+      case 'profile': return <Profile state={state} update={update} user={user} onSignIn={signIn} onSignOut={signOut} signingIn={signingIn} />;
       case 'settings': return <Settings state={state} update={update} />;
       default: return <Home state={state} go={go} />;
     }
-  }, [route, state, settings, update, go, currentUser]);
+  }, [route, state, settings, update, go, user, signIn, signOut, signingIn]);
 
   return (
     <div className="app">
-      {showAuthModal && (
-        <AuthModal
-          onAuthSuccess={() => {
-            setShowAuthModal(false);
-            window.location.reload();
-          }}
-          onClose={() => setShowAuthModal(false)}
-        />
-      )}
-
       <header className="topbar no-print">
         <a className="brand" href="#/" onClick={(e) => { e.preventDefault(); go('home'); }}>
-          <span className="mark rune" title="Fee, Up, Thorn, Oak, Ride, Car — the alphabet is named after its first six runes">ᚠᚢᚦᚩᚱᚳ</span>
+          <span className="mark rune" title="Fee, Up, Thorn, Oak, Ride, Car - the alphabet is named after its first six runes">ᚠᚢᚦᚩᚱᚳ</span>
           <span className="name">Futhorc</span>
         </a>
         <nav className="nav">
-          {navViews.map(([id, label]) => (
+          {VIEWS.map(([id, label]) => (
             <button key={id} onClick={() => go(id)} aria-current={route.view === id}>{label}</button>
           ))}
-          {currentUser ? (
+          {user ? (
             <button
               onClick={() => go('profile')}
-              style={{ background: 'var(--accent-soft)', color: 'var(--accent)', fontWeight: 600 }}
-              title={`Logged in as ${currentUser.username}`}
+              className="signed-in"
+              title={`Signed in as ${user.email ?? user.name}`}
             >
-              👤 {currentUser.username}
+              {user.picture
+                ? <img src={user.picture} alt="" width="20" height="20" style={{ borderRadius: '50%' }} />
+                : null}
+              {account.displayName(user)}
             </button>
           ) : (
-            <button
-              onClick={() => setShowAuthModal(true)}
-              style={{ border: '1px solid var(--accent)', color: 'var(--accent)' }}
-            >
-              🔑 Log In
+            <button className="sign-in" onClick={signIn} disabled={signingIn}>
+              {signingIn ? 'Signing in…' : 'Sign in'}
             </button>
           )}
         </nav>
       </header>
+      {signInError && (
+        <div className="main"><p className="feedback no small">{signInError}</p></div>
+      )}
       <main className={`main${route.view === 'print' ? ' wide' : ''}`}>{body}</main>
     </div>
   );

@@ -1,7 +1,7 @@
 /*
  * The shape of a backup, shared by the web app and the Android app.
  *
- * One file lives in your Google Drive application data folder — a hidden,
+ * One file lives in your Google Drive application data folder - a hidden,
  * per-app area that doesn't appear in your Drive and that only this app can
  * read. Both apps write the same envelope so either can restore the other's
  * backup.

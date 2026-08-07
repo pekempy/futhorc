@@ -19948,7 +19948,7 @@ var P2R = {
   "\u0252": "\u16DF",
   "\u028A": "\u16A3",
   i: "\u16C1",
-  // long vowels — the short rune, doubled
+  // long vowels - the short rune, doubled
   "i\u02D0": "\u16C1\u16C1",
   "\u025B\u02D0": "\u16D6\u16D6",
   "\u025C\u02D0": "\u16A2\u16A2",

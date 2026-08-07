@@ -20,7 +20,7 @@ export const P2R = {
   ks: 'ᛉ', // only where English spells it 'x'
   // short vowels ('i' is the unstressed final vowel of happy, city, very)
   'ɪ': 'ᛁ', e: 'ᛖ', 'æ': 'ᚫ', 'ʌ': 'ᚢ', 'ə': 'ᚢ', 'ɒ': 'ᛟ', 'ʊ': 'ᚣ', i: 'ᛁ',
-  // long vowels — the short rune, doubled
+  // long vowels - the short rune, doubled
   'iː': 'ᛁᛁ', 'ɛː': 'ᛖᛖ', 'ɜː': 'ᚢᚢ', 'ɔː': 'ᛟᛟ', 'uː': 'ᚣᚣ',
   'ɑː': 'ᚪ',
   // diphthongs
@@ -78,7 +78,7 @@ export function phonemesToRunes(phonemes, opts = {}) {
     if (o.ligatures && p === 's' && next === 't') { out += 'ᛥ'; i++; continue; }
     if (o.ligatures && p === 'k' && next === 'w') { out += 'ᛢ'; i++; continue; }
 
-    // /ks/ spelt with x in English gets the ᛉ shorthand — handled upstream,
+    // /ks/ spelt with x in English gets the ᛉ shorthand - handled upstream,
     // where we still know how the word was spelt.
 
     // 2. voiceless marking at the end of a word
@@ -95,7 +95,7 @@ export function phonemesToRunes(phonemes, opts = {}) {
 /**
  * Read a runic word back into phonemes.
  *
- * Some detail is genuinely lost — ᚠ is both f and v — so we take the most
+ * Some detail is genuinely lost - ᚠ is both f and v - so we take the most
  * likely reading: voiceless in the middle of a word, voiced at the end
  * (that being what the ᚠᚠ / ᛋᛋ doubling exists to disambiguate).
  */
