@@ -37,21 +37,33 @@ export default function SpeakButton({ runic, label, plainFallback }) {
   const playWithVoice = async (voiceName, isGemini = false) => {
     setOpen(false);
     setBusy(true);
+    setErr('');
     try {
-      if (isGemini && activeGeminiKey) {
-        await speakWithGemini(runic, activeGeminiKey, voiceName);
+      let key = activeGeminiKey;
+      if (isGemini && !key) {
+        key = await fetchSystemApiKey();
+        if (key) setSystemKey(key);
+      }
+      if (isGemini) {
+        if (!key) {
+          throw new Error('No Gemini API Key configured in Docker .env or Settings');
+        }
+        await speakWithGemini(runic, key, voiceName);
       } else {
         speakRunes(runic, { voiceName, rate: s.speakRate });
       }
-    } catch {
-      speakRunes(runic, { voiceName: s.voiceName, rate: s.speakRate });
+    } catch (e) {
+      console.error('Gemini TTS Execution Failed:', e);
+      setErr(e.message || 'TTS Error');
     } finally {
       setBusy(false);
     }
   };
 
   const playDefault = async () => {
-    if (activeGeminiKey || (s.useGemini && s.geminiKey)) {
+    let key = activeGeminiKey;
+    if (!key) key = await fetchSystemApiKey();
+    if (key || (s.useGemini && s.geminiKey)) {
       await playWithVoice(s.geminiVoice || 'Kore', true);
     } else {
       speakRunes(runic, { voiceName: s.voiceName, rate: s.speakRate });
