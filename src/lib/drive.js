@@ -84,12 +84,43 @@ function loadGis() {
   return scriptPromise;
 }
 
-// In memory only, deliberately.
+// The token itself is in memory only, deliberately - it is a bearer credential
+// with a one-hour life and there is no reason for it to survive a reload.
 let token = null;
 let tokenExpiry = 0;
 let account = null;
 
-export const currentAccount = () => account;
+/**
+ * What *does* persist is the fact that you connected, and which account.
+ *
+ * Google can hand back a fresh token without a popup, but only if we ask; and
+ * asking every visitor on the off-chance is both wasteful and slightly rude.
+ * This flag is the difference between "resume the session you already had" and
+ * "pester a stranger". It is not a credential and grants nothing on its own.
+ */
+const CONNECTED_KEY = 'futhorc.drive.connected.v1';
+
+export function wasConnected() {
+  try { return JSON.parse(localStorage.getItem(CONNECTED_KEY)) || null; }
+  catch { return null; }
+}
+
+function rememberConnection(acct) {
+  try {
+    localStorage.setItem(CONNECTED_KEY, JSON.stringify({
+      email: acct?.email ?? null,
+      name: acct?.name ?? null,
+      picture: acct?.picture ?? null,
+      at: new Date().toISOString(),
+    }));
+  } catch { /* private mode */ }
+}
+
+function forgetConnection() {
+  try { localStorage.removeItem(CONNECTED_KEY); } catch { /* ignore */ }
+}
+
+export const currentAccount = () => account ?? wasConnected();
 export const isSignedIn = () => Boolean(token) && Date.now() < tokenExpiry;
 
 /**
@@ -128,6 +159,7 @@ export async function authorise({ interactive = true } = {}) {
         } catch {
           account = null;
         }
+        rememberConnection(account);
         resolve(token);
       },
       error_callback: (err) => reject(new Error(err?.message ?? 'Sign-in was cancelled')),
@@ -143,6 +175,8 @@ export function signOut() {
   token = null;
   tokenExpiry = 0;
   account = null;
+  forgetConnection();
+  stopAutoBackup();
 }
 
 async function fetchAccount() {
@@ -291,6 +325,70 @@ export async function backupNow(state) {
   await upload(backup);
   rememberSync(backup);
   return backup;
+}
+
+// ── Automatic backup ───────────────────────────────────────────────────────
+
+/**
+ * Back up quietly in the background once connected.
+ *
+ * Three triggers, because any one of them alone misses the case that matters:
+ *
+ *   * every [intervalMs] during a long session
+ *   * when the tab is hidden - closing a laptop lid or switching apps is the
+ *     most common way a session ends, and it fires reliably where 'unload'
+ *     does not
+ *   * on 'pagehide', for an actual close
+ *
+ * Uploads are skipped when nothing has changed since the last one, so a tab
+ * left open overnight doesn't rewrite the same file sixty times.
+ */
+let autoTimer = null;
+let autoHandlers = null;
+let lastPushed = null;
+
+const AUTO_INTERVAL_MS = 5 * 60 * 1000;
+
+export function startAutoBackup(getState, { intervalMs = AUTO_INTERVAL_MS } = {}) {
+  stopAutoBackup();
+
+  const attempt = async () => {
+    if (!isSignedIn()) return;
+    let backup;
+    try {
+      backup = toBackup(getState());
+    } catch {
+      return;
+    }
+    // Compare everything except the timestamp, which always differs.
+    const { updatedAt, ...body } = backup;
+    const fingerprint = JSON.stringify(body);
+    if (fingerprint === lastPushed) return;
+    try {
+      await upload(backup);
+      rememberSync(backup);
+      lastPushed = fingerprint;
+    } catch { /* offline, or the token lapsed; the next trigger will retry */ }
+  };
+
+  autoTimer = setInterval(attempt, intervalMs);
+  const onHide = () => { if (document.visibilityState === 'hidden') attempt(); };
+  const onPageHide = () => attempt();
+  document.addEventListener('visibilitychange', onHide);
+  window.addEventListener('pagehide', onPageHide);
+  autoHandlers = { onHide, onPageHide };
+  return attempt;
+}
+
+export function stopAutoBackup() {
+  if (autoTimer) clearInterval(autoTimer);
+  autoTimer = null;
+  if (autoHandlers) {
+    document.removeEventListener('visibilitychange', autoHandlers.onHide);
+    window.removeEventListener('pagehide', autoHandlers.onPageHide);
+  }
+  autoHandlers = null;
+  lastPushed = null;
 }
 
 export { SYNC_SCHEMA };

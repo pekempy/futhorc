@@ -36,12 +36,28 @@ export async function signIn() {
 }
 
 /**
- * Try to pick up an existing session without showing a popup.
- * Safe to call on page load - returns null rather than throwing if there's no
+ * Did this browser connect Drive before?
+ *
+ * Returns the remembered account (email, name, picture) or null. Useful for
+ * showing who you are immediately on load, before the silent token round-trip
+ * has finished.
+ */
+export const previouslyConnected = () => drive.wasConnected();
+
+/**
+ * Pick up an existing session without showing a popup.
+ *
+ * Only attempted if this browser connected before - Google will hand back a
+ * fresh token silently, but asking on the off-chance for someone who has never
+ * signed in is a wasted round trip and, if their Google session has expired, a
+ * console error for no reason.
+ *
+ * Safe to call on page load: returns null rather than throwing if there's no
  * session, no client ID configured, or Google is unreachable.
  */
 export async function resumeQuietly() {
   try {
+    if (!drive.wasConnected()) return null;
     if (!(await drive.isConfigured())) return null;
     await drive.authorise({ interactive: false });
     return currentUser();
@@ -49,6 +65,10 @@ export async function resumeQuietly() {
     return null;
   }
 }
+
+/** Start backing up in the background. Returns a function to force one now. */
+export const startAutoBackup = (getState) => drive.startAutoBackup(getState);
+export const stopAutoBackup = () => drive.stopAutoBackup();
 
 export function signOut() {
   drive.signOut();

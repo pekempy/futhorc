@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { load, save } from './lib/progress.js';
 import * as account from './lib/account.js';
 import Home from './components/Home.jsx';
@@ -41,8 +41,25 @@ export default function App() {
 
   useEffect(() => { save(state); }, [state]);
 
-  // Pick up an existing Google session without nagging anyone with a popup.
-  useEffect(() => { account.resumeQuietly().then((u) => u && setUser(u)); }, []);
+  // Show who you are straight away from the remembered account, then confirm
+  // it against Google in the background. Waiting for the round trip first
+  // means the header flickers from "Sign in" to your name on every load.
+  useEffect(() => {
+    const remembered = account.previouslyConnected();
+    if (remembered) setUser(remembered);
+    account.resumeQuietly().then((u) => setUser(u ?? null));
+  }, []);
+
+  // Once signed in, keep Drive up to date without anyone having to press a
+  // button. stateRef keeps the uploader looking at current state without
+  // restarting the timer on every keystroke.
+  const stateRef = useRef(state);
+  stateRef.current = state;
+  useEffect(() => {
+    if (!user) return undefined;
+    account.startAutoBackup(() => stateRef.current);
+    return () => account.stopAutoBackup();
+  }, [user]);
 
   const go = useCallback((view, arg) => {
     window.location.hash = arg ? `#/${view}/${encodeURIComponent(arg)}` : `#/${view}`;

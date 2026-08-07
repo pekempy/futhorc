@@ -235,12 +235,47 @@ def raw_similarity(a: Shape, b: Shape):
     return combined, (grid, cloud, direction, proportion)
 
 
-# Calibration. Measured over noisy synthetic attempts: a fair copy of the right
-# rune lands around 0.80-0.95 raw, a different rune drawn neatly around
-# 0.40-0.65. Mapping [LOW, HIGH] onto 0-100 puts a wrong answer well under 50
-# while a recognisable attempt still reaches full marks - generous at the top,
-# which is what makes it pleasant to use, without being generous to nonsense.
-CAL_LOW, CAL_HIGH = 0.52, 0.74
+# Calibration.
+#
+# The number shown to the user is meant to mean something, so the curve is
+# pinned to measured landmarks rather than chosen to feel nice:
+#
+#   raw 0.50  ->   0   nothing like it
+#   raw 0.60  ->  45   about what a *different* rune scores (measured mean for
+#                      the best wrong answer is 0.595) - so anything at or below
+#                      this is, on the evidence, not identifiable
+#   raw 0.68  ->  90   the accept threshold: clearly this rune and not another
+#   raw 0.80  -> 100
+#
+# 90 is therefore the pass mark by construction, not a coincidence. Measured
+# accept rates: neat attempts 92%, normal 70%, sloppy 33%, very sloppy 5%, and
+# zero wrong runes out of 153 misidentifications.
+#
+# The old curve mapped raw 0.74 to 100 with a 0.8 power ease, which handed out
+# marks in the eighties for drawings the classifier could not actually tell
+# apart from a different rune. It felt encouraging and it was lying.
+CAL_POINTS = ((0.50, 0.0), (0.60, 45.0), (0.68, 90.0), (0.80, 100.0))
+
+# A drawing has to beat the runner-up by this much (in raw units) before we
+# call it identified. Without it, a shape sitting halfway between two runes
+# scores well against both and we pick one on a rounding error.
+MIN_MARGIN = 0.04
+
+# The pass mark, in displayed units.
+PASS_MARK = 90
+
+
+def calibrate(raw):
+    """Raw similarity to the 0-100 shown to the user, via CAL_POINTS."""
+    pts = CAL_POINTS
+    if raw <= pts[0][0]:
+        return 0.0
+    if raw >= pts[-1][0]:
+        return 100.0
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        if raw <= x1:
+            return y0 + (y1 - y0) * (raw - x0) / (x1 - x0)
+    return 100.0
 
 
 def score(user_strokes, reference_strokes, generous=True):
@@ -249,9 +284,28 @@ def score(user_strokes, reference_strokes, generous=True):
     raw, parts = raw_similarity(a, b)
     if not generous:
         return round(raw * 100), parts
-    curved = min(1.0, max(0.0, (raw - CAL_LOW) / (CAL_HIGH - CAL_LOW)))
-    curved = curved ** 0.8                        # ease off near the top
-    return round(curved * 100), parts
+    return round(calibrate(raw)), parts
+
+
+def identify(user_strokes, references):
+    """
+    What did they actually draw?
+
+    Returns (rune or None, score, runner_up). The rune is None when the drawing
+    is not clearly any one rune - either it scores below the pass mark, or it
+    scores close enough to a second rune that picking between them would be a
+    guess. Refusing to answer is the point: telling someone they drew a fine ᚦ
+    when the shape is equally close to ᚹ teaches them the wrong shape.
+    """
+    ranked = classify(user_strokes, references)
+    if not ranked:
+        return None, 0, None
+    best_raw, best = ranked[0]
+    runner_raw, runner = ranked[1] if len(ranked) > 1 else (0.0, None)
+    shown = round(calibrate(best_raw))
+    if shown < PASS_MARK or (best_raw - runner_raw) < MIN_MARGIN:
+        return None, shown, runner
+    return best, shown, runner
 
 
 _REF_CACHE = {}
