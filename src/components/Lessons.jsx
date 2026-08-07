@@ -257,19 +257,39 @@ function LessonPlayer({ unit, state, update, go }) {
       {step.type === 'writePhrase' && <WritePhrase {...common} unit={unit} />}
       {step.type === 'passage' && <Passage {...common} />}
       {step.type === 'done' && (
-        <div className="card center stack">
-          <div className="rune" style={{ fontSize: '3rem', color: 'var(--accent)' }}>ᚹᛖᛚ᛫ᛞᚢᚾ</div>
-          <h2>Unit {unit.id} complete</h2>
-          <p className="muted">
-            That says <em>well done</em>. {score.total > 0 && `You got ${score.right} of ${score.total}.`}
-          </p>
-          <div className="row" style={{ justifyContent: 'center' }}>
-            <button className="btn primary" onClick={finish}>Finish unit</button>
-            <button className="btn" onClick={() => { setI(0); setAnswered(null); setScore({ right: 0, total: 0 }); }}>
-              Run it again
-            </button>
-          </div>
-        </div>
+        (() => {
+          const wrong = score.total - score.right;
+          const passed = wrong <= 2;
+          return passed ? (
+            <div className="card center stack">
+              <div className="rune" style={{ fontSize: '3rem', color: 'var(--accent)' }}>ᚹᛖᛚ᛫ᛞᚢᚾ</div>
+              <h2>Unit {unit.id} complete</h2>
+              <p className="muted">
+                That says <em>well done</em>. {score.total > 0 && `You got ${score.right} of ${score.total}.`}
+              </p>
+              <div className="row" style={{ justifyContent: 'center' }}>
+                <button className="btn primary" onClick={finish}>Finish unit</button>
+                <button className="btn" onClick={() => { setI(0); setAnswered(null); setScore({ right: 0, total: 0 }); }}>
+                  Run it again
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="card center stack">
+              <div className="rune" style={{ fontSize: '3rem', color: 'var(--bad)' }}>ᚾᛟᛏ᛫ᚳᚹᛡᛏ</div>
+              <h2>Unit not passed</h2>
+              <p className="muted">
+                That says <em>not quite</em>. You got {wrong} wrong (limit is 2).
+              </p>
+              <div className="row" style={{ justifyContent: 'center' }}>
+                <button className="btn primary" onClick={() => { setI(0); setAnswered(null); setScore({ right: 0, total: 0 }); }}>
+                  Try again
+                </button>
+                <button className="btn" onClick={() => go('learn')}>Back to units</button>
+              </div>
+            </div>
+          );
+        })()
       )}
     </div>
   );
@@ -496,7 +516,7 @@ function Pick({ step, answered, onAnswer, onNext }) {
 }
 
 function ReadChoice({ step, unit, answered, onAnswer, onNext }) {
-  const runic = transliterateWord(step.word, { ligatures: unit.id >= 16 }).runes;
+  const runic = transliterateWord(step.word, { ligatures: unit.id >= 13 }).runes;
   return (
     <Shell
       title="Read this word"
@@ -527,7 +547,7 @@ function ReadChoice({ step, unit, answered, onAnswer, onNext }) {
 }
 
 function ReadType({ step, unit, answered, onAnswer, onNext }) {
-  const runic = transliterateWord(step.word, { ligatures: unit.id >= 16 }).runes;
+  const runic = transliterateWord(step.word, { ligatures: unit.id >= 13 }).runes;
   const [typed, setTyped] = useState('');
   return (
     <Shell
@@ -555,7 +575,7 @@ function ReadType({ step, unit, answered, onAnswer, onNext }) {
 }
 
 function SentenceType({ step, unit, answered, onAnswer, onNext }) {
-  const runic = transliterate(step.sentence, { ligatures: unit.id >= 16 }).text;
+  const runic = transliterate(step.sentence, { ligatures: unit.id >= 13 }).text;
   const [typed, setTyped] = useState('');
   return (
     <Shell
@@ -584,7 +604,9 @@ function RuneKeyboard({ unitId, target, altTarget = '', onKey, disabled }) {
   const keys = useMemo(() => {
     const known = [...runesThrough(unitId)];
     const needed1 = [...new Set(target.replace(new RegExp(SEP, 'g'), '').split(''))];
-    const needed2 = [...new Set(altTarget.replace(new RegExp(SEP, 'g'), '').split(''))];
+    const needed2 = unitId >= 13
+      ? [...new Set(altTarget.replace(new RegExp(SEP, 'g'), '').split(''))]
+      : [];
     return [...new Set([...needed1, ...needed2, ...known])].filter((k) => k.trim()).sort();
   }, [unitId, target, altTarget]);
   return (
@@ -631,7 +653,7 @@ function Builder({ title, hint, prompt, target, altTarget = '', unit, answered, 
 }
 
 function WriteWord({ step, unit, answered, onAnswer, onNext }) {
-  const useLigatures = unit.id >= 16;
+  const useLigatures = unit.id >= 13;
   const target = transliterateWord(step.word, { ligatures: useLigatures }).runes;
   const altTarget = transliterateWord(step.word, { ligatures: !useLigatures }).runes;
   return (
@@ -650,7 +672,7 @@ function WriteWord({ step, unit, answered, onAnswer, onNext }) {
 }
 
 function WritePhrase({ step, unit, answered, onAnswer, onNext }) {
-  const useLigatures = unit.id >= 16;
+  const useLigatures = unit.id >= 13;
   const target = transliterate(step.phrase, { ligatures: useLigatures }).text;
   const altTarget = transliterate(step.phrase, { ligatures: !useLigatures }).text;
   return (
@@ -669,7 +691,7 @@ function WritePhrase({ step, unit, answered, onAnswer, onNext }) {
 }
 
 function Listen({ step, unit, answered, onAnswer, onNext }) {
-  const useLigatures = unit.id >= 16;
+  const useLigatures = unit.id >= 13;
   const target = transliterateWord(step.word, { ligatures: useLigatures }).runes;
   const altTarget = transliterateWord(step.word, { ligatures: !useLigatures }).runes;
   return (
@@ -687,8 +709,8 @@ function Listen({ step, unit, answered, onAnswer, onNext }) {
   );
 }
 
-function Passage({ step, answered, onAnswer, onNext }) {
-  const runic = toRunes(step.passage.english);
+function Passage({ step, unit, answered, onAnswer, onNext }) {
+  const runic = transliterate(step.passage.english, { ligatures: unit.id >= 13 }).text;
   const [revealed, setRevealed] = useState(false);
   return (
     <Shell

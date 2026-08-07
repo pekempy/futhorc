@@ -41,7 +41,7 @@ export const UNITS = [
     blurb: 'Five more, and most short everyday words open up.',
     runes: ['ᛒ', 'ᛞ', 'ᛚ', 'ᚢ', 'ᛖ'],
     words: ['bed', 'bad', 'lid', 'bus', 'mud', 'tell', 'send', 'but', 'and', 'land', 'best',
-      'net', 'nut', 'lend', 'melt', 'bend', 'desk', 'dust', 'tent', 'lamp', 'damp'],
+      'net', 'nut', 'lend', 'melt', 'bend', 'dust', 'tent'],
     teach: [
       'ᛖ is the short e of *bed*. ᚢ is the u of *fun*.',
       'ᚢ is the busiest rune in the system. Any weak, colourless vowel - the *a* of *about*, the *er* of *butter* - is ᚢ.',
@@ -56,15 +56,15 @@ export const UNITS = [
     subtitle: 'ᚻ ᚹ ᚳ ᚱ ᛟ',
     blurb: 'And the first thing that will surprise you.',
     runes: ['ᚻ', 'ᚹ', 'ᚳ', 'ᚱ', 'ᛟ'],
-    words: ['hot', 'red', 'win', 'cat', 'rock', 'hand', 'wet', 'not', 'stop', 'dark', 'card',
-      'him', 'has', 'had', 'can', 'come', 'want', 'back', 'clock', 'help', 'milk'],
+    words: ['hot', 'red', 'win', 'cat', 'rock', 'hand', 'wet', 'not',
+      'him', 'has', 'had', 'can', 'come', 'want', 'back', 'clock', 'desk', 'milk'],
     teach: [
       'ᚳ covers k, hard c and ck. *Cat*, *kite* and *back* all use it.',
       '**The r rule.** In a British accent you only pronounce r before a vowel. *Red* and *very* have an r sound; *car* and *dark* do not - so you do not write ᚱ in them.',
       '*Car* is ᚳᚪ. *Dark* is ᛞᚪᚳ. It looks strange for about ten minutes, then it looks obvious.',
       'A quick test: say the word. If your tongue never makes an r, do not write one.',
     ],
-    sentences: ['The cat sat on the mat.', 'It is not hot.', 'He had a red hand.'],
+    sentences: ['It is not hot.', 'He had a red hand.'],
   },
   {
     id: 4,
@@ -74,14 +74,16 @@ export const UNITS = [
     blurb: 'Now you can write "the" - the commonest word in English.',
     runes: ['ᚦ', 'ᚠ', 'ᚷ', 'ᛈ', 'ᛝ'],
     words: ['the', 'this', 'fat', 'gun', 'pen', 'thing', 'long', 'of', 'have', 'ring', 'song',
-      'bath', 'that', 'them', 'then', 'give', 'get', 'top', 'gift', 'thin', 'king', 'bring'],
+      'that', 'them', 'then', 'give', 'get', 'top', 'gift', 'thin', 'king', 'bring',
+      'lamp', 'damp', 'stop', 'help'],
     teach: [
       'ᚦ does both kinds of th - the hard one in *thing* and the soft one in *this*.',
       'ᚠ does both f and v. *Fat* is ᚠᚫᛏ, *have* is ᚻᚫᚠ.',
       'ᛝ is a single sound, the ng of *ring*. One rune, not two. It also does the n in *think* and *thank*.',
       '*The* is ᚦᚢ. Say it out loud unstressed and you will hear the ᚢ.',
     ],
-    sentences: ['The pen is on the desk.', 'Give me that thing.', 'This is the best song.'],
+    sentences: ['The pen is on the desk.', 'Give me that thing.', 'This is the best song.',
+      'The cat sat on the mat.'],
     review: true,
   },
 
@@ -102,7 +104,7 @@ export const UNITS = [
       'This is the one place where doubling means something. Everywhere else, one sound is one rune.',
       'Remember the r rule as you go - *turn* is ᛏᚢᚢᚾ, *more* is ᛗᛟᛟ, *hair* is ᚻᛖᛖ.',
     ],
-    sentences: ['I can see the moon.', 'The bird is on the roof.', 'Look at the green door.'],
+    sentences: ['The bird is on the roof.', 'Look at the green door.'],
   },
   {
     id: 6,
@@ -113,7 +115,7 @@ export const UNITS = [
     runes: ['ᚪ'],
     words: ['arm', 'far', 'car', 'dark', 'hard', 'bath', 'path', 'fast', 'last', 'past', 'class',
       'grass', 'glass', 'laugh', 'half', 'ask', 'dance', 'chance', 'plant', 'father', 'after',
-      'start', 'part', 'garden', 'answer'],
+      'start', 'part', 'garden', 'answer', 'card'],
     teach: [
       'ᚪ is the long *ah* of *arm*. It has no short partner, so it is never doubled.',
       'It covers a set of words a Northern or American speaker says with ᚫ instead: *bath*, *grass*, *laugh*, *dance*, *chance*, *ask*, *past*.',
@@ -138,7 +140,8 @@ export const UNITS = [
       'Each of these is one sound, so one rune - even though English spells them all sorts of ways: *day*, *make*, *rain* and *they* all take ᛠ.',
       'Say them slowly and you can hear the vowel move. That sliding is what makes them one unit rather than two.',
     ],
-    sentences: ['I go home in the day.', 'My name is on the road.', 'Take the old boat.'],
+    sentences: ['I go home in the day.', 'My name is on the road.', 'Take the old boat.',
+      'I can see the moon.'],
   },
   {
     id: 8,
@@ -148,7 +151,7 @@ export const UNITS = [
     blurb: 'Three vowels that need a pair of runes.',
     runes: ['ᚪᚹ', 'ᛟᛁ', 'ᛁᚢ'],
     words: ['now', 'out', 'how', 'down', 'town', 'house', 'about', 'found', 'sound', 'loud',
-      'boy', 'point', 'join', 'noise', 'voice', 'here', 'near', 'year', 'hear', 'beer', 'clear'],
+      'boy', 'point', 'join', 'noise', 'voice', 'here', 'near', 'hear', 'beer', 'clear'],
     teach: [
       'ᚪᚹ is *now*, ᛟᛁ is *boy*, ᛁᚢ is *here*.',
       'These make sense once you say them slowly - *now* really does slide from ᚪ towards ᚹ, and *here* from ᛁ towards ᚢ.',

@@ -69,6 +69,7 @@ export async function resumeQuietly() {
 /** Start backing up in the background. Returns a function to force one now. */
 export const startAutoBackup = (getState) => drive.startAutoBackup(getState);
 export const stopAutoBackup = () => drive.stopAutoBackup();
+export const sync = (state, applyState) => drive.sync(state, applyState);
 
 export function signOut() {
   drive.signOut();

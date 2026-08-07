@@ -28,7 +28,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(root, 'android-data');
 const OUT = join(OUT_DIR, 'futhorc-data.json');
 
-const toRunes = (s) => transliterate(s).text;
+const toRunes = (s, unitId) => transliterate(s, { ligatures: unitId >= 13 }).text;
 
 // ── The course, with every prompt already in runes ─────────────────────────
 const units = UNITS.map((u) => ({
@@ -43,16 +43,16 @@ const units = UNITS.map((u) => ({
   finalReview: !!u.finalReview,
   words: (u.words ?? []).map((w) => ({
     english: w,
-    runes: transliterateWord(w).runes,
-    say: readAloud(transliterateWord(w).runes),
+    runes: transliterateWord(w, { ligatures: u.id >= 13 }).runes,
+    say: readAloud(transliterateWord(w, { ligatures: u.id >= 13 }).runes),
   })),
-  sentences: (u.sentences ?? []).map((s) => ({ english: s, runes: toRunes(s) })),
-  freeRead: (u.freeRead ?? []).map((s) => ({ english: s, runes: toRunes(s) })),
-  freeWrite: (u.freeWrite ?? []).map((s) => ({ english: s, runes: toRunes(s) })),
+  sentences: (u.sentences ?? []).map((s) => ({ english: s, runes: toRunes(s, u.id) })),
+  freeRead: (u.freeRead ?? []).map((s) => ({ english: s, runes: toRunes(s, u.id) })),
+  freeWrite: (u.freeWrite ?? []).map((s) => ({ english: s, runes: toRunes(s, u.id) })),
   passages: (u.passages ?? []).map((p) => ({
     title: p.title,
     english: p.english,
-    runes: toRunes(p.english),
+    runes: toRunes(p.english, u.id),
   })),
 }));
 

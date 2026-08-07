@@ -57,9 +57,14 @@ export default function App() {
   stateRef.current = state;
   useEffect(() => {
     if (!user) return undefined;
+    
+    // Sync on launch or sign-in
+    account.sync(stateRef.current, (next) => update((st) => { Object.assign(st, next); }))
+      .catch((e) => console.error('Initial sync failed:', e));
+
     account.startAutoBackup(() => stateRef.current);
     return () => account.stopAutoBackup();
-  }, [user]);
+  }, [user, update]);
 
   const go = useCallback((view, arg) => {
     window.location.hash = arg ? `#/${view}/${encodeURIComponent(arg)}` : `#/${view}`;

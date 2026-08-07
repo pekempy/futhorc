@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-08-07T15:00:01.837Z",
+ "generated": "2026-08-07T19:05:24.558Z",
  "separator": "᛫",
  "futhorcOrder": [
   "ᚠ",
@@ -2012,7 +2012,7 @@
     },
     {
      "english": "mist",
-     "runes": "ᛗᛁᛥ",
+     "runes": "ᛗᛁᛋᛏ",
      "say": "m-i-s-t"
     },
     {
@@ -2124,7 +2124,7 @@
     },
     {
      "english": "best",
-     "runes": "ᛒᛖᛥ",
+     "runes": "ᛒᛖᛋᛏ",
      "say": "b-e-s-t"
     },
     {
@@ -2153,29 +2153,14 @@
      "say": "b-e-n-d"
     },
     {
-     "english": "desk",
-     "runes": "ᛞᛖᛋᚳ",
-     "say": "d-e-s-k"
-    },
-    {
      "english": "dust",
-     "runes": "ᛞᚢᛥ",
+     "runes": "ᛞᚢᛋᛏ",
      "say": "d-uh-s-t"
     },
     {
      "english": "tent",
      "runes": "ᛏᛖᚾᛏ",
      "say": "t-e-n-t"
-    },
-    {
-     "english": "lamp",
-     "runes": "ᛚᚫᛗᛈ",
-     "say": "l-a-m-p"
-    },
-    {
-     "english": "damp",
-     "runes": "ᛞᚫᛗᛈ",
-     "say": "d-a-m-p"
     }
    ],
    "sentences": [
@@ -2259,21 +2244,6 @@
      "say": "n-o-t"
     },
     {
-     "english": "stop",
-     "runes": "ᛥᛟᛈ",
-     "say": "s-t-o-p"
-    },
-    {
-     "english": "dark",
-     "runes": "ᛞᚪᚳ",
-     "say": "d-ah-k"
-    },
-    {
-     "english": "card",
-     "runes": "ᚳᚪᛞ",
-     "say": "k-ah-d"
-    },
-    {
      "english": "him",
      "runes": "ᚻᛁᛗ",
      "say": "h-i-m"
@@ -2314,9 +2284,9 @@
      "say": "k-l-o-k"
     },
     {
-     "english": "help",
-     "runes": "ᚻᛖᛚᛈ",
-     "say": "h-e-l-p"
+     "english": "desk",
+     "runes": "ᛞᛖᛋᚳ",
+     "say": "d-e-s-k"
     },
     {
      "english": "milk",
@@ -2325,10 +2295,6 @@
     }
    ],
    "sentences": [
-    {
-     "english": "The cat sat on the mat.",
-     "runes": "ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ."
-    },
     {
      "english": "It is not hot.",
      "runes": "ᛁᛏ᛫ᛁᛋ᛫ᚾᛟᛏ᛫ᚻᛟᛏ."
@@ -2347,7 +2313,7 @@
    "part": "Getting started",
    "title": "Th, f, g, p and ng",
    "subtitle": "ᚦ ᚠ ᚷ ᛈ ᛝ",
-   "blurb": "Now you can write \"the\" - the most common word in English.",
+   "blurb": "Now you can write \"the\" - the commonest word in English.",
    "runes": [
     "ᚦ",
     "ᚠ",
@@ -2420,11 +2386,6 @@
      "say": "s-o-ng"
     },
     {
-     "english": "bath",
-     "runes": "ᛒᚪᚦ",
-     "say": "b-ah-th"
-    },
-    {
      "english": "that",
      "runes": "ᚦᚫᛏ",
      "say": "th-a-t"
@@ -2473,6 +2434,26 @@
      "english": "bring",
      "runes": "ᛒᚱᛁᛝ",
      "say": "b-r-i-ng"
+    },
+    {
+     "english": "lamp",
+     "runes": "ᛚᚫᛗᛈ",
+     "say": "l-a-m-p"
+    },
+    {
+     "english": "damp",
+     "runes": "ᛞᚫᛗᛈ",
+     "say": "d-a-m-p"
+    },
+    {
+     "english": "stop",
+     "runes": "ᛋᛏᛟᛈ",
+     "say": "s-t-o-p"
+    },
+    {
+     "english": "help",
+     "runes": "ᚻᛖᛚᛈ",
+     "say": "h-e-l-p"
     }
    ],
    "sentences": [
@@ -2486,7 +2467,11 @@
     },
     {
      "english": "This is the best song.",
-     "runes": "ᚦᛁᛋᛋ᛫ᛁᛋ᛫ᚦᚢ᛫ᛒᛖᛥ᛫ᛋᛟᛝ."
+     "runes": "ᚦᛁᛋᛋ᛫ᛁᛋ᛫ᚦᚢ᛫ᛒᛖᛋᛏ᛫ᛋᛟᛝ."
+    },
+    {
+     "english": "The cat sat on the mat.",
+     "runes": "ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ."
     }
    ],
    "freeRead": [],
@@ -2578,7 +2563,7 @@
     },
     {
      "english": "street",
-     "runes": "ᛥᚱᛁᛁᛏ",
+     "runes": "ᛋᛏᚱᛁᛁᛏ",
      "say": "s-t-r-ee-t"
     },
     {
@@ -2598,7 +2583,7 @@
     },
     {
      "english": "first",
-     "runes": "ᚠᚢᚢᛥ",
+     "runes": "ᚠᚢᚢᛋᛏ",
      "say": "f-ur-s-t"
     },
     {
@@ -2658,10 +2643,6 @@
     }
    ],
    "sentences": [
-    {
-     "english": "I can see the moon.",
-     "runes": "ᛡ᛫ᚳᚫᚾ᛫ᛋᛁᛁ᛫ᚦᚢ᛫ᛗᚣᚣᚾ."
-    },
     {
      "english": "The bird is on the roof.",
      "runes": "ᚦᚢ᛫ᛒᚢᚢᛞ᛫ᛁᛋ᛫ᛟᚾ᛫ᚦᚢ᛫ᚱᚣᚣᚠᚠ."
@@ -2730,17 +2711,17 @@
     },
     {
      "english": "fast",
-     "runes": "ᚠᚪᛥ",
+     "runes": "ᚠᚪᛋᛏ",
      "say": "f-ah-s-t"
     },
     {
      "english": "last",
-     "runes": "ᛚᚪᛥ",
+     "runes": "ᛚᚪᛋᛏ",
      "say": "l-ah-s-t"
     },
     {
      "english": "past",
-     "runes": "ᛈᚪᛥ",
+     "runes": "ᛈᚪᛋᛏ",
      "say": "p-ah-s-t"
     },
     {
@@ -2800,7 +2781,7 @@
     },
     {
      "english": "start",
-     "runes": "ᛥᚪᛏ",
+     "runes": "ᛋᛏᚪᛏ",
      "say": "s-t-ah-t"
     },
     {
@@ -2817,6 +2798,11 @@
      "english": "answer",
      "runes": "ᚪᚾᛋᚢ",
      "say": "ah-n-s-uh"
+    },
+    {
+     "english": "card",
+     "runes": "ᚳᚪᛞ",
+     "say": "k-ah-d"
     }
    ],
    "sentences": [
@@ -2826,7 +2812,7 @@
     },
     {
      "english": "Ask the last man.",
-     "runes": "ᚪᛋᚳ᛫ᚦᚢ᛫ᛚᚪᛥ᛫ᛗᚫᚾ."
+     "runes": "ᚪᛋᚳ᛫ᚦᚢ᛫ᛚᚪᛋᛏ᛫ᛗᚫᚾ."
     },
     {
      "english": "It is far and dark.",
@@ -2908,7 +2894,7 @@
     },
     {
      "english": "stay",
-     "runes": "ᛥᛠ",
+     "runes": "ᛋᛏᛠ",
      "say": "s-t-ay"
     },
     {
@@ -3009,6 +2995,10 @@
     {
      "english": "Take the old boat.",
      "runes": "ᛏᛠᚳ᛫ᚦᚢ᛫ᚩᛚᛞ᛫ᛒᚩᛏ."
+    },
+    {
+     "english": "I can see the moon.",
+     "runes": "ᛡ᛫ᚳᚫᚾ᛫ᛋᛁᛁ᛫ᚦᚢ᛫ᛗᚣᚣᚾ."
     }
    ],
    "freeRead": [],
@@ -3118,11 +3108,6 @@
      "english": "near",
      "runes": "ᚾᛁᚢ",
      "say": "n-eer"
-    },
-    {
-     "english": "year",
-     "runes": "ᛄᛁᚢ",
-     "say": "y-eer"
     },
     {
      "english": "hear",
@@ -7043,5 +7028,5 @@
    "lesson"
   ]
  },
- "version": "61c4e3b9099fabca"
+ "version": "0a8759ae2926b5fb"
 }

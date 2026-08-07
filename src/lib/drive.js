@@ -290,23 +290,41 @@ export async function sync(state, applyState) {
   const verdict = decide({ ...localNow, updatedAt: local.updatedAt }, remote);
 
   switch (verdict.action) {
-    case 'push':
+    case 'push': {
       await upload(localNow);
       rememberSync(localNow);
+      
+      const { updatedAt, ...body } = localNow;
+      lastPushed = JSON.stringify(body);
+      
       return { action: 'push', reason: verdict.reason };
+    }
 
     case 'pull': {
       try { localStorage.setItem(ROLLBACK_KEY, JSON.stringify(localNow)); } catch { /* ignore */ }
-      applyState(fromBackup(remote, state));
+      const pulled = fromBackup(remote, state);
+      applyState(pulled);
       rememberSync(remote);
+      
+      try {
+        const { updatedAt, ...body } = toBackup(pulled);
+        lastPushed = JSON.stringify(body);
+      } catch { /* ignore */ }
+      
       return { action: 'pull', reason: verdict.reason, backup: remote };
     }
 
-    case 'conflict':
+    case 'conflict': {
+      const { updatedAt, ...body } = localNow;
+      lastPushed = JSON.stringify(body);
       return { action: 'conflict', reason: verdict.reason, backup: remote };
+    }
 
-    default:
+    default: {
+      const { updatedAt, ...body } = localNow;
+      lastPushed = JSON.stringify(body);
       return { action: 'none', reason: verdict.reason };
+    }
   }
 }
 
@@ -316,6 +334,10 @@ export async function resolveByMerging(state, remote, applyState) {
   applyState(fromBackup(merged, state));
   await upload(merged);
   rememberSync(merged);
+  
+  const { updatedAt, ...body } = merged;
+  lastPushed = JSON.stringify(body);
+  
   return merged;
 }
 
@@ -324,6 +346,10 @@ export async function backupNow(state) {
   const backup = toBackup(state);
   await upload(backup);
   rememberSync(backup);
+  
+  const { updatedAt, ...body } = backup;
+  lastPushed = JSON.stringify(body);
+  
   return backup;
 }
 
@@ -351,6 +377,15 @@ const AUTO_INTERVAL_MS = 5 * 60 * 1000;
 
 export function startAutoBackup(getState, { intervalMs = AUTO_INTERVAL_MS } = {}) {
   stopAutoBackup();
+
+  // Initialize lastPushed fingerprint to prevent redundant uploads on startup / tab hide
+  try {
+    const initialBackup = toBackup(getState());
+    const { updatedAt, ...body } = initialBackup;
+    lastPushed = JSON.stringify(body);
+  } catch {
+    lastPushed = null;
+  }
 
   const attempt = async () => {
     if (!isSignedIn()) return;

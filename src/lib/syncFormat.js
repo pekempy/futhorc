@@ -90,7 +90,14 @@ export function decide(local, remote, now = Date.now()) {
   if (remoteTime > now + 86_400_000) {
     return { action: 'push', reason: "the backup's clock looks wrong" };
   }
-  if (remoteTime === localTime) return { action: 'none', reason: 'already in step' };
+  if (remoteTime === localTime) {
+    const { updatedAt: lu, device: ld, ...localBody } = local || {};
+    const { updatedAt: ru, device: rd, ...remoteBody } = remote || {};
+    if (JSON.stringify(localBody) === JSON.stringify(remoteBody)) {
+      return { action: 'none', reason: 'already in step' };
+    }
+    return { action: 'push', reason: 'this device has unsynced changes' };
+  }
 
   if (remoteTime > localTime) {
     if (looksEmptier(remote, local)) {
