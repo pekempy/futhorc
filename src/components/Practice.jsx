@@ -4,6 +4,9 @@ import { UNITS, wordsThrough, runesThrough } from '../data/lessons.js';
 import { transliterateWord, readAloud } from '../lib/transliterate.js';
 import { accuracy, learnedCount, practiceOrder, recordAnswer } from '../lib/progress.js';
 import StrokeDiagram from './StrokeDiagram.jsx';
+import RuneCanvas from './RuneCanvas.jsx';
+import { GLYPHS } from '../data/glyphs.js';
+import { score, identify, PASS_MARK } from '../lib/recognise.js';
 import SpeakButton from './SpeakButton.jsx';
 
 const MODES = [
@@ -31,19 +34,56 @@ export default function Practice({ state, update }) {
   }, [maxUnit]);
 
   const start = () => {
-    const ordered = shuffle(practiceOrder(state, pool)).slice(0, 12);
     const words = wordsThrough(maxUnit);
-    const q = shuffle(ordered.map((r) => {
-      const kinds = mode === 'mixed' ? ['sound', 'rune', 'read', 'stroke'] : [mode];
-      const kind = kinds[Math.floor(Math.random() * kinds.length)];
+    const kinds = mode === 'mixed' ? ['sound', 'rune', 'read', 'stroke'] : [mode];
+
+    // Deal words from one deck rather than picking at random each time, so a
+    // round doesn't ask about the same word twice while others never appear.
+    let deck = shuffle(words);
+    let di = 0;
+    const nextWord = () => {
+      if (!words.length) return null;
+      if (di >= deck.length) { deck = shuffle(words); di = 0; }
+      return deck[di++];
+    };
+
+    // Weakest first, but only as an ordering - taking the first twelve every
+    // time meant the same handful came round session after session. Draw from
+    // the front of the queue and let the rest of the pool in behind it.
+    const ordered = practiceOrder(state, pool);
+    const focus = shuffle(ordered.slice(0, Math.min(8, ordered.length)));
+    const rest = shuffle(ordered.slice(8));
+    const runeOrder = [...focus, ...rest];
+
+    // A rune may come round more than once when little is known yet - a
+    // six-rune pool used to give a six-question round - but never twice with
+    // the same kind of question, which is what made it feel like a rerun.
+    const used = new Map();
+    const q = [];
+    for (let i = 0; q.length < 12; i++) {
+      if (!runeOrder.length) break;
+      const r = runeOrder[i % runeOrder.length];
+      const taken = used.get(r) || [];
+      const free = kinds.filter((k) => !taken.includes(k));
+      if (!free.length) { if (i > runeOrder.length * kinds.length) break; continue; }
+      const kind = free[Math.floor(Math.random() * free.length)];
+      used.set(r, [...taken, kind]);
+
       if (kind === 'read' && words.length > 4) {
-        const w = words[Math.floor(Math.random() * words.length)];
-        return { kind: 'read', word: w, options: shuffle([w, ...shuffle(words.filter((x) => x !== w)).slice(0, 3)]) };
+        const w = nextWord();
+        q.push({ kind: 'read', word: w, options: shuffle([w, ...shuffle(words.filter((x) => x !== w)).slice(0, 3)]) });
+      } else if (kind === 'stroke') {
+        q.push({ kind: 'stroke', rune: r });
+      } else {
+        q.push({
+          kind: kind === 'read' ? 'sound' : kind,
+          rune: r,
+          options: shuffle([r, ...shuffle(pool.filter((x) => x !== r)).slice(0, 3)]),
+        });
       }
-      if (kind === 'stroke') return { kind: 'stroke', rune: r };
-      return { kind: kind === 'read' ? 'sound' : kind, rune: r, options: shuffle([r, ...shuffle(pool.filter((x) => x !== r)).slice(0, 3)]) };
-    }));
-    setQueue(q); setPos(0); setAnswered(null); setScore({ right: 0, total: 0 }); setRunning(true);
+    }
+
+    setQueue(shuffle(q)); setPos(0); setAnswered(null); setScore({ right: 0, total: 0 }); setRunning(true);
     update((s) => { s.sessionCount = (s.sessionCount || 0) + 1; });
   };
 
@@ -201,26 +241,76 @@ function QRead({ q, answered, onAnswer }) {
   );
 }
 
+/**
+ * Draw the rune, and be told whether you actually drew it.
+ *
+ * This used to say "sketch it on paper, then check yourself" and offer two
+ * buttons marked "I got it right" and "Not quite" - which asks the one person
+ * who cannot yet tell the difference to be the judge, on a device perfectly
+ * capable of judging for itself.
+ */
 function QStroke({ q, answered, onAnswer }) {
-  const [revealed, setRevealed] = useState(false);
+  const [strokes, setStrokes] = useState([]);
+  const [verdict, setVerdict] = useState(null);
+  const [showGuide, setShowGuide] = useState(false);
   const r = RUNE_BY_CHAR[q.rune];
+  const glyph = GLYPHS[q.rune];
+
+  const check = () => {
+    const shown = score(strokes, q.rune);
+    const reading = identify(strokes);
+    const ok = reading.rune === q.rune;
+    setVerdict({ shown, ok, reading });
+    onAnswer(ok, q.rune);
+  };
+
   return (
     <div className="stack">
-      <h2>Draw {r.name} from memory</h2>
-      <p className="muted small">Sketch it on paper, then check yourself.</p>
-      <div className="card center">
-        {revealed
-          ? <StrokeDiagram rune={q.rune} size={150} animate />
-          : <div className="prompt-word" style={{ padding: '2rem 0' }}>{r.name} - {r.gloss}</div>}
-      </div>
-      {!revealed && <button className="btn" onClick={() => setRevealed(true)}>Show me</button>}
-      {revealed && !answered && (
+      <h2>Draw {r.name}</h2>
+      <p className="muted small">{r.gloss} - from memory if you can.</p>
+
+      <RuneCanvas
+        strokes={strokes}
+        setStrokes={setStrokes}
+        disabled={!!answered}
+        guide={showGuide && glyph ? glyph.strokes : null}
+        guideWidth={glyph?.w ?? 60}
+      />
+
+      {!answered && (
         <div className="row">
-          <button className="btn primary grow" onClick={() => onAnswer(true, q.rune)}>I got it right</button>
-          <button className="btn grow" onClick={() => onAnswer(false, q.rune)}>Not quite</button>
+          <button className="btn small" onClick={() => setShowGuide((v) => !v)}>
+            {showGuide ? 'Hide the shape' : 'Show me the shape'}
+          </button>
+          <button className="btn small" disabled={!strokes.length} onClick={() => setStrokes(strokes.slice(0, -1))}>
+            Undo
+          </button>
+          <button className="btn small" disabled={!strokes.length} onClick={() => setStrokes([])}>
+            Clear
+          </button>
+          <span className="grow" />
+          <button className="btn primary" disabled={!strokes.length} onClick={check}>Check</button>
         </div>
       )}
-      {answered && <div className={`feedback ${answered === 'ok' ? 'ok' : 'no'}`}>{answered === 'ok' ? 'Good.' : "It'll come back round."}</div>}
+
+      {verdict && (
+        <div className={`feedback ${verdict.ok ? 'ok' : 'no'}`}>
+          <strong>{verdict.shown}%</strong>{' '}
+          {verdict.ok
+            ? "- that's the one."
+            : verdict.reading.ambiguous && verdict.reading.runnerUp
+              ? `- that sits between ${q.rune} and ${verdict.reading.runnerUp}. Telling those two apart is what to work on.`
+              : verdict.reading.rune
+                ? `- that reads as ${verdict.reading.rune} (${RUNE_BY_CHAR[verdict.reading.rune]?.name}).`
+                : `- not clear enough yet. It needs ${PASS_MARK}% to count.`}
+        </div>
+      )}
+
+      {answered && (
+        <div className="card center">
+          <StrokeDiagram rune={q.rune} size={150} animate />
+        </div>
+      )}
     </div>
   );
 }

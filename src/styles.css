@@ -506,3 +506,24 @@ table.chart td.r { font-family: var(--rune); font-size: 1.5rem; text-align: cent
   justify-content: center;
   gap: 0.5rem;
 }
+
+
+/* ── Drawing surface ─────────────────────────────────────────────────────── */
+
+.rune-canvas {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface, #fff);
+  overflow: hidden;
+  /* Without this the browser claims every drag for scrolling and the pen
+     never sees a move event. touch-action is the whole reason drawing works
+     on a phone at all. */
+  touch-action: none;
+  cursor: crosshair;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.rune-canvas canvas { display: block; }
+.rune-canvas-wrap { width: 100%; }

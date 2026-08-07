@@ -92,6 +92,36 @@ function UnitList({ state, go }) {
 
 // ── Exercise generation ────────────────────────────────────────────────────
 
+/**
+ * Deal items out without repeating.
+ *
+ * The reason exercises kept coming round twice: reading, typing, writing and
+ * listening each shuffled the unit's word list and took the first few,
+ * independently of one another. Four separate draws from the same 20 words ask
+ * for 16 of them, so the same word turned up two or three times a unit even
+ * though there were plenty to go round.
+ *
+ * One deck, dealt from the top. Only reshuffles when it runs out, and then
+ * avoids repeating the word it just finished on so the seam isn't obvious.
+ */
+function dealer(items) {
+  let deck = shuffle(items);
+  let i = 0;
+  return (n) => {
+    const out = [];
+    for (let k = 0; k < n && items.length; k++) {
+      if (i >= deck.length) {
+        const last = deck[deck.length - 1];
+        deck = shuffle(items);
+        if (deck.length > 1 && deck[0] === last) [deck[0], deck[1]] = [deck[1], deck[0]];
+        i = 0;
+      }
+      out.push(deck[i++]);
+    }
+    return out;
+  };
+}
+
 function buildSteps(unit) {
   const newSeqs = unit.runes || [];
   const knownSeqs = [];
@@ -111,22 +141,26 @@ function buildSteps(unit) {
   const words = unit.words || [];
   const allWords = wordsThrough(unit.id);
 
+  // Every word exercise below draws from this one deck, so a unit with enough
+  // words never asks about the same one twice.
+  const deal = dealer(words);
+  const share = (want) => Math.min(want, Math.max(1, Math.ceil(words.length / 4)));
+
   // 2. read words - multiple choice first, then unaided
-  const mcWords = shuffle(words).slice(0, Math.min(5, words.length));
-  for (const w of mcWords) {
+  for (const w of deal(share(5))) {
     exercises.push({ type: 'read', word: w, options: shuffle([w, ...sample(allWords, 3, [w])]) });
   }
-  for (const w of sample(words, Math.min(4, words.length), mcWords)) {
+  for (const w of deal(share(4))) {
     exercises.push({ type: 'readType', word: w });
   }
 
   // 3. write words
-  for (const w of shuffle(words).slice(0, Math.min(5, words.length))) {
+  for (const w of deal(share(5))) {
     exercises.push({ type: 'write', word: w });
   }
 
   // 4. listen and write
-  for (const w of shuffle(words).slice(0, Math.min(2, words.length))) {
+  for (const w of deal(share(2))) {
     exercises.push({ type: 'listen', word: w });
   }
 
