@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "tag": "node scripts/tag-and-push.mjs",
     "release": "node scripts/tag-and-push.mjs",
-    "export:data": "node scripts/export-data.mjs"
+    "export:data": "node scripts/export-data.mjs",
+    "check": "node scripts/ssr-check.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

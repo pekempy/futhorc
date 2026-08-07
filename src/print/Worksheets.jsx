@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { WORKSHEETS, WORKSHEET_LEVELS } from '../data/worksheetsData.js';
 import { transliterateWord, transliterate } from '../lib/transliterate.js';
+import { DEFAULT_PROFILE } from '../lib/progress.js';
 
 export default function Worksheets({ state }) {
   const profile = state?.profile || DEFAULT_PROFILE;

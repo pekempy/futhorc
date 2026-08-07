@@ -7,6 +7,7 @@ dist/
 
 # scratch from the generation/verification scripts
 scripts/.ssr-bundle.cjs
+scripts/.ssr-bundle.mjs
 scripts/.run.cjs
 scripts/skel*.py
 futhorc.html

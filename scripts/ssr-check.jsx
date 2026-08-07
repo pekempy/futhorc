@@ -2,6 +2,7 @@
    sheets be checked without a browser. Run: node scripts/ssr-check.mjs */
 import { renderToStaticMarkup } from 'react-dom/server';
 import { writeFileSync, mkdirSync } from 'fs';
+import App from '../src/App.jsx';
 import Home from '../src/components/Home.jsx';
 import Lessons from '../src/components/Lessons.jsx';
 import Reference from '../src/components/Reference.jsx';
@@ -20,6 +21,12 @@ const noop = () => {};
 const S = state.settings;
 
 const cases = [
+  // App first, and on its own line, because it is the one that catches
+  // ordering mistakes in the component body - a hook listing a `const`
+  // callback in its dependency array before that const is initialised throws
+  // during render, so the whole app fails to mount and every other check
+  // still passes. That shipped once.
+  ['App', <App />],
   ['Home', <Home state={state} go={noop} />],
   ['UnitList', <Lessons state={state} update={noop} go={noop} unitId={null} />],
   ...UNITS.map((u) => [`Unit${u.id}`, <Lessons state={state} update={noop} go={noop} unitId={u.id} />]),

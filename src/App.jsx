@@ -29,9 +29,31 @@ function readHash() {
 export default function App() {
   const [route, setRoute] = useState(readHash);
   const [state, setState] = useState(load);
+  // `user` may be the *remembered* account, shown before Google has confirmed
+  // anything. `connected` is the stricter fact: we hold a live token and can
+  // actually talk to Drive. Syncing keys off the second, not the first.
   const [user, setUser] = useState(null);
+  const [connected, setConnected] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
   const [signInError, setSignInError] = useState('');
+
+  // Declared before the effects that use them. These are `const`, so an effect
+  // listing `update` in its dependency array above this point reads it in the
+  // temporal dead zone and throws "can't access lexical declaration before
+  // initialization" - during render, so the whole app fails to mount rather
+  // than just that feature.
+  const update = useCallback((fn) => {
+    setState((prev) => {
+      const next = structuredClone(prev);
+      fn(next);
+      return next;
+    });
+  }, []);
+
+  const go = useCallback((view, arg) => {
+    window.location.hash = arg ? `#/${view}/${encodeURIComponent(arg)}` : `#/${view}`;
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const onHash = () => setRoute(readHash());
@@ -47,43 +69,34 @@ export default function App() {
   useEffect(() => {
     const remembered = account.previouslyConnected();
     if (remembered) setUser(remembered);
-    account.resumeQuietly().then((u) => setUser(u ?? null));
-  }, []);
-
-  // Once signed in, keep Drive up to date without anyone having to press a
-  // button. stateRef keeps the uploader looking at current state without
-  // restarting the timer on every keystroke.
-  const stateRef = useRef(state);
-  stateRef.current = state;
-  useEffect(() => {
-    if (!user) return undefined;
-    
-    // Sync on launch or sign-in
-    account.sync(stateRef.current, (next) => update((st) => { Object.assign(st, next); }))
-      .catch((e) => console.error('Initial sync failed:', e));
-
-    account.startAutoBackup(() => stateRef.current);
-    return () => account.stopAutoBackup();
-  }, [user, update]);
-
-  const go = useCallback((view, arg) => {
-    window.location.hash = arg ? `#/${view}/${encodeURIComponent(arg)}` : `#/${view}`;
-    window.scrollTo(0, 0);
-  }, []);
-
-  const update = useCallback((fn) => {
-    setState((prev) => {
-      const next = structuredClone(prev);
-      fn(next);
-      return next;
+    account.resumeQuietly().then((u) => {
+      setUser(u ?? remembered ?? null);
+      setConnected(Boolean(u));
     });
   }, []);
+
+  // Reconcile with Drive once, then keep it up to date without anyone having
+  // to press a button. Gated on `connected` rather than `user`: the remembered
+  // account arrives before the token does, and syncing then would fail on
+  // every single load.
+  const stateRef = useRef(state);
+  useEffect(() => { stateRef.current = state; }, [state]);
+
+  useEffect(() => {
+    if (!connected) return undefined;
+    account
+      .sync(stateRef.current, (next) => update((st) => { Object.assign(st, next); }))
+      .catch((e) => console.error('Drive sync failed:', e));
+    account.startAutoBackup(() => stateRef.current);
+    return () => account.stopAutoBackup();
+  }, [connected, update]);
 
   const signIn = useCallback(async () => {
     setSigningIn(true);
     setSignInError('');
     try {
       setUser(await account.signIn());
+      setConnected(true);
     } catch (e) {
       setSignInError(e.message || 'Sign-in failed');
     } finally {
@@ -91,7 +104,11 @@ export default function App() {
     }
   }, []);
 
-  const signOut = useCallback(() => { account.signOut(); setUser(null); }, []);
+  const signOut = useCallback(() => {
+    account.signOut();
+    setUser(null);
+    setConnected(false);
+  }, []);
 
   const settings = state.settings;
 
