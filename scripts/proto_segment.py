@@ -269,3 +269,72 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# ── Lines ──────────────────────────────────────────────────────────────────
+
+def group_lines(strokes):
+    """
+    Split strokes into lines of writing before anything else.
+
+    This is the step that was missing. Everything below sorts strokes by x and
+    measures gaps against the height of the *whole* drawing, both of which are
+    only correct for a single line. Give it two lines and the strokes of one
+    interleave with the other - so the runes come out scrambled - while the
+    height roughly doubles, which scales every gap threshold wrong and takes
+    the word breaks with it. On a pad four times taller than a line of writing,
+    two lines is the normal case rather than the exceptional one.
+
+    Lines are found from the gaps between stroke centres, not from any estimate
+    of how tall a line ought to be. Guessing the line height from stroke heights
+    is tempting and wrong: a rune like the bare vertical is full height while
+    the arms of another are a third of it, so the estimate lands well under a
+    true line and splits one row into several. The vertical gap *between* rows
+    is far more distinctive than the height of anything within them.
+    """
+    usable = [s for s in strokes if len(s) >= 2]
+    if not usable:
+        return []
+
+    spans = []
+    for s in usable:
+        ys = [p[1] for p in s]
+        xs = [p[0] for p in s]
+        spans.append({'stroke': s, 'cy': (min(ys) + max(ys)) / 2, 'left': min(xs)})
+
+    by_top = sorted(spans, key=lambda s: s['cy'])
+    if len(by_top) < 3:
+        return [[s['stroke'] for s in sorted(by_top, key=lambda s: s['left'])]]
+
+    diffs = [by_top[i + 1]['cy'] - by_top[i]['cy'] for i in range(len(by_top) - 1)]
+    split = _widest_valley(diffs)
+    if split is None:
+        # No clear valley: one line. Much better to under-split than over - a
+        # single line wrongly cut in two scrambles nothing, but two lines
+        # treated as one interleaves every stroke.
+        return [[s['stroke'] for s in sorted(by_top, key=lambda s: s['left'])]]
+
+    lines = [[by_top[0]]]
+    for i, sp in enumerate(by_top[1:]):
+        if diffs[i] > split:
+            lines.append([sp])
+        else:
+            lines[-1].append(sp)
+    return [[s['stroke'] for s in sorted(line, key=lambda s: s['left'])]
+            for line in lines]
+
+
+def segment_page(strokes):
+    """
+    Segment a whole pad: lines first, then runes and words within each line.
+
+    Each line is measured against its *own* height, so a small line under a
+    large one is not judged by the large one's proportions.
+    """
+    out = []
+    for line in group_lines(strokes):
+        groups = segment(line)
+        if groups:
+            groups[0]['starts_word'] = True     # a new line always starts a word
+            out.extend(groups)
+    return out
