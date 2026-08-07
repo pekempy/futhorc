@@ -8,6 +8,7 @@ const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Oru
 export default function SpeakButton({ runic, label, plainFallback }) {
   const [busy, setBusy] = useState(false);
   const [open, setOpen] = useState(false);
+  const [err, setErr] = useState('');
   const [systemKey, setSystemKey] = useState('');
   const [voices, setVoices] = useState([]);
   const popoverRef = useRef(null);
@@ -147,6 +148,7 @@ export default function SpeakButton({ runic, label, plainFallback }) {
         </div>
       )}
 
+      {err && <span className="tiny no" style={{ color: 'var(--no)', fontSize: '0.78rem' }}>{err}</span>}
       {plainFallback && <span className="tiny muted">{plainFallback}</span>}
     </span>
   );
