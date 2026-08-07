@@ -129,13 +129,22 @@ export async function speakWithGemini(runic, apiKey, voiceName = 'Kore') {
   if (!activeKey) throw new Error('No Gemini API key available');
   const text = respellText(runic);
   
-  // Use gemini-2.0-flash endpoint for TTS AUDIO generation
+  // Use gemini-2.0-flash endpoint with explicit voice systemInstruction and prebuiltVoiceConfig
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(activeKey)}`;
   const body = {
-    contents: [{ parts: [{ text: `Read this aloud clearly in a British accent: ${text}` }] }],
+    systemInstruction: {
+      parts: [{ text: `You are an audio voice narrator. Speak with the distinct pitch, accent, tone, and character of the ${voiceName} voice persona.` }]
+    },
+    contents: [{ parts: [{ text: `Read this aloud in a British accent: ${text}` }] }],
     generationConfig: {
       responseModalities: ['AUDIO'],
-      speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } },
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: {
+            voiceName: voiceName
+          }
+        }
+      }
     },
   };
   const res = await fetch(url, {
