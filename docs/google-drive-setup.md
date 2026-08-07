@@ -41,23 +41,40 @@ just means signing in again occasionally.
 ### Web client (for the web app)
 
 - Type: **Web application**
-- Authorised JavaScript origins:
+- Authorised JavaScript origins — every origin the app is served from, exactly,
+  scheme and port included:
+  - `https://runes.glados.host`
   - `http://localhost:7863` (the dev server)
-  - whatever you serve the built app from
 - No redirect URI needed — Google Identity Services uses the popup flow
+
+An origin has to match character for character. `http://` and `https://` are
+different origins, and so are `runes.glados.host` and `www.runes.glados.host`.
+Get it wrong and sign-in fails with `origin_mismatch`.
 
 Copy the client ID. It looks like `1234-abcd.apps.googleusercontent.com`. It's
 public by design: it identifies the app, it doesn't authorise anything on its
 own, so it's fine in the repository.
 
-Then either put it in `.env`:
+> **Ignore the client secret.** Google issues one with every web client, but
+> the browser flow used here is a *public* client and has no secret — nothing
+> in this project reads one. If you've already copied it somewhere, reset it in
+> the console and forget about it.
+
+Put the ID in `.env` next to docker-compose:
 
 ```
-VITE_GOOGLE_CLIENT_ID=1234-abcd.apps.googleusercontent.com
+GOOGLE_CLIENT_ID=1234-abcd.apps.googleusercontent.com
 ```
 
-or paste it into the app's Settings, which stores it in `localStorage` — handy
-if you don't want to rebuild.
+`server.mjs` reads that at runtime and hands it to the browser via
+`/api/config`, so `docker compose up -d` is enough — no rebuild, and the same
+image works on any host. Do **not** use a `VITE_` prefix for this: Vite inlines
+those at build time, so a value set in docker-compose would never reach an
+already-built image.
+
+You can also paste the ID into the app's Settings instead, which stores it in
+`localStorage`. Handy for a quick try; the server route is the one to use for a
+real deployment.
 
 ### Android client
 

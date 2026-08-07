@@ -183,11 +183,21 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // Environment Config API Endpoint
+  // Runtime configuration.
+  //
+  // Read from the environment on every request rather than baked into the
+  // bundle at build time, so the same image can be deployed anywhere and a
+  // change to docker-compose only needs a restart, not a rebuild.
   if (pathname === '/api/config') {
+    res.setHeader('Cache-Control', 'no-store');
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
-      geminiApiKey: process.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY || ''
+      geminiApiKey: process.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '',
+      // Public by design: an OAuth client ID identifies the app, it doesn't
+      // authorise anything on its own. The client *secret* is not used at all —
+      // the browser flow is a public client and has no secret.
+      googleClientId: process.env.GOOGLE_CLIENT_ID
+        || process.env.VITE_GOOGLE_CLIENT_ID || '',
     }));
     return;
   }

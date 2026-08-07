@@ -27,17 +27,48 @@ const GIS_SRC = 'https://accounts.google.com/gsi/client';
 const DRIVE = 'https://www.googleapis.com/drive/v3';
 const UPLOAD = 'https://www.googleapis.com/upload/drive/v3';
 
-/** Set at build time, or pasted into Settings if you'd rather not rebuild. */
-export const CLIENT_ID =
-  import.meta.env?.VITE_GOOGLE_CLIENT_ID ||
-  localStorage.getItem('futhorc.googleClientId') ||
-  '';
+/*
+ * Where the OAuth client ID comes from, in order of preference:
+ *
+ *   1. /api/config — the server reads it from its environment on every
+ *      request. This is the one that matters for the Docker deployment:
+ *      Vite inlines import.meta.env at *build* time, so a value set in
+ *      docker-compose would otherwise never reach an already-built image.
+ *      Reading it at runtime means changing docker-compose and restarting is
+ *      enough — no rebuild, and the same image works anywhere.
+ *   2. localStorage — pasted into Settings, handy for a quick try.
+ *   3. import.meta.env — baked in at build time, for a plain `npm run build`.
+ */
+let clientIdPromise = null;
 
-export function setClientId(id) {
-  localStorage.setItem('futhorc.googleClientId', (id ?? '').trim());
+export function resolveClientId() {
+  clientIdPromise ??= (async () => {
+    try {
+      const res = await fetch('/api/config', { cache: 'no-store' });
+      if (res.ok) {
+        const cfg = await res.json();
+        if (cfg.googleClientId) return cfg.googleClientId;
+      }
+    } catch {
+      // No server (dev against a static build, say) — fall through.
+    }
+    try {
+      const stored = localStorage.getItem('futhorc.googleClientId');
+      if (stored) return stored.trim();
+    } catch { /* private mode */ }
+    return import.meta.env?.VITE_GOOGLE_CLIENT_ID || '';
+  })();
+  return clientIdPromise;
 }
 
-export const isConfigured = () => Boolean(CLIENT_ID);
+export function setClientId(id) {
+  try {
+    localStorage.setItem('futhorc.googleClientId', (id ?? '').trim());
+  } catch { /* private mode */ }
+  clientIdPromise = null;   // re-resolve next time
+}
+
+export const isConfigured = async () => Boolean(await resolveClientId());
 
 let scriptPromise = null;
 function loadGis() {
@@ -68,13 +99,20 @@ export const isSignedIn = () => Boolean(token) && Date.now() < tokenExpiry;
  *        try silently — used on page load so an already-signed-in user isn't
  *        nagged with a popup.
  */
-export function authorise({ interactive = true } = {}) {
-  if (!CLIENT_ID) return Promise.reject(new Error('No Google client ID set'));
-  if (isSignedIn()) return Promise.resolve(token);
+export async function authorise({ interactive = true } = {}) {
+  const clientId = await resolveClientId();
+  if (!clientId) {
+    throw new Error(
+      'No Google client ID. Set GOOGLE_CLIENT_ID in docker-compose, or paste ' +
+      'the ID into Settings.'
+    );
+  }
+  if (isSignedIn()) return token;
 
-  return loadGis().then(() => new Promise((resolve, reject) => {
+  await loadGis();
+  return new Promise((resolve, reject) => {
     const client = window.google.accounts.oauth2.initTokenClient({
-      client_id: CLIENT_ID,
+      client_id: clientId,
       scope: SCOPES,
       prompt: interactive ? '' : 'none',
       callback: async (response) => {
@@ -95,7 +133,7 @@ export function authorise({ interactive = true } = {}) {
       error_callback: (err) => reject(new Error(err?.message ?? 'Sign-in was cancelled')),
     });
     client.requestAccessToken();
-  }));
+  });
 }
 
 export function signOut() {
