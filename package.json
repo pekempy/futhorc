@@ -10,7 +10,8 @@
     "build:app": "vite build",
     "preview": "vite preview",
     "tag": "node scripts/tag-and-push.mjs",
-    "release": "node scripts/tag-and-push.mjs"
+    "release": "node scripts/tag-and-push.mjs",
+    "export:data": "node scripts/export-data.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

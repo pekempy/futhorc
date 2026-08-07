@@ -1,0 +1,7047 @@
+{
+ "schema": 1,
+ "generated": "2026-08-07T15:00:01.837Z",
+ "separator": "᛫",
+ "futhorcOrder": [
+  "ᚠ",
+  "ᚢ",
+  "ᚦ",
+  "ᚩ",
+  "ᚱ",
+  "ᚳ",
+  "ᚷ",
+  "ᚹ",
+  "ᚻ",
+  "ᚾ",
+  "ᛁ",
+  "ᛄ",
+  "ᛈ",
+  "ᛉ",
+  "ᛋ",
+  "ᛏ",
+  "ᛒ",
+  "ᛖ",
+  "ᛗ",
+  "ᛚ",
+  "ᛝ",
+  "ᛟ",
+  "ᛞ",
+  "ᚪ",
+  "ᚫ",
+  "ᛠ",
+  "ᛡ",
+  "ᚣ",
+  "ᛥ",
+  "ᛢ"
+ ],
+ "runes": [
+  {
+   "rune": "ᚠ",
+   "kind": "consonant",
+   "name": "Fee",
+   "runicName": "ᚠᛁᛁ",
+   "ipa": [
+    "f",
+    "v"
+   ],
+   "gloss": "f as in fear, and v as in vine",
+   "examples": [
+    "{f}ear",
+    "{v}ine",
+    "lea{f}"
+   ],
+   "note": "One rune covers both f and v. At the end of a word, write ᚠᚠ if the sound is f: leaf ᛚᛁᛁᚠᚠ, leave ᛚᛁᛁᚠ.",
+   "length": null
+  },
+  {
+   "rune": "ᚦ",
+   "kind": "consonant",
+   "name": "Thorn",
+   "runicName": "ᚦᛟᛟᚾ",
+   "ipa": [
+    "θ",
+    "ð"
+   ],
+   "gloss": "th, both kinds",
+   "examples": [
+    "{th}ing",
+    "{th}is",
+    "ba{th}"
+   ],
+   "note": "The hard th of “thing” and the soft th of “this” share one rune.",
+   "length": null
+  },
+  {
+   "rune": "ᚱ",
+   "kind": "consonant",
+   "name": "Ride",
+   "runicName": "ᚱᛡᛞ",
+   "ipa": [
+    "r"
+   ],
+   "gloss": "r as in rain",
+   "examples": [
+    "{r}ain",
+    "b{r}ing",
+    "ve{r}y"
+   ],
+   "note": "Only written when an r sound is actually pronounced. In British English that means before a vowel: car is ᚳᚪ, but carry is ᚳᚫᚱᛁ.",
+   "length": null
+  },
+  {
+   "rune": "ᚳ",
+   "kind": "consonant",
+   "name": "Car",
+   "runicName": "ᚳᚪ",
+   "ipa": [
+    "k"
+   ],
+   "gloss": "k as in kite",
+   "examples": [
+    "{k}ite",
+    "{c}at",
+    "ba{ck}"
+   ],
+   "note": "Covers k, hard c and ck. Its own name shows the r-dropping rule: “car” is ᚳᚪ.",
+   "length": null
+  },
+  {
+   "rune": "ᚷ",
+   "kind": "consonant",
+   "name": "Gift",
+   "runicName": "ᚷᛁᚠᛏ",
+   "ipa": [
+    "g"
+   ],
+   "gloss": "hard g as in game",
+   "examples": [
+    "{g}ame",
+    "{g}ive",
+    "ba{g}"
+   ],
+   "note": "Only the hard g. The soft g of “gem” is ᚷᚻ.",
+   "length": null
+  },
+  {
+   "rune": "ᚹ",
+   "kind": "consonant",
+   "name": "Win",
+   "runicName": "ᚹᛁᚾ",
+   "ipa": [
+    "w"
+   ],
+   "gloss": "w as in wind",
+   "examples": [
+    "{w}ind",
+    "s{w}im",
+    "{wh}en"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᚻ",
+   "kind": "consonant",
+   "name": "Hail",
+   "runicName": "ᚻᛠᛚ",
+   "ipa": [
+    "h"
+   ],
+   "gloss": "h as in hole",
+   "examples": [
+    "{h}ole",
+    "{h}and",
+    "be{h}ind"
+   ],
+   "note": "Also does duty as the second half of ᚳᚻ, ᚷᚻ and ᛋᚻ.",
+   "length": null
+  },
+  {
+   "rune": "ᚾ",
+   "kind": "consonant",
+   "name": "Need",
+   "runicName": "ᚾᛁᛁᛞ",
+   "ipa": [
+    "n"
+   ],
+   "gloss": "n as in now",
+   "examples": [
+    "{n}ow",
+    "ru{n}",
+    "ha{nd}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛄ",
+   "kind": "consonant",
+   "name": "Year",
+   "runicName": "ᛄᛁᚢ",
+   "ipa": [
+    "j"
+   ],
+   "gloss": "y as in you",
+   "examples": [
+    "{y}ou",
+    "{y}es",
+    "be{y}ond"
+   ],
+   "note": "Only the consonant y. The vowel y of “happy” is ᛁ.",
+   "length": null
+  },
+  {
+   "rune": "ᛈ",
+   "kind": "consonant",
+   "name": "Page",
+   "runicName": "ᛈᛠᚷᚻ",
+   "ipa": [
+    "p"
+   ],
+   "gloss": "p as in pot",
+   "examples": [
+    "{p}ot",
+    "s{p}in",
+    "to{p}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛉ",
+   "kind": "consonant",
+   "name": "Box",
+   "runicName": "ᛒᛟᛉ",
+   "ipa": [
+    "ks"
+   ],
+   "gloss": "x as in box",
+   "examples": [
+    "bo{x}",
+    "ta{x}",
+    "si{x}"
+   ],
+   "note": "Shorthand for the two sounds k+s. Only used where English spells it x — “racks” is ᚱᚫᚳᛋ, not ᚱᚫᛉ.",
+   "length": null
+  },
+  {
+   "rune": "ᛋ",
+   "kind": "consonant",
+   "name": "Sun",
+   "runicName": "ᛋᚢᚾ",
+   "ipa": [
+    "s",
+    "z"
+   ],
+   "gloss": "s as in see, and z as in zebra",
+   "examples": [
+    "{s}ee",
+    "{z}ebra",
+    "dog{s}"
+   ],
+   "note": "At the end of a word, write ᛋᛋ if the sound is s: cats ᚳᚫᛏᛋᛋ, dogs ᛞᛟᚷᛋ.",
+   "length": null
+  },
+  {
+   "rune": "ᛏ",
+   "kind": "consonant",
+   "name": "Town",
+   "runicName": "ᛏᚪᚹᚾ",
+   "ipa": [
+    "t"
+   ],
+   "gloss": "t as in time",
+   "examples": [
+    "{t}ime",
+    "s{t}op",
+    "ca{t}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛒ",
+   "kind": "consonant",
+   "name": "Birch",
+   "runicName": "ᛒᚢᚢᚳᚻ",
+   "ipa": [
+    "b"
+   ],
+   "gloss": "b as in boy",
+   "examples": [
+    "{b}oy",
+    "a{b}out",
+    "ru{b}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛗ",
+   "kind": "consonant",
+   "name": "Moon",
+   "runicName": "ᛗᚣᚣᚾ",
+   "ipa": [
+    "m"
+   ],
+   "gloss": "m as in mouth",
+   "examples": [
+    "{m}outh",
+    "ca{m}e",
+    "ti{m}e"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛚ",
+   "kind": "consonant",
+   "name": "Lake",
+   "runicName": "ᛚᛠᚳ",
+   "ipa": [
+    "l"
+   ],
+   "gloss": "l as in line",
+   "examples": [
+    "{l}ine",
+    "he{ll}o",
+    "fa{ll}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛝ",
+   "kind": "consonant",
+   "name": "Wing",
+   "runicName": "ᚹᛁᛝ",
+   "ipa": [
+    "ŋ"
+   ],
+   "gloss": "ng as in ring",
+   "examples": [
+    "ri{ng}",
+    "lo{ng}",
+    "thi{n}k"
+   ],
+   "note": "One sound, not two. Also used for the n in “think” and “thank”.",
+   "length": null
+  },
+  {
+   "rune": "ᛞ",
+   "kind": "consonant",
+   "name": "Day",
+   "runicName": "ᛞᛠ",
+   "ipa": [
+    "d"
+   ],
+   "gloss": "d as in dog",
+   "examples": [
+    "{d}og",
+    "ma{d}e",
+    "ha{d}"
+   ],
+   "note": null,
+   "length": null
+  },
+  {
+   "rune": "ᛁ",
+   "kind": "vowel",
+   "name": "Inn",
+   "runicName": "ᛁᚾ",
+   "ipa": [
+    "ɪ"
+   ],
+   "gloss": "short i as in sit",
+   "examples": [
+    "s{i}t",
+    "b{i}g",
+    "happ{y}"
+   ],
+   "note": null,
+   "length": "short"
+  },
+  {
+   "rune": "ᛖ",
+   "kind": "vowel",
+   "name": "Egg",
+   "runicName": "ᛖᚷ",
+   "ipa": [
+    "e"
+   ],
+   "gloss": "short e as in send",
+   "examples": [
+    "s{e}nd",
+    "b{e}d",
+    "h{ea}d"
+   ],
+   "note": null,
+   "length": "short"
+  },
+  {
+   "rune": "ᚫ",
+   "kind": "vowel",
+   "name": "Ash",
+   "runicName": "ᚫᛋᚻ",
+   "ipa": [
+    "æ"
+   ],
+   "gloss": "short a as in hat",
+   "examples": [
+    "h{a}t",
+    "c{a}t",
+    "b{a}ck"
+   ],
+   "note": null,
+   "length": "short"
+  },
+  {
+   "rune": "ᚢ",
+   "kind": "vowel",
+   "name": "Up",
+   "runicName": "ᚢᛈ",
+   "ipa": [
+    "ʌ",
+    "ə"
+   ],
+   "gloss": "the u of fun, and the vague vowel of about",
+   "examples": [
+    "f{u}n",
+    "{a}bout",
+    "suff{er}"
+   ],
+   "note": "The workhorse vowel. Any unstressed, colourless vowel is ᚢ.",
+   "length": "short"
+  },
+  {
+   "rune": "ᛟ",
+   "kind": "vowel",
+   "name": "Ox",
+   "runicName": "ᛟᛉ",
+   "ipa": [
+    "ɒ"
+   ],
+   "gloss": "short o as in hot",
+   "examples": [
+    "h{o}t",
+    "st{o}p",
+    "w{a}sh"
+   ],
+   "note": null,
+   "length": "short"
+  },
+  {
+   "rune": "ᚣ",
+   "kind": "vowel",
+   "name": "Book",
+   "runicName": "ᛒᚣᚳ",
+   "ipa": [
+    "ʊ"
+   ],
+   "gloss": "short oo as in book",
+   "examples": [
+    "b{oo}k",
+    "p{u}t",
+    "c{ou}ld"
+   ],
+   "note": null,
+   "length": "short"
+  },
+  {
+   "rune": "ᚪ",
+   "kind": "vowel",
+   "name": "Arm",
+   "runicName": "ᚪᛗ",
+   "ipa": [
+    "ɑː"
+   ],
+   "gloss": "long ah as in arm, bath, father",
+   "examples": [
+    "{ar}m",
+    "b{a}th",
+    "f{a}st"
+   ],
+   "note": "The British “ah”. It covers the bath / grass / laugh words that a Northern or American accent says with ᚫ.",
+   "length": "long"
+  },
+  {
+   "rune": "ᛠ",
+   "kind": "vowel",
+   "name": "Eight",
+   "runicName": "ᛠᛏ",
+   "ipa": [
+    "eɪ"
+   ],
+   "gloss": "the ay of day",
+   "examples": [
+    "d{ay}",
+    "m{a}k{e}",
+    "r{ai}n"
+   ],
+   "note": null,
+   "length": "long"
+  },
+  {
+   "rune": "ᛡ",
+   "kind": "vowel",
+   "name": "Eye",
+   "runicName": "ᛡ",
+   "ipa": [
+    "aɪ"
+   ],
+   "gloss": "the i of time",
+   "examples": [
+    "t{i}m{e}",
+    "m{y}",
+    "l{ie}"
+   ],
+   "note": null,
+   "length": "long"
+  },
+  {
+   "rune": "ᚩ",
+   "kind": "vowel",
+   "name": "Oak",
+   "runicName": "ᚩᚳ",
+   "ipa": [
+    "əʊ"
+   ],
+   "gloss": "the o of go",
+   "examples": [
+    "g{o}",
+    "h{o}m{e}",
+    "sn{ow}"
+   ],
+   "note": null,
+   "length": "long"
+  },
+  {
+   "rune": "ᛥ",
+   "kind": "ligature",
+   "name": "Stone",
+   "runicName": "ᛥᚩᚾ",
+   "ipa": [
+    "st"
+   ],
+   "gloss": "st, written as one rune",
+   "examples": [
+    "{st}one",
+    "be{st}",
+    "fa{st}"
+   ],
+   "note": "Optional. ᛥᚩᚾ and ᛋᛏᚩᚾ are both correct.",
+   "length": null
+  },
+  {
+   "rune": "ᛢ",
+   "kind": "ligature",
+   "name": "Queen",
+   "runicName": "ᛢᛁᛁᚾ",
+   "ipa": [
+    "kw"
+   ],
+   "gloss": "qu, written as one rune",
+   "examples": [
+    "{qu}een",
+    "{qu}ick"
+   ],
+   "note": "Optional. ᛢᛁᛁᚾ and ᚳᚹᛁᛁᚾ are both correct.",
+   "length": null
+  }
+ ],
+ "digraphs": [
+  {
+   "runes": "ᛁᛁ",
+   "kind": "vowel",
+   "ipa": "iː",
+   "gloss": "long ee as in see",
+   "examples": [
+    "s{ee}",
+    "f{ee}l",
+    "m{e}"
+   ]
+  },
+  {
+   "runes": "ᛖᛖ",
+   "kind": "vowel",
+   "ipa": "ɛː",
+   "gloss": "the air of hair",
+   "examples": [
+    "h{air}",
+    "th{ere}",
+    "c{are}"
+   ]
+  },
+  {
+   "runes": "ᚢᚢ",
+   "kind": "vowel",
+   "ipa": "ɜː",
+   "gloss": "the ur of turn",
+   "examples": [
+    "t{ur}n",
+    "b{ir}d",
+    "w{or}d"
+   ]
+  },
+  {
+   "runes": "ᛟᛟ",
+   "kind": "vowel",
+   "ipa": "ɔː",
+   "gloss": "the aw of thought",
+   "examples": [
+    "th{ough}t",
+    "l{aw}",
+    "m{ore}"
+   ]
+  },
+  {
+   "runes": "ᚣᚣ",
+   "kind": "vowel",
+   "ipa": "uː",
+   "gloss": "long oo as in food",
+   "examples": [
+    "f{oo}d",
+    "bl{ue}",
+    "m{oo}n"
+   ]
+  },
+  {
+   "runes": "ᚪᚹ",
+   "kind": "vowel",
+   "ipa": "aʊ",
+   "gloss": "the ow of now",
+   "examples": [
+    "n{ow}",
+    "h{ou}se",
+    "{ou}t"
+   ]
+  },
+  {
+   "runes": "ᛟᛁ",
+   "kind": "vowel",
+   "ipa": "ɔɪ",
+   "gloss": "the oy of boy",
+   "examples": [
+    "b{oy}",
+    "p{oi}nt",
+    "j{oi}n"
+   ]
+  },
+  {
+   "runes": "ᛁᚢ",
+   "kind": "vowel",
+   "ipa": "ɪə",
+   "gloss": "the ear of near",
+   "examples": [
+    "n{ear}",
+    "h{ere}",
+    "y{ear}"
+   ]
+  },
+  {
+   "runes": "ᚳᚻ",
+   "kind": "consonant",
+   "ipa": "tʃ",
+   "gloss": "ch as in cheese",
+   "examples": [
+    "{ch}eese",
+    "mu{ch}",
+    "wa{tch}"
+   ]
+  },
+  {
+   "runes": "ᚷᚻ",
+   "kind": "consonant",
+   "ipa": "dʒ",
+   "gloss": "j as in jog, g as in gem",
+   "examples": [
+    "{j}og",
+    "{g}em",
+    "brid{ge}"
+   ]
+  },
+  {
+   "runes": "ᛋᚻ",
+   "kind": "consonant",
+   "ipa": "ʃ, ʒ",
+   "gloss": "sh as in share, and the s of measure",
+   "examples": [
+    "{sh}are",
+    "fi{sh}",
+    "mea{s}ure"
+   ]
+  }
+ ],
+ "punctuation": [
+  {
+   "mark": "᛫",
+   "name": "Interpunct",
+   "gloss": "separates words",
+   "example": "ᛏᚣᚣ᛫ᛒᛁ"
+  },
+  {
+   "mark": "᛬",
+   "name": "Double punct",
+   "gloss": "a heavier break, like a comma",
+   "example": null
+  },
+  {
+   "mark": "᛭",
+   "name": "Cross punct",
+   "gloss": "a full stop or section break",
+   "example": null
+  },
+  {
+   "mark": "⁊",
+   "name": "Tironian et",
+   "gloss": "the word “and”",
+   "example": null
+  }
+ ],
+ "glyphs": {
+  "ᚠ": {
+   "w": 79.69,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      65.7,
+      0.63
+     ],
+     [
+      64.56,
+      12.22
+     ],
+     [
+      61.18,
+      23.36
+     ],
+     [
+      55.69,
+      33.63
+     ],
+     [
+      48.3,
+      42.63
+     ],
+     [
+      39.3,
+      50.02
+     ],
+     [
+      29.03,
+      55.51
+     ],
+     [
+      17.89,
+      58.89
+     ],
+     [
+      6.3,
+      60.03
+     ]
+    ],
+    [
+     [
+      38.5,
+      0.63
+     ],
+     [
+      37.88,
+      6.91
+     ],
+     [
+      36.05,
+      12.95
+     ],
+     [
+      33.07,
+      18.52
+     ],
+     [
+      29.07,
+      23.4
+     ],
+     [
+      24.19,
+      27.4
+     ],
+     [
+      18.62,
+      30.38
+     ],
+     [
+      12.58,
+      32.21
+     ],
+     [
+      6.3,
+      32.83
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187V520Q237 520 273.5 546.0Q310 572 330.0 614.0Q350 656 350 704V714H445V703Q445 648 424.5 600.5Q404 553 368.0 517.0Q332 481 285.5 460.5Q239 440 187 440V329Q267 329 336.5 355.0Q406 381 458.5 430.0Q511 479 541.0 548.0Q571 617 571 704V714H666V703Q666 597 630.0 513.0Q594 429 529.0 370.0Q464 311 376.5 280.0Q289 249 187 249V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚢ": {
+   "w": 70.03,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      6.3,
+      6.6
+     ],
+     [
+      20,
+      7.5
+     ],
+     [
+      35,
+      9.2
+     ],
+     [
+      48,
+      13
+     ],
+     [
+      57.5,
+      20
+     ],
+     [
+      62.5,
+      30
+     ],
+     [
+      63.5,
+      45
+     ],
+     [
+      63.5,
+      72
+     ],
+     [
+      63.52,
+      100
+     ]
+    ]
+   ],
+   "path": "M97 0V714H192Q266 714 338.0 694.0Q410 674 468.5 631.5Q527 589 562.0 521.5Q597 454 597 358V0H504V353Q504 447 461.0 505.5Q418 564 346.0 591.5Q274 619 187 619V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚦ": {
+   "w": 52.94,
+   "strokes": [
+    [
+     [
+      5.95,
+      0
+     ],
+     [
+      5.95,
+      100
+     ]
+    ],
+    [
+     [
+      5.95,
+      16.8
+     ],
+     [
+      11.9,
+      17.93
+     ],
+     [
+      22.77,
+      19.96
+     ],
+     [
+      33.05,
+      23.98
+     ],
+     [
+      39.41,
+      28.72
+     ],
+     [
+      44.43,
+      36.91
+     ],
+     [
+      46.29,
+      48.81
+     ],
+     [
+      44.87,
+      60.89
+     ],
+     [
+      40.81,
+      69.25
+     ],
+     [
+      33.68,
+      75.56
+     ],
+     [
+      27.1,
+      78.78
+     ],
+     [
+      11.9,
+      82.35
+     ],
+     [
+      5.95,
+      83.75
+     ]
+    ]
+   ],
+   "path": "M97 0V714H182V626Q325 609 400.0 548.0Q475 487 475 367Q475 289 450.5 237.5Q426 186 384.0 155.5Q342 125 290.0 109.5Q238 94 182 88V0ZM182 164Q247 175 291.0 193.5Q335 212 357.5 251.5Q380 291 380 364Q380 453 331.5 493.5Q283 534 182 546Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚩ": {
+   "w": 63.17,
+   "strokes": [
+    [
+     [
+      6.3,
+      11.48
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      15.15,
+      7.21
+     ],
+     [
+      42.61,
+      20.1
+     ],
+     [
+      62.54,
+      6.18
+     ]
+    ],
+    [
+     [
+      15.24,
+      29.75
+     ],
+     [
+      42.61,
+      42.65
+     ],
+     [
+      62.54,
+      28.73
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L382 598L548 714V632L383 516L187 632V553L382 437L548 553V471L383 356L187 470V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚱ": {
+   "w": 51.68,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      37.23,
+      21.06
+     ],
+     [
+      39.38,
+      29.5
+     ],
+     [
+      28.21,
+      48.7
+     ]
+    ],
+    [
+     [
+      28.21,
+      48.7
+     ],
+     [
+      44.71,
+      99.34
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L417 584V486L335 345L466 0H370L240 350L341 525L187 612V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚳ": {
+   "w": 48.74,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      16.22,
+      64.41
+     ],
+     [
+      40.77,
+      99.43
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187V368L445 0H337L187 236V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚷ": {
+   "w": 80.95,
+   "strokes": [
+    [
+     [
+      9.5,
+      0.61
+     ],
+     [
+      73.4,
+      99.36
+     ]
+    ],
+    [
+     [
+      71.53,
+      0.63
+     ],
+     [
+      45.38,
+      42.21
+     ],
+     [
+      35.74,
+      53.74
+     ],
+     [
+      6.64,
+      99.41
+     ]
+    ]
+   ],
+   "path": "M4 0 241 372 19 714H119L294 434L470 714H565L344 374L582 0H480L291 310L99 0Z",
+   "xmin": 4,
+   "scale": 0.140056
+  },
+  "ᚹ": {
+   "w": 43,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      15.84,
+      10.39
+     ],
+     [
+      36.36,
+      28.74
+     ],
+     [
+      36.83,
+      37.29
+     ],
+     [
+      16.38,
+      56.88
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L404 520V436L187 228V0ZM187 336 330 479 187 614Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚻ": {
+   "w": 75.07,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      68.77,
+      0
+     ],
+     [
+      68.77,
+      100
+     ]
+    ],
+    [
+     [
+      15.46,
+      23.05
+     ],
+     [
+      59.85,
+      49.36
+     ]
+    ],
+    [
+     [
+      15.31,
+      49.96
+     ],
+     [
+      60,
+      75.95
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187V604L543 393V714H633V0H543V117L187 324V0ZM543 202V308L187 515V413Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚾ": {
+   "w": 59.8,
+   "strokes": [
+    [
+     [
+      29.97,
+      0
+     ],
+     [
+      29.97,
+      100
+     ]
+    ],
+    [
+     [
+      2.57,
+      33.01
+     ],
+     [
+      57.33,
+      65.12
+     ]
+    ]
+   ],
+   "path": "M209 0V348L40 447L76 510L209 431V714H299V378L467 279L432 219L299 296V0Z",
+   "xmin": 40,
+   "scale": 0.140056
+  },
+  "ᛁ": {
+   "w": 12.89,
+   "strokes": [
+    [
+     [
+      6.44,
+      0
+     ],
+     [
+      6.44,
+      100
+     ]
+    ]
+   ],
+   "path": "M96 0V714H188V0Z",
+   "xmin": 96,
+   "scale": 0.140056
+  },
+  "ᛡ": {
+   "w": 60.5,
+   "strokes": [
+    [
+     [
+      30.18,
+      0
+     ],
+     [
+      30.18,
+      100
+     ]
+    ],
+    [
+     [
+      2.94,
+      69.23
+     ],
+     [
+      57.52,
+      32.55
+     ]
+    ],
+    [
+     [
+      2.99,
+      32.55
+     ],
+     [
+      57.57,
+      69.24
+     ]
+    ]
+   ],
+   "path": "M214 0V147Q214 178 216.0 217.0Q218 256 220 281L80 187L40 251L188 350L40 450L80 515L214 425V714H297V424L432 515L472 450L324 350L472 251L432 187L292 281Q294 256 295.5 217.0Q297 178 297 147V0Z",
+   "xmin": 40,
+   "scale": 0.140056
+  },
+  "ᛄ": {
+   "w": 54.2,
+   "strokes": [
+    [
+     [
+      27.1,
+      0
+     ],
+     [
+      27.1,
+      100
+     ]
+    ],
+    [
+     [
+      27.1,
+      28
+     ],
+     [
+      1.3,
+      48.9
+     ],
+     [
+      27.1,
+      72.5
+     ],
+     [
+      52.9,
+      48.9
+     ],
+     [
+      27.1,
+      28
+     ]
+    ]
+   ],
+   "path": "M197 0V189L50 323V404L199 524V714H289V524L437 404V320L289 187V0ZM199 288V431L115 364ZM289 288 372 364 289 431Z",
+   "xmin": 50,
+   "scale": 0.140056
+  },
+  "ᛈ": {
+   "w": 49.16,
+   "strokes": [
+    [
+     [
+      48.65,
+      7.09
+     ],
+     [
+      33.4,
+      19.79
+     ],
+     [
+      26.83,
+      19.79
+     ],
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ],
+     [
+      26.83,
+      80.21
+     ],
+     [
+      33.4,
+      80.21
+     ],
+     [
+      48.65,
+      92.91
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L312 598L448 714V619L313 503L187 614V97L313 211L448 95V0L312 116L187 0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛉ": {
+   "w": 84.87,
+   "strokes": [
+    [
+     [
+      42.44,
+      0
+     ],
+     [
+      42.44,
+      100
+     ]
+    ],
+    [
+     [
+      7.96,
+      0.57
+     ],
+     [
+      42.44,
+      51.5
+     ],
+     [
+      76.92,
+      0.57
+     ]
+    ]
+   ],
+   "path": "M258 0V346L0 714H108L258 478V714H348V478L498 714H606L348 346V0Z",
+   "xmin": 0,
+   "scale": 0.140056
+  },
+  "ᛋ": {
+   "w": 64.15,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      69.05
+     ],
+     [
+      61.37,
+      26.15
+     ],
+     [
+      57.84,
+      100
+     ]
+    ]
+   ],
+   "path": "M465 0V424L187 217H97V714H187V319L465 530H555V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛏ": {
+   "w": 60.5,
+   "strokes": [
+    [
+     [
+      30.67,
+      0
+     ],
+     [
+      30.67,
+      100
+     ]
+    ],
+    [
+     [
+      2.73,
+      17.12
+     ],
+     [
+      22.06,
+      6.75
+     ],
+     [
+      30.67,
+      0
+     ],
+     [
+      39.53,
+      7.15
+     ],
+     [
+      58.03,
+      18.06
+     ]
+    ]
+   ],
+   "path": "M214 0V635L76 561L40 621L214 714H304L472 615L437 555L304 632V0Z",
+   "xmin": 40,
+   "scale": 0.140056
+  },
+  "ᛒ": {
+   "w": 51.4,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      42.42,
+      23
+     ],
+     [
+      6.3,
+      46
+     ]
+    ],
+    [
+     [
+      6.3,
+      54
+     ],
+     [
+      42.42,
+      77
+     ],
+     [
+      6.3,
+      100
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L464 550V466L295 361L464 260V176L187 0ZM187 386 380 509 187 624ZM187 96 380 219 187 334Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛖ": {
+   "w": 75.77,
+   "strokes": [
+    [
+     [
+      6.3,
+      100
+     ],
+     [
+      6.3,
+      0
+     ],
+     [
+      37.23,
+      31.2
+     ],
+     [
+      69.47,
+      0
+     ],
+     [
+      69.47,
+      100
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L363 588L548 714H638V0H548V615L363 491L187 614V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛗ": {
+   "w": 79.69,
+   "strokes": [
+    [
+     [
+      6.09,
+      0
+     ],
+     [
+      6.09,
+      100
+     ]
+    ],
+    [
+     [
+      73.6,
+      0
+     ],
+     [
+      73.6,
+      100
+     ]
+    ],
+    [
+     [
+      5.06,
+      0.44
+     ],
+     [
+      63.95,
+      55.23
+     ]
+    ],
+    [
+     [
+      74.79,
+      0.45
+     ],
+     [
+      15.78,
+      55.27
+     ]
+    ]
+   ],
+   "path": "M97 0V714H184L381 530L579 714H666V0H579V245L382 428L184 244V0ZM579 347V611L437 479ZM184 347 326 480 184 610Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛚ": {
+   "w": 36.27,
+   "strokes": [
+    [
+     [
+      6.51,
+      0
+     ],
+     [
+      6.51,
+      100
+     ]
+    ],
+    [
+     [
+      15.57,
+      7.45
+     ],
+     [
+      33.74,
+      18.16
+     ]
+    ]
+   ],
+   "path": "M97 0V714H188L356 615L321 553L190 630V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛝ": {
+   "w": 72.41,
+   "strokes": [
+    [
+     [
+      9.39,
+      0.37
+     ],
+     [
+      59.31,
+      44.06
+     ],
+     [
+      59.7,
+      52.41
+     ],
+     [
+      9.84,
+      99.43
+     ]
+    ],
+    [
+     [
+      62.98,
+      0.4
+     ],
+     [
+      13,
+      43.95
+     ],
+     [
+      12.78,
+      52.34
+     ],
+     [
+      62.83,
+      99.55
+     ]
+    ]
+   ],
+   "path": "M44 0 236 182 35 370 236 544 43 714H155L293 594L432 714H544L351 544L552 370L351 182L543 0H431L293 128L156 0ZM293 237 433 370 293 493 154 370Z",
+   "xmin": 35,
+   "scale": 0.140056
+  },
+  "ᛟ": {
+   "w": 70.87,
+   "strokes": [
+    [
+     [
+      7.8,
+      99.5
+     ],
+     [
+      60.7,
+      31.7
+     ],
+     [
+      35.1,
+      0.6
+     ],
+     [
+      10.1,
+      31.6
+     ],
+     [
+      62.8,
+      99.4
+     ]
+    ]
+   ],
+   "path": "M38 0 233 230 38 461 242 714H336L544 461L349 230L544 0H435L291 175L147 0ZM291 286 441 463 289 648 141 463Z",
+   "xmin": 38,
+   "scale": 0.140056
+  },
+  "ᛞ": {
+   "w": 75.07,
+   "strokes": [
+    [
+     [
+      5.81,
+      100
+     ],
+     [
+      5.81,
+      0
+     ],
+     [
+      69.61,
+      100
+     ],
+     [
+      69.61,
+      0
+     ],
+     [
+      5.81,
+      100
+     ]
+    ]
+   ],
+   "path": "M97 0V714H180L366 423L555 714H633V0H555L366 290L180 0ZM551 129H555V584H551L409 357ZM180 135H184L323 357L184 578H180Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚪ": {
+   "w": 63.17,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      15.15,
+      7.21
+     ],
+     [
+      42.61,
+      20.1
+     ],
+     [
+      62.54,
+      6.18
+     ]
+    ],
+    [
+     [
+      15.16,
+      29.88
+     ],
+     [
+      39.29,
+      44.23
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L382 598L548 714V632L383 516L187 632V553L382 437V354L187 470V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᚫ": {
+   "w": 58.54,
+   "strokes": [
+    [
+     [
+      6.3,
+      0
+     ],
+     [
+      6.3,
+      100
+     ]
+    ],
+    [
+     [
+      15.16,
+      7.15
+     ],
+     [
+      56.08,
+      31.22
+     ]
+    ],
+    [
+     [
+      15.16,
+      29.7
+     ],
+     [
+      56.08,
+      53.77
+     ]
+    ]
+   ],
+   "path": "M97 0V714H187L515 521L480 461L187 632V553L515 360L480 300L187 471V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛠ": {
+   "w": 85.71,
+   "strokes": [
+    [
+     [
+      42.86,
+      0
+     ],
+     [
+      42.86,
+      100
+     ]
+    ],
+    [
+     [
+      0.57,
+      6.79
+     ],
+     [
+      15.87,
+      19.94
+     ],
+     [
+      22.16,
+      19.62
+     ],
+     [
+      42.93,
+      0.5
+     ],
+     [
+      63.38,
+      19.79
+     ],
+     [
+      69.95,
+      20.1
+     ],
+     [
+      85.2,
+      7.09
+     ]
+    ]
+   ],
+   "path": "M271 0V624L145 508L10 624V714L146 598L271 714H361L486 598L622 714V619L487 503L361 614V0Z",
+   "xmin": 10,
+   "scale": 0.140056
+  },
+  "ᚣ": {
+   "w": 70.31,
+   "strokes": [
+    [
+     [
+      6.36,
+      100
+     ],
+     [
+      5.84,
+      0.56
+     ],
+     [
+      16.1,
+      14.43
+     ],
+     [
+      62.6,
+      99.36
+     ]
+    ],
+    [
+     [
+      29.34,
+      74.23
+     ],
+     [
+      29.34,
+      100
+     ]
+    ]
+   ],
+   "path": "M97 0V714H208L599 0H494L181 594Q183 569 185.0 535.0Q187 501 187 481V0ZM267 0V184H346V0Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛥ": {
+   "w": 75.07,
+   "strokes": [
+    [
+     [
+      5.81,
+      0
+     ],
+     [
+      5.81,
+      100
+     ]
+    ],
+    [
+     [
+      69.61,
+      0
+     ],
+     [
+      69.61,
+      100
+     ]
+    ],
+    [
+     [
+      14.37,
+      7.56
+     ],
+     [
+      61.55,
+      40.29
+     ]
+    ],
+    [
+     [
+      61.56,
+      7.31
+     ],
+     [
+      14.27,
+      39.98
+     ]
+    ],
+    [
+     [
+      14.37,
+      59.94
+     ],
+     [
+      61.62,
+      92.63
+     ]
+    ],
+    [
+     [
+      61.56,
+      59.69
+     ],
+     [
+      14.31,
+      92.39
+     ]
+    ]
+   ],
+   "path": "M97 0V714H180L366 584L555 714H633V0H555L366 129L180 0ZM555 453V635L424 544ZM180 456 308 544 180 632ZM366 210 555 340V374L366 503L180 374V340ZM555 79V261L424 170ZM180 82 308 170 180 258Z",
+   "xmin": 97,
+   "scale": 0.140056
+  },
+  "ᛢ": {
+   "w": 85.71,
+   "strokes": [
+    [
+     [
+      85.2,
+      7.09
+     ],
+     [
+      69.95,
+      20.1
+     ],
+     [
+      63.38,
+      19.79
+     ],
+     [
+      42.59,
+      0.49
+     ],
+     [
+      42.86,
+      99.3
+     ],
+     [
+      22.22,
+      80.24
+     ],
+     [
+      15.73,
+      79.89
+     ],
+     [
+      0.56,
+      92.93
+     ]
+    ]
+   ],
+   "path": "M10 0V95L145 211L271 97V714H361L486 598L622 714V619L487 503L361 614V0H271L146 116Z",
+   "xmin": 10,
+   "scale": 0.140056
+  }
+ },
+ "units": [
+  {
+   "id": 1,
+   "part": "Getting started",
+   "title": "Your first six runes",
+   "subtitle": "ᛏ ᚾ ᛋ ᛗ ᛁ ᚫ",
+   "blurb": "Six runes is enough for real words. Runes spell sounds, not letters.",
+   "runes": [
+    "ᛏ",
+    "ᚾ",
+    "ᛋ",
+    "ᛗ",
+    "ᛁ",
+    "ᚫ"
+   ],
+   "teach": [
+    "A rune stands for a **sound**, not a letter. Write what you hear.",
+    "ᛁ is the short i of *sit*. ᚫ is the short a of *hat*.",
+    "Say each word slowly and write down the sounds in order. That is the whole method.",
+    "Two of these runes are easy to muddle: ᛏ has its arms at the **top**, ᛗ has two full legs."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "it",
+     "runes": "ᛁᛏ",
+     "say": "i-t"
+    },
+    {
+     "english": "sit",
+     "runes": "ᛋᛁᛏ",
+     "say": "s-i-t"
+    },
+    {
+     "english": "sat",
+     "runes": "ᛋᚫᛏ",
+     "say": "s-a-t"
+    },
+    {
+     "english": "man",
+     "runes": "ᛗᚫᚾ",
+     "say": "m-a-n"
+    },
+    {
+     "english": "tin",
+     "runes": "ᛏᛁᚾ",
+     "say": "t-i-n"
+    },
+    {
+     "english": "mat",
+     "runes": "ᛗᚫᛏ",
+     "say": "m-a-t"
+    },
+    {
+     "english": "mist",
+     "runes": "ᛗᛁᛥ",
+     "say": "m-i-s-t"
+    },
+    {
+     "english": "ant",
+     "runes": "ᚫᚾᛏ",
+     "say": "a-n-t"
+    },
+    {
+     "english": "tan",
+     "runes": "ᛏᚫᚾ",
+     "say": "t-a-n"
+    },
+    {
+     "english": "in",
+     "runes": "ᛁᚾ",
+     "say": "i-n"
+    },
+    {
+     "english": "is",
+     "runes": "ᛁᛋ",
+     "say": "i-z"
+    },
+    {
+     "english": "am",
+     "runes": "ᚫᛗ",
+     "say": "a-m"
+    },
+    {
+     "english": "as",
+     "runes": "ᚫᛋ",
+     "say": "a-z"
+    }
+   ],
+   "sentences": [],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 2,
+   "part": "Getting started",
+   "title": "Building real words",
+   "subtitle": "ᛒ ᛞ ᛚ ᚢ ᛖ",
+   "blurb": "Five more, and most short everyday words open up.",
+   "runes": [
+    "ᛒ",
+    "ᛞ",
+    "ᛚ",
+    "ᚢ",
+    "ᛖ"
+   ],
+   "teach": [
+    "ᛖ is the short e of *bed*. ᚢ is the u of *fun*.",
+    "ᚢ is the busiest rune in the system. Any weak, colourless vowel — the *a* of *about*, the *er* of *butter* — is ᚢ.",
+    "*Tell* is ᛏᛖᛚ, not ᛏᛖᛚᛚ. You hear one l, so you write one ᛚ. Doubled letters in English spelling almost never mean a doubled sound."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "bed",
+     "runes": "ᛒᛖᛞ",
+     "say": "b-e-d"
+    },
+    {
+     "english": "bad",
+     "runes": "ᛒᚫᛞ",
+     "say": "b-a-d"
+    },
+    {
+     "english": "lid",
+     "runes": "ᛚᛁᛞ",
+     "say": "l-i-d"
+    },
+    {
+     "english": "bus",
+     "runes": "ᛒᚢᛋᛋ",
+     "say": "b-uh-s"
+    },
+    {
+     "english": "mud",
+     "runes": "ᛗᚢᛞ",
+     "say": "m-uh-d"
+    },
+    {
+     "english": "tell",
+     "runes": "ᛏᛖᛚ",
+     "say": "t-e-l"
+    },
+    {
+     "english": "send",
+     "runes": "ᛋᛖᚾᛞ",
+     "say": "s-e-n-d"
+    },
+    {
+     "english": "but",
+     "runes": "ᛒᚢᛏ",
+     "say": "b-uh-t"
+    },
+    {
+     "english": "and",
+     "runes": "ᚫᚾᛞ",
+     "say": "a-n-d"
+    },
+    {
+     "english": "land",
+     "runes": "ᛚᚫᚾᛞ",
+     "say": "l-a-n-d"
+    },
+    {
+     "english": "best",
+     "runes": "ᛒᛖᛥ",
+     "say": "b-e-s-t"
+    },
+    {
+     "english": "net",
+     "runes": "ᚾᛖᛏ",
+     "say": "n-e-t"
+    },
+    {
+     "english": "nut",
+     "runes": "ᚾᚢᛏ",
+     "say": "n-uh-t"
+    },
+    {
+     "english": "lend",
+     "runes": "ᛚᛖᚾᛞ",
+     "say": "l-e-n-d"
+    },
+    {
+     "english": "melt",
+     "runes": "ᛗᛖᛚᛏ",
+     "say": "m-e-l-t"
+    },
+    {
+     "english": "bend",
+     "runes": "ᛒᛖᚾᛞ",
+     "say": "b-e-n-d"
+    },
+    {
+     "english": "desk",
+     "runes": "ᛞᛖᛋᚳ",
+     "say": "d-e-s-k"
+    },
+    {
+     "english": "dust",
+     "runes": "ᛞᚢᛥ",
+     "say": "d-uh-s-t"
+    },
+    {
+     "english": "tent",
+     "runes": "ᛏᛖᚾᛏ",
+     "say": "t-e-n-t"
+    },
+    {
+     "english": "lamp",
+     "runes": "ᛚᚫᛗᛈ",
+     "say": "l-a-m-p"
+    },
+    {
+     "english": "damp",
+     "runes": "ᛞᚫᛗᛈ",
+     "say": "d-a-m-p"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "Tell us.",
+     "runes": "ᛏᛖᛚ᛫ᚢᛋᛋ."
+    },
+    {
+     "english": "It is a bed.",
+     "runes": "ᛁᛏ᛫ᛁᛋ᛫ᚢ᛫ᛒᛖᛞ."
+    },
+    {
+     "english": "Send it.",
+     "runes": "ᛋᛖᚾᛞ᛫ᛁᛏ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 3,
+   "part": "Getting started",
+   "title": "More consonants, and the r rule",
+   "subtitle": "ᚻ ᚹ ᚳ ᚱ ᛟ",
+   "blurb": "And the first thing that will surprise you.",
+   "runes": [
+    "ᚻ",
+    "ᚹ",
+    "ᚳ",
+    "ᚱ",
+    "ᛟ"
+   ],
+   "teach": [
+    "ᚳ covers k, hard c and ck. *Cat*, *kite* and *back* all use it.",
+    "**The r rule.** In a British accent you only pronounce r before a vowel. *Red* and *very* have an r sound; *car* and *dark* do not — so you do not write ᚱ in them.",
+    "*Car* is ᚳᚪ. *Dark* is ᛞᚪᚳ. It looks strange for about ten minutes, then it looks obvious.",
+    "A quick test: say the word. If your tongue never makes an r, do not write one."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "hot",
+     "runes": "ᚻᛟᛏ",
+     "say": "h-o-t"
+    },
+    {
+     "english": "red",
+     "runes": "ᚱᛖᛞ",
+     "say": "r-e-d"
+    },
+    {
+     "english": "win",
+     "runes": "ᚹᛁᚾ",
+     "say": "w-i-n"
+    },
+    {
+     "english": "cat",
+     "runes": "ᚳᚫᛏ",
+     "say": "k-a-t"
+    },
+    {
+     "english": "rock",
+     "runes": "ᚱᛟᚳ",
+     "say": "r-o-k"
+    },
+    {
+     "english": "hand",
+     "runes": "ᚻᚫᚾᛞ",
+     "say": "h-a-n-d"
+    },
+    {
+     "english": "wet",
+     "runes": "ᚹᛖᛏ",
+     "say": "w-e-t"
+    },
+    {
+     "english": "not",
+     "runes": "ᚾᛟᛏ",
+     "say": "n-o-t"
+    },
+    {
+     "english": "stop",
+     "runes": "ᛥᛟᛈ",
+     "say": "s-t-o-p"
+    },
+    {
+     "english": "dark",
+     "runes": "ᛞᚪᚳ",
+     "say": "d-ah-k"
+    },
+    {
+     "english": "card",
+     "runes": "ᚳᚪᛞ",
+     "say": "k-ah-d"
+    },
+    {
+     "english": "him",
+     "runes": "ᚻᛁᛗ",
+     "say": "h-i-m"
+    },
+    {
+     "english": "has",
+     "runes": "ᚻᚫᛋ",
+     "say": "h-a-z"
+    },
+    {
+     "english": "had",
+     "runes": "ᚻᚫᛞ",
+     "say": "h-a-d"
+    },
+    {
+     "english": "can",
+     "runes": "ᚳᚫᚾ",
+     "say": "k-a-n"
+    },
+    {
+     "english": "come",
+     "runes": "ᚳᚢᛗ",
+     "say": "k-uh-m"
+    },
+    {
+     "english": "want",
+     "runes": "ᚹᛟᚾᛏ",
+     "say": "w-o-n-t"
+    },
+    {
+     "english": "back",
+     "runes": "ᛒᚫᚳ",
+     "say": "b-a-k"
+    },
+    {
+     "english": "clock",
+     "runes": "ᚳᛚᛟᚳ",
+     "say": "k-l-o-k"
+    },
+    {
+     "english": "help",
+     "runes": "ᚻᛖᛚᛈ",
+     "say": "h-e-l-p"
+    },
+    {
+     "english": "milk",
+     "runes": "ᛗᛁᛚᚳ",
+     "say": "m-i-l-k"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "The cat sat on the mat.",
+     "runes": "ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ."
+    },
+    {
+     "english": "It is not hot.",
+     "runes": "ᛁᛏ᛫ᛁᛋ᛫ᚾᛟᛏ᛫ᚻᛟᛏ."
+    },
+    {
+     "english": "He had a red hand.",
+     "runes": "ᚻᛁᛁ᛫ᚻᚫᛞ᛫ᚢ᛫ᚱᛖᛞ᛫ᚻᚫᚾᛞ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 4,
+   "part": "Getting started",
+   "title": "Th, f, g, p and ng",
+   "subtitle": "ᚦ ᚠ ᚷ ᛈ ᛝ",
+   "blurb": "Now you can write \"the\" — the commonest word in English.",
+   "runes": [
+    "ᚦ",
+    "ᚠ",
+    "ᚷ",
+    "ᛈ",
+    "ᛝ"
+   ],
+   "teach": [
+    "ᚦ does both kinds of th — the hard one in *thing* and the soft one in *this*.",
+    "ᚠ does both f and v. *Fat* is ᚠᚫᛏ, *have* is ᚻᚫᚠ.",
+    "ᛝ is a single sound, the ng of *ring*. One rune, not two. It also does the n in *think* and *thank*.",
+    "*The* is ᚦᚢ. Say it out loud unstressed and you will hear the ᚢ."
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "the",
+     "runes": "ᚦᚢ",
+     "say": "th-uh"
+    },
+    {
+     "english": "this",
+     "runes": "ᚦᛁᛋᛋ",
+     "say": "th-i-s"
+    },
+    {
+     "english": "fat",
+     "runes": "ᚠᚫᛏ",
+     "say": "f-a-t"
+    },
+    {
+     "english": "gun",
+     "runes": "ᚷᚢᚾ",
+     "say": "g-uh-n"
+    },
+    {
+     "english": "pen",
+     "runes": "ᛈᛖᚾ",
+     "say": "p-e-n"
+    },
+    {
+     "english": "thing",
+     "runes": "ᚦᛁᛝ",
+     "say": "th-i-ng"
+    },
+    {
+     "english": "long",
+     "runes": "ᛚᛟᛝ",
+     "say": "l-o-ng"
+    },
+    {
+     "english": "of",
+     "runes": "ᛟᚠ",
+     "say": "o-v"
+    },
+    {
+     "english": "have",
+     "runes": "ᚻᚫᚠ",
+     "say": "h-a-v"
+    },
+    {
+     "english": "ring",
+     "runes": "ᚱᛁᛝ",
+     "say": "r-i-ng"
+    },
+    {
+     "english": "song",
+     "runes": "ᛋᛟᛝ",
+     "say": "s-o-ng"
+    },
+    {
+     "english": "bath",
+     "runes": "ᛒᚪᚦ",
+     "say": "b-ah-th"
+    },
+    {
+     "english": "that",
+     "runes": "ᚦᚫᛏ",
+     "say": "th-a-t"
+    },
+    {
+     "english": "them",
+     "runes": "ᚦᛖᛗ",
+     "say": "th-e-m"
+    },
+    {
+     "english": "then",
+     "runes": "ᚦᛖᚾ",
+     "say": "th-e-n"
+    },
+    {
+     "english": "give",
+     "runes": "ᚷᛁᚠ",
+     "say": "g-i-v"
+    },
+    {
+     "english": "get",
+     "runes": "ᚷᛖᛏ",
+     "say": "g-e-t"
+    },
+    {
+     "english": "top",
+     "runes": "ᛏᛟᛈ",
+     "say": "t-o-p"
+    },
+    {
+     "english": "gift",
+     "runes": "ᚷᛁᚠᛏ",
+     "say": "g-i-f-t"
+    },
+    {
+     "english": "thin",
+     "runes": "ᚦᛁᚾ",
+     "say": "th-i-n"
+    },
+    {
+     "english": "king",
+     "runes": "ᚳᛁᛝ",
+     "say": "k-i-ng"
+    },
+    {
+     "english": "bring",
+     "runes": "ᛒᚱᛁᛝ",
+     "say": "b-r-i-ng"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "The pen is on the desk.",
+     "runes": "ᚦᚢ᛫ᛈᛖᚾ᛫ᛁᛋ᛫ᛟᚾ᛫ᚦᚢ᛫ᛞᛖᛋᚳ."
+    },
+    {
+     "english": "Give me that thing.",
+     "runes": "ᚷᛁᚠ᛫ᛗᛁᛁ᛫ᚦᚫᛏ᛫ᚦᛁᛝ."
+    },
+    {
+     "english": "This is the best song.",
+     "runes": "ᚦᛁᛋᛋ᛫ᛁᛋ᛫ᚦᚢ᛫ᛒᛖᛥ᛫ᛋᛟᛝ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 5,
+   "part": "Vowels",
+   "title": "Long vowels: double it",
+   "subtitle": "ᛁᛁ ᛖᛖ ᚢᚢ ᛟᛟ ᚣᚣ",
+   "blurb": "One rule covers every long vowel in the language.",
+   "runes": [
+    "ᛁᛁ",
+    "ᛖᛖ",
+    "ᚢᚢ",
+    "ᛟᛟ",
+    "ᚣ",
+    "ᚣᚣ"
+   ],
+   "teach": [
+    "**Double a vowel rune to make it long.** ᛁ *sit* → ᛁᛁ *seed*. ᚣ *book* → ᚣᚣ *food*. ᛟ *hot* → ᛟᛟ *thought*.",
+    "ᚢ *fun* → ᚢᚢ *turn*. ᛖ *bed* → ᛖᛖ *hair*.",
+    "This is the one place where doubling means something. Everywhere else, one sound is one rune.",
+    "Remember the r rule as you go — *turn* is ᛏᚢᚢᚾ, *more* is ᛗᛟᛟ, *hair* is ᚻᛖᛖ."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "see",
+     "runes": "ᛋᛁᛁ",
+     "say": "s-ee"
+    },
+    {
+     "english": "feel",
+     "runes": "ᚠᛁᛁᛚ",
+     "say": "f-ee-l"
+    },
+    {
+     "english": "seed",
+     "runes": "ᛋᛁᛁᛞ",
+     "say": "s-ee-d"
+    },
+    {
+     "english": "turn",
+     "runes": "ᛏᚢᚢᚾ",
+     "say": "t-ur-n"
+    },
+    {
+     "english": "bird",
+     "runes": "ᛒᚢᚢᛞ",
+     "say": "b-ur-d"
+    },
+    {
+     "english": "more",
+     "runes": "ᛗᛟᛟ",
+     "say": "m-aw"
+    },
+    {
+     "english": "law",
+     "runes": "ᛚᛟᛟ",
+     "say": "l-aw"
+    },
+    {
+     "english": "book",
+     "runes": "ᛒᚣᚳ",
+     "say": "b-oo-k"
+    },
+    {
+     "english": "put",
+     "runes": "ᛈᚣᛏ",
+     "say": "p-oo-t"
+    },
+    {
+     "english": "food",
+     "runes": "ᚠᚣᚣᛞ",
+     "say": "f-oo-d"
+    },
+    {
+     "english": "moon",
+     "runes": "ᛗᚣᚣᚾ",
+     "say": "m-oo-n"
+    },
+    {
+     "english": "green",
+     "runes": "ᚷᚱᛁᛁᚾ",
+     "say": "g-r-ee-n"
+    },
+    {
+     "english": "street",
+     "runes": "ᛥᚱᛁᛁᛏ",
+     "say": "s-t-r-ee-t"
+    },
+    {
+     "english": "burn",
+     "runes": "ᛒᚢᚢᚾ",
+     "say": "b-ur-n"
+    },
+    {
+     "english": "word",
+     "runes": "ᚹᚢᚢᛞ",
+     "say": "w-ur-d"
+    },
+    {
+     "english": "work",
+     "runes": "ᚹᚢᚢᚳ",
+     "say": "w-ur-k"
+    },
+    {
+     "english": "first",
+     "runes": "ᚠᚢᚢᛥ",
+     "say": "f-ur-s-t"
+    },
+    {
+     "english": "door",
+     "runes": "ᛞᛟᛟ",
+     "say": "d-aw"
+    },
+    {
+     "english": "four",
+     "runes": "ᚠᛟᛟ",
+     "say": "f-aw"
+    },
+    {
+     "english": "good",
+     "runes": "ᚷᚣᛞ",
+     "say": "g-oo-d"
+    },
+    {
+     "english": "look",
+     "runes": "ᛚᚣᚳ",
+     "say": "l-oo-k"
+    },
+    {
+     "english": "blue",
+     "runes": "ᛒᛚᚣᚣ",
+     "say": "b-l-oo"
+    },
+    {
+     "english": "hair",
+     "runes": "ᚻᛖᛖ",
+     "say": "h-air"
+    },
+    {
+     "english": "care",
+     "runes": "ᚳᛖᛖ",
+     "say": "k-air"
+    },
+    {
+     "english": "there",
+     "runes": "ᚦᛖᛖ",
+     "say": "th-air"
+    },
+    {
+     "english": "soon",
+     "runes": "ᛋᚣᚣᚾ",
+     "say": "s-oo-n"
+    },
+    {
+     "english": "full",
+     "runes": "ᚠᚣᛚ",
+     "say": "f-oo-l"
+    },
+    {
+     "english": "pull",
+     "runes": "ᛈᚣᛚ",
+     "say": "p-oo-l"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "I can see the moon.",
+     "runes": "ᛡ᛫ᚳᚫᚾ᛫ᛋᛁᛁ᛫ᚦᚢ᛫ᛗᚣᚣᚾ."
+    },
+    {
+     "english": "The bird is on the roof.",
+     "runes": "ᚦᚢ᛫ᛒᚢᚢᛞ᛫ᛁᛋ᛫ᛟᚾ᛫ᚦᚢ᛫ᚱᚣᚣᚠᚠ."
+    },
+    {
+     "english": "Look at the green door.",
+     "runes": "ᛚᚣᚳ᛫ᚫᛏ᛫ᚦᚢ᛫ᚷᚱᛁᛁᚾ᛫ᛞᛟᛟ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 6,
+   "part": "Vowels",
+   "title": "The British ah",
+   "subtitle": "ᚪ",
+   "blurb": "One rune, and the vowel that most marks out a southern English accent.",
+   "runes": [
+    "ᚪ"
+   ],
+   "teach": [
+    "ᚪ is the long *ah* of *arm*. It has no short partner, so it is never doubled.",
+    "It covers a set of words a Northern or American speaker says with ᚫ instead: *bath*, *grass*, *laugh*, *dance*, *chance*, *ask*, *past*.",
+    "If you say *bath* to rhyme with *math*, use ᚫ instead — the system follows your accent, not a rulebook.",
+    "And again: *far* is ᚠᚪ, *hard* is ᚻᚪᛞ. No ᚱ."
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "arm",
+     "runes": "ᚪᛗ",
+     "say": "ah-m"
+    },
+    {
+     "english": "far",
+     "runes": "ᚠᚪ",
+     "say": "f-ah"
+    },
+    {
+     "english": "car",
+     "runes": "ᚳᚪ",
+     "say": "k-ah"
+    },
+    {
+     "english": "dark",
+     "runes": "ᛞᚪᚳ",
+     "say": "d-ah-k"
+    },
+    {
+     "english": "hard",
+     "runes": "ᚻᚪᛞ",
+     "say": "h-ah-d"
+    },
+    {
+     "english": "bath",
+     "runes": "ᛒᚪᚦ",
+     "say": "b-ah-th"
+    },
+    {
+     "english": "path",
+     "runes": "ᛈᚪᚦ",
+     "say": "p-ah-th"
+    },
+    {
+     "english": "fast",
+     "runes": "ᚠᚪᛥ",
+     "say": "f-ah-s-t"
+    },
+    {
+     "english": "last",
+     "runes": "ᛚᚪᛥ",
+     "say": "l-ah-s-t"
+    },
+    {
+     "english": "past",
+     "runes": "ᛈᚪᛥ",
+     "say": "p-ah-s-t"
+    },
+    {
+     "english": "class",
+     "runes": "ᚳᛚᚪᛋᛋ",
+     "say": "k-l-ah-s"
+    },
+    {
+     "english": "grass",
+     "runes": "ᚷᚱᚪᛋᛋ",
+     "say": "g-r-ah-s"
+    },
+    {
+     "english": "glass",
+     "runes": "ᚷᛚᚪᛋᛋ",
+     "say": "g-l-ah-s"
+    },
+    {
+     "english": "laugh",
+     "runes": "ᛚᚪᚠᚠ",
+     "say": "l-ah-f"
+    },
+    {
+     "english": "half",
+     "runes": "ᚻᚪᚠᚠ",
+     "say": "h-ah-f"
+    },
+    {
+     "english": "ask",
+     "runes": "ᚪᛋᚳ",
+     "say": "ah-s-k"
+    },
+    {
+     "english": "dance",
+     "runes": "ᛞᚪᚾᛋᛋ",
+     "say": "d-ah-n-s"
+    },
+    {
+     "english": "chance",
+     "runes": "ᚳᚻᚪᚾᛋᛋ",
+     "say": "ch-ah-n-s"
+    },
+    {
+     "english": "plant",
+     "runes": "ᛈᛚᚪᚾᛏ",
+     "say": "p-l-ah-n-t"
+    },
+    {
+     "english": "father",
+     "runes": "ᚠᚪᚦᚢ",
+     "say": "f-ah-th-uh"
+    },
+    {
+     "english": "after",
+     "runes": "ᚪᚠᛏᚢ",
+     "say": "ah-f-t-uh"
+    },
+    {
+     "english": "start",
+     "runes": "ᛥᚪᛏ",
+     "say": "s-t-ah-t"
+    },
+    {
+     "english": "part",
+     "runes": "ᛈᚪᛏ",
+     "say": "p-ah-t"
+    },
+    {
+     "english": "garden",
+     "runes": "ᚷᚪᛞᚢᚾ",
+     "say": "g-ah-d-uh-n"
+    },
+    {
+     "english": "answer",
+     "runes": "ᚪᚾᛋᚢ",
+     "say": "ah-n-s-uh"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "The car is in the garden.",
+     "runes": "ᚦᚢ᛫ᚳᚪ᛫ᛁᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᚷᚪᛞᚢᚾ."
+    },
+    {
+     "english": "Ask the last man.",
+     "runes": "ᚪᛋᚳ᛫ᚦᚢ᛫ᛚᚪᛥ᛫ᛗᚫᚾ."
+    },
+    {
+     "english": "It is far and dark.",
+     "runes": "ᛁᛏ᛫ᛁᛋ᛫ᚠᚪ᛫ᚫᚾᛞ᛫ᛞᚪᚳ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 7,
+   "part": "Vowels",
+   "title": "Sliding vowels",
+   "subtitle": "ᛠ ᛡ ᚩ",
+   "blurb": "The vowels that move as you say them.",
+   "runes": [
+    "ᛠ",
+    "ᛡ",
+    "ᚩ"
+   ],
+   "teach": [
+    "ᛠ is the *ay* of *day*. ᛡ is the *i* of *time*. ᚩ is the *o* of *go*.",
+    "Each of these is one sound, so one rune — even though English spells them all sorts of ways: *day*, *make*, *rain* and *they* all take ᛠ.",
+    "Say them slowly and you can hear the vowel move. That sliding is what makes them one unit rather than two."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "day",
+     "runes": "ᛞᛠ",
+     "say": "d-ay"
+    },
+    {
+     "english": "make",
+     "runes": "ᛗᛠᚳ",
+     "say": "m-ay-k"
+    },
+    {
+     "english": "my",
+     "runes": "ᛗᛡ",
+     "say": "m-y"
+    },
+    {
+     "english": "time",
+     "runes": "ᛏᛡᛗ",
+     "say": "t-y-m"
+    },
+    {
+     "english": "go",
+     "runes": "ᚷᚩ",
+     "say": "g-oh"
+    },
+    {
+     "english": "home",
+     "runes": "ᚻᚩᛗ",
+     "say": "h-oh-m"
+    },
+    {
+     "english": "name",
+     "runes": "ᚾᛠᛗ",
+     "say": "n-ay-m"
+    },
+    {
+     "english": "take",
+     "runes": "ᛏᛠᚳ",
+     "say": "t-ay-k"
+    },
+    {
+     "english": "late",
+     "runes": "ᛚᛠᛏ",
+     "say": "l-ay-t"
+    },
+    {
+     "english": "rain",
+     "runes": "ᚱᛠᚾ",
+     "say": "r-ay-n"
+    },
+    {
+     "english": "stay",
+     "runes": "ᛥᛠ",
+     "say": "s-t-ay"
+    },
+    {
+     "english": "like",
+     "runes": "ᛚᛡᚳ",
+     "say": "l-y-k"
+    },
+    {
+     "english": "life",
+     "runes": "ᛚᛡᚠᚠ",
+     "say": "l-y-f"
+    },
+    {
+     "english": "night",
+     "runes": "ᚾᛡᛏ",
+     "say": "n-y-t"
+    },
+    {
+     "english": "light",
+     "runes": "ᛚᛡᛏ",
+     "say": "l-y-t"
+    },
+    {
+     "english": "right",
+     "runes": "ᚱᛡᛏ",
+     "say": "r-y-t"
+    },
+    {
+     "english": "nine",
+     "runes": "ᚾᛡᚾ",
+     "say": "n-y-n"
+    },
+    {
+     "english": "five",
+     "runes": "ᚠᛡᚠ",
+     "say": "f-y-v"
+    },
+    {
+     "english": "no",
+     "runes": "ᚾᚩ",
+     "say": "n-oh"
+    },
+    {
+     "english": "know",
+     "runes": "ᚾᚩ",
+     "say": "n-oh"
+    },
+    {
+     "english": "road",
+     "runes": "ᚱᚩᛞ",
+     "say": "r-oh-d"
+    },
+    {
+     "english": "boat",
+     "runes": "ᛒᚩᛏ",
+     "say": "b-oh-t"
+    },
+    {
+     "english": "old",
+     "runes": "ᚩᛚᛞ",
+     "say": "oh-l-d"
+    },
+    {
+     "english": "cold",
+     "runes": "ᚳᚩᛚᛞ",
+     "say": "k-oh-l-d"
+    },
+    {
+     "english": "snow",
+     "runes": "ᛋᚾᚩ",
+     "say": "s-n-oh"
+    },
+    {
+     "english": "those",
+     "runes": "ᚦᚩᛋ",
+     "say": "th-oh-z"
+    },
+    {
+     "english": "hope",
+     "runes": "ᚻᚩᛈ",
+     "say": "h-oh-p"
+    },
+    {
+     "english": "both",
+     "runes": "ᛒᚩᚦ",
+     "say": "b-oh-th"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "I go home in the day.",
+     "runes": "ᛡ᛫ᚷᚩ᛫ᚻᚩᛗ᛫ᛁᚾ᛫ᚦᚢ᛫ᛞᛠ."
+    },
+    {
+     "english": "My name is on the road.",
+     "runes": "ᛗᛡ᛫ᚾᛠᛗ᛫ᛁᛋ᛫ᛟᚾ᛫ᚦᚢ᛫ᚱᚩᛞ."
+    },
+    {
+     "english": "Take the old boat.",
+     "runes": "ᛏᛠᚳ᛫ᚦᚢ᛫ᚩᛚᛞ᛫ᛒᚩᛏ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 8,
+   "part": "Vowels",
+   "title": "Two-rune vowels",
+   "subtitle": "ᚪᚹ ᛟᛁ ᛁᚢ",
+   "blurb": "Three vowels that need a pair of runes.",
+   "runes": [
+    "ᚪᚹ",
+    "ᛟᛁ",
+    "ᛁᚢ"
+   ],
+   "teach": [
+    "ᚪᚹ is *now*, ᛟᛁ is *boy*, ᛁᚢ is *here*.",
+    "These make sense once you say them slowly — *now* really does slide from ᚪ towards ᚹ, and *here* from ᛁ towards ᚢ.",
+    "ᛁᚢ is where words like *near*, *year* and *beer* end up once the r has gone."
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "now",
+     "runes": "ᚾᚪᚹ",
+     "say": "n-ow"
+    },
+    {
+     "english": "out",
+     "runes": "ᚪᚹᛏ",
+     "say": "ow-t"
+    },
+    {
+     "english": "how",
+     "runes": "ᚻᚪᚹ",
+     "say": "h-ow"
+    },
+    {
+     "english": "down",
+     "runes": "ᛞᚪᚹᚾ",
+     "say": "d-ow-n"
+    },
+    {
+     "english": "town",
+     "runes": "ᛏᚪᚹᚾ",
+     "say": "t-ow-n"
+    },
+    {
+     "english": "house",
+     "runes": "ᚻᚪᚹᛋᛋ",
+     "say": "h-ow-s"
+    },
+    {
+     "english": "about",
+     "runes": "ᚢᛒᚪᚹᛏ",
+     "say": "uh-b-ow-t"
+    },
+    {
+     "english": "found",
+     "runes": "ᚠᚪᚹᚾᛞ",
+     "say": "f-ow-n-d"
+    },
+    {
+     "english": "sound",
+     "runes": "ᛋᚪᚹᚾᛞ",
+     "say": "s-ow-n-d"
+    },
+    {
+     "english": "loud",
+     "runes": "ᛚᚪᚹᛞ",
+     "say": "l-ow-d"
+    },
+    {
+     "english": "boy",
+     "runes": "ᛒᛟᛁ",
+     "say": "b-oy"
+    },
+    {
+     "english": "point",
+     "runes": "ᛈᛟᛁᚾᛏ",
+     "say": "p-oy-n-t"
+    },
+    {
+     "english": "join",
+     "runes": "ᚷᚻᛟᛁᚾ",
+     "say": "j-oy-n"
+    },
+    {
+     "english": "noise",
+     "runes": "ᚾᛟᛁᛋ",
+     "say": "n-oy-z"
+    },
+    {
+     "english": "voice",
+     "runes": "ᚠᛟᛁᛋᛋ",
+     "say": "f-oy-s"
+    },
+    {
+     "english": "here",
+     "runes": "ᚻᛁᚢ",
+     "say": "h-eer"
+    },
+    {
+     "english": "near",
+     "runes": "ᚾᛁᚢ",
+     "say": "n-eer"
+    },
+    {
+     "english": "year",
+     "runes": "ᛄᛁᚢ",
+     "say": "y-eer"
+    },
+    {
+     "english": "hear",
+     "runes": "ᚻᛁᚢ",
+     "say": "h-eer"
+    },
+    {
+     "english": "beer",
+     "runes": "ᛒᛁᚢ",
+     "say": "b-eer"
+    },
+    {
+     "english": "clear",
+     "runes": "ᚳᛚᛁᚢ",
+     "say": "k-l-eer"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "Come down to the house now.",
+     "runes": "ᚳᚢᛗ᛫ᛞᚪᚹᚾ᛫ᛏᚣᚣ᛫ᚦᚢ᛫ᚻᚪᚹᛋᛋ᛫ᚾᚪᚹ."
+    },
+    {
+     "english": "I can hear the boy.",
+     "runes": "ᛡ᛫ᚳᚫᚾ᛫ᚻᛁᚢ᛫ᚦᚢ᛫ᛒᛟᛁ."
+    },
+    {
+     "english": "The town is near here.",
+     "runes": "ᚦᚢ᛫ᛏᚪᚹᚾ᛫ᛁᛋ᛫ᚾᛁᚢ᛫ᚻᛁᚢ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 9,
+   "part": "Finishing the alphabet",
+   "title": "Ch, j and sh",
+   "subtitle": "ᚳᚻ ᚷᚻ ᛋᚻ",
+   "blurb": "ᚻ is the \"add an h\" rune.",
+   "runes": [
+    "ᚳᚻ",
+    "ᚷᚻ",
+    "ᛋᚻ"
+   ],
+   "teach": [
+    "ᚳᚻ = ch, ᚷᚻ = j, ᛋᚻ = sh. In each case it is the plain consonant plus ᚻ.",
+    "ᚷᚻ also does the soft g of *age*, *large* and *bridge* — the sound is the same as j, so the spelling is.",
+    "ᛋᚻ doubles up for the middle of *measure* and *usual*, which is the same sound with the voice on."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "chair",
+     "runes": "ᚳᚻᛖᛖ",
+     "say": "ch-air"
+    },
+    {
+     "english": "much",
+     "runes": "ᛗᚢᚳᚻ",
+     "say": "m-uh-ch"
+    },
+    {
+     "english": "cheese",
+     "runes": "ᚳᚻᛁᛁᛋ",
+     "say": "ch-ee-z"
+    },
+    {
+     "english": "watch",
+     "runes": "ᚹᛟᚳᚻ",
+     "say": "w-o-ch"
+    },
+    {
+     "english": "catch",
+     "runes": "ᚳᚫᚳᚻ",
+     "say": "k-a-ch"
+    },
+    {
+     "english": "child",
+     "runes": "ᚳᚻᛡᛚᛞ",
+     "say": "ch-y-l-d"
+    },
+    {
+     "english": "ship",
+     "runes": "ᛋᚻᛁᛈ",
+     "say": "sh-i-p"
+    },
+    {
+     "english": "fish",
+     "runes": "ᚠᛁᛋᚻ",
+     "say": "f-i-sh"
+    },
+    {
+     "english": "shop",
+     "runes": "ᛋᚻᛟᛈ",
+     "say": "sh-o-p"
+    },
+    {
+     "english": "she",
+     "runes": "ᛋᚻᛁᛁ",
+     "say": "sh-ee"
+    },
+    {
+     "english": "wash",
+     "runes": "ᚹᛟᛋᚻ",
+     "say": "w-o-sh"
+    },
+    {
+     "english": "shall",
+     "runes": "ᛋᚻᚫᛚ",
+     "say": "sh-a-l"
+    },
+    {
+     "english": "jump",
+     "runes": "ᚷᚻᚢᛗᛈ",
+     "say": "j-uh-m-p"
+    },
+    {
+     "english": "jog",
+     "runes": "ᚷᚻᛟᚷ",
+     "say": "j-o-g"
+    },
+    {
+     "english": "judge",
+     "runes": "ᚷᚻᚢᚷᚻ",
+     "say": "j-uh-j"
+    },
+    {
+     "english": "large",
+     "runes": "ᛚᚪᚷᚻ",
+     "say": "l-ah-j"
+    },
+    {
+     "english": "change",
+     "runes": "ᚳᚻᛠᚾᚷᚻ",
+     "say": "ch-ay-n-j"
+    },
+    {
+     "english": "age",
+     "runes": "ᛠᚷᚻ",
+     "say": "ay-j"
+    },
+    {
+     "english": "bridge",
+     "runes": "ᛒᚱᛁᚷᚻ",
+     "say": "b-r-i-j"
+    },
+    {
+     "english": "measure",
+     "runes": "ᛗᛖᛋᚻᚢ",
+     "say": "m-e-sh-uh"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "She sat on the chair.",
+     "runes": "ᛋᚻᛁᛁ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᚳᚻᛖᛖ."
+    },
+    {
+     "english": "Much has changed.",
+     "runes": "ᛗᚢᚳᚻ᛫ᚻᚫᛋ᛫ᚳᚻᛠᚾᚷᚻᛞ."
+    },
+    {
+     "english": "The fish is large.",
+     "runes": "ᚦᚢ᛫ᚠᛁᛋᚻ᛫ᛁᛋ᛫ᛚᚪᚷᚻ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 10,
+   "part": "Finishing the alphabet",
+   "title": "Y and x",
+   "subtitle": "ᛄ ᛉ",
+   "blurb": "The last two everyday runes.",
+   "runes": [
+    "ᛄ",
+    "ᛉ"
+   ],
+   "teach": [
+    "ᛄ is the consonant y of *yes* and *you*. The vowel y at the end of *happy* is just ᛁ.",
+    "ᛉ is a shortcut for the ks in *box*. Only use it where English spells an x — *racks* is ᚱᚫᚳᛋ, not ᚱᚫᛉ.",
+    "That distinction is a courtesy to the reader, not a sound difference. Both are pronounced the same."
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "yes",
+     "runes": "ᛄᛖᛋᛋ",
+     "say": "y-e-s"
+    },
+    {
+     "english": "you",
+     "runes": "ᛄᚣᚣ",
+     "say": "y-oo"
+    },
+    {
+     "english": "year",
+     "runes": "ᛄᛁᚢ",
+     "say": "y-eer"
+    },
+    {
+     "english": "young",
+     "runes": "ᛄᚢᛝ",
+     "say": "y-uh-ng"
+    },
+    {
+     "english": "yellow",
+     "runes": "ᛄᛖᛚᚩ",
+     "say": "y-e-l-oh"
+    },
+    {
+     "english": "beyond",
+     "runes": "ᛒᛁᛄᛟᚾᛞ",
+     "say": "b-i-y-o-n-d"
+    },
+    {
+     "english": "box",
+     "runes": "ᛒᛟᛉ",
+     "say": "b-o-k-s"
+    },
+    {
+     "english": "six",
+     "runes": "ᛋᛁᛉ",
+     "say": "s-i-k-s"
+    },
+    {
+     "english": "tax",
+     "runes": "ᛏᚫᛉ",
+     "say": "t-a-k-s"
+    },
+    {
+     "english": "fox",
+     "runes": "ᚠᛟᛉ",
+     "say": "f-o-k-s"
+    },
+    {
+     "english": "mix",
+     "runes": "ᛗᛁᛉ",
+     "say": "m-i-k-s"
+    },
+    {
+     "english": "next",
+     "runes": "ᚾᛖᛉᛏ",
+     "say": "n-e-k-s-t"
+    },
+    {
+     "english": "expect",
+     "runes": "ᛁᛉᛈᛖᚳᛏ",
+     "say": "i-k-s-p-e-k-t"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "Yes, you can have the box.",
+     "runes": "ᛄᛖᛋᛋ, ᛄᚣᚣ᛫ᚳᚫᚾ᛫ᚻᚫᚠ᛫ᚦᚢ᛫ᛒᛟᛉ."
+    },
+    {
+     "english": "Six young men.",
+     "runes": "ᛋᛁᛉ᛫ᛄᚢᛝ᛫ᛗᛖᚾ."
+    },
+    {
+     "english": "Next year.",
+     "runes": "ᚾᛖᛉᛏ᛫ᛄᛁᚢ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 11,
+   "part": "The finishing rules",
+   "title": "Voiced or voiceless?",
+   "subtitle": "ᚠᚠ and ᛋᛋ",
+   "blurb": "How to tell leaf from leave.",
+   "runes": [],
+   "teach": [
+    "ᚠ is both f and v; ᛋ is both s and z. In the middle of a word, context sorts it out.",
+    "**At the end of a word, double it if the sound is voiceless.** *Leaf* is ᛚᛁᛁᚠᚠ but *leave* is ᛚᛁᛁᚠ. *Cats* is ᚳᚫᛏᛋᛋ but *dogs* is ᛞᛟᚷᛋ.",
+    "Put a finger on your throat and say \"sss\" then \"zzz\". The buzz is voicing. No buzz, double the rune.",
+    "This falls out neatly for plurals: after t, k, p and f you get s (so double); after everything else you get z (so single)."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "leaf",
+     "runes": "ᛚᛁᛁᚠᚠ",
+     "say": "l-ee-f"
+    },
+    {
+     "english": "leave",
+     "runes": "ᛚᛁᛁᚠ",
+     "say": "l-ee-v"
+    },
+    {
+     "english": "off",
+     "runes": "ᛟᚠᚠ",
+     "say": "o-f"
+    },
+    {
+     "english": "of",
+     "runes": "ᛟᚠ",
+     "say": "o-v"
+    },
+    {
+     "english": "cats",
+     "runes": "ᚳᚫᛏᛋᛋ",
+     "say": "k-a-t-s"
+    },
+    {
+     "english": "dogs",
+     "runes": "ᛞᛟᚷᛋ",
+     "say": "d-o-g-z"
+    },
+    {
+     "english": "ice",
+     "runes": "ᛡᛋᛋ",
+     "say": "y-s"
+    },
+    {
+     "english": "eyes",
+     "runes": "ᛡᛋ",
+     "say": "y-z"
+    },
+    {
+     "english": "life",
+     "runes": "ᛚᛡᚠᚠ",
+     "say": "l-y-f"
+    },
+    {
+     "english": "live",
+     "runes": "ᛚᛁᚠ",
+     "say": "l-i-v"
+    },
+    {
+     "english": "safe",
+     "runes": "ᛋᛠᚠᚠ",
+     "say": "s-ay-f"
+    },
+    {
+     "english": "save",
+     "runes": "ᛋᛠᚠ",
+     "say": "s-ay-v"
+    },
+    {
+     "english": "price",
+     "runes": "ᛈᚱᛡᛋᛋ",
+     "say": "p-r-y-s"
+    },
+    {
+     "english": "prize",
+     "runes": "ᛈᚱᛡᛋ",
+     "say": "p-r-y-z"
+    },
+    {
+     "english": "peace",
+     "runes": "ᛈᛁᛁᛋᛋ",
+     "say": "p-ee-s"
+    },
+    {
+     "english": "peas",
+     "runes": "ᛈᛁᛁᛋ",
+     "say": "p-ee-z"
+    },
+    {
+     "english": "half",
+     "runes": "ᚻᚪᚠᚠ",
+     "say": "h-ah-f"
+    },
+    {
+     "english": "have",
+     "runes": "ᚻᚫᚠ",
+     "say": "h-a-v"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "The cats have gone off.",
+     "runes": "ᚦᚢ᛫ᚳᚫᛏᛋᛋ᛫ᚻᚫᚠ᛫ᚷᛟᚾ᛫ᛟᚠᚠ."
+    },
+    {
+     "english": "I can see his eyes.",
+     "runes": "ᛡ᛫ᚳᚫᚾ᛫ᛋᛁᛁ᛫ᚻᛁᛋ᛫ᛡᛋ."
+    },
+    {
+     "english": "Leave the leaf.",
+     "runes": "ᛚᛁᛁᚠ᛫ᚦᚢ᛫ᛚᛁᛁᚠᚠ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 12,
+   "part": "The finishing rules",
+   "title": "Weak syllables",
+   "subtitle": "Everything collapses to ᚢ",
+   "blurb": "What happens to the parts of a word you do not stress.",
+   "runes": [],
+   "teach": [
+    "English hurries over unstressed syllables, and the vowel in them collapses to a vague ᚢ.",
+    "*Butter* is ᛒᚢᛏᚢ. *Comma* is ᚳᛟᛗᚢ. *About* is ᚢᛒᚪᚹᛏ. Whatever the spelling suggests, you say ᚢ.",
+    "**Syllabic l and n.** *Little* is ᛚᛁᛏᚢᛚ and *bottle* is ᛒᛟᛏᚢᛚ — put ᚢ in where you hear a faint vowel before the l.",
+    "This is the rule that makes runic spelling look most unlike English. Trust your ear."
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "about",
+     "runes": "ᚢᛒᚪᚹᛏ",
+     "say": "uh-b-ow-t"
+    },
+    {
+     "english": "above",
+     "runes": "ᚢᛒᚢᚠ",
+     "say": "uh-b-uh-v"
+    },
+    {
+     "english": "again",
+     "runes": "ᚢᚷᛖᚾ",
+     "say": "uh-g-e-n"
+    },
+    {
+     "english": "butter",
+     "runes": "ᛒᚢᛏᚢ",
+     "say": "b-uh-t-uh"
+    },
+    {
+     "english": "water",
+     "runes": "ᚹᛟᛟᛏᚢ",
+     "say": "w-aw-t-uh"
+    },
+    {
+     "english": "better",
+     "runes": "ᛒᛖᛏᚢ",
+     "say": "b-e-t-uh"
+    },
+    {
+     "english": "father",
+     "runes": "ᚠᚪᚦᚢ",
+     "say": "f-ah-th-uh"
+    },
+    {
+     "english": "mother",
+     "runes": "ᛗᚢᚦᚢ",
+     "say": "m-uh-th-uh"
+    },
+    {
+     "english": "winter",
+     "runes": "ᚹᛁᚾᛏᚢ",
+     "say": "w-i-n-t-uh"
+    },
+    {
+     "english": "summer",
+     "runes": "ᛋᚢᛗᚢ",
+     "say": "s-uh-m-uh"
+    },
+    {
+     "english": "comma",
+     "runes": "ᚳᛟᛗᚢ",
+     "say": "k-o-m-uh"
+    },
+    {
+     "english": "little",
+     "runes": "ᛚᛁᛏᚢᛚ",
+     "say": "l-i-t-uh-l"
+    },
+    {
+     "english": "bottle",
+     "runes": "ᛒᛟᛏᚢᛚ",
+     "say": "b-o-t-uh-l"
+    },
+    {
+     "english": "middle",
+     "runes": "ᛗᛁᛞᚢᛚ",
+     "say": "m-i-d-uh-l"
+    },
+    {
+     "english": "apple",
+     "runes": "ᚫᛈᚢᛚ",
+     "say": "a-p-uh-l"
+    },
+    {
+     "english": "table",
+     "runes": "ᛏᛠᛒᚢᛚ",
+     "say": "t-ay-b-uh-l"
+    },
+    {
+     "english": "garden",
+     "runes": "ᚷᚪᛞᚢᚾ",
+     "say": "g-ah-d-uh-n"
+    },
+    {
+     "english": "open",
+     "runes": "ᚩᛈᚢᚾ",
+     "say": "oh-p-uh-n"
+    },
+    {
+     "english": "seven",
+     "runes": "ᛋᛖᚠᚢᚾ",
+     "say": "s-e-f-uh-n"
+    },
+    {
+     "english": "happen",
+     "runes": "ᚻᚫᛈᛖᚾ",
+     "say": "h-a-p-e-n"
+    },
+    {
+     "english": "children",
+     "runes": "ᚳᚻᛁᛚᛞᚱᚢᚾ",
+     "say": "ch-i-l-d-r-uh-n"
+    },
+    {
+     "english": "other",
+     "runes": "ᚢᚦᚢ",
+     "say": "uh-th-uh"
+    },
+    {
+     "english": "over",
+     "runes": "ᚩᚠᚢ",
+     "say": "oh-f-uh"
+    },
+    {
+     "english": "under",
+     "runes": "ᚢᚾᛞᚢ",
+     "say": "uh-n-d-uh"
+    },
+    {
+     "english": "never",
+     "runes": "ᚾᛖᚠᚢ",
+     "say": "n-e-f-uh"
+    },
+    {
+     "english": "ever",
+     "runes": "ᛖᚠᚢ",
+     "say": "e-f-uh"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "My mother is in the garden.",
+     "runes": "ᛗᛡ᛫ᛗᚢᚦᚢ᛫ᛁᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᚷᚪᛞᚢᚾ."
+    },
+    {
+     "english": "The water is better now.",
+     "runes": "ᚦᚢ᛫ᚹᛟᛟᛏᚢ᛫ᛁᛋ᛫ᛒᛖᛏᚢ᛫ᚾᚪᚹ."
+    },
+    {
+     "english": "Open the little bottle.",
+     "runes": "ᚩᛈᚢᚾ᛫ᚦᚢ᛫ᛚᛁᛏᚢᛚ᛫ᛒᛟᛏᚢᛚ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 13,
+   "part": "The finishing rules",
+   "title": "Ligatures and layout",
+   "subtitle": "ᛥ ᛢ ᛫",
+   "blurb": "The last two runes, and how to set out a line of text.",
+   "runes": [
+    "ᛥ",
+    "ᛢ"
+   ],
+   "teach": [
+    "ᛥ is ᛋ+ᛏ joined up, and ᛢ is ᚳ+ᚹ joined up. Both are optional — *stone* is ᛥᚩᚾ or ᛋᛏᚩᚾ, whichever you prefer.",
+    "Words are traditionally separated by an interpunct ᛫ rather than a space: ᛏᚣᚣ᛫ᛒᛁᛁ᛫ᛟᛟ᛫ᚾᛟᛏ᛫ᛏᚣᚣ᛫ᛒᛁᛁ.",
+    "Commas, full stops and apostrophes work exactly as they do in English. ⁊ is an optional shorthand for *and*.",
+    "You can switch the ligatures off in Settings if you would rather write everything out."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "stone",
+     "runes": "ᛥᚩᚾ",
+     "say": "s-t-oh-n"
+    },
+    {
+     "english": "best",
+     "runes": "ᛒᛖᛥ",
+     "say": "b-e-s-t"
+    },
+    {
+     "english": "fast",
+     "runes": "ᚠᚪᛥ",
+     "say": "f-ah-s-t"
+    },
+    {
+     "english": "first",
+     "runes": "ᚠᚢᚢᛥ",
+     "say": "f-ur-s-t"
+    },
+    {
+     "english": "stop",
+     "runes": "ᛥᛟᛈ",
+     "say": "s-t-o-p"
+    },
+    {
+     "english": "star",
+     "runes": "ᛥᚪ",
+     "say": "s-t-ah"
+    },
+    {
+     "english": "queen",
+     "runes": "ᛢᛁᛁᚾ",
+     "say": "k-w-ee-n"
+    },
+    {
+     "english": "quick",
+     "runes": "ᛢᛁᚳ",
+     "say": "k-w-i-k"
+    },
+    {
+     "english": "question",
+     "runes": "ᛢᛖᛋᚳᚻᚢᚾ",
+     "say": "k-w-e-s-ch-uh-n"
+    },
+    {
+     "english": "quiet",
+     "runes": "ᛢᛡᚢᛏ",
+     "say": "k-w-y-uh-t"
+    },
+    {
+     "english": "quite",
+     "runes": "ᛢᛡᛏ",
+     "say": "k-w-y-t"
+    }
+   ],
+   "sentences": [
+    {
+     "english": "That is a quick question.",
+     "runes": "ᚦᚫᛏ᛫ᛁᛋ᛫ᚢ᛫ᛢᛁᚳ᛫ᛢᛖᛋᚳᚻᚢᚾ."
+    },
+    {
+     "english": "The best stone is first.",
+     "runes": "ᚦᚢ᛫ᛒᛖᛥ᛫ᛥᚩᚾ᛫ᛁᛋ᛫ᚠᚢᚢᛥ."
+    },
+    {
+     "english": "Be quiet and stop.",
+     "runes": "ᛒᛁᛁ᛫ᛢᛡᚢᛏ᛫ᚫᚾᛞ᛫ᛥᛟᛈ."
+    }
+   ],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 14,
+   "part": "Reading",
+   "title": "Reading without help",
+   "subtitle": "Short sentences",
+   "blurb": "No multiple choice. Read it, type what it says.",
+   "runes": [],
+   "teach": [
+    "Read the runes aloud before you try to work out the word. Sounding it out is the whole skill.",
+    "If a word looks odd, it is almost always the r rule or a doubled vowel.",
+    "Spelling does not have to be perfect — you are being marked on whether you read it right."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [],
+   "sentences": [],
+   "freeRead": [
+    {
+     "english": "The dog is in the garden.",
+     "runes": "ᚦᚢ᛫ᛞᛟᚷ᛫ᛁᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᚷᚪᛞᚢᚾ."
+    },
+    {
+     "english": "I have a small house near the river.",
+     "runes": "ᛡ᛫ᚻᚫᚠ᛫ᚢ᛫ᛋᛗᛟᛟᛚ᛫ᚻᚪᚹᛋᛋ᛫ᚾᛁᚢ᛫ᚦᚢ᛫ᚱᛁᚠᚢ."
+    },
+    {
+     "english": "She went to the shop for bread and milk.",
+     "runes": "ᛋᚻᛁᛁ᛫ᚹᛖᚾᛏ᛫ᛏᚣᚣ᛫ᚦᚢ᛫ᛋᚻᛟᛈ᛫ᚠᛟᛟ᛫ᛒᚱᛖᛞ᛫ᚫᚾᛞ᛫ᛗᛁᛚᚳ."
+    },
+    {
+     "english": "My brother works in the town.",
+     "runes": "ᛗᛡ᛫ᛒᚱᚢᚦᚢ᛫ᚹᚢᚢᚳᛋᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᛏᚪᚹᚾ."
+    },
+    {
+     "english": "The old man sat by the fire.",
+     "runes": "ᚦᚢ᛫ᚩᛚᛞ᛫ᛗᚫᚾ᛫ᛋᚫᛏ᛫ᛒᛡ᛫ᚦᚢ᛫ᚠᛡᚢ."
+    },
+    {
+     "english": "We can go home now.",
+     "runes": "ᚹᛁᛁ᛫ᚳᚫᚾ᛫ᚷᚩ᛫ᚻᚩᛗ᛫ᚾᚪᚹ."
+    },
+    {
+     "english": "There is a bird on the roof.",
+     "runes": "ᚦᛖᛖ᛫ᛁᛋ᛫ᚢ᛫ᛒᚢᚢᛞ᛫ᛟᚾ᛫ᚦᚢ᛫ᚱᚣᚣᚠᚠ."
+    },
+    {
+     "english": "He gave me the book last night.",
+     "runes": "ᚻᛁᛁ᛫ᚷᛠᚠ᛫ᛗᛁᛁ᛫ᚦᚢ᛫ᛒᚣᚳ᛫ᛚᚪᛥ᛫ᚾᛡᛏ."
+    }
+   ],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 15,
+   "part": "Reading",
+   "title": "Writing without help",
+   "subtitle": "Your turn",
+   "blurb": "English in, runes out — from memory.",
+   "runes": [],
+   "teach": [
+    "Say the phrase out loud first, then write the sounds you hear.",
+    "Check yourself against three things: is every r you wrote actually pronounced? Are the long vowels doubled? Have any silent letters crept in?"
+   ],
+   "review": true,
+   "finalReview": false,
+   "words": [],
+   "sentences": [],
+   "freeRead": [],
+   "freeWrite": [
+    {
+     "english": "the cat",
+     "runes": "ᚦᚢ᛫ᚳᚫᛏ"
+    },
+    {
+     "english": "a red door",
+     "runes": "ᚢ᛫ᚱᛖᛞ᛫ᛞᛟᛟ"
+    },
+    {
+     "english": "my father",
+     "runes": "ᛗᛡ᛫ᚠᚪᚦᚢ"
+    },
+    {
+     "english": "six green birds",
+     "runes": "ᛋᛁᛉ᛫ᚷᚱᛁᛁᚾ᛫ᛒᚢᚢᛞᛋ"
+    },
+    {
+     "english": "the house is dark",
+     "runes": "ᚦᚢ᛫ᚻᚪᚹᛋᛋ᛫ᛁᛋ᛫ᛞᚪᚳ"
+    },
+    {
+     "english": "she can see the moon",
+     "runes": "ᛋᚻᛁᛁ᛫ᚳᚫᚾ᛫ᛋᛁᛁ᛫ᚦᚢ᛫ᛗᚣᚣᚾ"
+    },
+    {
+     "english": "we went to the town",
+     "runes": "ᚹᛁᛁ᛫ᚹᛖᚾᛏ᛫ᛏᚣᚣ᛫ᚦᚢ᛫ᛏᚪᚹᚾ"
+    },
+    {
+     "english": "it is quite cold now",
+     "runes": "ᛁᛏ᛫ᛁᛋ᛫ᛢᛡᛏ᛫ᚳᚩᛚᛞ᛫ᚾᚪᚹ"
+    },
+    {
+     "english": "the boy has a big box",
+     "runes": "ᚦᚢ᛫ᛒᛟᛁ᛫ᚻᚫᛋ᛫ᚢ᛫ᛒᛁᚷ᛫ᛒᛟᛉ"
+    },
+    {
+     "english": "I like this book",
+     "runes": "ᛡ᛫ᛚᛡᚳ᛫ᚦᛁᛋᛋ᛫ᛒᚣᚳ"
+    }
+   ],
+   "passages": []
+  },
+  {
+   "id": 16,
+   "part": "Reading",
+   "title": "A longer passage",
+   "subtitle": "Reading at length",
+   "blurb": "Several sentences at a time, with the English hidden until you want it.",
+   "runes": [],
+   "teach": [
+    "Take it a line at a time. Read aloud, then check.",
+    "You will find you stop decoding rune by rune and start recognising whole words. That is the point at which this becomes reading."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [],
+   "sentences": [],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": [
+    {
+     "title": "A morning",
+     "english": "It was cold when I went out. The sun was low and the grass was wet. I walked down the path to the river and sat on a stone for a long time. A bird came near, looked at me, and went again.",
+     "runes": "ᛁᛏ᛫ᚹᛟᛋ᛫ᚳᚩᛚᛞ᛫ᚹᛖᚾ᛫ᛡ᛫ᚹᛖᚾᛏ᛫ᚪᚹᛏ. ᚦᚢ᛫ᛋᚢᚾ᛫ᚹᛟᛋ᛫ᛚᚩ᛫ᚫᚾᛞ᛫ᚦᚢ᛫ᚷᚱᚪᛋᛋ᛫ᚹᛟᛋ᛫ᚹᛖᛏ. ᛡ᛫ᚹᛟᛟᚳᛏ᛫ᛞᚪᚹᚾ᛫ᚦᚢ᛫ᛈᚪᚦ᛫ᛏᚣᚣ᛫ᚦᚢ᛫ᚱᛁᚠᚢ᛫ᚫᚾᛞ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚢ᛫ᛥᚩᚾ᛫ᚠᛟᛟ᛫ᚢ᛫ᛚᛟᛝ᛫ᛏᛡᛗ. ᚢ᛫ᛒᚢᚢᛞ᛫ᚳᛠᛗ᛫ᚾᛁᚢ, ᛚᚣᚳᛏ᛫ᚫᛏ᛫ᛗᛁᛁ, ᚫᚾᛞ᛫ᚹᛖᚾᛏ᛫ᚢᚷᛖᚾ."
+    },
+    {
+     "title": "The house",
+     "english": "My grandmother had a small house at the end of the road. There was a green door and a garden with apple trees. In the summer we would sit outside and she would tell us about the old days.",
+     "runes": "ᛗᛡ᛫ᚷᚱᚫᚾᛞᛗᛟᚦᚢ᛫ᚻᚫᛞ᛫ᚢ᛫ᛋᛗᛟᛟᛚ᛫ᚻᚪᚹᛋᛋ᛫ᚫᛏ᛫ᚦᚢ᛫ᛖᚾᛞ᛫ᛟᚠ᛫ᚦᚢ᛫ᚱᚩᛞ. ᚦᛖᛖ᛫ᚹᛟᛋ᛫ᚢ᛫ᚷᚱᛁᛁᚾ᛫ᛞᛟᛟ᛫ᚫᚾᛞ᛫ᚢ᛫ᚷᚪᛞᚢᚾ᛫ᚹᛁᚦ᛫ᚫᛈᚢᛚ᛫ᛏᚱᛁᛁᛋ. ᛁᚾ᛫ᚦᚢ᛫ᛋᚢᛗᚢ᛫ᚹᛁᛁ᛫ᚹᚣᛞ᛫ᛋᛁᛏ᛫ᚪᚹᛏᛋᛡᛞ᛫ᚫᚾᛞ᛫ᛋᚻᛁᛁ᛫ᚹᚣᛞ᛫ᛏᛖᛚ᛫ᚢᛋᛋ᛫ᚢᛒᚪᚹᛏ᛫ᚦᚢ᛫ᚩᛚᛞ᛫ᛞᛠᛋ."
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "part": "Reading",
+   "title": "Real writing",
+   "subtitle": "Poetry and prose",
+   "blurb": "Text written by people who were not thinking about runes.",
+   "runes": [],
+   "teach": [
+    "Longer words and older wording, but exactly the same system.",
+    "Notice how much shorter runic spelling often is — *thought* is four runes, *through* is four."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [],
+   "sentences": [],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": [
+    {
+     "title": "Shakespeare, Hamlet",
+     "english": "To be, or not to be, that is the question: whether it is nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles.",
+     "runes": "ᛏᚣᚣ᛫ᛒᛁᛁ, ᛟᛟ᛫ᚾᛟᛏ᛫ᛏᚣᚣ᛫ᛒᛁᛁ, ᚦᚫᛏ᛫ᛁᛋ᛫ᚦᚢ᛫ᛢᛖᛋᚳᚻᚢᚾ: ᚹᛖᚦᚢ᛫ᛁᛏ᛫ᛁᛋ᛫ᚾᛟᛒᛚᚢ᛫ᛁᚾ᛫ᚦᚢ᛫ᛗᛡᚾᛞ᛫ᛏᚣᚣ᛫ᛋᚢᚠᚢ᛫ᚦᚢ᛫ᛋᛚᛁᛝᛋ᛫ᚫᚾᛞ᛫ᚪᚱᚩᛋ᛫ᛟᚠ᛫ᚪᚹᛏᚱᛠᚷᚻᛁᚢᛋᛋ᛫ᚠᛟᛟᛏᚣᚣᚾ, ᛟᛟ᛫ᛏᚣᚣ᛫ᛏᛠᚳ᛫ᚪᛗᛋ᛫ᚢᚷᛖᚾᛥ᛫ᚢ᛫ᛋᛁᛁ᛫ᛟᚠ᛫ᛏᚱᚢᛒᛚᛖᛋ."
+    },
+    {
+     "title": "Emma Lazarus, The New Colossus",
+     "english": "Give me your tired, your poor, your huddled masses yearning to breathe free, the wretched refuse of your teeming shore.",
+     "runes": "ᚷᛁᚠ᛫ᛗᛁᛁ᛫ᛄᛟᛟ᛫ᛏᛡᚢᛞ, ᛄᛟᛟ᛫ᛈᛟᛟ, ᛄᛟᛟ᛫ᚻᚢᛞᚢᛚᛞ᛫ᛗᚫᛋᛁᛋ᛫ᛄᚢᚢᚾᛁᛝ᛫ᛏᚣᚣ᛫ᛒᚱᛁᛁᚦ᛫ᚠᚱᛁᛁ, ᚦᚢ᛫ᚱᛖᚳᚻᛏ᛫ᚱᛁᛁᚠᛄᚣᚣᛋ᛫ᛟᚠ᛫ᛄᛟᛟ᛫ᛏᛁᛁᛗᛁᛝ᛫ᛋᚻᚩ."
+    },
+    {
+     "title": "The opening of Beowulf, in modern English",
+     "english": "Listen. We have heard of the glory of the kings of the Danes in the old days, and how those princes did brave deeds.",
+     "runes": "ᛚᛁᛋᚢᚾ. ᚹᛁᛁ᛫ᚻᚫᚠ᛫ᚻᚢᚢᛞ᛫ᛟᚠ᛫ᚦᚢ᛫ᚷᛚᚢᚱᛁ᛫ᛟᚠ᛫ᚦᚢ᛫ᚳᛁᛝᛋ᛫ᛟᚠ᛫ᚦᚢ᛫ᛞᛠᚾᛖᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᚩᛚᛞ᛫ᛞᛠᛋ, ᚫᚾᛞ᛫ᚻᚪᚹ᛫ᚦᚩᛋ᛫ᛈᚱᛁᚾᛋᛖᛋ᛫ᛞᛁᛞ᛫ᛒᚱᛠᚠ᛫ᛞᛁᛁᛞᛋ."
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "part": "Reading",
+   "title": "Everything at once",
+   "subtitle": "The final round",
+   "blurb": "A mixed test drawing on all thirty runes and every rule.",
+   "runes": [],
+   "teach": [
+    "This pulls from everything you have done. If something has slipped, the Practice tab will keep bringing it back.",
+    "After this, the most useful thing you can do is write something of your own — a note, a list, a diary line a day."
+   ],
+   "review": false,
+   "finalReview": true,
+   "words": [],
+   "sentences": [],
+   "freeRead": [],
+   "freeWrite": [],
+   "passages": []
+  },
+  {
+   "id": 19,
+   "part": "Special Topics",
+   "title": "Counting in Futhorc",
+   "subtitle": "ᚪᚾ ᛏᚹᚪ ᚦᚱᛁᛖ ᚠᛖᚩᚹᛖᚱ",
+   "blurb": "Learn how to read and write Anglo-Saxon spelled numbers 1 to 10 in runes.",
+   "runes": [
+    "ᚪᚾ",
+    "ᛏᚹᚪ",
+    "ᚦᚱᛁᛖ",
+    "ᚠᛖᚩᚹᛖᚱ",
+    "ᚠᛁᚠ",
+    "ᛋᛁᚳᛋ",
+    "ᛋᛖᚩᚠᚩᚾ",
+    "ᛠᚻᛏᚪ",
+    "ᚾᛁᚷᚩᚾ",
+    "ᛏᛁᛖᚾ"
+   ],
+   "teach": [
+    "Anglo-Saxons wrote numbers as spelled phonetic words rather than modern digits.",
+    "1 is *ān* (ᚪᚾ), 2 is *twā* (ᛏᚹᚪ), 3 is *þrīe* (ᚦᚱᛁᛖ), 4 is *feōwer* (ᚠᛖᚩᚹᛖᚱ), and 5 is *fīf* (ᚠᛁᚠ).",
+    "6 is *six* (ᛋᛁᚳᛋ), 7 is *seofon* (ᛋᛖᚩᚠᚩᚾ), 8 is *eahta* (ᛠᚻᛏᚪ), 9 is *nigon* (ᚾᛁᚷᚩᚾ), and 10 is *tīen* (ᛏᛁᛖᚾ).",
+    "When you enter numbers (like 42 or 1995), the app automatically spells them out using these historical Old English rules."
+   ],
+   "review": false,
+   "finalReview": false,
+   "words": [
+    {
+     "english": "one",
+     "runes": "ᚹᚢᚾ",
+     "say": "w-uh-n"
+    },
+    {
+     "english": "two",
+     "runes": "ᛏᚣᚣ",
+     "say": "t-oo"
+    },
+    {
+     "english": "three",
+     "runes": "ᚦᚱᛁᛁ",
+     "say": "th-r-ee"
+    },
+    {
+     "english": "four",
+     "runes": "ᚠᛟᛟ",
+     "say": "f-aw"
+    },
+    {
+     "english": "five",
+     "runes": "ᚠᛡᚠ",
+     "say": "f-y-v"
+    },
+    {
+     "english": "six",
+     "runes": "ᛋᛁᛉ",
+     "say": "s-i-k-s"
+    },
+    {
+     "english": "seven",
+     "runes": "ᛋᛖᚠᚢᚾ",
+     "say": "s-e-f-uh-n"
+    },
+    {
+     "english": "eight",
+     "runes": "ᛠᛏ",
+     "say": "ay-t"
+    },
+    {
+     "english": "nine",
+     "runes": "ᚾᛡᚾ",
+     "say": "n-y-n"
+    },
+    {
+     "english": "ten",
+     "runes": "ᛏᛖᚾ",
+     "say": "t-e-n"
+    }
+   ],
+   "sentences": [],
+   "freeRead": [
+    {
+     "english": "one bird sat on a tree",
+     "runes": "ᚹᚢᚾ᛫ᛒᚢᚢᛞ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚢ᛫ᛏᚱᛁᛁ"
+    },
+    {
+     "english": "i have two eyes and two hands",
+     "runes": "ᛡ᛫ᚻᚫᚠ᛫ᛏᚣᚣ᛫ᛡᛋ᛫ᚫᚾᛞ᛫ᛏᚣᚣ᛫ᚻᚫᚾᛞᛋ"
+    },
+    {
+     "english": "three green apples on the table",
+     "runes": "ᚦᚱᛁᛁ᛫ᚷᚱᛁᛁᚾ᛫ᚫᛈᚢᛚᛋ᛫ᛟᚾ᛫ᚦᚢ᛫ᛏᛠᛒᚢᛚ"
+    },
+    {
+     "english": "four cold days in winter",
+     "runes": "ᚠᛟᛟ᛫ᚳᚩᛚᛞ᛫ᛞᛠᛋ᛫ᛁᚾ᛫ᚹᛁᚾᛏᚢ"
+    },
+    {
+     "english": "five red roses in the garden",
+     "runes": "ᚠᛡᚠ᛫ᚱᛖᛞ᛫ᚱᛟᛋᛁᛋ᛫ᛁᚾ᛫ᚦᚢ᛫ᚷᚪᛞᚢᚾ"
+    }
+   ],
+   "freeWrite": [
+    {
+     "english": "one",
+     "runes": "ᚹᚢᚾ"
+    },
+    {
+     "english": "two",
+     "runes": "ᛏᚣᚣ"
+    },
+    {
+     "english": "three",
+     "runes": "ᚦᚱᛁᛁ"
+    },
+    {
+     "english": "four",
+     "runes": "ᚠᛟᛟ"
+    },
+    {
+     "english": "five",
+     "runes": "ᚠᛡᚠ"
+    },
+    {
+     "english": "six",
+     "runes": "ᛋᛁᛉ"
+    },
+    {
+     "english": "seven",
+     "runes": "ᛋᛖᚠᚢᚾ"
+    },
+    {
+     "english": "eight",
+     "runes": "ᛠᛏ"
+    },
+    {
+     "english": "nine",
+     "runes": "ᚾᛡᚾ"
+    },
+    {
+     "english": "ten",
+     "runes": "ᛏᛖᚾ"
+    }
+   ],
+   "passages": []
+  }
+ ],
+ "runeToPhoneme": [
+  {
+   "runes": "ᚳᚻ",
+   "phoneme": "tʃ"
+  },
+  {
+   "runes": "ᚷᚻ",
+   "phoneme": "dʒ"
+  },
+  {
+   "runes": "ᛋᚻ",
+   "phoneme": "ʃ"
+  },
+  {
+   "runes": "ᛁᛁ",
+   "phoneme": "iː"
+  },
+  {
+   "runes": "ᛖᛖ",
+   "phoneme": "ɛː"
+  },
+  {
+   "runes": "ᚢᚢ",
+   "phoneme": "ɜː"
+  },
+  {
+   "runes": "ᛟᛟ",
+   "phoneme": "ɔː"
+  },
+  {
+   "runes": "ᚣᚣ",
+   "phoneme": "uː"
+  },
+  {
+   "runes": "ᚠᚠ",
+   "phoneme": "f"
+  },
+  {
+   "runes": "ᛋᛋ",
+   "phoneme": "s"
+  },
+  {
+   "runes": "ᛟᛁ",
+   "phoneme": "ɔɪ"
+  },
+  {
+   "runes": "ᚪᚹ",
+   "phoneme": "aʊ"
+  },
+  {
+   "runes": "ᛁᚢ",
+   "phoneme": "ɪə"
+  },
+  {
+   "runes": "ᚣᚢ",
+   "phoneme": "ʊə"
+  },
+  {
+   "runes": "ᛥ",
+   "phoneme": "st"
+  },
+  {
+   "runes": "ᛢ",
+   "phoneme": "kw"
+  },
+  {
+   "runes": "ᛉ",
+   "phoneme": "ks"
+  },
+  {
+   "runes": "ᛈ",
+   "phoneme": "p"
+  },
+  {
+   "runes": "ᛒ",
+   "phoneme": "b"
+  },
+  {
+   "runes": "ᛏ",
+   "phoneme": "t"
+  },
+  {
+   "runes": "ᛞ",
+   "phoneme": "d"
+  },
+  {
+   "runes": "ᚳ",
+   "phoneme": "k"
+  },
+  {
+   "runes": "ᚷ",
+   "phoneme": "g"
+  },
+  {
+   "runes": "ᚠ",
+   "phoneme": "v"
+  },
+  {
+   "runes": "ᚦ",
+   "phoneme": "ð"
+  },
+  {
+   "runes": "ᛋ",
+   "phoneme": "z"
+  },
+  {
+   "runes": "ᚻ",
+   "phoneme": "h"
+  },
+  {
+   "runes": "ᛗ",
+   "phoneme": "m"
+  },
+  {
+   "runes": "ᚾ",
+   "phoneme": "n"
+  },
+  {
+   "runes": "ᛝ",
+   "phoneme": "ŋ"
+  },
+  {
+   "runes": "ᛚ",
+   "phoneme": "l"
+  },
+  {
+   "runes": "ᚱ",
+   "phoneme": "r"
+  },
+  {
+   "runes": "ᛄ",
+   "phoneme": "j"
+  },
+  {
+   "runes": "ᚹ",
+   "phoneme": "w"
+  },
+  {
+   "runes": "ᛁ",
+   "phoneme": "ɪ"
+  },
+  {
+   "runes": "ᛖ",
+   "phoneme": "e"
+  },
+  {
+   "runes": "ᚫ",
+   "phoneme": "æ"
+  },
+  {
+   "runes": "ᚢ",
+   "phoneme": "ə"
+  },
+  {
+   "runes": "ᛟ",
+   "phoneme": "ɒ"
+  },
+  {
+   "runes": "ᚣ",
+   "phoneme": "ʊ"
+  },
+  {
+   "runes": "ᚪ",
+   "phoneme": "ɑː"
+  },
+  {
+   "runes": "ᛠ",
+   "phoneme": "eɪ"
+  },
+  {
+   "runes": "ᛡ",
+   "phoneme": "aɪ"
+  },
+  {
+   "runes": "ᚩ",
+   "phoneme": "əʊ"
+  }
+ ],
+ "say": {
+  "p": "p",
+  "b": "b",
+  "t": "t",
+  "d": "d",
+  "k": "k",
+  "g": "g",
+  "ɡ": "g",
+  "tʃ": "ch",
+  "dʒ": "j",
+  "f": "f",
+  "v": "v",
+  "θ": "th",
+  "ð": "th",
+  "s": "s",
+  "z": "z",
+  "ʃ": "sh",
+  "ʒ": "zh",
+  "h": "h",
+  "m": "m",
+  "n": "n",
+  "ŋ": "ng",
+  "l": "l",
+  "r": "r",
+  "j": "y",
+  "w": "w",
+  "ks": "ks",
+  "ɪ": "i",
+  "e": "e",
+  "æ": "a",
+  "ʌ": "u",
+  "ə": "uh",
+  "ɒ": "o",
+  "ʊ": "oo",
+  "i": "ee",
+  "iː": "ee",
+  "ɛː": "air",
+  "ɜː": "ur",
+  "ɔː": "aw",
+  "uː": "oo",
+  "ɑː": "ah",
+  "eɪ": "ay",
+  "aɪ": "y",
+  "ɔɪ": "oy",
+  "əʊ": "oh",
+  "aʊ": "ow",
+  "ɪə": "eer",
+  "ʊə": "oor"
+ },
+ "reverseIndex": {
+  "ᚢ": [
+   "a"
+  ],
+  "ᚫᚾ": [
+   "an"
+  ],
+  "ᚦᚢ": [
+   "the"
+  ],
+  "ᚦᛁᛋᛋ": [
+   "this"
+  ],
+  "ᚦᚫᛏ": [
+   "that"
+  ],
+  "ᚦᛁᛁᛋ": [
+   "these"
+  ],
+  "ᚦᚩᛋ": [
+   "those"
+  ],
+  "ᚦᛖᛖ": [
+   "there",
+   "their",
+   "theyre"
+  ],
+  "ᚦᛠ": [
+   "they"
+  ],
+  "ᚦᛖᛗ": [
+   "them"
+  ],
+  "ᚦᛖᚾ": [
+   "then"
+  ],
+  "ᚦᚫᚾ": [
+   "than"
+  ],
+  "ᚦᚩ": [
+   "though"
+  ],
+  "ᚦᚢᛋᛋ": [
+   "thus"
+  ],
+  "ᚦᛡ": [
+   "thy"
+  ],
+  "ᚦᛁᛁ": [
+   "thee"
+  ],
+  "ᛡ": [
+   "i",
+   "eye"
+  ],
+  "ᛄᚣᚣ": [
+   "you"
+  ],
+  "ᚻᛁᛁ": [
+   "he"
+  ],
+  "ᛋᚻᛁᛁ": [
+   "she"
+  ],
+  "ᛁᛏ": [
+   "it"
+  ],
+  "ᚹᛁᛁ": [
+   "we"
+  ],
+  "ᛗᛁᛁ": [
+   "me"
+  ],
+  "ᚻᛁᛗ": [
+   "him"
+  ],
+  "ᚻᚢᚢ": [
+   "her"
+  ],
+  "ᚢᛋᛋ": [
+   "us"
+  ],
+  "ᛗᛡ": [
+   "my"
+  ],
+  "ᛄᛟᛟ": [
+   "your",
+   "youre"
+  ],
+  "ᚻᛁᛋ": [
+   "his"
+  ],
+  "ᛁᛏᛋᛋ": [
+   "its"
+  ],
+  "ᚪᚹᚢ": [
+   "our",
+   "hour"
+  ],
+  "ᚪᚹᚢᛋ": [
+   "ours"
+  ],
+  "ᚻᚢᚢᛋ": [
+   "hers"
+  ],
+  "ᛄᛟᛟᛋ": [
+   "yours"
+  ],
+  "ᛗᛡᚾ": [
+   "mine"
+  ],
+  "ᚦᛖᛖᛋ": [
+   "theirs"
+  ],
+  "ᛗᛡᛋᛖᛚᚠᚠ": [
+   "myself"
+  ],
+  "ᚻᛁᛗᛋᛖᛚᚠᚠ": [
+   "himself"
+  ],
+  "ᚻᚢᚢᛋᛖᛚᚠᚠ": [
+   "herself"
+  ],
+  "ᛁᛏᛋᛖᛚᚠᚠ": [
+   "itself"
+  ],
+  "ᛄᛟᛟᛋᛖᛚᚠᚠ": [
+   "yourself"
+  ],
+  "ᚦᚢᛗᛋᛖᛚᚠᛋ": [
+   "themselves"
+  ],
+  "ᛒᛁᛁ": [
+   "be"
+  ],
+  "ᚫᛗ": [
+   "am"
+  ],
+  "ᛁᛋ": [
+   "is"
+  ],
+  "ᚪ": [
+   "are"
+  ],
+  "ᚹᛟᛋ": [
+   "was"
+  ],
+  "ᚹᚢᚢ": [
+   "were"
+  ],
+  "ᛒᛁᛁᚾ": [
+   "been"
+  ],
+  "ᛒᛁᛁᛁᛝ": [
+   "being"
+  ],
+  "ᚻᚫᚠ": [
+   "have"
+  ],
+  "ᚻᚫᛋ": [
+   "has"
+  ],
+  "ᚻᚫᛞ": [
+   "had"
+  ],
+  "ᚻᚫᚠᛁᛝ": [
+   "having"
+  ],
+  "ᛞᚣᚣ": [
+   "do"
+  ],
+  "ᛞᚢᛋ": [
+   "does"
+  ],
+  "ᛞᛁᛞ": [
+   "did"
+  ],
+  "ᛞᚢᚾ": [
+   "done"
+  ],
+  "ᛞᚣᚣᛁᛝ": [
+   "doing"
+  ],
+  "ᚹᛁᛚ": [
+   "will"
+  ],
+  "ᚹᚣᛞ": [
+   "wood",
+   "would"
+  ],
+  "ᛋᚻᚫᛚ": [
+   "shall"
+  ],
+  "ᛋᚻᚣᛞ": [
+   "should"
+  ],
+  "ᚳᚫᚾ": [
+   "can"
+  ],
+  "ᚳᚣᛞ": [
+   "could"
+  ],
+  "ᛗᛠ": [
+   "may"
+  ],
+  "ᛗᛡᛏ": [
+   "might"
+  ],
+  "ᛗᚢᛥ": [
+   "must"
+  ],
+  "ᛟᚠ": [
+   "of"
+  ],
+  "ᛟᚠᚠ": [
+   "off"
+  ],
+  "ᛏᚣᚣ": [
+   "to",
+   "too",
+   "two"
+  ],
+  "ᛁᚾ": [
+   "in"
+  ],
+  "ᛁᚾᛏᚣᚣ": [
+   "into"
+  ],
+  "ᛟᚾ": [
+   "on"
+  ],
+  "ᚫᛏ": [
+   "at"
+  ],
+  "ᛒᛡ": [
+   "by",
+   "buy"
+  ],
+  "ᚠᛟᛟ": [
+   "for",
+   "four"
+  ],
+  "ᚠᚱᛟᛗ": [
+   "from"
+  ],
+  "ᚹᛁᚦ": [
+   "with"
+  ],
+  "ᚹᛁᚦᚪᚹᛏ": [
+   "without"
+  ],
+  "ᚹᛁᚦᛁᚾ": [
+   "within"
+  ],
+  "ᚢᛒᚪᚹᛏ": [
+   "about"
+  ],
+  "ᚢᛒᚢᚠ": [
+   "above"
+  ],
+  "ᛒᛁᛚᚩ": [
+   "below"
+  ],
+  "ᚢᚾᛞᚢ": [
+   "under"
+  ],
+  "ᚩᚠᚢ": [
+   "over"
+  ],
+  "ᛒᛁᛏᚹᛁᛁᚾ": [
+   "between"
+  ],
+  "ᚢᛗᚢᛝ": [
+   "among"
+  ],
+  "ᚦᚱᚣᚣ": [
+   "through"
+  ],
+  "ᚢᚳᚱᛟᛋᛋ": [
+   "across"
+  ],
+  "ᚢᚱᚪᚹᚾᛞ": [
+   "around"
+  ],
+  "ᚢᛚᛟᛝ": [
+   "along"
+  ],
+  "ᚢᚷᛖᚾᛥ": [
+   "against"
+  ],
+  "ᛒᛁᚻᛡᚾᛞ": [
+   "behind"
+  ],
+  "ᛒᛁᛋᛡᛞ": [
+   "beside"
+  ],
+  "ᛒᛁᚠᛟᛟ": [
+   "before"
+  ],
+  "ᚪᚠᛏᚢ": [
+   "after"
+  ],
+  "ᛞᛄᚣᚢᚱᛁᛝ": [
+   "during"
+  ],
+  "ᚢᚾᛏᛁᛚ": [
+   "until"
+  ],
+  "ᛋᛁᚾᛋᛋ": [
+   "since"
+  ],
+  "ᚢᛈᛟᚾ": [
+   "upon"
+  ],
+  "ᛏᚢᚹᛟᛟᛞ": [
+   "toward"
+  ],
+  "ᛏᚢᚹᛟᛟᛞᛋ": [
+   "towards"
+  ],
+  "ᚫᚾᛞ": [
+   "and"
+  ],
+  "ᛟᛟ": [
+   "or"
+  ],
+  "ᛒᚢᛏ": [
+   "but"
+  ],
+  "ᛁᚠᚠ": [
+   "if"
+  ],
+  "ᛋᚩ": [
+   "so",
+   "sew"
+  ],
+  "ᚫᛋ": [
+   "as"
+  ],
+  "ᛒᛁᚳᛟᛋ": [
+   "because"
+  ],
+  "ᚹᛡᛚ": [
+   "while"
+  ],
+  "ᚹᛖᚾ": [
+   "when"
+  ],
+  "ᚹᛖᛖ": [
+   "where"
+  ],
+  "ᚹᛡ": [
+   "why"
+  ],
+  "ᚻᚪᚹ": [
+   "how"
+  ],
+  "ᚹᛟᛏ": [
+   "what"
+  ],
+  "ᚹᛁᚳᚻ": [
+   "which"
+  ],
+  "ᚻᚣᚣ": [
+   "who"
+  ],
+  "ᚻᚣᚣᛗ": [
+   "whom"
+  ],
+  "ᚻᚣᚣᛋ": [
+   "whose"
+  ],
+  "ᚹᛖᚦᚢ": [
+   "whether"
+  ],
+  "ᚾᛟᛏ": [
+   "not"
+  ],
+  "ᚾᚩ": [
+   "no",
+   "know"
+  ],
+  "ᚾᛟᛟ": [
+   "nor"
+  ],
+  "ᚾᛖᚠᚢ": [
+   "never"
+  ],
+  "ᚾᚢᚾ": [
+   "none"
+  ],
+  "ᚾᚢᚦᛁᛝ": [
+   "nothing"
+  ],
+  "ᚾᚩᛒᛟᛞᛁ": [
+   "nobody"
+  ],
+  "ᚾᛡᚦᚢ": [
+   "neither"
+  ],
+  "ᛄᛖᛋᛋ": [
+   "yes"
+  ],
+  "ᛟᛟᛚ": [
+   "all"
+  ],
+  "ᛖᚾᛁ": [
+   "any"
+  ],
+  "ᛋᚢᛗ": [
+   "some"
+  ],
+  "ᛁᛁᚳᚻ": [
+   "each"
+  ],
+  "ᛖᚠᚱᛁ": [
+   "every"
+  ],
+  "ᛒᚩᚦ": [
+   "both"
+  ],
+  "ᛡᚦᚢ": [
+   "either"
+  ],
+  "ᚢᚦᚢ": [
+   "other"
+  ],
+  "ᚢᚾᚢᚦᚢ": [
+   "another"
+  ],
+  "ᛋᛠᛗ": [
+   "same"
+  ],
+  "ᛋᚢᚳᚻ": [
+   "such"
+  ],
+  "ᚩᚾ": [
+   "own"
+  ],
+  "ᛗᛟᛟ": [
+   "more"
+  ],
+  "ᛗᚩᛥ": [
+   "most"
+  ],
+  "ᛗᚢᚳᚻ": [
+   "much"
+  ],
+  "ᛗᛖᚾᛁ": [
+   "many"
+  ],
+  "ᚠᛄᚣᚣ": [
+   "few"
+  ],
+  "ᛚᛖᛋᛋ": [
+   "less"
+  ],
+  "ᛚᛁᛁᛥ": [
+   "least"
+  ],
+  "ᛁᚾᚢᚠᚠ": [
+   "enough"
+  ],
+  "ᚠᛖᚱᛁ": [
+   "very"
+  ],
+  "ᛢᛡᛏ": [
+   "quite"
+  ],
+  "ᚱᚪᚦᚢ": [
+   "rather"
+  ],
+  "ᛟᛟᛚᛗᚩᛥ": [
+   "almost"
+  ],
+  "ᛟᛟᛚᛋᚩ": [
+   "also"
+  ],
+  "ᛟᛟᛚᚱᛖᛞᛁ": [
+   "already"
+  ],
+  "ᛟᛟᛚᚦᚩ": [
+   "although"
+  ],
+  "ᛟᛟᛚᚹᛠᛋ": [
+   "always"
+  ],
+  "ᛏᚢᚷᛖᚦᚢ": [
+   "together"
+  ],
+  "ᛁᚾᛥᛖᛞ": [
+   "instead"
+  ],
+  "ᛈᚢᚻᚫᛈᛋᛋ": [
+   "perhaps"
+  ],
+  "ᚻᚪᚹᛖᚠᚢ": [
+   "however"
+  ],
+  "ᚦᛖᛖᚠᛟᛟ": [
+   "therefore"
+  ],
+  "ᚢᚷᛖᚾ": [
+   "again"
+  ],
+  "ᚹᚢᚾᛋᛋ": [
+   "once"
+  ],
+  "ᛏᚹᛡᛋᛋ": [
+   "twice"
+  ],
+  "ᛖᚠᚢ": [
+   "ever"
+  ],
+  "ᛥᛁᛚ": [
+   "still"
+  ],
+  "ᚷᚻᚢᛥ": [
+   "just"
+  ],
+  "ᚩᚾᛚᛁ": [
+   "only"
+  ],
+  "ᛁᛁᚠᚢᚾ": [
+   "even"
+  ],
+  "ᛄᛖᛏ": [
+   "yet"
+  ],
+  "ᚾᚪᚹ": [
+   "now"
+  ],
+  "ᛋᚣᚣᚾ": [
+   "soon"
+  ],
+  "ᛟᚠᚢᚾ": [
+   "often"
+  ],
+  "ᛋᚢᛗᛏᛡᛗᛋ": [
+   "sometimes"
+  ],
+  "ᛄᚣᚣᛋᚻᚢᛚᛁ": [
+   "usually"
+  ],
+  "ᛖᚾᛁᚦᛁᛝ": [
+   "anything"
+  ],
+  "ᛋᚢᛗᚦᛁᛝ": [
+   "something"
+  ],
+  "ᛖᚠᚱᛁᚦᛁᛝ": [
+   "everything"
+  ],
+  "ᛖᚠᚱᛁᚹᚢᚾ": [
+   "everyone"
+  ],
+  "ᛋᚢᛗᚹᚢᚾ": [
+   "someone"
+  ],
+  "ᛖᚾᛁᚹᚢᚾ": [
+   "anyone"
+  ],
+  "ᚾᚩᚹᛖᛖ": [
+   "nowhere"
+  ],
+  "ᚳᚫᚾᛟᛏ": [
+   "cannot"
+  ],
+  "ᛞᚩᚾᛏ": [
+   "dont"
+  ],
+  "ᚳᚪᚾᛏ": [
+   "cant"
+  ],
+  "ᚹᚩᚾᛏ": [
+   "wont"
+  ],
+  "ᛁᛋᚢᚾᛏ": [
+   "isnt"
+  ],
+  "ᚪᚾᛏ": [
+   "arent"
+  ],
+  "ᚹᛟᛋᚢᚾᛏ": [
+   "wasnt"
+  ],
+  "ᚹᚢᚢᚾᛏ": [
+   "werent"
+  ],
+  "ᛞᚢᛋᚢᚾᛏ": [
+   "doesnt"
+  ],
+  "ᛞᛁᛞᚢᚾᛏ": [
+   "didnt"
+  ],
+  "ᚻᚫᛋᚢᚾᛏ": [
+   "hasnt"
+  ],
+  "ᚻᚫᚠᚢᚾᛏ": [
+   "havent"
+  ],
+  "ᚳᚣᛞᚢᚾᛏ": [
+   "couldnt"
+  ],
+  "ᚹᚣᛞᚢᚾᛏ": [
+   "wouldnt"
+  ],
+  "ᛋᚻᚣᛞᚢᚾᛏ": [
+   "shouldnt"
+  ],
+  "ᛡᛗ": [
+   "im"
+  ],
+  "ᛡᚠ": [
+   "ive"
+  ],
+  "ᛡᛚ": [
+   "ill"
+  ],
+  "ᛡᛞ": [
+   "id"
+  ],
+  "ᛄᚣᚣᚠ": [
+   "youve"
+  ],
+  "ᚻᛁᛁᛋ": [
+   "hes"
+  ],
+  "ᛋᚻᛁᛁᛋ": [
+   "shes"
+  ],
+  "ᚦᛠᚠ": [
+   "theyve"
+  ],
+  "ᛚᛖᛏᛋᛋ": [
+   "lets"
+  ],
+  "ᚷᚩ": [
+   "go"
+  ],
+  "ᚷᚩᛋ": [
+   "goes"
+  ],
+  "ᚹᛖᚾᛏ": [
+   "went"
+  ],
+  "ᚷᛟᚾ": [
+   "gone"
+  ],
+  "ᚷᚩᛁᛝ": [
+   "going"
+  ],
+  "ᚳᚢᛗ": [
+   "come"
+  ],
+  "ᚳᛠᛗ": [
+   "came"
+  ],
+  "ᚳᚢᛗᛁᛝ": [
+   "coming"
+  ],
+  "ᛒᛁᚳᚢᛗ": [
+   "become"
+  ],
+  "ᛒᛁᚳᛠᛗ": [
+   "became"
+  ],
+  "ᚷᛖᛏ": [
+   "get"
+  ],
+  "ᚷᛟᛏ": [
+   "got"
+  ],
+  "ᚷᛁᚠ": [
+   "give"
+  ],
+  "ᚷᛠᚠ": [
+   "gave"
+  ],
+  "ᚷᛁᚠᚢᚾ": [
+   "given"
+  ],
+  "ᛏᛠᚳ": [
+   "take"
+  ],
+  "ᛏᚣᚳ": [
+   "took"
+  ],
+  "ᛏᛠᚳᚢᚾ": [
+   "taken"
+  ],
+  "ᛗᛠᚳ": [
+   "make"
+  ],
+  "ᛗᛠᛞ": [
+   "made"
+  ],
+  "ᛗᛠᚳᛁᛝ": [
+   "making"
+  ],
+  "ᛋᛠ": [
+   "say"
+  ],
+  "ᛋᛖᛋ": [
+   "says"
+  ],
+  "ᛋᛖᛞ": [
+   "said"
+  ],
+  "ᛋᛠᛁᛝ": [
+   "saying"
+  ],
+  "ᛋᛁᛁ": [
+   "see",
+   "sea"
+  ],
+  "ᛋᛟᛟ": [
+   "saw"
+  ],
+  "ᛋᛁᛁᚾ": [
+   "seen"
+  ],
+  "ᛋᛁᛁᛗ": [
+   "seem"
+  ],
+  "ᛚᚣᚳ": [
+   "look"
+  ],
+  "ᚹᛟᚳᚻ": [
+   "watch"
+  ],
+  "ᚻᛁᚢ": [
+   "hear",
+   "here"
+  ],
+  "ᚻᚢᚢᛞ": [
+   "heard"
+  ],
+  "ᛚᛁᛋᚢᚾ": [
+   "listen"
+  ],
+  "ᚾᛄᚣᚣ": [
+   "new",
+   "knew"
+  ],
+  "ᚾᚩᚾ": [
+   "known"
+  ],
+  "ᚦᛁᛝᚳ": [
+   "think"
+  ],
+  "ᚦᛟᛟᛏ": [
+   "thought"
+  ],
+  "ᚠᛁᛁᛚ": [
+   "feel"
+  ],
+  "ᚠᛖᛚᛏ": [
+   "felt"
+  ],
+  "ᚠᛡᚾᛞ": [
+   "find"
+  ],
+  "ᚠᚪᚹᚾᛞ": [
+   "found"
+  ],
+  "ᚹᛟᚾᛏ": [
+   "want"
+  ],
+  "ᚾᛁᛁᛞ": [
+   "need"
+  ],
+  "ᛚᛡᚳ": [
+   "like"
+  ],
+  "ᛚᚢᚠ": [
+   "love"
+  ],
+  "ᚻᛠᛏ": [
+   "hate"
+  ],
+  "ᚻᚩᛈ": [
+   "hope"
+  ],
+  "ᚹᛁᛋᚻ": [
+   "wish"
+  ],
+  "ᚻᛖᛚᛈ": [
+   "help"
+  ],
+  "ᚹᚢᚢᚳ": [
+   "work"
+  ],
+  "ᛈᛚᛠ": [
+   "play"
+  ],
+  "ᛄᚣᚣᛋ": [
+   "use"
+  ],
+  "ᛈᚣᛏ": [
+   "put"
+  ],
+  "ᚳᛁᛁᛈ": [
+   "keep"
+  ],
+  "ᚳᛖᛈᛏ": [
+   "kept"
+  ],
+  "ᚻᚩᛚᛞ": [
+   "hold"
+  ],
+  "ᚻᛖᛚᛞ": [
+   "held"
+  ],
+  "ᛚᛖᛏ": [
+   "let"
+  ],
+  "ᚪᛋᚳ": [
+   "ask"
+  ],
+  "ᚪᚾᛋᚢ": [
+   "answer"
+  ],
+  "ᛏᛖᛚ": [
+   "tell"
+  ],
+  "ᛏᚩᛚᛞ": [
+   "told"
+  ],
+  "ᛏᛟᛟᚳ": [
+   "talk"
+  ],
+  "ᛋᛈᛁᛁᚳ": [
+   "speak"
+  ],
+  "ᛋᛈᚩᚳ": [
+   "spoke"
+  ],
+  "ᚳᛟᛟᛚ": [
+   "call"
+  ],
+  "ᚱᛁᛁᛞ": [
+   "read"
+  ],
+  "ᚱᛡᛏ": [
+   "write",
+   "right"
+  ],
+  "ᚱᚩᛏ": [
+   "wrote"
+  ],
+  "ᚱᛁᛏᚢᚾ": [
+   "written"
+  ],
+  "ᛚᚢᚢᚾ": [
+   "learn"
+  ],
+  "ᛏᛁᛁᚳᚻ": [
+   "teach"
+  ],
+  "ᛥᚢᛞᛁ": [
+   "study"
+  ],
+  "ᚢᚾᛞᚢᛥᚫᚾᛞ": [
+   "understand"
+  ],
+  "ᛗᛁᛁᚾ": [
+   "mean"
+  ],
+  "ᛗᛖᚾᛏ": [
+   "meant"
+  ],
+  "ᛋᚻᚩ": [
+   "show"
+  ],
+  "ᛋᚻᚩᚾ": [
+   "shown"
+  ],
+  "ᛒᚱᛁᛝ": [
+   "bring"
+  ],
+  "ᛒᚱᛟᛟᛏ": [
+   "brought"
+  ],
+  "ᛒᛟᛟᛏ": [
+   "bought"
+  ],
+  "ᛋᛖᛚ": [
+   "sell"
+  ],
+  "ᛋᚩᛚᛞ": [
+   "sold"
+  ],
+  "ᛈᛠ": [
+   "pay"
+  ],
+  "ᛈᛠᛞ": [
+   "paid"
+  ],
+  "ᚱᚢᚾ": [
+   "run"
+  ],
+  "ᚱᚫᚾ": [
+   "ran"
+  ],
+  "ᚹᛟᛟᚳ": [
+   "walk"
+  ],
+  "ᛋᛁᛏ": [
+   "sit"
+  ],
+  "ᛋᚫᛏ": [
+   "sat"
+  ],
+  "ᛥᚫᚾᛞ": [
+   "stand"
+  ],
+  "ᛥᚣᛞ": [
+   "stood"
+  ],
+  "ᛚᛡ": [
+   "lie"
+  ],
+  "ᛚᛠ": [
+   "lay"
+  ],
+  "ᛋᛚᛁᛁᛈ": [
+   "sleep"
+  ],
+  "ᛁᛁᛏ": [
+   "eat"
+  ],
+  "ᛠᛏ": [
+   "ate",
+   "eight"
+  ],
+  "ᛞᚱᛁᛝᚳ": [
+   "drink"
+  ],
+  "ᚩᛈᚢᚾ": [
+   "open"
+  ],
+  "ᚳᛚᚩᛋ": [
+   "close"
+  ],
+  "ᛥᚪᛏ": [
+   "start"
+  ],
+  "ᛒᛁᚷᛁᚾ": [
+   "begin"
+  ],
+  "ᛒᛁᚷᚫᚾ": [
+   "began"
+  ],
+  "ᛥᛟᛈ": [
+   "stop"
+  ],
+  "ᛖᚾᛞ": [
+   "end"
+  ],
+  "ᚠᛁᚾᛁᛋᚻ": [
+   "finish"
+  ],
+  "ᛚᛁᛁᚠ": [
+   "leave"
+  ],
+  "ᛚᛖᚠᛏ": [
+   "left"
+  ],
+  "ᛥᛠ": [
+   "stay"
+  ],
+  "ᛚᛁᚠ": [
+   "live"
+  ],
+  "ᛞᛡ": [
+   "die"
+  ],
+  "ᛞᛡᛞ": [
+   "died"
+  ],
+  "ᛏᚢᚢᚾ": [
+   "turn"
+  ],
+  "ᛗᚣᚣᚠ": [
+   "move"
+  ],
+  "ᚳᚻᛠᚾᚷᚻ": [
+   "change"
+  ],
+  "ᛏᚱᛡ": [
+   "try"
+  ],
+  "ᛏᚱᛡᛞ": [
+   "tried"
+  ],
+  "ᚹᛁᚾ": [
+   "win"
+  ],
+  "ᛚᚣᚣᛋ": [
+   "lose"
+  ],
+  "ᛚᛟᛥ": [
+   "lost"
+  ],
+  "ᛒᛁᛚᛞ": [
+   "build"
+  ],
+  "ᛒᛁᛚᛏ": [
+   "built"
+  ],
+  "ᛒᚱᛠᚳ": [
+   "break"
+  ],
+  "ᛒᚱᚩᚳᚢᚾ": [
+   "broken"
+  ],
+  "ᚳᚢᛏ": [
+   "cut"
+  ],
+  "ᚠᛟᛟᛚ": [
+   "fall"
+  ],
+  "ᚠᛖᛚ": [
+   "fell"
+  ],
+  "ᚱᛡᛋ": [
+   "rise"
+  ],
+  "ᚷᚱᚩ": [
+   "grow"
+  ],
+  "ᚷᚱᚣᚣ": [
+   "grew"
+  ],
+  "ᚹᛠᛏ": [
+   "wait"
+  ],
+  "ᚠᛟᛚᚩ": [
+   "follow"
+  ],
+  "ᚳᚫᚱᛁ": [
+   "carry"
+  ],
+  "ᛋᛖᚾᛞ": [
+   "send"
+  ],
+  "ᛋᛖᚾᛏ": [
+   "sent"
+  ],
+  "ᛗᛁᛁᛏ": [
+   "meet",
+   "meat"
+  ],
+  "ᛗᛖᛏ": [
+   "met"
+  ],
+  "ᛒᛁᛚᛁᛁᚠ": [
+   "believe"
+  ],
+  "ᚱᛁᛗᛖᛗᛒᚢ": [
+   "remember"
+  ],
+  "ᚠᚢᚷᛖᛏ": [
+   "forget"
+  ],
+  "ᚷᚻᚢᛗᛈ": [
+   "jump"
+  ],
+  "ᛋᛁᛝ": [
+   "sing"
+  ],
+  "ᛋᚫᛝ": [
+   "sang"
+  ],
+  "ᛞᚪᚾᛋᛋ": [
+   "dance"
+  ],
+  "ᛋᚹᛁᛗ": [
+   "swim"
+  ],
+  "ᚠᛚᛡ": [
+   "fly"
+  ],
+  "ᚠᛚᚣᚣ": [
+   "flew"
+  ],
+  "ᛞᚱᛡᚠ": [
+   "drive"
+  ],
+  "ᚱᛡᛞ": [
+   "ride"
+  ],
+  "ᚱᚩᛞ": [
+   "rode",
+   "road"
+  ],
+  "ᚦᚱᚩ": [
+   "throw"
+  ],
+  "ᚳᚫᚳᚻ": [
+   "catch"
+  ],
+  "ᚳᛟᛟᛏ": [
+   "caught"
+  ],
+  "ᛚᚪᚠᚠ": [
+   "laugh"
+  ],
+  "ᚳᚱᛡ": [
+   "cry"
+  ],
+  "ᛋᛗᛡᛚ": [
+   "smile"
+  ],
+  "ᚹᛟᛋᚻ": [
+   "wash"
+  ],
+  "ᚳᚣᚳ": [
+   "cook"
+  ],
+  "ᛞᚱᛟᛟ": [
+   "draw"
+  ],
+  "ᛈᛠᚾᛏ": [
+   "paint"
+  ],
+  "ᚳᚪᚹᚾᛏ": [
+   "count"
+  ],
+  "ᚳᚻᛖᚳ": [
+   "check"
+  ],
+  "ᚢᛚᚪᚹ": [
+   "allow"
+  ],
+  "ᚢᛈᛁᚢ": [
+   "appear"
+  ],
+  "ᚳᚢᚾᛋᛁᛞᚢ": [
+   "consider"
+  ],
+  "ᚳᚢᚾᛏᛁᚾᛄᚣᚣ": [
+   "continue"
+  ],
+  "ᛁᛉᛈᛖᚳᛏ": [
+   "expect"
+  ],
+  "ᛁᛉᛈᛚᛠᚾ": [
+   "explain"
+  ],
+  "ᛁᚾᚳᛚᚣᚣᛞ": [
+   "include"
+  ],
+  "ᛈᚱᚢᚠᛡᛞ": [
+   "provide"
+  ],
+  "ᚱᛁᛋᛁᛁᚠ": [
+   "receive"
+  ],
+  "ᚱᛁᛏᚢᚢᚾ": [
+   "return"
+  ],
+  "ᛗᚫᚾ": [
+   "man"
+  ],
+  "ᛗᛖᚾ": [
+   "men"
+  ],
+  "ᚹᚣᛗᚢᚾ": [
+   "woman"
+  ],
+  "ᚹᛁᛗᛁᚾ": [
+   "women"
+  ],
+  "ᛒᛟᛁ": [
+   "boy"
+  ],
+  "ᚷᚢᚢᛚ": [
+   "girl"
+  ],
+  "ᚳᚻᛡᛚᛞ": [
+   "child"
+  ],
+  "ᚳᚻᛁᛚᛞᚱᚢᚾ": [
+   "children"
+  ],
+  "ᛒᛠᛒᛁ": [
+   "baby"
+  ],
+  "ᛈᛁᛁᛈᚢᛚ": [
+   "people"
+  ],
+  "ᛈᚢᚢᛋᚢᚾ": [
+   "person"
+  ],
+  "ᚠᚱᛖᚾᛞ": [
+   "friend"
+  ],
+  "ᚠᚫᛗᛁᛚᛁ": [
+   "family"
+  ],
+  "ᛗᚢᚦᚢ": [
+   "mother"
+  ],
+  "ᚠᚪᚦᚢ": [
+   "father"
+  ],
+  "ᛒᚱᚢᚦᚢ": [
+   "brother"
+  ],
+  "ᛋᛁᛥᚢ": [
+   "sister"
+  ],
+  "ᛋᚢᚾ": [
+   "son",
+   "sun"
+  ],
+  "ᛞᛟᛟᛏᚢ": [
+   "daughter"
+  ],
+  "ᚹᛡᚠᚠ": [
+   "wife"
+  ],
+  "ᚻᚢᛋᛒᚢᚾᛞ": [
+   "husband"
+  ],
+  "ᚳᛁᛝ": [
+   "king"
+  ],
+  "ᛢᛁᛁᚾ": [
+   "queen"
+  ],
+  "ᛞᛟᚳᛏᚢ": [
+   "doctor"
+  ],
+  "ᛏᛁᛁᚳᚻᚢ": [
+   "teacher"
+  ],
+  "ᚾᛠᛗ": [
+   "name"
+  ],
+  "ᚹᚢᚢᛞ": [
+   "word"
+  ],
+  "ᛒᚣᚳ": [
+   "book"
+  ],
+  "ᛈᛠᚷᚻ": [
+   "page"
+  ],
+  "ᛚᛖᛏᚢ": [
+   "letter"
+  ],
+  "ᛥᛟᛟᚱᛁ": [
+   "story"
+  ],
+  "ᛢᛖᛋᚳᚻᚢᚾ": [
+   "question"
+  ],
+  "ᚻᚪᚹᛋᛋ": [
+   "house"
+  ],
+  "ᚻᚩᛗ": [
+   "home"
+  ],
+  "ᚱᚣᚣᛗ": [
+   "room"
+  ],
+  "ᛞᛟᛟ": [
+   "door"
+  ],
+  "ᚠᛚᛟᛟ": [
+   "floor"
+  ],
+  "ᚹᛟᛟᛚ": [
+   "wall"
+  ],
+  "ᚱᚣᚣᚠᚠ": [
+   "roof"
+  ],
+  "ᚹᛁᚾᛞᚩ": [
+   "window"
+  ],
+  "ᚷᚪᛞᚢᚾ": [
+   "garden"
+  ],
+  "ᛋᚳᚣᚣᛚ": [
+   "school"
+  ],
+  "ᛋᚻᛟᛈ": [
+   "shop"
+  ],
+  "ᛏᚪᚹᚾ": [
+   "town"
+  ],
+  "ᛋᛁᛏᛁ": [
+   "city"
+  ],
+  "ᚠᛁᛚᛁᚷᚻ": [
+   "village"
+  ],
+  "ᛥᚱᛁᛁᛏ": [
+   "street"
+  ],
+  "ᛒᚱᛁᚷᚻ": [
+   "bridge"
+  ],
+  "ᚳᚻᚢᚢᚳᚻ": [
+   "church"
+  ],
+  "ᚠᚪᛗ": [
+   "farm"
+  ],
+  "ᚳᚢᚾᛏᚱᛁ": [
+   "country"
+  ],
+  "ᚹᚢᚢᛚᛞ": [
+   "world"
+  ],
+  "ᛈᛚᛠᛋᛋ": [
+   "place"
+  ],
+  "ᛏᛠᛒᚢᛚ": [
+   "table"
+  ],
+  "ᚳᚻᛖᛖ": [
+   "chair"
+  ],
+  "ᛒᛖᛞ": [
+   "bed"
+  ],
+  "ᛒᛟᛉ": [
+   "box"
+  ],
+  "ᛒᚫᚷ": [
+   "bag"
+  ],
+  "ᚳᚢᛈ": [
+   "cup"
+  ],
+  "ᚷᛚᚪᛋᛋ": [
+   "glass"
+  ],
+  "ᚾᛡᚠᚠ": [
+   "knife"
+  ],
+  "ᚳᛚᛟᚳ": [
+   "clock"
+  ],
+  "ᛗᚢᚾᛁ": [
+   "money"
+  ],
+  "ᛈᛠᛈᚢ": [
+   "paper"
+  ],
+  "ᛈᛖᚾ": [
+   "pen"
+  ],
+  "ᚳᚪ": [
+   "car"
+  ],
+  "ᛏᚱᛠᚾ": [
+   "train"
+  ],
+  "ᛒᚩᛏ": [
+   "boat"
+  ],
+  "ᛋᚻᛁᛈ": [
+   "ship"
+  ],
+  "ᛒᛡᚳ": [
+   "bike"
+  ],
+  "ᛗᚢᛋᚻᛁᛁᚾ": [
+   "machine"
+  ],
+  "ᚠᚩᚾ": [
+   "phone"
+  ],
+  "ᛗᚣᚣᚾ": [
+   "moon"
+  ],
+  "ᛥᚪ": [
+   "star"
+  ],
+  "ᛋᚳᛡ": [
+   "sky"
+  ],
+  "ᚢᚢᚦ": [
+   "earth"
+  ],
+  "ᚷᚱᚪᚹᚾᛞ": [
+   "ground"
+  ],
+  "ᛚᚫᚾᛞ": [
+   "land"
+  ],
+  "ᚩᛋᚻᚢᚾ": [
+   "ocean"
+  ],
+  "ᚱᛁᚠᚢ": [
+   "river"
+  ],
+  "ᛚᛠᚳ": [
+   "lake"
+  ],
+  "ᚻᛁᛚ": [
+   "hill"
+  ],
+  "ᛗᚪᚹᚾᛏᛁᚾ": [
+   "mountain"
+  ],
+  "ᚠᛁᛁᛚᛞ": [
+   "field"
+  ],
+  "ᚠᛟᚱᛁᛥ": [
+   "forest"
+  ],
+  "ᛏᚱᛁᛁ": [
+   "tree"
+  ],
+  "ᛚᛁᛁᚠᚠ": [
+   "leaf"
+  ],
+  "ᚠᛚᚪᚹᚢ": [
+   "flower"
+  ],
+  "ᚷᚱᚪᛋᛋ": [
+   "grass"
+  ],
+  "ᛥᚩᚾ": [
+   "stone"
+  ],
+  "ᚱᛟᚳ": [
+   "rock"
+  ],
+  "ᛋᚫᚾᛞ": [
+   "sand"
+  ],
+  "ᚠᛡᚢ": [
+   "fire"
+  ],
+  "ᚹᛟᛟᛏᚢ": [
+   "water"
+  ],
+  "ᛡᛋᛋ": [
+   "ice"
+  ],
+  "ᛋᚾᚩ": [
+   "snow"
+  ],
+  "ᚱᛠᚾ": [
+   "rain"
+  ],
+  "ᚹᛁᚾᛞ": [
+   "wind"
+  ],
+  "ᚳᛚᚪᚹᛞ": [
+   "cloud"
+  ],
+  "ᛥᛟᛟᛗ": [
+   "storm"
+  ],
+  "ᛖᛖ": [
+   "air"
+  ],
+  "ᛚᛡᛏ": [
+   "light"
+  ],
+  "ᛞᚪᚳ": [
+   "dark"
+  ],
+  "ᚻᛁᛁᛏ": [
+   "heat"
+  ],
+  "ᚾᛟᛟᚦ": [
+   "north"
+  ],
+  "ᛋᚪᚹᚦ": [
+   "south"
+  ],
+  "ᛁᛁᛥ": [
+   "east"
+  ],
+  "ᚹᛖᛥ": [
+   "west"
+  ],
+  "ᛞᛟᚷ": [
+   "dog"
+  ],
+  "ᚳᚫᛏ": [
+   "cat"
+  ],
+  "ᛒᚢᚢᛞ": [
+   "bird"
+  ],
+  "ᚠᛁᛋᚻ": [
+   "fish"
+  ],
+  "ᚻᛟᛟᛋᛋ": [
+   "horse"
+  ],
+  "ᚳᚪᚹ": [
+   "cow"
+  ],
+  "ᛋᚻᛁᛁᛈ": [
+   "sheep"
+  ],
+  "ᛈᛁᚷ": [
+   "pig"
+  ],
+  "ᛒᛖᛖ": [
+   "bear"
+  ],
+  "ᚹᚣᛚᚠᚠ": [
+   "wolf"
+  ],
+  "ᛗᚪᚹᛋᛋ": [
+   "mouse"
+  ],
+  "ᚫᚾᛏ": [
+   "ant"
+  ],
+  "ᚻᛖᛞ": [
+   "head"
+  ],
+  "ᚻᛖᛖ": [
+   "hair"
+  ],
+  "ᚠᛠᛋᛋ": [
+   "face"
+  ],
+  "ᛁᚢ": [
+   "ear"
+  ],
+  "ᚾᚩᛋ": [
+   "nose"
+  ],
+  "ᛗᚪᚹᚦ": [
+   "mouth"
+  ],
+  "ᛏᚣᚣᚦ": [
+   "tooth"
+  ],
+  "ᛏᛁᛁᚦ": [
+   "teeth"
+  ],
+  "ᚻᚫᚾᛞ": [
+   "hand"
+  ],
+  "ᚪᛗ": [
+   "arm"
+  ],
+  "ᛚᛖᚷ": [
+   "leg"
+  ],
+  "ᚠᚣᛏ": [
+   "foot"
+  ],
+  "ᚠᛁᛁᛏ": [
+   "feet"
+  ],
+  "ᚻᚪᛏ": [
+   "heart"
+  ],
+  "ᛒᛚᚢᛞ": [
+   "blood"
+  ],
+  "ᛒᚩᚾ": [
+   "bone"
+  ],
+  "ᛋᚳᛁᚾ": [
+   "skin"
+  ],
+  "ᛒᛟᛞᛁ": [
+   "body"
+  ],
+  "ᛒᚫᚳ": [
+   "back"
+  ],
+  "ᛋᛡᛞ": [
+   "side"
+  ],
+  "ᛗᛡᚾᛞ": [
+   "mind"
+  ],
+  "ᚠᚣᚣᛞ": [
+   "food"
+  ],
+  "ᛒᚱᛖᛞ": [
+   "bread"
+  ],
+  "ᛗᛁᛚᚳ": [
+   "milk"
+  ],
+  "ᛖᚷ": [
+   "egg"
+  ],
+  "ᚫᛈᚢᛚ": [
+   "apple"
+  ],
+  "ᚠᚱᚣᚣᛏ": [
+   "fruit"
+  ],
+  "ᛋᛟᛚᛏ": [
+   "salt"
+  ],
+  "ᛋᚻᚣᚷᚢ": [
+   "sugar"
+  ],
+  "ᛏᛁᛁ": [
+   "tea"
+  ],
+  "ᛒᛁᚢ": [
+   "beer"
+  ],
+  "ᚹᛡᚾ": [
+   "wine"
+  ],
+  "ᛒᚱᛖᚳᚠᚢᛥ": [
+   "breakfast"
+  ],
+  "ᛞᛁᚾᚢ": [
+   "dinner"
+  ],
+  "ᚷᚣᛞ": [
+   "good"
+  ],
+  "ᛒᚫᛞ": [
+   "bad"
+  ],
+  "ᛒᛖᛥ": [
+   "best"
+  ],
+  "ᛒᛖᛏᚢ": [
+   "better"
+  ],
+  "ᛒᛁᚷ": [
+   "big"
+  ],
+  "ᛋᛗᛟᛟᛚ": [
+   "small"
+  ],
+  "ᛚᚪᚷᚻ": [
+   "large"
+  ],
+  "ᛚᛁᛏᚢᛚ": [
+   "little"
+  ],
+  "ᛚᛟᛝ": [
+   "long"
+  ],
+  "ᛋᚻᛟᛟᛏ": [
+   "short"
+  ],
+  "ᛏᛟᛟᛚ": [
+   "tall"
+  ],
+  "ᚻᛡ": [
+   "hi",
+   "high"
+  ],
+  "ᛚᚩ": [
+   "low"
+  ],
+  "ᛞᛁᛁᛈ": [
+   "deep"
+  ],
+  "ᚹᛡᛞ": [
+   "wide"
+  ],
+  "ᚦᛁᚾ": [
+   "thin"
+  ],
+  "ᚦᛁᚳ": [
+   "thick"
+  ],
+  "ᚠᚫᛏ": [
+   "fat"
+  ],
+  "ᚩᛚᛞ": [
+   "old"
+  ],
+  "ᛄᚢᛝ": [
+   "young"
+  ],
+  "ᚻᛟᛏ": [
+   "hot"
+  ],
+  "ᚳᚩᛚᛞ": [
+   "cold"
+  ],
+  "ᚹᛟᛟᛗ": [
+   "warm"
+  ],
+  "ᚳᚣᚣᛚ": [
+   "cool"
+  ],
+  "ᚹᛖᛏ": [
+   "wet"
+  ],
+  "ᛞᚱᛡ": [
+   "dry"
+  ],
+  "ᚳᛚᛁᛁᚾ": [
+   "clean"
+  ],
+  "ᚻᚪᛞ": [
+   "hard"
+  ],
+  "ᛋᛟᚠᛏ": [
+   "soft"
+  ],
+  "ᛁᛁᛋᛁ": [
+   "easy"
+  ],
+  "ᛞᛁᚠᛁᚳᚢᛚᛏ": [
+   "difficult"
+  ],
+  "ᚠᚪᛥ": [
+   "fast"
+  ],
+  "ᛋᛚᚩ": [
+   "slow"
+  ],
+  "ᛢᛁᚳ": [
+   "quick"
+  ],
+  "ᛥᚱᛟᛝ": [
+   "strong"
+  ],
+  "ᚹᛁᛁᚳ": [
+   "weak",
+   "week"
+  ],
+  "ᚻᛖᚠᛁ": [
+   "heavy"
+  ],
+  "ᚠᚣᛚ": [
+   "full"
+  ],
+  "ᛖᛗᛈᛏᛁ": [
+   "empty"
+  ],
+  "ᚾᛁᚢ": [
+   "near"
+  ],
+  "ᚠᚪ": [
+   "far"
+  ],
+  "ᚱᛟᛝ": [
+   "wrong"
+  ],
+  "ᛏᚱᚣᚣ": [
+   "true"
+  ],
+  "ᚠᛟᛚᛋᛋ": [
+   "false"
+  ],
+  "ᚠᚱᛁᛁ": [
+   "free"
+  ],
+  "ᚻᚫᛈᛁ": [
+   "happy"
+  ],
+  "ᛋᚫᛞ": [
+   "sad"
+  ],
+  "ᚫᛝᚷᚱᛁ": [
+   "angry"
+  ],
+  "ᚢᚠᚱᛠᛞ": [
+   "afraid"
+  ],
+  "ᛏᛡᚢᛞ": [
+   "tired"
+  ],
+  "ᚱᛖᛞᛁ": [
+   "ready"
+  ],
+  "ᛋᚻᛟᛟ": [
+   "sure"
+  ],
+  "ᛋᛠᚠᚠ": [
+   "safe"
+  ],
+  "ᛢᛡᚢᛏ": [
+   "quiet"
+  ],
+  "ᛚᚪᚹᛞ": [
+   "loud"
+  ],
+  "ᛒᚱᛡᛏ": [
+   "bright"
+  ],
+  "ᚠᛡᚾ": [
+   "fine"
+  ],
+  "ᚾᛡᛋᛋ": [
+   "nice"
+  ],
+  "ᚳᛡᚾᛞ": [
+   "kind"
+  ],
+  "ᛈᛟᛟ": [
+   "poor"
+  ],
+  "ᚱᛁᚳᚻ": [
+   "rich"
+  ],
+  "ᚠᚢᚢᛥ": [
+   "first"
+  ],
+  "ᛚᚪᛥ": [
+   "last"
+  ],
+  "ᚾᛖᛉᛏ": [
+   "next"
+  ],
+  "ᚢᚢᛚᛁ": [
+   "early"
+  ],
+  "ᛚᛠᛏ": [
+   "late"
+  ],
+  "ᚻᚩᛚ": [
+   "whole"
+  ],
+  "ᚻᚪᚠᚠ": [
+   "half"
+  ],
+  "ᛋᛁᛗᛈᚢᛚ": [
+   "simple"
+  ],
+  "ᛁᛗᛈᛟᛟᛏᚢᚾᛏ": [
+   "important"
+  ],
+  "ᛞᛁᚠᚱᚢᚾᛏ": [
+   "different"
+  ],
+  "ᛈᛟᛋᛁᛒᚢᛚ": [
+   "possible"
+  ],
+  "ᛒᛄᚣᚣᛏᛁᚠᚢᛚ": [
+   "beautiful"
+  ],
+  "ᚹᛡᛚᛞ": [
+   "wild"
+  ],
+  "ᚹᚢᚾᛞᚢᚠᚢᛚ": [
+   "wonderful"
+  ],
+  "ᚳᚢᛚᚢ": [
+   "color",
+   "colour"
+  ],
+  "ᚱᛖᛞ": [
+   "red"
+  ],
+  "ᛒᛚᚣᚣ": [
+   "blue"
+  ],
+  "ᚷᚱᛁᛁᚾ": [
+   "green"
+  ],
+  "ᛄᛖᛚᚩ": [
+   "yellow"
+  ],
+  "ᛒᛚᚫᚳ": [
+   "black"
+  ],
+  "ᚹᛡᛏ": [
+   "white"
+  ],
+  "ᛒᚱᚪᚹᚾ": [
+   "brown"
+  ],
+  "ᚷᚱᛠ": [
+   "grey"
+  ],
+  "ᚷᚩᛚᛞ": [
+   "gold"
+  ],
+  "ᛋᛁᛚᚠᚢ": [
+   "silver"
+  ],
+  "ᛏᛡᛗ": [
+   "time"
+  ],
+  "ᛞᛠ": [
+   "day"
+  ],
+  "ᚾᛡᛏ": [
+   "night"
+  ],
+  "ᛗᛟᛟᚾᛁᛝ": [
+   "morning"
+  ],
+  "ᛁᛁᚠᚾᛁᛝ": [
+   "evening"
+  ],
+  "ᚪᚠᛏᚢᚾᚣᚣᚾ": [
+   "afternoon"
+  ],
+  "ᛗᚢᚾᚦ": [
+   "month"
+  ],
+  "ᛄᛁᚢ": [
+   "year"
+  ],
+  "ᛗᛁᚾᛁᛏ": [
+   "minute"
+  ],
+  "ᛋᛖᚳᚢᚾᛞ": [
+   "second"
+  ],
+  "ᛏᚢᛞᛠ": [
+   "today"
+  ],
+  "ᛏᚢᚾᛡᛏ": [
+   "tonight"
+  ],
+  "ᛏᚢᛗᛟᚱᚩ": [
+   "tomorrow"
+  ],
+  "ᛄᛖᛥᚢᛞᛠ": [
+   "yesterday"
+  ],
+  "ᛋᛈᚱᛁᛝ": [
+   "spring"
+  ],
+  "ᛋᚢᛗᚢ": [
+   "summer"
+  ],
+  "ᛟᛟᛏᚢᛗ": [
+   "autumn"
+  ],
+  "ᚹᛁᚾᛏᚢ": [
+   "winter"
+  ],
+  "ᛗᚢᚾᛞᛠ": [
+   "monday"
+  ],
+  "ᛏᛄᚣᚣᛋᛞᛠ": [
+   "tuesday"
+  ],
+  "ᚹᛖᚾᛋᛞᛠ": [
+   "wednesday"
+  ],
+  "ᚦᚢᚢᛋᛞᛠ": [
+   "thursday"
+  ],
+  "ᚠᚱᛡᛞᛠ": [
+   "friday"
+  ],
+  "ᛋᚫᛏᚢᛞᛠ": [
+   "saturday"
+  ],
+  "ᛋᚢᚾᛞᛠ": [
+   "sunday"
+  ],
+  "ᚹᚢᚾ": [
+   "one"
+  ],
+  "ᚦᚱᛁᛁ": [
+   "three"
+  ],
+  "ᚠᛡᚠ": [
+   "five"
+  ],
+  "ᛋᛁᛉ": [
+   "six"
+  ],
+  "ᛋᛖᚠᚢᚾ": [
+   "seven"
+  ],
+  "ᚾᛡᚾ": [
+   "nine"
+  ],
+  "ᛏᛖᚾ": [
+   "ten"
+  ],
+  "ᛁᛚᛖᚠᚢᚾ": [
+   "eleven"
+  ],
+  "ᛏᚹᛖᛚᚠ": [
+   "twelve"
+  ],
+  "ᛏᚹᛖᚾᛏᛁ": [
+   "twenty"
+  ],
+  "ᚦᚢᚢᛏᛁ": [
+   "thirty"
+  ],
+  "ᚠᛟᛟᛏᛁ": [
+   "forty"
+  ],
+  "ᚠᛁᚠᛏᛁ": [
+   "fifty"
+  ],
+  "ᚻᚢᚾᛞᚱᚢᛞ": [
+   "hundred"
+  ],
+  "ᚦᚪᚹᛋᚢᚾᛞ": [
+   "thousand"
+  ],
+  "ᛗᛁᛚᛄᚢᚾ": [
+   "million"
+  ],
+  "ᚻᛖᛚᚩ": [
+   "hello"
+  ],
+  "ᚷᚣᛞᛒᛡ": [
+   "goodbye"
+  ],
+  "ᛈᛚᛁᛁᛋ": [
+   "please"
+  ],
+  "ᚦᚫᛝᚳᛋᛋ": [
+   "thanks"
+  ],
+  "ᚦᚫᛝᚳ": [
+   "thank"
+  ],
+  "ᛋᛟᚱᛁ": [
+   "sorry"
+  ],
+  "ᚹᛖᛚᚳᚢᛗ": [
+   "welcome"
+  ],
+  "ᛡᛚᚢᚾᛞ": [
+   "island"
+  ],
+  "ᛡᚢᚾ": [
+   "iron"
+  ],
+  "ᚳᚢᚢᚾᚢᛚ": [
+   "colonel"
+  ],
+  "ᛒᛁᛋᚾᛁᛋᛋ": [
+   "business"
+  ],
+  "ᛒᛁᛋᛁ": [
+   "busy"
+  ],
+  "ᛒᛖᚱᛁ": [
+   "bury"
+  ],
+  "ᛈᚱᛁᛏᛁ": [
+   "pretty"
+  ],
+  "ᛋᚻᚣᚣ": [
+   "shoe"
+  ],
+  "ᛢᛡᚢ": [
+   "choir"
+  ],
+  "ᛠᚳ": [
+   "ache"
+  ],
+  "ᛖᚳᚩ": [
+   "echo"
+  ],
+  "ᚳᛠᛟᛋᛋ": [
+   "chaos"
+  ],
+  "ᚳᚫᚱᛁᚳᛏᚢ": [
+   "character"
+  ],
+  "ᚳᛖᛗᛁᛥ": [
+   "chemist"
+  ],
+  "ᛥᚢᛗᚢᚳ": [
+   "stomach"
+  ],
+  "ᛋᚻᛖᚠᚠ": [
+   "chef"
+  ],
+  "ᚱᚢᚠᚠ": [
+   "rough"
+  ],
+  "ᛏᚢᚠᚠ": [
+   "tough"
+  ],
+  "ᚳᛟᚠᚠ": [
+   "cough"
+  ],
+  "ᛞᛖᛏ": [
+   "debt"
+  ],
+  "ᛞᚪᚹᛏ": [
+   "doubt"
+  ],
+  "ᛋᚢᛏᚢᛚ": [
+   "subtle"
+  ],
+  "ᚱᛁᛋᛁᛁᛏ": [
+   "receipt"
+  ],
+  "ᚾᛁᛁ": [
+   "knee"
+  ],
+  "ᚾᛟᚳ": [
+   "knock"
+  ],
+  "ᚾᚩᛗ": [
+   "gnome"
+  ],
+  "ᛋᚪᛗ": [
+   "psalm"
+  ],
+  "ᚱᚫᛈ": [
+   "wrap"
+  ],
+  "ᛋᛟᛟᛞ": [
+   "sword"
+  ],
+  "ᚳᚩᛗ": [
+   "comb"
+  ],
+  "ᚳᛚᛡᛗ": [
+   "climb"
+  ],
+  "ᚦᚢᛗ": [
+   "thumb"
+  ],
+  "ᚳᛟᛚᚢᛗ": [
+   "column"
+  ],
+  "ᚳᚪᛋᚢᛚ": [
+   "castle"
+  ],
+  "ᚹᛁᛋᚢᛚ": [
+   "whistle"
+  ],
+  "ᚠᛖᚷᚻᛏᚢᛒᚢᛚ": [
+   "vegetable"
+  ],
+  "ᚳᚻᛟᚳᛚᚢᛏ": [
+   "chocolate"
+  ],
+  "ᚠᛠᚠᚱᛁᛏ": [
+   "favourite"
+  ],
+  "ᚠᛖᛒᚢᚱᛁ": [
+   "february"
+  ],
+  "ᛚᛡᛒᚱᚢᚱᛁ": [
+   "library"
+  ],
+  "ᚳᚢᛗᚠᛏᚢᛒᚢᛚ": [
+   "comfortable"
+  ],
+  "ᛁᚾᛏᚱᚢᛥᛁᛝ": [
+   "interesting"
+  ],
+  "ᚱᛖᛥᚱᛟᚾᛏ": [
+   "restaurant"
+  ],
+  "ᛁᛝᚷᛚᚢᚾᛞ": [
+   "england"
+  ],
+  "ᛁᛝᚷᛚᛁᛋᚻ": [
+   "english"
+  ],
+  "ᛒᚱᛁᛏᛁᛋᚻ": [
+   "british"
+  ],
+  "ᛄᚣᚢᚱᚢᛈ": [
+   "europe"
+  ],
+  "ᚢᛗᛖᚱᛁᚳᚢ": [
+   "america"
+  ],
+  "ᚱᛟᛒᛁᚾ": [
+   "robin"
+  ],
+  "ᚳᚫᛒᛁᚾ": [
+   "cabin"
+  ],
+  "ᛋᚫᛚᚢᛞ": [
+   "salad"
+  ],
+  "ᚻᛖᛚᛗᛁᛏ": [
+   "helmet"
+  ],
+  "ᛚᛖᛗᚢᚾ": [
+   "lemon"
+  ],
+  "ᛗᛖᛚᚢᚾ": [
+   "melon"
+  ],
+  "ᛞᚱᚫᚷᚢᚾ": [
+   "dragon"
+  ],
+  "ᚹᚫᚷᚢᚾ": [
+   "wagon"
+  ],
+  "ᚳᚢᛋᚢᚾ": [
+   "cousin"
+  ],
+  "ᚱᚫᛈᛁᛞ": [
+   "rapid"
+  ],
+  "ᚠᚫᛚᛁᛞ": [
+   "valid"
+  ],
+  "ᛋᛟᛚᛁᛞ": [
+   "solid"
+  ],
+  "ᛗᛟᛞᚢᛚ": [
+   "model"
+  ],
+  "ᛚᛖᚠᚢᛚ": [
+   "level"
+  ],
+  "ᛏᚱᚫᚠᚢᛚ": [
+   "travel"
+  ],
+  "ᚾᛟᚠᚢᛚ": [
+   "novel"
+  ],
+  "ᚳᚫᛗᚢᛚ": [
+   "camel"
+  ],
+  "ᛏᚢᚾᚢᛚ": [
+   "tunnel"
+  ],
+  "ᛈᚫᚾᚢᛚ": [
+   "panel"
+  ],
+  "ᛗᛖᛏᚢᛚ": [
+   "metal"
+  ],
+  "ᛗᛖᛞᚢᛚ": [
+   "medal"
+  ],
+  "ᛈᛖᛏᚢᛚ": [
+   "petal"
+  ],
+  "ᛋᚻᚫᛞᚩ": [
+   "shadow"
+  ],
+  "ᛗᛖᛞᚩ": [
+   "meadow"
+  ],
+  "ᚻᚪᚠᛁᛥ": [
+   "harvest"
+  ],
+  "ᛗᚫᚷᚻᛁᚳ": [
+   "magic"
+  ],
+  "ᛈᚫᚾᛁᚳ": [
+   "panic"
+  ],
+  "ᚳᚫᛒᛁᚷᚻ": [
+   "cabbage"
+  ],
+  "ᛞᚫᛗᛁᚷᚻ": [
+   "damage"
+  ],
+  "ᛗᚫᚾᛁᚷᚻ": [
+   "manage"
+  ],
+  "ᚳᛚᛖᚠᚢ": [
+   "clever"
+  ],
+  "ᚠᛁᛋᛁᛏ": [
+   "visit"
+  ],
+  "ᛚᛁᛗᛁᛏ": [
+   "limit"
+  ],
+  "ᛋᛈᛁᚱᛁᛏ": [
+   "spirit"
+  ],
+  "ᚳᛟᛈᛁ": [
+   "copy"
+  ],
+  "ᛟᚾᛁᛥ": [
+   "honest"
+  ],
+  "ᛈᚱᛟᛗᛁᛋᛋ": [
+   "promise"
+  ],
+  "ᛈᚢᚾᛁᛋᚻ": [
+   "punish"
+  ],
+  "ᛈᛟᛚᛁᛋᚻ": [
+   "polish"
+  ],
+  "ᛒᚫᚾᛁᛋᚻ": [
+   "banish"
+  ],
+  "ᚷᚻᚢᚢᚾᛁ": [
+   "journey"
+  ],
+  "ᚳᛁᛝᛞᚢᛗ": [
+   "kingdom"
+  ],
+  "ᚹᛁᛋᛞᚢᛗ": [
+   "wisdom"
+  ],
+  "ᚠᚱᛁᛁᛞᚢᛗ": [
+   "freedom"
+  ],
+  "ᚦᚢᚾᛞᚢ": [
+   "thunder"
+  ],
+  "ᚻᚫᛗᚢ": [
+   "hammer"
+  ],
+  "ᛈᛖᚾᛋᚢᛚ": [
+   "pencil"
+  ],
+  "ᛏᚩᛏᚢᛚ": [
+   "total"
+  ],
+  "ᛗᛄᚣᚣᛋᛁᚳ": [
+   "music"
+  ],
+  "ᛏᛁᚾ": [
+   "tin"
+  ],
+  "ᛗᚫᛏ": [
+   "mat"
+  ],
+  "ᛗᛁᛥ": [
+   "mist"
+  ],
+  "ᛏᚫᚾ": [
+   "tan"
+  ],
+  "ᛚᛁᛞ": [
+   "lid"
+  ],
+  "ᛒᚢᛋᛋ": [
+   "bus"
+  ],
+  "ᛗᚢᛞ": [
+   "mud"
+  ],
+  "ᚾᚢᛏ": [
+   "nut"
+  ],
+  "ᚾᛖᛏ": [
+   "net"
+  ],
+  "ᛞᛖᚾ": [
+   "den"
+  ],
+  "ᛞᛁᛗ": [
+   "dim"
+  ],
+  "ᛏᛁᛈ": [
+   "tip"
+  ],
+  "ᛗᚫᛈ": [
+   "map"
+  ],
+  "ᛚᚫᛗᛈ": [
+   "lamp"
+  ],
+  "ᛞᚫᛗᛈ": [
+   "damp"
+  ],
+  "ᛒᛖᚾᛞ": [
+   "bend"
+  ],
+  "ᛒᛚᛖᚾᛞ": [
+   "blend"
+  ],
+  "ᛞᚱᚢᛗ": [
+   "drum"
+  ],
+  "ᚠᛚᚫᛏ": [
+   "flat"
+  ],
+  "ᚷᛚᚫᛞ": [
+   "glad"
+  ],
+  "ᚷᚱᚫᛒ": [
+   "grab"
+  ],
+  "ᛋᛈᛁᚾ": [
+   "spin"
+  ],
+  "ᛞᛖᛋᚳ": [
+   "desk"
+  ],
+  "ᛞᚢᛥ": [
+   "dust"
+  ],
+  "ᚻᚢᚾᛏ": [
+   "hunt"
+  ],
+  "ᛚᛖᚾᛞ": [
+   "lend"
+  ],
+  "ᛗᛖᛚᛏ": [
+   "melt"
+  ],
+  "ᛈᛟᚾᛞ": [
+   "pond"
+  ],
+  "ᚱᛖᛥ": [
+   "rest"
+  ],
+  "ᛋᛁᛚᚳ": [
+   "silk"
+  ],
+  "ᛏᛖᚾᛏ": [
+   "tent"
+  ],
+  "ᚷᛁᚠᛏ": [
+   "gift"
+  ],
+  "ᚦᛁᛝ": [
+   "thing"
+  ],
+  "ᚱᛁᛝ": [
+   "ring"
+  ],
+  "ᛋᛟᛝ": [
+   "song"
+  ],
+  "ᚹᛁᛝ": [
+   "wing"
+  ],
+  "ᛒᚫᛝᚳ": [
+   "bank"
+  ],
+  "ᛈᛁᛝᚳ": [
+   "pink"
+  ],
+  "ᛞᚱᚫᛝᚳ": [
+   "drank"
+  ],
+  "ᛋᛁᛁᛞ": [
+   "seed"
+  ],
+  "ᛋᚻᛁᛁᛏ": [
+   "sheet"
+  ],
+  "ᛒᚢᚢᚾ": [
+   "burn"
+  ],
+  "ᛒᚢᚢᚳᚻ": [
+   "birch"
+  ],
+  "ᛋᚻᚢᚢᛏ": [
+   "shirt"
+  ],
+  "ᛒᚪᚦ": [
+   "bath"
+  ],
+  "ᛈᚪᚦ": [
+   "path"
+  ],
+  "ᛈᚪᛥ": [
+   "past"
+  ],
+  "ᚳᛚᚪᛋᛋ": [
+   "class"
+  ],
+  "ᚳᚻᚪᚾᛋᛋ": [
+   "chance"
+  ],
+  "ᛒᚱᚪᚾᚳᚻ": [
+   "branch"
+  ],
+  "ᛈᛚᚪᚾᛏ": [
+   "plant"
+  ],
+  "ᛚᛟᛟ": [
+   "law"
+  ],
+  "ᚻᛟᛟᚾ": [
+   "horn"
+  ],
+  "ᛒᚣᚣᛏ": [
+   "boot"
+  ],
+  "ᛋᛈᚣᚣᚾ": [
+   "spoon"
+  ],
+  "ᛏᛄᚣᚣᚾ": [
+   "tune"
+  ],
+  "ᚠᛚᚣᚣᛏ": [
+   "flute"
+  ],
+  "ᛒᚣᛚ": [
+   "bull"
+  ],
+  "ᛈᚣᛋᚻ": [
+   "push"
+  ],
+  "ᚳᛖᛖ": [
+   "care"
+  ],
+  "ᛋᚻᛖᛖ": [
+   "share"
+  ],
+  "ᛥᛖᛖᛋ": [
+   "stairs"
+  ],
+  "ᛈᛖᛖ": [
+   "pair"
+  ],
+  "ᛒᛁᚢᛞ": [
+   "beard"
+  ],
+  "ᚳᚻᛁᚢ": [
+   "cheer"
+  ],
+  "ᛞᛁᚢ": [
+   "deer"
+  ],
+  "ᛈᛟᛁᚾᛏ": [
+   "point"
+  ],
+  "ᚷᚻᛟᛁᚾ": [
+   "join"
+  ],
+  "ᚾᛟᛁᛋ": [
+   "noise"
+  ],
+  "ᚠᛟᛁᛋᛋ": [
+   "voice"
+  ],
+  "ᚪᚹᛏ": [
+   "out"
+  ],
+  "ᚳᚱᚪᚹᛞ": [
+   "crowd"
+  ],
+  "ᛋᚻᚪᚹᛏ": [
+   "shout"
+  ],
+  "ᚳᚻᛁᛁᛋ": [
+   "cheese"
+  ],
+  "ᚳᚻᛁᛈ": [
+   "chip"
+  ],
+  "ᛗᚫᚳᚻ": [
+   "match"
+  ],
+  "ᚷᚻᛟᚷ": [
+   "jog"
+  ],
+  "ᚷᚻᛖᛗ": [
+   "gem"
+  ],
+  "ᚷᚻᚢᚷᚻ": [
+   "judge"
+  ],
+  "ᛋᚻᛖᛚ": [
+   "shell"
+  ],
+  "ᛋᚻᛡᚾ": [
+   "shine"
+  ],
+  "ᛗᛖᛋᚻᚢ": [
+   "measure"
+  ],
+  "ᚠᛁᛋᚻᚢᚾ": [
+   "vision"
+  ],
+  "ᛒᛁᛄᛟᚾᛞ": [
+   "beyond"
+  ],
+  "ᛏᚫᛉ": [
+   "tax"
+  ],
+  "ᛗᛁᛉ": [
+   "mix"
+  ],
+  "ᚠᛟᛉ": [
+   "fox"
+  ],
+  "ᚱᚫᚳᛋᛋ": [
+   "racks"
+  ],
+  "ᚳᚫᛏᛋᛋ": [
+   "cats"
+  ],
+  "ᛞᛟᚷᛋ": [
+   "dogs"
+  ],
+  "ᛚᛡᚠᛋ": [
+   "lives"
+  ],
+  "ᛚᛁᛁᚠᛋ": [
+   "leaves"
+  ],
+  "ᛚᛡᚠᚠ": [
+   "life"
+  ],
+  "ᛋᛠᚠ": [
+   "save"
+  ],
+  "ᛈᚱᛡᛋᛋ": [
+   "price"
+  ],
+  "ᛈᚱᛡᛋ": [
+   "prize"
+  ],
+  "ᛡᛋ": [
+   "eyes"
+  ],
+  "ᛈᛁᛁᛋᛋ": [
+   "peace"
+  ],
+  "ᛈᛁᛁᛋ": [
+   "peas"
+  ],
+  "ᛒᛟᛏᚢᛚ": [
+   "bottle"
+  ],
+  "ᛗᛁᛞᚢᛚ": [
+   "middle"
+  ],
+  "ᚳᛟᛗᚢ": [
+   "comma"
+  ],
+  "ᚠᚢᚾᛁᛚᚢ": [
+   "vanilla"
+  ],
+  "ᛋᚩᚠᚢ": [
+   "sofa"
+  ],
+  "ᛖᛉᛏᚱᚢ": [
+   "extra"
+  ],
+  "ᛏᚱᚢᚳ": [
+   "truck"
+  ],
+  "ᛞᚱᛟᛈ": [
+   "drop"
+  ],
+  "ᛞᚱᛁᛁᛗ": [
+   "dream"
+  ],
+  "ᚱᚣᚣᚾᛋ": [
+   "runes"
+  ],
+  "ᚱᚣᚣᚾ": [
+   "rune"
+  ],
+  "ᚠᚣᚣᚦᛟᛟᚳ": [
+   "futhorc"
+  ],
+  "ᚫᛝᚷᛚᚩ": [
+   "anglo"
+  ],
+  "ᛋᚫᛉᚢᚾ": [
+   "saxon"
+  ],
+  "ᚫᛚᚠᚢᛒᛖᛏ": [
+   "alphabet"
+  ],
+  "ᛋᚪᚹᚾᛞ": [
+   "sound"
+  ],
+  "ᛋᚪᚹᚾᛞᛋ": [
+   "sounds"
+  ],
+  "ᛋᛈᛖᛚ": [
+   "spell"
+  ],
+  "ᛋᛈᛖᛚᛁᛝ": [
+   "spelling"
+  ],
+  "ᚠᚪᚹᚢᛚ": [
+   "vowel"
+  ],
+  "ᚳᛟᚾᛋᚢᚾᚢᚾᛏ": [
+   "consonant"
+  ],
+  "ᛋᛖᚾᛏᚢᚾᛋᛋ": [
+   "sentence"
+  ],
+  "ᛈᚱᚫᚳᛏᛁᛋᛋ": [
+   "practice"
+  ],
+  "ᛚᛖᛋᚢᚾ": [
+   "lesson"
+  ]
+ },
+ "version": "61c4e3b9099fabca"
+}
