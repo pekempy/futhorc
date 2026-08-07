@@ -76,9 +76,26 @@ keytool -list -v -alias androiddebugkey \
 ```
 
 The Android app needs no client ID in its source: Play Services identifies it
-by package name and signing certificate. But note the debug build has
-`applicationIdSuffix = ".debug"`, so **register `com.pekempy.futhorc.debug`
-with the debug SHA-1** as well, or Drive sync will only work in release builds.
+by package name and signing certificate.
+
+> **This is the one that catches everyone.** The debug build carries
+> `applicationIdSuffix = ".debug"`, so its package name is
+> **`com.pekempy.futhorc.debug`**, not `com.pekempy.futhorc`. You need *two*
+> Android OAuth clients:
+>
+> | Package name | SHA-1 |
+> |---|---|
+> | `com.pekempy.futhorc` | your release keystore |
+> | `com.pekempy.futhorc.debug` | `~/.android/debug.keystore` |
+>
+> Without the debug one, the symptom is exactly this: the account chooser
+> appears, you pick an account, and it fails. Google returns
+> `ApiException` status **10, DEVELOPER_ERROR**, which means "no OAuth client
+> matches this package name and signing certificate". The app now says so in
+> as many words rather than calling it a cancellation.
+
+New clients can take a few minutes to propagate. If it still fails immediately
+after adding one, give it five minutes and force-stop the app.
 
 ## 4. Check it
 
