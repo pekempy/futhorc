@@ -63,6 +63,10 @@ export default function App() {
 
   useEffect(() => { save(state); }, [state]);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', state.settings.theme || 'gold');
+  }, [state.settings.theme]);
+
   // Show who you are straight away from the remembered account, then confirm
   // it against Google in the background. Waiting for the round trip first
   // means the header flickers from "Sign in" to your name on every load.

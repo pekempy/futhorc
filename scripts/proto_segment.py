@@ -308,7 +308,11 @@ def group_lines(strokes):
 
     diffs = [by_top[i + 1]['cy'] - by_top[i]['cy'] for i in range(len(by_top) - 1)]
     split = _widest_valley(diffs)
-    if split is None:
+
+    heights = [max(ys) - min(ys) for s in usable for ys in [[p[1] for p in s]]]
+    typical_height = sum(heights) / len(heights) if heights else 0.0
+
+    if split is None or split < typical_height * 0.5:
         # No clear valley: one line. Much better to under-split than over - a
         # single line wrongly cut in two scrambles nothing, but two lines
         # treated as one interleaves every stroke.

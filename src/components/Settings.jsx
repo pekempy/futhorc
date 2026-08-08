@@ -8,6 +8,7 @@ import { fromBackup } from '../lib/syncFormat.js';
 const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Orus', 'Zephyr'];
 
 export default function Settings({ state, update }) {
+  const [tab, setTab] = useState('spelling');
   const [voices, setVoices] = useState([]);
   // Lifted so the Progress blurb below reacts the moment Drive connects.
   const [driveAccount, setDriveAccount] = useState(drive.currentAccount());
@@ -38,135 +39,175 @@ export default function Settings({ state, update }) {
     <div className="stack">
       <h1>Settings</h1>
 
-      <section className="card stack">
-        <h2>Spelling</h2>
-        <label className="toggle">
-          <input type="checkbox" checked={s.ligatures} onChange={(e) => set('ligatures', e.target.checked)} />
-          Use the ᛥ (st) and ᛢ (qu) ligatures
-        </label>
-        <label className="toggle">
-          <input type="checkbox" checked={s.markVoiceless} onChange={(e) => set('markVoiceless', e.target.checked)} />
-          Double ᚠ and ᛋ at the end of a word when the sound is voiceless
-        </label>
-        <label className="toggle">
-          <input type="checkbox" checked={s.separator === 'interpunct'} onChange={(e) => set('separator', e.target.checked ? 'interpunct' : 'space')} />
-          Separate words with an interpunct ᛫ rather than a space
-        </label>
-      </section>
+      <div className="settings-menu">
+        <button className={tab === 'spelling' ? 'active' : ''} onClick={() => setTab('spelling')}>Spelling</button>
+        <button className={tab === 'audio' ? 'active' : ''} onClick={() => setTab('audio')}>Audio</button>
+        <button className={tab === 'theme' ? 'active' : ''} onClick={() => setTab('theme')}>Theme</button>
+        <button className={tab === 'backup' ? 'active' : ''} onClick={() => setTab('backup')}>Backup</button>
+        <button className={tab === 'progress' ? 'active' : ''} onClick={() => setTab('progress')}>Progress</button>
+      </div>
 
-      <section className="card stack">
-        <h2>Reading aloud</h2>
-        {!isSupported() && <p className="muted small">Your browser doesn't support speech synthesis.</p>}
-        {isSupported() && (
-          <>
-            <div>
-              <label className="field" htmlFor="voice">Voice</label>
-              <select id="voice" value={s.voiceName} onChange={(e) => set('voiceName', e.target.value)}>
-                <option value="">Best British voice available</option>
-                {gb.length > 0 && (
-                  <optgroup label="British English">
-                    {gb.map((v) => <option key={v.name} value={v.name}>{v.name}</option>)}
-                  </optgroup>
-                )}
-                {other.length > 0 && (
-                  <optgroup label="Other English">
-                    {other.map((v) => <option key={v.name} value={v.name}>{v.name}</option>)}
-                  </optgroup>
-                )}
-              </select>
-              <p className="tiny muted" style={{ margin: '0.4rem 0 0' }}>
-                Voices come from your operating system, so they're free and work offline.
-                On Windows, look for a “Natural” voice; on a Mac, an “Enhanced” or “Premium” one.
-              </p>
-            </div>
-            <div>
-              <label className="field" htmlFor="rate">Speed - {s.speakRate.toFixed(2)}×</label>
-              <input id="rate" type="range" min="0.5" max="1.3" step="0.05" value={s.speakRate}
-                     onChange={(e) => set('speakRate', Number(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent)' }} />
-            </div>
-            <div className="row">
-              <button className="btn" onClick={() => speakRunes('ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ', { voiceName: s.voiceName, rate: s.speakRate })}>
-                Test - <span className="rune">ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ</span>
-              </button>
-            </div>
-          </>
-        )}
-      </section>
+      {tab === 'spelling' && (
+        <section className="card stack">
+          <h2>Spelling Settings</h2>
+          <label className="toggle">
+            <input type="checkbox" checked={s.ligatures} onChange={(e) => set('ligatures', e.target.checked)} />
+            Use the ᛥ (st) and ᛢ (qu) ligatures
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={s.markVoiceless} onChange={(e) => set('markVoiceless', e.target.checked)} />
+            Double ᚠ and ᛋ at the end of a word when the sound is voiceless
+          </label>
+          <label className="toggle">
+            <input type="checkbox" checked={s.separator === 'interpunct'} onChange={(e) => set('separator', e.target.checked ? 'interpunct' : 'space')} />
+            Separate words with an interpunct ᛫ rather than a space
+          </label>
+        </section>
+      )}
 
-      <section className="card stack">
-        <h2>Gemini voice</h2>
-        {hasSystemKey ? (
-          <>
-            <p className="tiny muted" style={{ margin: 0 }}>
-              System Gemini AI voice active. Customize your voice preference below:
-            </p>
-            <div>
-              <label className="field" htmlFor="gvoice">Select Voice</label>
-              <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
-                {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
-              </select>
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="small muted" style={{ margin: 0 }}>
-              Google's voices sound better than most system ones. You'll need a free API key from
-              {' '}<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>.
-              The free tier is limited and the TTS models are preview-only, so this can stop working
-              without warning - the browser voice is always there as a fallback. Your key is stored
-              in this browser and sent only to Google.
-            </p>
-            <label className="toggle">
-              <input type="checkbox" checked={s.useGemini} onChange={(e) => set('useGemini', e.target.checked)} />
-              Use Gemini when a key is set
-            </label>
-            <div>
-              <label className="field" htmlFor="key">API key</label>
-              <input id="key" type="text" value={s.geminiKey} placeholder="AIza…"
-                     onChange={(e) => set('geminiKey', e.target.value.trim())} autoComplete="off" spellCheck="false" />
-            </div>
-            <div>
-              <label className="field" htmlFor="gvoice">Gemini voice</label>
-              <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
-                {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
-              </select>
-            </div>
-          </>
-        )}
-      </section>
+      {tab === 'audio' && (
+        <>
+          <section className="card stack">
+            <h2>Reading Aloud</h2>
+            {!isSupported() && <p className="muted small">Your browser doesn't support speech synthesis.</p>}
+            {isSupported() && (
+              <>
+                <div>
+                  <label className="field" htmlFor="voice">Voice</label>
+                  <select id="voice" value={s.voiceName} onChange={(e) => set('voiceName', e.target.value)}>
+                    <option value="">Best British voice available</option>
+                    {gb.length > 0 && (
+                      <optgroup label="British English">
+                        {gb.map((v) => <option key={v.name} value={v.name}>{v.name}</option>)}
+                      </optgroup>
+                    )}
+                    {other.length > 0 && (
+                      <optgroup label="Other English">
+                        {other.map((v) => <option key={v.name} value={v.name}>{v.name}</option>)}
+                      </optgroup>
+                    )}
+                  </select>
+                  <p className="tiny muted" style={{ margin: '0.4rem 0 0' }}>
+                    Voices come from your operating system, so they're free and work offline.
+                    On Windows, look for a “Natural” voice; on a Mac, an “Enhanced” or “Premium” one.
+                  </p>
+                </div>
+                <div>
+                  <label className="field" htmlFor="rate">Speed - {s.speakRate.toFixed(2)}×</label>
+                  <input id="rate" type="range" min="0.5" max="1.3" step="0.05" value={s.speakRate}
+                         onChange={(e) => set('speakRate', Number(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent)' }} />
+                </div>
+                <div className="row">
+                  <button className="btn" onClick={() => speakRunes('ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ', { voiceName: s.voiceName, rate: s.speakRate })}>
+                    Test - <span className="rune">ᚦᚢ᛫ᚳᚫᛏ᛫ᛋᚫᛏ᛫ᛟᚾ᛫ᚦᚢ᛫ᛗᚫᛏ</span>
+                  </button>
+                </div>
+              </>
+            )}
+          </section>
 
-      <DriveSection state={state} update={update} account={driveAccount} setAccount={setDriveAccount} />
+          <section className="card stack">
+            <h2>Gemini Voice</h2>
+            {hasSystemKey ? (
+              <>
+                <p className="tiny muted" style={{ margin: 0 }}>
+                  System Gemini AI voice active. Customize your voice preference below:
+                </p>
+                <div>
+                  <label className="field" htmlFor="gvoice">Select Voice</label>
+                  <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
+                    {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="small muted" style={{ margin: 0 }}>
+                  Google's voices sound better than most system ones. You'll need a free API key from
+                  {' '}<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>.
+                  The free tier is limited and the TTS models are preview-only, so this can stop working
+                  without warning - the browser voice is always there as a fallback. Your key is stored
+                  in this browser and sent only to Google.
+                </p>
+                <label className="toggle">
+                  <input type="checkbox" checked={s.useGemini} onChange={(e) => set('useGemini', e.target.checked)} />
+                  Use Gemini when a key is set
+                </label>
+                <div>
+                  <label className="field" htmlFor="key">API key</label>
+                  <input id="key" type="text" value={s.geminiKey} placeholder="AIza…"
+                         onChange={(e) => set('geminiKey', e.target.value.trim())} autoComplete="off" spellCheck="false" />
+                </div>
+                <div>
+                  <label className="field" htmlFor="gvoice">Gemini voice</label>
+                  <select id="gvoice" value={s.geminiVoice || 'Kore'} onChange={(e) => set('geminiVoice', e.target.value)}>
+                    {GEMINI_VOICES.map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </div>
+              </>
+            )}
+          </section>
+        </>
+      )}
 
-      <section className="card stack">
-        <h2>Progress</h2>
-        <p className="small muted" style={{ margin: 0 }}>
-          Units finished: {state.completedUnits.length} · runes tracked: {Object.keys(state.strength).length} ·
-          dictionary: {LEXICON_SIZE} words.{' '}
-          {driveAccount
-            ? 'Kept in this browser and backed up to your Google Drive.'
-            : 'Kept in this browser only - connect Google Drive above to back it up.'}
-        </p>
-        <div>
-          <button
-            className="btn"
-            onClick={() => { if (confirm('Erase all progress and settings?')) { reset(); location.reload(); } }}
-          >Reset everything</button>
-        </div>
-      </section>
+      {tab === 'theme' && (
+        <section className="card stack">
+          <h2>Aesthetics & Theme</h2>
+          <p className="small muted">
+            Customize the look and feel of your scribe pad. All themes adapt to your screen's layout.
+          </p>
+          <div className="tiles" style={{ marginTop: '0.5rem' }}>
+            <button className={`tile ${s.theme === 'gold' ? 'active' : ''}`} onClick={() => set('theme', 'gold')}>
+              <span className="t-rune" style={{ color: '#dcae5b' }}>ᚠᚢᚦᚩᚱᚳ</span>
+              <h3>Runic Gold</h3>
+              <p>Deep charcoal-black with rich gold accents.</p>
+            </button>
+            <button className={`tile ${s.theme === 'frost' ? 'active' : ''}`} onClick={() => set('theme', 'frost')}>
+              <span className="t-rune" style={{ color: '#38bdf8' }}>ᚠᚢᚦᚩᚱᚳ</span>
+              <h3>Nordic Frost</h3>
+              <p>Deep ocean navy with bright ice-blue accents.</p>
+            </button>
+            <button className={`tile ${s.theme === 'obsidian' ? 'active' : ''}`} onClick={() => set('theme', 'obsidian')}>
+              <span className="t-rune" style={{ color: '#a855f7' }}>ᚠᚢᚦᚩᚱᚳ</span>
+              <h3>Obsidian Night</h3>
+              <p>Jet black with vibrant neon purple accents.</p>
+            </button>
+            <button className={`tile ${s.theme === 'paper' ? 'active' : ''}`} onClick={() => set('theme', 'paper')}>
+              <span className="t-rune" style={{ color: '#9e3b2c' }}>ᚠᚢᚦᚩᚱᚳ</span>
+              <h3>Classic Paper</h3>
+              <p>Traditional cream paper with rich red accents.</p>
+            </button>
+          </div>
+        </section>
+      )}
+
+      {tab === 'backup' && (
+        <DriveSection state={state} update={update} account={driveAccount} setAccount={setDriveAccount} />
+      )}
+
+      {tab === 'progress' && (
+        <section className="card stack">
+          <h2>Progress & Data</h2>
+          <p className="small muted" style={{ margin: 0 }}>
+            Units finished: {state.completedUnits.length} · runes tracked: {Object.keys(state.strength).length} ·
+            dictionary: {LEXICON_SIZE} words.{' '}
+            {driveAccount
+              ? 'Kept in this browser and backed up to your Google Drive.'
+              : 'Kept in this browser only - connect Google Drive in the Backup tab to enable backups.'}
+          </p>
+          <div>
+            <button
+              className="btn"
+              onClick={() => { if (confirm('Erase all progress and settings?')) { reset(); location.reload(); } }}
+            >Reset everything</button>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
 
-
 // ── Google Drive backup ────────────────────────────────────────────────────
-
-/**
- * Backing progress up to Drive.
- *
- * The file goes in Drive's hidden application data folder, so it doesn't
- * appear in your Drive and no other app can read it. The only Drive permission
- * asked for is access to that one folder.
- */
 function DriveSection({ state, update, account, setAccount }) {
   const [configured, setConfigured] = useState(null);
   const [busy, setBusy] = useState(false);

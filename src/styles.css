@@ -6,6 +6,52 @@
 }
 
 :root {
+  /* Default Theme: Runic Gold (Dark, Bold, Premium) */
+  --paper: #0b0a0a;
+  --surface: #141312;
+  --surface-2: #1e1b19;
+  --ink: #f5f2eb;
+  --ink-2: #c4beb3;
+  --ink-3: #8c8578;
+  --line: #2e2a27;
+  --line-2: #453f3a;
+  --accent: #dcae5b;
+  --accent-2: #ffd580;
+  --accent-soft: #2a2214;
+  --btn-primary-text: #0b0a0a;
+  --good: #4caf50;
+  --good-soft: #122814;
+  --bad: #f44336;
+  --bad-soft: #2a1414;
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --serif: ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  --rune: 'Noto Sans Runic', 'Segoe UI Historic', 'Segoe UI Symbol', 'Noto Sans Runic Regular', serif;
+}
+
+[data-theme='gold'] {
+  --paper: #0b0a0a;
+  --surface: #141312;
+  --surface-2: #1e1b19;
+  --ink: #f5f2eb;
+  --ink-2: #c4beb3;
+  --ink-3: #8c8578;
+  --line: #2e2a27;
+  --line-2: #453f3a;
+  --accent: #dcae5b;
+  --accent-2: #ffd580;
+  --accent-soft: #2a2214;
+  --btn-primary-text: #0b0a0a;
+  --good: #4caf50;
+  --good-soft: #122814;
+  --bad: #f44336;
+  --bad-soft: #2a1414;
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='paper'] {
   --paper: #f7f4ef;
   --surface: #ffffff;
   --surface-2: #f2eee7;
@@ -17,15 +63,60 @@
   --accent: #9e3b2c;
   --accent-2: #c2543f;
   --accent-soft: #f7eae6;
+  --btn-primary-text: #ffffff;
   --good: #2c6a4c;
   --good-soft: #e7f2ec;
   --bad: #9e3b2c;
   --bad-soft: #f7eae6;
   --radius: 6px;
   --shadow: 0 1px 2px rgba(27, 25, 22, 0.06);
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --serif: ui-serif, Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
-  --rune: 'Noto Sans Runic', 'Segoe UI Historic', 'Segoe UI Symbol', 'Noto Sans Runic Regular', serif;
+}
+
+[data-theme='frost'] {
+  --paper: #0a0e17;
+  --surface: #101726;
+  --surface-2: #172237;
+  --ink: #e2e8f0;
+  --ink-2: #94a3b8;
+  --ink-3: #64748b;
+  --line: #1e293b;
+  --line-2: #334155;
+  --accent: #38bdf8;
+  --accent-2: #7dd3fc;
+  --accent-soft: #083344;
+  --btn-primary-text: #0a0e17;
+  --good: #10b981;
+  --good-soft: #064e3b;
+  --bad: #ef4444;
+  --bad-soft: #7f1d1d;
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='obsidian'] {
+  --paper: #080708;
+  --surface: #121013;
+  --surface-2: #1a171c;
+  --ink: #e5e0e6;
+  --ink-2: #a59fa8;
+  --ink-3: #756f78;
+  --line: #252028;
+  --line-2: #38313c;
+  --accent: #a855f7;
+  --accent-2: #c084fc;
+  --accent-soft: #2e1065;
+  --btn-primary-text: #080708;
+  --good: #22c55e;
+  --good-soft: #14532d;
+  --bad: #ef4444;
+  --bad-soft: #7f1d1d;
+  --radius: 8px;
+  --shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Global transitions for theme switching */
+body, .card, .topbar, .btn, input[type='text'], textarea, select, .choice, .unit, .tile {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 * { box-sizing: border-box; }
@@ -102,12 +193,28 @@ a { color: var(--accent); }
 }
 .btn:hover:not(:disabled) { background: var(--surface-2); }
 .btn:disabled { opacity: 0.45; cursor: default; }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--btn-primary-text); }
 .btn.primary:hover:not(:disabled) { background: var(--accent-2); }
 .btn.ghost { border-color: transparent; background: transparent; color: var(--ink-2); }
 .btn.ghost:hover:not(:disabled) { background: var(--surface-2); color: var(--ink); }
 .btn.small { padding: 0.35rem 0.7rem; font-size: 0.85rem; }
 .btn.icon { padding: 0.35rem 0.55rem; line-height: 1; }
+
+.settings-menu {
+  display: flex; gap: 0.5rem; border-bottom: 1px solid var(--line);
+  padding-bottom: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.settings-menu button {
+  background: none; border: 0; padding: 0.5rem 1rem;
+  font: inherit; font-size: 0.95rem; color: var(--ink-2);
+  border-radius: var(--radius); cursor: pointer;
+  transition: all 0.2s ease;
+}
+.settings-menu button:hover { background: var(--surface-2); color: var(--ink); }
+.settings-menu button.active {
+  background: var(--accent); color: var(--btn-primary-text); font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
 .pill {
   display: inline-flex; align-items: center; gap: 0.35rem;
@@ -145,6 +252,12 @@ label.field { display: block; font-size: 0.85rem; font-weight: 600; color: var(-
   box-shadow: var(--shadow); transition: border-color 0.12s, transform 0.12s;
 }
 .tile:hover { border-color: var(--line-2); transform: translateY(-1px); }
+.tile.active {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  background: var(--surface-2);
+}
 .tile .t-rune { font-family: var(--rune); font-size: 1.6rem; color: var(--accent); display: block; margin-bottom: 0.4rem; }
 .tile h3 { margin-bottom: 0.2rem; }
 .tile p { margin: 0; font-size: 0.875rem; color: var(--ink-2); }

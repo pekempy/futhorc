@@ -38,6 +38,7 @@ const BLANK = {
     geminiKey: '',
     useGemini: false,
     speakRate: 0.85,
+    theme: 'gold',
   },
 };
 

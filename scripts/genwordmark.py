@@ -64,7 +64,7 @@ def main():
     # background colour is set. A 3.9:1 banner fits inside that at about
     # 186x48dp, so the drawable declares a size that already fits rather than
     # relying on whoever writes the layer-list to work the trigonometry out.
-    dp_w = 176.0
+    dp_w = 96.0
     dp_h = dp_w * vh / vw
 
     OUT.write_text(f'''<?xml version="1.0" encoding="utf-8"?>
