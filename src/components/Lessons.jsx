@@ -57,7 +57,8 @@ function UnitList({ state, go }) {
   return (
     <div className="stack">
       <div>
-        <h1>The course</h1>
+        <span className="page-header-runes rune">ᛚᚢᚢᚾ</span>
+        <h1>Learn</h1>
         <p className="muted">
           {UNITS.length} units in {PARTS.length} parts. Work through in order - each one only ever asks you
           to use runes you have already met. About ten minutes each.

@@ -7,10 +7,58 @@ import { fromBackup } from '../lib/syncFormat.js';
 
 const GEMINI_VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede', 'Leda', 'Orus', 'Zephyr'];
 
+// SVG Icons matching a clean, non-emoji design
+const ListIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <line x1="8" y1="6" x2="21" y2="6" />
+    <line x1="8" y1="12" x2="21" y2="12" />
+    <line x1="8" y1="18" x2="21" y2="18" />
+    <line x1="3" y1="6" x2="3.01" y2="6" />
+    <line x1="3" y1="12" x2="3.01" y2="12" />
+    <line x1="3" y1="18" x2="3.01" y2="18" />
+  </svg>
+);
+
+const VolumeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+  </svg>
+);
+
+const PaletteIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.32832 19.4795 6.00287 19.7892 6.70287 19.7892C7.30009 19.7892 7.78502 19.3043 7.78502 18.7071C7.78502 18.232 7.59374 17.7981 7.28475 17.4813C6.7072 16.8906 6.34783 16.0881 6.34783 15.2029C6.34783 13.4339 7.78174 12 9.55072 12H11.5" />
+    <circle cx="7.5" cy="10.5" r="1" fill="currentColor"/>
+    <circle cx="11.5" cy="7.5" r="1" fill="currentColor"/>
+    <circle cx="16.5" cy="9.5" r="1" fill="currentColor"/>
+    <circle cx="15.5" cy="14.5" r="1" fill="currentColor"/>
+  </svg>
+);
+
+const CloudIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+  </svg>
+);
+
+const ChevronRightIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+
+const ChevronLeftIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle', marginRight: '0.25rem' }}>
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
+
 export default function Settings({ state, update }) {
-  const [tab, setTab] = useState('spelling');
+  const [tab, setTab] = useState('menu');
   const [voices, setVoices] = useState([]);
-  // Lifted so the Progress blurb below reacts the moment Drive connects.
+  const [showResetDialog, setShowResetDialog] = useState(false);
+  const [resetStep, setResetStep] = useState(1);
   const [driveAccount, setDriveAccount] = useState(drive.currentAccount());
   const [hasSystemKey, setHasSystemKey] = useState(
     !!(import.meta.env?.VITE_GEMINI_API_KEY)
@@ -37,15 +85,57 @@ export default function Settings({ state, update }) {
 
   return (
     <div className="stack">
-      <h1>Settings</h1>
-
-      <div className="settings-menu">
-        <button className={tab === 'spelling' ? 'active' : ''} onClick={() => setTab('spelling')}>Spelling</button>
-        <button className={tab === 'audio' ? 'active' : ''} onClick={() => setTab('audio')}>Audio</button>
-        <button className={tab === 'theme' ? 'active' : ''} onClick={() => setTab('theme')}>Theme</button>
-        <button className={tab === 'backup' ? 'active' : ''} onClick={() => setTab('backup')}>Backup</button>
-        <button className={tab === 'progress' ? 'active' : ''} onClick={() => setTab('progress')}>Progress</button>
+      <div className="spread">
+        <div>
+          <span className="page-header-runes rune">ᛋᛖᛏᛁᛝᛋ</span>
+          <h1>Settings</h1>
+        </div>
+        {tab !== 'menu' && (
+          <button className="btn ghost" onClick={() => setTab('menu')} style={{ fontSize: '0.9rem', padding: '0.4rem 0.8rem', display: 'flex', alignItems: 'center' }}>
+            <ChevronLeftIcon /> Back to Settings
+          </button>
+        )}
       </div>
+
+      {tab === 'menu' && (
+        <div className="stack" style={{ gap: '0.75rem' }}>
+          <button className="tile" onClick={() => setTab('spelling')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', width: '100%', border: '1px solid var(--line)', transition: 'transform 0.12s' }}>
+            <ListIcon />
+            <div className="grow" style={{ textAlign: 'left' }}>
+              <h3 style={{ margin: 0 }}>Spelling Settings</h3>
+              <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--ink-2)' }}>Configure ligatures, voiceless endings, and punctuation options</p>
+            </div>
+            <span style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center' }}><ChevronRightIcon /></span>
+          </button>
+          
+          <button className="tile" onClick={() => setTab('audio')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', width: '100%', border: '1px solid var(--line)', transition: 'transform 0.12s' }}>
+            <VolumeIcon />
+            <div className="grow" style={{ textAlign: 'left' }}>
+              <h3 style={{ margin: 0 }}>Speech & Audio</h3>
+              <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--ink-2)' }}>Customize reading aloud speed, voices, and Gemini AI key</p>
+            </div>
+            <span style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center' }}><ChevronRightIcon /></span>
+          </button>
+
+          <button className="tile" onClick={() => setTab('theme')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', width: '100%', border: '1px solid var(--line)', transition: 'transform 0.12s' }}>
+            <PaletteIcon />
+            <div className="grow" style={{ textAlign: 'left' }}>
+              <h3 style={{ margin: 0 }}>Aesthetics & Theme</h3>
+              <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--ink-2)' }}>Choose color themes like Runic Gold, Frost, and Obsidian</p>
+            </div>
+            <span style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center' }}><ChevronRightIcon /></span>
+          </button>
+
+          <button className="tile" onClick={() => setTab('backup')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', width: '100%', border: '1px solid var(--line)', transition: 'transform 0.12s' }}>
+            <CloudIcon />
+            <div className="grow" style={{ textAlign: 'left' }}>
+              <h3 style={{ margin: 0 }}>Backup, Sync & Progress</h3>
+              <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--ink-2)' }}>Connect Google Drive, view learning stats, or reset progress</p>
+            </div>
+            <span style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center' }}><ChevronRightIcon /></span>
+          </button>
+        </div>
+      )}
 
       {tab === 'spelling' && (
         <section className="card stack">
@@ -182,26 +272,82 @@ export default function Settings({ state, update }) {
       )}
 
       {tab === 'backup' && (
-        <DriveSection state={state} update={update} account={driveAccount} setAccount={setDriveAccount} />
+        <>
+          <section className="card stack">
+            <h2>Progress Statistics</h2>
+            <div className="stack" style={{ gap: '0.5rem' }}>
+              <div className="spread">
+                <span className="small">Units finished</span>
+                <strong className="small">{state.completedUnits.length}</strong>
+              </div>
+              <div className="spread">
+                <span className="small">Runes tracked</span>
+                <strong className="small">{Object.keys(state.strength).length}</strong>
+              </div>
+              <div className="spread">
+                <span className="small">Dictionary size</span>
+                <strong className="small">{LEXICON_SIZE} words</strong>
+              </div>
+            </div>
+          </section>
+
+          <DriveSection state={state} update={update} account={driveAccount} setAccount={setDriveAccount} />
+
+          <section className="card stack">
+            <h2>Reset Progress</h2>
+            <p className="small muted" style={{ margin: 0 }}>
+              This will erase all progress, tracked runes, and settings on this device.
+            </p>
+            <div>
+              <button
+                className="btn"
+                style={{ color: 'var(--bad)', borderColor: 'var(--bad)', background: 'transparent' }}
+                onClick={() => { setShowResetDialog(true); setResetStep(1); }}
+              >Reset everything</button>
+            </div>
+          </section>
+        </>
       )}
 
-      {tab === 'progress' && (
-        <section className="card stack">
-          <h2>Progress & Data</h2>
-          <p className="small muted" style={{ margin: 0 }}>
-            Units finished: {state.completedUnits.length} · runes tracked: {Object.keys(state.strength).length} ·
-            dictionary: {LEXICON_SIZE} words.{' '}
-            {driveAccount
-              ? 'Kept in this browser and backed up to your Google Drive.'
-              : 'Kept in this browser only - connect Google Drive in the Backup tab to enable backups.'}
-          </p>
-          <div>
-            <button
-              className="btn"
-              onClick={() => { if (confirm('Erase all progress and settings?')) { reset(); location.reload(); } }}
-            >Reset everything</button>
+      {showResetDialog && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.7)', zIndex: 1000,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '1.25rem', backdropFilter: 'blur(4px)'
+        }}>
+          <div className="card stack" style={{ maxWidth: '400px', width: '100%', border: '2px solid var(--accent)' }}>
+            {resetStep === 1 ? (
+              <>
+                <h2>Reset Progress?</h2>
+                <p className="small muted">
+                  This will erase all progress, tracked runes, and settings on this device. This action cannot be undone.
+                </p>
+                <div className="row" style={{ justifyContent: 'flex-end', marginTop: '1rem', gap: '0.75rem' }}>
+                  <button className="btn ghost" onClick={() => setShowResetDialog(false)}>Cancel</button>
+                  <button className="btn primary" style={{ background: 'var(--bad)', borderColor: 'var(--bad)', color: 'var(--btn-primary-text)' }} onClick={() => setResetStep(2)}>
+                    Reset
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>Are you absolutely sure?</h2>
+                <p className="small muted">
+                  Confirm your choice using the runic buttons below to proceed.
+                </p>
+                <div className="row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '1rem' }}>
+                  <button className="btn primary rune" style={{ fontSize: '1.5rem', background: 'var(--bad)', borderColor: 'var(--bad)', color: 'var(--btn-primary-text)', padding: '0.5rem' }} onClick={() => { reset(); location.reload(); }}>
+                    ᛄᛖᛋᛋ
+                  </button>
+                  <button className="btn rune" style={{ fontSize: '1.5rem', padding: '0.5rem' }} onClick={() => setShowResetDialog(false)}>
+                    ᚾᚩ
+                  </button>
+                </div>
+              </>
+            )}
           </div>
-        </section>
+        </div>
       )}
     </div>
   );

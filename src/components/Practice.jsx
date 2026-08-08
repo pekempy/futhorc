@@ -109,6 +109,7 @@ export default function Practice({ state, update }) {
     return (
       <div className="stack">
         <div>
+          <span className="page-header-runes rune">ᛈᚱᚫᚳᛏᛁᛋᛋ</span>
           <h1>Practice</h1>
           <p className="muted">
             Twelve quick questions, weighted towards whatever you've been getting wrong.

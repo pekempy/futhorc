@@ -161,7 +161,11 @@ export default function App() {
       {signInError && (
         <div className="main"><p className="feedback no small">{signInError}</p></div>
       )}
-      <main className={`main${route.view === 'print' ? ' wide' : ''}`}>{body}</main>
+      <main className={`main${route.view === 'print' ? ' wide' : ''}`}>
+        <div key={route.view} className="main-content-transition">
+          {body}
+        </div>
+      </main>
     </div>
   );
 }

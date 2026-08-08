@@ -34,7 +34,8 @@ export default function Reference({ focus }) {
     <div className="stack">
       <div className="spread">
         <div>
-          <h1>The runes</h1>
+          <span className="page-header-runes rune">ᚱᚣᚣᚾᛋ</span>
+          <h1>Runes</h1>
           <p className="muted small" style={{ margin: 0 }}>Thirty runes. Tap one to see how it's drawn.</p>
         </div>
         <div className="row">

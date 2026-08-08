@@ -18,7 +18,8 @@ export default function Translator({ settings, update }) {
     <div className="stack">
       <div className="spread">
         <div>
-          <h1>Write anything</h1>
+          <span className="page-header-runes rune">ᚱᛡᛏ</span>
+          <h1>Write</h1>
           <p className="muted small" style={{ margin: 0 }}>
             Type English and get runes back, or paste runes to have them sounded out.
           </p>

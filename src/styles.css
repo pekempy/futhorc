@@ -168,6 +168,20 @@ a { color: var(--accent); }
 .main { flex: 1; width: 100%; max-width: 940px; margin: 0 auto; padding: 1.75rem 1.25rem 4rem; }
 .main.wide { max-width: 1180px; }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main-content-transition {
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* ── Common bits ────────────────────────────────────────────────────────── */
 .card {
   background: var(--surface);
@@ -242,6 +256,15 @@ label.field { display: block; font-size: 0.85rem; font-weight: 600; color: var(-
 .hero .big-runes {
   font-family: var(--rune); font-size: clamp(2.5rem, 9vw, 4.5rem);
   color: var(--accent); line-height: 1.1; letter-spacing: 0.03em; margin-bottom: 0.4rem;
+}
+.page-header-runes {
+  font-family: var(--rune);
+  font-size: 2.1rem;
+  color: var(--accent);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+  display: block;
 }
 .hero p { max-width: 46ch; color: var(--ink-2); }
 
