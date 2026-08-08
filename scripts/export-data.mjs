@@ -23,6 +23,7 @@ import { UNITS } from '../src/data/lessons.js';
 import { LEXICON } from '../src/data/lexicon.js';
 import { transliterate, transliterateWord, readAloud } from '../src/lib/transliterate.js';
 import { R2P, SAY } from '../src/lib/phonology.js';
+import { parseExample, confusableWith } from '../src/lib/sounds.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(root, 'android-data');
@@ -98,6 +99,12 @@ const data = {
     ipa: r.ipa,
     gloss: r.gloss,
     examples: r.eg ?? [],
+    // Parsed here rather than on the phone: one implementation of the brace
+    // syntax, and Kotlin doesn't have to learn it.
+    sounds: (r.eg ?? []).map(parseExample),
+    // Runes spelled the same way but pronounced differently - the distractors
+    // that make a sound question worth answering.
+    confusable: confusableWith(r.r),
     note: r.note ?? null,
     length: r.length ?? null,
   })),
@@ -107,6 +114,8 @@ const data = {
     ipa: d.ipa,
     gloss: d.gloss,
     examples: d.eg ?? [],
+    sounds: (d.eg ?? []).map(parseExample),
+    confusable: confusableWith(d.d),
   })),
   punctuation: PUNCTUATION.map((p) => ({
     mark: p.r, name: p.name, gloss: p.gloss, example: p.eg ?? null,

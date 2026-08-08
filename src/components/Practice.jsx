@@ -7,6 +7,7 @@ import StrokeDiagram from './StrokeDiagram.jsx';
 import RuneCanvas from './RuneCanvas.jsx';
 import { GLYPHS } from '../data/glyphs.js';
 import { judge, PASS_MARK } from '../lib/recognise.js';
+import { soundQuestion } from '../lib/sounds.js';
 import SpeakButton from './SpeakButton.jsx';
 
 const MODES = [
@@ -69,6 +70,11 @@ export default function Practice({ state, update }) {
       const kind = free[Math.floor(Math.random() * free.length)];
       used.set(r, [...taken, kind]);
 
+      if (kind === 'sound') {
+        // Options and their wording come together: which example word each
+        // one quotes is picked to make the spelling useless as a shortcut.
+        return { kind: 'sound', rune: r, sound: soundQuestion(r, pool, { session: state.sessionCount || 0 }) };
+      }
       if (kind === 'read' && words.length > 4) {
         const w = nextWord();
         q.push({ kind: 'read', word: w, options: shuffle([w, ...shuffle(words.filter((x) => x !== w)).slice(0, 3)]) });
@@ -180,6 +186,7 @@ function Weakest({ state }) {
 
 function QSound({ q, answered, onAnswer }) {
   const r = RUNE_BY_CHAR[q.rune];
+  const options = q.sound ?? q.options.map((o) => ({ rune: o, text: RUNE_BY_CHAR[o].gloss }));
   return (
     <div className="stack">
       <h2>What sound is this?</h2>

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-08-07T19:05:24.558Z",
+ "generated": "2026-08-08T08:54:18.121Z",
  "separator": "᛫",
  "futhorcOrder": [
   "ᚠ",
@@ -50,6 +50,21 @@
     "{v}ine",
     "lea{f}"
    ],
+   "sounds": [
+    {
+     "letters": "f",
+     "word": "fear"
+    },
+    {
+     "letters": "v",
+     "word": "vine"
+    },
+    {
+     "letters": "f",
+     "word": "leaf"
+    }
+   ],
+   "confusable": [],
    "note": "One rune covers both f and v. At the end of a word, write ᚠᚠ if the sound is f: leaf ᛚᛁᛁᚠᚠ, leave ᛚᛁᛁᚠ.",
    "length": null
   },
@@ -68,6 +83,21 @@
     "{th}is",
     "ba{th}"
    ],
+   "sounds": [
+    {
+     "letters": "th",
+     "word": "thing"
+    },
+    {
+     "letters": "th",
+     "word": "this"
+    },
+    {
+     "letters": "th",
+     "word": "bath"
+    }
+   ],
+   "confusable": [],
    "note": "The hard th of “thing” and the soft th of “this” share one rune.",
    "length": null
   },
@@ -85,6 +115,21 @@
     "b{r}ing",
     "ve{r}y"
    ],
+   "sounds": [
+    {
+     "letters": "r",
+     "word": "rain"
+    },
+    {
+     "letters": "r",
+     "word": "bring"
+    },
+    {
+     "letters": "r",
+     "word": "very"
+    }
+   ],
+   "confusable": [],
    "note": "Only written when an r sound is actually pronounced. In British English that means before a vowel: car is ᚳᚪ, but carry is ᚳᚫᚱᛁ.",
    "length": null
   },
@@ -102,6 +147,21 @@
     "{c}at",
     "ba{ck}"
    ],
+   "sounds": [
+    {
+     "letters": "k",
+     "word": "kite"
+    },
+    {
+     "letters": "c",
+     "word": "cat"
+    },
+    {
+     "letters": "ck",
+     "word": "back"
+    }
+   ],
+   "confusable": [],
    "note": "Covers k, hard c and ck. Its own name shows the r-dropping rule: “car” is ᚳᚪ.",
    "length": null
   },
@@ -118,6 +178,23 @@
     "{g}ame",
     "{g}ive",
     "ba{g}"
+   ],
+   "sounds": [
+    {
+     "letters": "g",
+     "word": "game"
+    },
+    {
+     "letters": "g",
+     "word": "give"
+    },
+    {
+     "letters": "g",
+     "word": "bag"
+    }
+   ],
+   "confusable": [
+    "ᚷᚻ"
    ],
    "note": "Only the hard g. The soft g of “gem” is ᚷᚻ.",
    "length": null
@@ -136,6 +213,21 @@
     "s{w}im",
     "{wh}en"
    ],
+   "sounds": [
+    {
+     "letters": "w",
+     "word": "wind"
+    },
+    {
+     "letters": "w",
+     "word": "swim"
+    },
+    {
+     "letters": "wh",
+     "word": "when"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -153,6 +245,21 @@
     "{h}and",
     "be{h}ind"
    ],
+   "sounds": [
+    {
+     "letters": "h",
+     "word": "hole"
+    },
+    {
+     "letters": "h",
+     "word": "hand"
+    },
+    {
+     "letters": "h",
+     "word": "behind"
+    }
+   ],
+   "confusable": [],
    "note": "Also does duty as the second half of ᚳᚻ, ᚷᚻ and ᛋᚻ.",
    "length": null
   },
@@ -169,6 +276,23 @@
     "{n}ow",
     "ru{n}",
     "ha{nd}"
+   ],
+   "sounds": [
+    {
+     "letters": "n",
+     "word": "now"
+    },
+    {
+     "letters": "n",
+     "word": "run"
+    },
+    {
+     "letters": "nd",
+     "word": "hand"
+    }
+   ],
+   "confusable": [
+    "ᛝ"
    ],
    "note": null,
    "length": null
@@ -187,6 +311,24 @@
     "{y}es",
     "be{y}ond"
    ],
+   "sounds": [
+    {
+     "letters": "y",
+     "word": "you"
+    },
+    {
+     "letters": "y",
+     "word": "yes"
+    },
+    {
+     "letters": "y",
+     "word": "beyond"
+    }
+   ],
+   "confusable": [
+    "ᛁ",
+    "ᛡ"
+   ],
    "note": "Only the consonant y. The vowel y of “happy” is ᛁ.",
    "length": null
   },
@@ -204,6 +346,21 @@
     "s{p}in",
     "to{p}"
    ],
+   "sounds": [
+    {
+     "letters": "p",
+     "word": "pot"
+    },
+    {
+     "letters": "p",
+     "word": "spin"
+    },
+    {
+     "letters": "p",
+     "word": "top"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -221,6 +378,21 @@
     "ta{x}",
     "si{x}"
    ],
+   "sounds": [
+    {
+     "letters": "x",
+     "word": "box"
+    },
+    {
+     "letters": "x",
+     "word": "tax"
+    },
+    {
+     "letters": "x",
+     "word": "six"
+    }
+   ],
+   "confusable": [],
    "note": "Shorthand for the two sounds k+s. Only used where English spells it x - “racks” is ᚱᚫᚳᛋ, not ᚱᚫᛉ.",
    "length": null
   },
@@ -239,6 +411,23 @@
     "{z}ebra",
     "dog{s}"
    ],
+   "sounds": [
+    {
+     "letters": "s",
+     "word": "see"
+    },
+    {
+     "letters": "z",
+     "word": "zebra"
+    },
+    {
+     "letters": "s",
+     "word": "dogs"
+    }
+   ],
+   "confusable": [
+    "ᛋᚻ"
+   ],
    "note": "At the end of a word, write ᛋᛋ if the sound is s: cats ᚳᚫᛏᛋᛋ, dogs ᛞᛟᚷᛋ.",
    "length": null
   },
@@ -256,6 +445,21 @@
     "s{t}op",
     "ca{t}"
    ],
+   "sounds": [
+    {
+     "letters": "t",
+     "word": "time"
+    },
+    {
+     "letters": "t",
+     "word": "stop"
+    },
+    {
+     "letters": "t",
+     "word": "cat"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -273,6 +477,21 @@
     "a{b}out",
     "ru{b}"
    ],
+   "sounds": [
+    {
+     "letters": "b",
+     "word": "boy"
+    },
+    {
+     "letters": "b",
+     "word": "about"
+    },
+    {
+     "letters": "b",
+     "word": "rub"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -290,6 +509,21 @@
     "ca{m}e",
     "ti{m}e"
    ],
+   "sounds": [
+    {
+     "letters": "m",
+     "word": "mouth"
+    },
+    {
+     "letters": "m",
+     "word": "came"
+    },
+    {
+     "letters": "m",
+     "word": "time"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -307,6 +541,21 @@
     "he{ll}o",
     "fa{ll}"
    ],
+   "sounds": [
+    {
+     "letters": "l",
+     "word": "line"
+    },
+    {
+     "letters": "ll",
+     "word": "hello"
+    },
+    {
+     "letters": "ll",
+     "word": "fall"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -323,6 +572,23 @@
     "ri{ng}",
     "lo{ng}",
     "thi{n}k"
+   ],
+   "sounds": [
+    {
+     "letters": "ng",
+     "word": "ring"
+    },
+    {
+     "letters": "ng",
+     "word": "long"
+    },
+    {
+     "letters": "n",
+     "word": "think"
+    }
+   ],
+   "confusable": [
+    "ᚾ"
    ],
    "note": "One sound, not two. Also used for the n in “think” and “thank”.",
    "length": null
@@ -341,6 +607,21 @@
     "ma{d}e",
     "ha{d}"
    ],
+   "sounds": [
+    {
+     "letters": "d",
+     "word": "dog"
+    },
+    {
+     "letters": "d",
+     "word": "made"
+    },
+    {
+     "letters": "d",
+     "word": "had"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": null
   },
@@ -357,6 +638,24 @@
     "s{i}t",
     "b{i}g",
     "happ{y}"
+   ],
+   "sounds": [
+    {
+     "letters": "i",
+     "word": "sit"
+    },
+    {
+     "letters": "i",
+     "word": "big"
+    },
+    {
+     "letters": "y",
+     "word": "happy"
+    }
+   ],
+   "confusable": [
+    "ᛄ",
+    "ᛡ"
    ],
    "note": null,
    "length": "short"
@@ -375,6 +674,23 @@
     "b{e}d",
     "h{ea}d"
    ],
+   "sounds": [
+    {
+     "letters": "e",
+     "word": "send"
+    },
+    {
+     "letters": "e",
+     "word": "bed"
+    },
+    {
+     "letters": "ea",
+     "word": "head"
+    }
+   ],
+   "confusable": [
+    "ᛁᛁ"
+   ],
    "note": null,
    "length": "short"
   },
@@ -391,6 +707,25 @@
     "h{a}t",
     "c{a}t",
     "b{a}ck"
+   ],
+   "sounds": [
+    {
+     "letters": "a",
+     "word": "hat"
+    },
+    {
+     "letters": "a",
+     "word": "cat"
+    },
+    {
+     "letters": "a",
+     "word": "back"
+    }
+   ],
+   "confusable": [
+    "ᚢ",
+    "ᛟ",
+    "ᚪ"
    ],
    "note": null,
    "length": "short"
@@ -410,6 +745,26 @@
     "{a}bout",
     "suff{er}"
    ],
+   "sounds": [
+    {
+     "letters": "u",
+     "word": "fun"
+    },
+    {
+     "letters": "a",
+     "word": "about"
+    },
+    {
+     "letters": "er",
+     "word": "suffer"
+    }
+   ],
+   "confusable": [
+    "ᚣ",
+    "ᚫ",
+    "ᛟ",
+    "ᚪ"
+   ],
    "note": "The workhorse vowel. Any unstressed, colourless vowel is ᚢ.",
    "length": "short"
   },
@@ -426,6 +781,26 @@
     "h{o}t",
     "st{o}p",
     "w{a}sh"
+   ],
+   "sounds": [
+    {
+     "letters": "o",
+     "word": "hot"
+    },
+    {
+     "letters": "o",
+     "word": "stop"
+    },
+    {
+     "letters": "a",
+     "word": "wash"
+    }
+   ],
+   "confusable": [
+    "ᚩ",
+    "ᚫ",
+    "ᚢ",
+    "ᚪ"
    ],
    "note": null,
    "length": "short"
@@ -444,6 +819,25 @@
     "p{u}t",
     "c{ou}ld"
    ],
+   "sounds": [
+    {
+     "letters": "oo",
+     "word": "book"
+    },
+    {
+     "letters": "u",
+     "word": "put"
+    },
+    {
+     "letters": "ou",
+     "word": "could"
+    }
+   ],
+   "confusable": [
+    "ᚣᚣ",
+    "ᚢ",
+    "ᚪᚹ"
+   ],
    "note": null,
    "length": "short"
   },
@@ -460,6 +854,25 @@
     "{ar}m",
     "b{a}th",
     "f{a}st"
+   ],
+   "sounds": [
+    {
+     "letters": "ar",
+     "word": "arm"
+    },
+    {
+     "letters": "a",
+     "word": "bath"
+    },
+    {
+     "letters": "a",
+     "word": "fast"
+    }
+   ],
+   "confusable": [
+    "ᚫ",
+    "ᚢ",
+    "ᛟ"
    ],
    "note": "The British “ah”. It covers the bath / grass / laugh words that a Northern or American accent says with ᚫ.",
    "length": "long"
@@ -478,6 +891,21 @@
     "m{a}k{e}",
     "r{ai}n"
    ],
+   "sounds": [
+    {
+     "letters": "ay",
+     "word": "day"
+    },
+    {
+     "letters": "ae",
+     "word": "make"
+    },
+    {
+     "letters": "ai",
+     "word": "rain"
+    }
+   ],
+   "confusable": [],
    "note": null,
    "length": "long"
   },
@@ -494,6 +922,24 @@
     "t{i}m{e}",
     "m{y}",
     "l{ie}"
+   ],
+   "sounds": [
+    {
+     "letters": "ie",
+     "word": "time"
+    },
+    {
+     "letters": "y",
+     "word": "my"
+    },
+    {
+     "letters": "ie",
+     "word": "lie"
+    }
+   ],
+   "confusable": [
+    "ᛄ",
+    "ᛁ"
    ],
    "note": null,
    "length": "long"
@@ -512,6 +958,24 @@
     "h{o}m{e}",
     "sn{ow}"
    ],
+   "sounds": [
+    {
+     "letters": "o",
+     "word": "go"
+    },
+    {
+     "letters": "oe",
+     "word": "home"
+    },
+    {
+     "letters": "ow",
+     "word": "snow"
+    }
+   ],
+   "confusable": [
+    "ᛟ",
+    "ᚪᚹ"
+   ],
    "note": null,
    "length": "long"
   },
@@ -529,6 +993,21 @@
     "be{st}",
     "fa{st}"
    ],
+   "sounds": [
+    {
+     "letters": "st",
+     "word": "stone"
+    },
+    {
+     "letters": "st",
+     "word": "best"
+    },
+    {
+     "letters": "st",
+     "word": "fast"
+    }
+   ],
+   "confusable": [],
    "note": "Optional. ᛥᚩᚾ and ᛋᛏᚩᚾ are both correct.",
    "length": null
   },
@@ -545,6 +1024,17 @@
     "{qu}een",
     "{qu}ick"
    ],
+   "sounds": [
+    {
+     "letters": "qu",
+     "word": "queen"
+    },
+    {
+     "letters": "qu",
+     "word": "quick"
+    }
+   ],
+   "confusable": [],
    "note": "Optional. ᛢᛁᛁᚾ and ᚳᚹᛁᛁᚾ are both correct.",
    "length": null
   }
@@ -559,6 +1049,23 @@
     "s{ee}",
     "f{ee}l",
     "m{e}"
+   ],
+   "sounds": [
+    {
+     "letters": "ee",
+     "word": "see"
+    },
+    {
+     "letters": "ee",
+     "word": "feel"
+    },
+    {
+     "letters": "e",
+     "word": "me"
+    }
+   ],
+   "confusable": [
+    "ᛖ"
    ]
   },
   {
@@ -570,6 +1077,23 @@
     "h{air}",
     "th{ere}",
     "c{are}"
+   ],
+   "sounds": [
+    {
+     "letters": "air",
+     "word": "hair"
+    },
+    {
+     "letters": "ere",
+     "word": "there"
+    },
+    {
+     "letters": "are",
+     "word": "care"
+    }
+   ],
+   "confusable": [
+    "ᛁᚢ"
    ]
   },
   {
@@ -581,7 +1105,22 @@
     "t{ur}n",
     "b{ir}d",
     "w{or}d"
-   ]
+   ],
+   "sounds": [
+    {
+     "letters": "ur",
+     "word": "turn"
+    },
+    {
+     "letters": "ir",
+     "word": "bird"
+    },
+    {
+     "letters": "or",
+     "word": "word"
+    }
+   ],
+   "confusable": []
   },
   {
    "runes": "ᛟᛟ",
@@ -592,7 +1131,22 @@
     "th{ough}t",
     "l{aw}",
     "m{ore}"
-   ]
+   ],
+   "sounds": [
+    {
+     "letters": "ough",
+     "word": "thought"
+    },
+    {
+     "letters": "aw",
+     "word": "law"
+    },
+    {
+     "letters": "ore",
+     "word": "more"
+    }
+   ],
+   "confusable": []
   },
   {
    "runes": "ᚣᚣ",
@@ -603,6 +1157,23 @@
     "f{oo}d",
     "bl{ue}",
     "m{oo}n"
+   ],
+   "sounds": [
+    {
+     "letters": "oo",
+     "word": "food"
+    },
+    {
+     "letters": "ue",
+     "word": "blue"
+    },
+    {
+     "letters": "oo",
+     "word": "moon"
+    }
+   ],
+   "confusable": [
+    "ᚣ"
    ]
   },
   {
@@ -614,6 +1185,24 @@
     "n{ow}",
     "h{ou}se",
     "{ou}t"
+   ],
+   "sounds": [
+    {
+     "letters": "ow",
+     "word": "now"
+    },
+    {
+     "letters": "ou",
+     "word": "house"
+    },
+    {
+     "letters": "ou",
+     "word": "out"
+    }
+   ],
+   "confusable": [
+    "ᚩ",
+    "ᚣ"
    ]
   },
   {
@@ -625,7 +1214,22 @@
     "b{oy}",
     "p{oi}nt",
     "j{oi}n"
-   ]
+   ],
+   "sounds": [
+    {
+     "letters": "oy",
+     "word": "boy"
+    },
+    {
+     "letters": "oi",
+     "word": "point"
+    },
+    {
+     "letters": "oi",
+     "word": "join"
+    }
+   ],
+   "confusable": []
   },
   {
    "runes": "ᛁᚢ",
@@ -636,6 +1240,23 @@
     "n{ear}",
     "h{ere}",
     "y{ear}"
+   ],
+   "sounds": [
+    {
+     "letters": "ear",
+     "word": "near"
+    },
+    {
+     "letters": "ere",
+     "word": "here"
+    },
+    {
+     "letters": "ear",
+     "word": "year"
+    }
+   ],
+   "confusable": [
+    "ᛖᛖ"
    ]
   },
   {
@@ -647,7 +1268,22 @@
     "{ch}eese",
     "mu{ch}",
     "wa{tch}"
-   ]
+   ],
+   "sounds": [
+    {
+     "letters": "ch",
+     "word": "cheese"
+    },
+    {
+     "letters": "ch",
+     "word": "much"
+    },
+    {
+     "letters": "tch",
+     "word": "watch"
+    }
+   ],
+   "confusable": []
   },
   {
    "runes": "ᚷᚻ",
@@ -658,6 +1294,23 @@
     "{j}og",
     "{g}em",
     "brid{ge}"
+   ],
+   "sounds": [
+    {
+     "letters": "j",
+     "word": "jog"
+    },
+    {
+     "letters": "g",
+     "word": "gem"
+    },
+    {
+     "letters": "ge",
+     "word": "bridge"
+    }
+   ],
+   "confusable": [
+    "ᚷ"
    ]
   },
   {
@@ -669,6 +1322,23 @@
     "{sh}are",
     "fi{sh}",
     "mea{s}ure"
+   ],
+   "sounds": [
+    {
+     "letters": "sh",
+     "word": "share"
+    },
+    {
+     "letters": "sh",
+     "word": "fish"
+    },
+    {
+     "letters": "s",
+     "word": "measure"
+    }
+   ],
+   "confusable": [
+    "ᛋ"
    ]
   }
  ],
@@ -7028,5 +7698,5 @@
    "lesson"
   ]
  },
- "version": "0a8759ae2926b5fb"
+ "version": "b981bb286a40e282"
 }
